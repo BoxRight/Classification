@@ -1,0 +1,168 @@
+{
+  "law": "Escrito Inicial de Demanda de Cumplimiento de Contrato",
+  "authority": "judicial",
+  "enacted": "2024-02-15",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "parcel_land",
+      "type": "nonmovable"
+    },
+    {
+      "id": "annual_rent",
+      "type": "money"
+    },
+    {
+      "id": "refund_amount",
+      "type": "money"
+    },
+    {
+      "id": "legal_interest",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "return_land",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "parcel_land",
+      "target": "defendant"
+    },
+    {
+      "id": "pay_refund",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "refund_amount",
+      "target": "plaintiff"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "refund_amount",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ConciliationAgreement",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "refund_amount",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "legal_interest",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_interest_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConciliationAgreement"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "refund_amount",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "legal_interest",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "ref": "return_land"
+        },
+        {
+          "ref": "pay_refund"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "lease_termination_scenario",
+      "timeline": [
+        {
+          "event": "lease_contract_signed",
+          "condition": null
+        },
+        {
+          "event": "mutual_termination_agreed",
+          "condition": null
+        },
+        {
+          "event": "conciliation_agreement_signed",
+          "condition": null
+        },
+        {
+          "event": "land_returned_by_plaintiff",
+          "condition": null
+        },
+        {
+          "event": "payment_breach_by_defendant",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Contratos/Escrito Inicial de Demanda de Cumplimiento de Contrato/TMX_1092158_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Escrito Inicial de Demanda de Cumplimiento de Contrato/TMX_1092158_es.txt"
+  }
+}

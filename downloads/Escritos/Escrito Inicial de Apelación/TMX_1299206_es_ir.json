@@ -1,0 +1,162 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 115 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "appellant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "judicial_resolution",
+      "type": "service"
+    },
+    {
+      "id": "revocation_appeal",
+      "type": "service"
+    },
+    {
+      "id": "ordinary_appeal",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_revocation_appeal",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "revocation_appeal",
+      "target": "judge"
+    },
+    {
+      "id": "file_ordinary_appeal",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "ordinary_appeal",
+      "target": "judge"
+    },
+    {
+      "id": "revoke_resolution",
+      "type": "simple",
+      "actor": "judge",
+      "object": "judicial_resolution",
+      "target": "appellant"
+    },
+    {
+      "id": "admit_appeal",
+      "type": "simple",
+      "actor": "judge",
+      "object": "ordinary_appeal",
+      "target": "appellant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "date",
+      "name": "notification_effective_time",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "judicial_bulletin_publication",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant",
+        "object": "revocation_appeal",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant",
+        "object": "ordinary_appeal",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "revocation_filing_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "judicial_bulletin_publication"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "appellant",
+          "object": "revocation_appeal",
+          "target": "judge"
+        }
+      }
+    },
+    {
+      "id": "alternative_appeal_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "resolution_appealable"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "appellant",
+          "object": "ordinary_appeal",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "appeal_filing_procedure",
+      "steps": [
+        {
+          "description": "Judicial bulletin publication produces notification effects at twelve hours"
+        },
+        {
+          "ref": "file_revocation_appeal"
+        },
+        {
+          "description": "If resolution is appealable instead of revocable"
+        },
+        {
+          "ref": "file_ordinary_appeal"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Apelación/TMX_1299206_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Apelación/TMX_1299206_es.txt"
+  }
+}

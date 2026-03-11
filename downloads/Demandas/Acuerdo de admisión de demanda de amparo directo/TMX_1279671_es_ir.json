@@ -1,0 +1,142 @@
+{
+  "law": "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+    "artículos 14 y 16 de la Constitución Federal"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_responsable",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "agente_ministerio_publico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "terceros_perjudicados",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "suprema_corte",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tribunales_colegiados",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "demanda_amparo",
+      "type": "service"
+    },
+    {
+      "id": "suspension",
+      "type": "service"
+    },
+    {
+      "id": "informe_justificado",
+      "type": "service"
+    },
+    {
+      "id": "audiencia_constitucional",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ViolacionGarantias",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "JuicioAmparo",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "agente_ministerio_publico",
+        "object": "informe_justificado",
+        "target": "juez_distrito"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "admision_demanda_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ViolacionGarantias"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "JuicioAmparo"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "procedimiento_amparo_indirecto",
+      "steps": [
+        {
+          "description": "admision_demanda"
+        },
+        {
+          "description": "registro_libro_gobierno"
+        },
+        {
+          "description": "aviso_suprema_corte"
+        },
+        {
+          "description": "notificacion_tribunales_colegiados"
+        },
+        {
+          "description": "intervencion_ministerio_publico"
+        },
+        {
+          "description": "formacion_incidente_suspension"
+        },
+        {
+          "description": "emplazamiento_terceros_perjudicados"
+        },
+        {
+          "description": "celebracion_audiencia_constitucional"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Acuerdo de admisión de demanda de amparo directo/TMX_1279671_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Acuerdo de admisión de demanda de amparo directo/TMX_1279671_es.txt"
+  }
+}

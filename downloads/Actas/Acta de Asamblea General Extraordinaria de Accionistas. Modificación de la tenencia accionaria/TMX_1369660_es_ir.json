@@ -1,0 +1,175 @@
+{
+  "law": "Acta de Asamblea General Extraordinaria de Accionistas",
+  "authority": "private",
+  "enacted": "2018-02-01",
+  "imports": [
+    "Ley General de Sociedades Mercantiles Art. 188",
+    "Ley General de Sociedades Mercantiles Art. 89",
+    "Ley del Impuesto sobre la Renta Art. 93"
+  ],
+  "parties": [
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "shareholder_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "shareholder_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "shareholder_3",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "shares_fixed_capital",
+      "type": "movable"
+    },
+    {
+      "id": "shares_variable_capital",
+      "type": "movable"
+    },
+    {
+      "id": "share_certificates",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "donate_shares",
+      "type": "simple",
+      "actor": "shareholder_1",
+      "object": "shares_fixed_capital",
+      "target": "shareholder_3"
+    },
+    {
+      "id": "transfer_variable_to_fixed",
+      "type": "simple",
+      "actor": "shareholder_3",
+      "object": "shares_variable_capital",
+      "target": "company"
+    },
+    {
+      "id": "reissue_certificates",
+      "type": "simple",
+      "actor": "company",
+      "object": "share_certificates",
+      "target": "shareholder_1"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "ShareOwnership",
+      "subject": "shareholder_1",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "MinimumFixedCapital",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalAssembly",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "share_certificates",
+        "target": "shareholder_1"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donation_approval_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LegalAssembly"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "ShareTransfer",
+        "subject": "shareholder_3"
+      }
+    },
+    {
+      "id": "capital_restructure_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "MinimumFixedCapital"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "shareholder_3",
+          "object": "shares_variable_capital",
+          "target": "company"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "share_donation_process",
+      "steps": [
+        {
+          "description": "Present donation proposal"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "shareholder_1",
+            "object": "shares_fixed_capital",
+            "target": "shareholder_3"
+          }
+        },
+        {
+          "description": "Update shareholder registry"
+        }
+      ]
+    },
+    {
+      "name": "certificate_reissuance_process",
+      "steps": [
+        {
+          "description": "Cancel previous certificates"
+        },
+        {
+          "ref": "reissue_certificates"
+        },
+        {
+          "description": "Deliver new certificates"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de Asamblea General Extraordinaria de Accionistas. Modificación de la tenencia accionaria/TMX_1369660_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de Asamblea General Extraordinaria de Accionistas. Modificación de la tenencia accionaria/TMX_1369660_es.txt"
+  }
+}

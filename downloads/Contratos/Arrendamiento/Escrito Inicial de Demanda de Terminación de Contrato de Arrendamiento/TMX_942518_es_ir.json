@@ -1,0 +1,169 @@
+{
+  "law": "Demanda de Terminación de Contrato de Arrendamiento",
+  "authority": "judicial",
+  "enacted": "2024-02-13",
+  "imports": [
+    "Código Civil para el Distrito Federal Art. 2483, 2398",
+    "Código Nacional de Procedimientos Civiles y Familiares Art. 424, 425, 426, 427, 428"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_premises",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "terminate_lease",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "commercial_premises",
+      "target": "tenant"
+    },
+    {
+      "id": "vacate_premises",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "commercial_premises",
+      "target": "landlord"
+    },
+    {
+      "id": "non_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PremisesOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "RentDebt",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "commercial_premises",
+        "target": "tenant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_termination_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "ref": "terminate_lease"
+        }
+      }
+    },
+    {
+      "id": "vacate_obligation_rule",
+      "conditions": [
+        {
+          "ref": "terminate_lease"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "vacate_premises"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination_process",
+      "steps": [
+        {
+          "description": "File termination demand"
+        },
+        {
+          "description": "Notify tenant of termination"
+        },
+        {
+          "description": "Tenant must vacate within legal term"
+        },
+        {
+          "description": "Pay outstanding rent until vacation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Escrito Inicial de Demanda de Terminación de Contrato de Arrendamiento/TMX_942518_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Escrito Inicial de Demanda de Terminación de Contrato de Arrendamiento/TMX_942518_es.txt"
+  }
+}

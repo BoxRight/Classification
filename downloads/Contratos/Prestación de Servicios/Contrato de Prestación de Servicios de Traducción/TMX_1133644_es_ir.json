@@ -1,0 +1,293 @@
+{
+  "law": "Contrato de Prestación de Servicios de Traducción",
+  "authority": "private",
+  "enacted": "2024-02-13",
+  "imports": [
+    "Ley Federal de Derechos de Autor",
+    "Código Civil Federal"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "translator",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "translation_work",
+      "type": "service"
+    },
+    {
+      "id": "payment_amount",
+      "type": "money"
+    },
+    {
+      "id": "original_work",
+      "type": "service"
+    },
+    {
+      "id": "translated_work",
+      "type": "service"
+    },
+    {
+      "id": "book_copies",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "perform_translation",
+      "type": "simple",
+      "actor": "translator",
+      "object": "translation_work",
+      "target": "client"
+    },
+    {
+      "id": "make_payment",
+      "type": "simple",
+      "actor": "client",
+      "object": "payment_amount",
+      "target": "translator"
+    },
+    {
+      "id": "deliver_copies",
+      "type": "simple",
+      "actor": "client",
+      "object": "book_copies",
+      "target": "translator"
+    },
+    {
+      "id": "register_work",
+      "type": "simple",
+      "actor": "client",
+      "object": "translated_work",
+      "target": "client"
+    },
+    {
+      "id": "breach_obligations",
+      "type": "counter",
+      "actor": "client",
+      "object": "translation_work",
+      "target": "translator"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "TranslationContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "CopyrightOwnership",
+      "subject": "client",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TranslatorQualification",
+      "subject": "translator",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "translator",
+        "object": "translation_work",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "payment_amount",
+        "target": "translator"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "book_copies",
+        "target": "translator"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "translated_work",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "translator",
+        "object": "translated_work",
+        "target": "translator"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "translation_work",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "translator",
+        "object": "translation_work",
+        "target": "translator"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "translation_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "TranslationContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "translator",
+          "object": "translation_work",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "TranslationContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "payment_amount",
+          "target": "translator"
+        }
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "ref": "breach_obligations"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "copyright_assignment_rule",
+      "conditions": [
+        {
+          "ref": "perform_translation"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "CopyrightOwnership",
+        "subject": "client"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "translator",
+            "object": "translation_work",
+            "target": "client"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "client",
+            "object": "payment_amount",
+            "target": "translator"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "client",
+            "object": "translated_work",
+            "target": "client"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "client",
+            "object": "book_copies",
+            "target": "translator"
+          }
+        }
+      ]
+    },
+    {
+      "name": "rescission_procedure",
+      "steps": [
+        {
+          "description": "notification_of_breach"
+        },
+        {
+          "description": "cure_period_expires"
+        },
+        {
+          "description": "contract_termination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de Prestación de Servicios de Traducción/TMX_1133644_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de Prestación de Servicios de Traducción/TMX_1133644_es.txt"
+  }
+}

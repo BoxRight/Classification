@@ -1,0 +1,318 @@
+{
+  "law": "Contrato de prestación de servicios profesionales de gestoría",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículo 83 de la Ley Federal del Derecho de Autor",
+    "Artículo 96 de la Ley del Impuesto Sobre la Renta",
+    "Código Civil"
+  ],
+  "parties": [
+    {
+      "id": "empresa",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gestoria_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_fees",
+      "type": "money"
+    },
+    {
+      "id": "legal_advisory",
+      "type": "service"
+    },
+    {
+      "id": "administrative_procedures",
+      "type": "service"
+    },
+    {
+      "id": "documents_materials",
+      "type": "movable"
+    },
+    {
+      "id": "confidential_information",
+      "type": "movable"
+    },
+    {
+      "id": "expense_reimbursement",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_gestoria_services",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "gestoria_services",
+      "target": "empresa"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "monthly_fees",
+      "target": "profesionista"
+    },
+    {
+      "id": "issue_receipt",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "monthly_fees",
+      "target": "empresa"
+    },
+    {
+      "id": "provide_documentation",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "documents_materials",
+      "target": "profesionista"
+    },
+    {
+      "id": "return_materials",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "documents_materials",
+      "target": "empresa"
+    },
+    {
+      "id": "divulge_information",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "confidential_information",
+      "target": "empresa"
+    },
+    {
+      "id": "transfer_services",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "gestoria_services",
+      "target": "empresa"
+    },
+    {
+      "id": "reimburse_expenses",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "expense_reimbursement",
+      "target": "profesionista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "ContractPeriod",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProfessionalQualifications",
+      "subject": "profesionista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "gestoria_services",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "monthly_fees",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "monthly_fees",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "documents_materials",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "documents_materials",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "profesionista",
+        "object": "confidential_information",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "profesionista",
+        "object": "gestoria_services",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "expense_reimbursement",
+        "target": "profesionista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "ref": "provide_gestoria_services"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "monthly_fees",
+          "target": "profesionista"
+        }
+      }
+    },
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "profesionista",
+          "object": "gestoria_services",
+          "target": "empresa"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "ServiceContract",
+          "target": "profesionista"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_penalty_rule",
+      "conditions": [
+        {
+          "ref": "divulge_information"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ConfidentialityPenalty",
+        "subject": "profesionista"
+      }
+    },
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "ContractExpiry"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "return_materials"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "service_delivery",
+      "steps": [
+        {
+          "ref": "provide_documentation"
+        },
+        {
+          "ref": "provide_gestoria_services"
+        },
+        {
+          "ref": "pay_fees"
+        },
+        {
+          "ref": "issue_receipt"
+        }
+      ]
+    },
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "ref": "return_materials"
+        },
+        {
+          "description": "Final payment settlement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de gestoría/TMX_2536318_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de gestoría/TMX_2536318_es.txt"
+  }
+}

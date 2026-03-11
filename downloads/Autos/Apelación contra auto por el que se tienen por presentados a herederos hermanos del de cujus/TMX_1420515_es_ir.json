@@ -1,0 +1,136 @@
+{
+  "law": "Código de Procedimientos Civiles Para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "appellant_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "appellant_children",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "presented_heirs",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "succession_estate",
+      "type": "nonmovable"
+    },
+    {
+      "id": "birth_certificates",
+      "type": "movable"
+    },
+    {
+      "id": "appealed_order",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_appeal",
+      "type": "simple",
+      "actor": "appellant_spouse",
+      "object": "appealed_order",
+      "target": "judge"
+    },
+    {
+      "id": "present_heirs",
+      "type": "simple",
+      "actor": "judge",
+      "object": "presented_heirs",
+      "target": "succession_estate"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "succession_rights",
+      "subject": "appellant_spouse",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "succession_rights",
+      "subject": "appellant_children",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "birth_certificate_evidence",
+      "subject": "presented_heirs",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant_spouse",
+        "object": "appealed_order",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "appeal_right_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "succession_rights"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "appellant_spouse",
+          "object": "appealed_order",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "appeal_procedure",
+      "steps": [
+        {
+          "ref": "file_appeal"
+        },
+        {
+          "description": "present birth certificates as evidence"
+        },
+        {
+          "description": "request judicial review of appealed order"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Apelación contra auto por el que se tienen por presentados a herederos hermanos del de cujus/TMX_1420515_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Apelación contra auto por el que se tienen por presentados a herederos hermanos del de cujus/TMX_1420515_es.txt"
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "law": "Denuncia por incumplimiento de obligaciones alimentarias (CDMX)",
+  "authority": "judicial",
+  "enacted": "2024-09-30",
+  "imports": [
+    "Artículo 4 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículos 193, 194, 195 y 196 del Código Penal para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "complainant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "accused",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "minor_child",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "public_prosecutor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "monthly_alimony",
+      "type": "money"
+    },
+    {
+      "id": "accumulated_debt",
+      "type": "money"
+    },
+    {
+      "id": "basic_necessities",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_alimony",
+      "type": "simple",
+      "actor": "accused",
+      "object": "monthly_alimony",
+      "target": "minor_child"
+    },
+    {
+      "id": "fail_to_provide_alimony",
+      "type": "counter",
+      "actor": "accused",
+      "object": "monthly_alimony",
+      "target": "minor_child"
+    },
+    {
+      "id": "evade_responsibility",
+      "type": "simple",
+      "actor": "accused",
+      "object": "basic_necessities",
+      "target": "minor_child"
+    },
+    {
+      "id": "hide_assets",
+      "type": "simple",
+      "actor": "accused",
+      "object": "accumulated_debt",
+      "target": "complainant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "AlimonyObligation",
+      "subject": "accused",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "JudicialResolution",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "RegularIncome",
+      "subject": "accused",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "Properties",
+      "subject": "accused",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "AccumulatedDebt",
+      "subject": "accused",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "accused",
+        "object": "monthly_alimony",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "accused",
+        "object": "basic_necessities",
+        "target": "minor_child"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "alimony_obligation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialResolution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "accused",
+          "object": "monthly_alimony",
+          "target": "minor_child"
+        }
+      }
+    },
+    {
+      "id": "criminal_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "accused",
+          "object": "monthly_alimony",
+          "target": "minor_child"
+        },
+        {
+          "type": "liability",
+          "name": "AlimonyObligation",
+          "subject": "accused"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "CriminalLiability",
+        "subject": "accused"
+      }
+    },
+    {
+      "id": "insolvency_evasion_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "accused",
+          "object": "accumulated_debt",
+          "target": "complainant"
+        },
+        {
+          "type": "asset",
+          "name": "RegularIncome",
+          "subject": "accused"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "InsolvencyEvasion",
+        "subject": "accused"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "criminal_complaint_process",
+      "steps": [
+        {
+          "description": "Present formal complaint to Public Prosecutor"
+        },
+        {
+          "description": "Open Investigation File"
+        },
+        {
+          "description": "Conduct necessary investigations"
+        },
+        {
+          "description": "Exercise criminal action if elements proven"
+        },
+        {
+          "description": "Evaluate presented evidence"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "systematic_non_compliance",
+      "timeline": [
+        {
+          "event": "Judicial resolution establishing alimony obligation",
+          "condition": null
+        },
+        {
+          "event": "Systematic failure to provide alimony for multiple years",
+          "condition": {
+            "type": "liability",
+            "name": "AlimonyObligation",
+            "subject": "accused"
+          }
+        },
+        {
+          "event": "Attempts to contact debtor through various means",
+          "condition": null
+        },
+        {
+          "event": "Debtor changes address without notification",
+          "condition": null
+        },
+        {
+          "event": "Accumulation of unpaid alimony debt",
+          "condition": {
+            "type": "counter",
+            "actor": "accused",
+            "object": "monthly_alimony",
+            "target": "minor_child"
+          }
+        },
+        {
+          "event": "Filing criminal complaint for non-compliance",
+          "condition": {
+            "type": "liability",
+            "name": "AccumulatedDebt",
+            "subject": "accused"
+          }
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Denuncias/Denuncia por incumplimiento de obligaciones alimentarias (CDMX)/TMX_2733793_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Denuncias/Denuncia por incumplimiento de obligaciones alimentarias (CDMX)/TMX_2733793_es.txt"
+  }
+}

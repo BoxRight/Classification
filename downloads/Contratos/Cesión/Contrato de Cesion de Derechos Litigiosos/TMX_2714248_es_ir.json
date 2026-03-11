@@ -1,0 +1,227 @@
+{
+  "law": "Contrato de Cesión de Derechos Litigiosos",
+  "authority": "private",
+  "enacted": "2024-07-30",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "derechos_litigiosos",
+      "type": "service"
+    },
+    {
+      "id": "precio_cesion",
+      "type": "money"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    },
+    {
+      "id": "documentacion",
+      "type": "movable"
+    },
+    {
+      "id": "inmueble_embargado",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ceder_derechos",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_litigiosos",
+      "target": "cesionario"
+    },
+    {
+      "id": "pagar_precio",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "precio_cesion",
+      "target": "cedente"
+    },
+    {
+      "id": "entregar_documentacion",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "documentacion",
+      "target": "cesionario"
+    },
+    {
+      "id": "notificar_juzgado",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_litigiosos",
+      "target": "cesionario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoCesion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "DerechosLitigiosos",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "AdeudoJuicio",
+      "subject": "cedente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_litigiosos",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "precio_cesion",
+        "target": "cedente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "documentacion",
+        "target": "cesionario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cesion_efectiva",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoCesion"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "derechos_litigiosos",
+          "target": "cedente"
+        }
+      }
+    },
+    {
+      "id": "incumplimiento_cedente",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cedente",
+          "object": "derechos_litigiosos",
+          "target": "cesionario"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "pena_convencional",
+          "target": "cedente"
+        }
+      }
+    },
+    {
+      "id": "incumplimiento_cesionario",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cesionario",
+          "object": "precio_cesion",
+          "target": "cedente"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "cedente",
+          "object": "pena_convencional",
+          "target": "cesionario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_cesion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "cedente",
+            "object": "documentacion",
+            "target": "cesionario"
+          }
+        },
+        {
+          "description": "notificar al juzgado sobre la cesión"
+        },
+        {
+          "description": "otorgar poder especial al cesionario"
+        },
+        {
+          "description": "transferir derechos litigiosos"
+        }
+      ]
+    },
+    {
+      "name": "proceso_pago",
+      "steps": [
+        {
+          "description": "pago inicial al momento de firma"
+        },
+        {
+          "description": "pago en fecha acordada"
+        },
+        {
+          "description": "pago final al momento de sentencia"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Contrato de Cesion de Derechos Litigiosos/TMX_2714248_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Contrato de Cesion de Derechos Litigiosos/TMX_2714248_es.txt"
+  }
+}

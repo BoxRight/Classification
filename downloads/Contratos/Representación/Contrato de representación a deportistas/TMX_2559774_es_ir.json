@@ -1,0 +1,243 @@
+{
+  "law": "Contrato de representación a deportistas",
+  "authority": "private",
+  "enacted": "2023-06-02",
+  "imports": [
+    "Código Civil para el Distrito Federal (artículos 2606-2615, 2546-2560)"
+  ],
+  "parties": [
+    {
+      "id": "deportista",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "representante",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "servicios_representacion",
+      "type": "service"
+    },
+    {
+      "id": "contraprestacion_mensual",
+      "type": "money"
+    },
+    {
+      "id": "informacion_confidencial",
+      "type": "service"
+    },
+    {
+      "id": "derechos_propiedad_intelectual",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "capacidad_legal",
+      "subject": "deportista",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "capacidad_legal",
+      "subject": "representante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "solvencia_financiera",
+      "subject": "deportista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "profesionista_independiente_deporte",
+      "subject": "deportista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "experiencia_profesional_representacion",
+      "subject": "representante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "contrato_representacion_vigente",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "representante",
+        "object": "servicios_representacion",
+        "target": "deportista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deportista",
+        "object": "contraprestacion_mensual",
+        "target": "representante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "representante",
+        "object": "informacion_confidencial",
+        "target": "deportista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "representante",
+        "object": "informacion_confidencial",
+        "target": "terceros"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deportista",
+        "object": "poder_notarial",
+        "target": "representante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deportista",
+        "object": "exclusividad_representacion",
+        "target": "representante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "servicios_representacion_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contrato_representacion_vigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "representante",
+          "object": "servicios_representacion",
+          "target": "deportista"
+        }
+      }
+    },
+    {
+      "id": "confidencialidad_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "representante",
+          "object": "informacion_confidencial",
+          "target": "terceros"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "representante",
+          "object": "pena_convencional",
+          "target": "deportista"
+        }
+      }
+    },
+    {
+      "id": "terminacion_anticipada_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cualquier_parte",
+          "object": "obligaciones_contractuales",
+          "target": "otra_parte"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "parte_afectada",
+          "object": "terminacion_contrato",
+          "target": "contrato"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "servicios_representacion_procedure",
+      "steps": [
+        {
+          "description": "Gestión de campañas publicitarias"
+        },
+        {
+          "description": "Contacto con patrocinadores"
+        },
+        {
+          "description": "Selección y desarrollo de eventos promocionales"
+        },
+        {
+          "description": "Cuidado y asesoramiento respecto a la imagen pública"
+        },
+        {
+          "description": "Negociaciones con interesados en contratación"
+        },
+        {
+          "description": "Búsqueda de contrataciones"
+        }
+      ]
+    },
+    {
+      "name": "terminacion_procedure",
+      "steps": [
+        {
+          "description": "Envío de aviso escrito"
+        },
+        {
+          "description": "Período de subsanación de 14 días (si aplicable)"
+        },
+        {
+          "description": "Terminación efectiva del contrato"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Representación/Contrato de representación a deportistas/TMX_2559774_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Representación/Contrato de representación a deportistas/TMX_2559774_es.txt"
+  }
+}

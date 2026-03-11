@@ -1,0 +1,245 @@
+{
+  "law": "Contrato de Compraventa a Plazos",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "vendedor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "comprador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "precio_total",
+      "type": "money"
+    },
+    {
+      "id": "pago_cuota",
+      "type": "money"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vender_inmueble",
+      "type": "simple",
+      "actor": "vendedor",
+      "object": "inmueble",
+      "target": "comprador"
+    },
+    {
+      "id": "pagar_cuota",
+      "type": "simple",
+      "actor": "comprador",
+      "object": "pago_cuota",
+      "target": "vendedor"
+    },
+    {
+      "id": "entregar_posesion",
+      "type": "simple",
+      "actor": "vendedor",
+      "object": "inmueble",
+      "target": "comprador"
+    },
+    {
+      "id": "firmar_escritura",
+      "type": "simple",
+      "actor": "vendedor",
+      "object": "inmueble",
+      "target": "comprador"
+    },
+    {
+      "id": "incumplir_obligaciones",
+      "type": "counter",
+      "actor": "vendedor",
+      "object": "inmueble",
+      "target": "comprador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "propiedad_inmueble",
+      "subject": "vendedor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "contrato_compraventa",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedor",
+        "object": "inmueble",
+        "target": "comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comprador",
+        "object": "pago_cuota",
+        "target": "vendedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedor",
+        "object": "inmueble",
+        "target": "comprador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "entrega_posesion_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contrato_compraventa"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "entregar_posesion"
+        }
+      }
+    },
+    {
+      "id": "pago_cuotas_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contrato_compraventa"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pagar_cuota"
+        }
+      }
+    },
+    {
+      "id": "rescision_por_incumplimiento_vendedor",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "vendedor",
+            "object": "inmueble",
+            "target": "comprador"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "comprador",
+          "object": "pena_convencional",
+          "target": "vendedor"
+        }
+      }
+    },
+    {
+      "id": "rescision_por_incumplimiento_comprador",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "comprador",
+            "object": "pago_cuota",
+            "target": "vendedor"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "vendedor",
+          "object": "pena_convencional",
+          "target": "comprador"
+        }
+      }
+    },
+    {
+      "id": "escritura_publica_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "pagar_cuota"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "firmar_escritura"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_compraventa",
+      "steps": [
+        {
+          "act": {
+            "ref": "vender_inmueble"
+          }
+        },
+        {
+          "act": {
+            "ref": "entregar_posesion"
+          }
+        },
+        {
+          "act": {
+            "ref": "pagar_cuota"
+          }
+        },
+        {
+          "act": {
+            "ref": "firmar_escritura"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de Compraventa a Plazos/TMX_2446404_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de Compraventa a Plazos/TMX_2446404_es.txt"
+  }
+}

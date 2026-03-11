@@ -1,0 +1,290 @@
+{
+  "law": "Contrato de Arrendamiento Inmobiliario",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_premises",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    },
+    {
+      "id": "late_fee",
+      "type": "money"
+    },
+    {
+      "id": "utilities",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "deliver_premises",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "commercial_premises",
+      "target": "tenant"
+    },
+    {
+      "id": "return_premises",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "commercial_premises",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PremisesOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "GuaranteeProperty",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "utilities",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "commercial_premises",
+        "target": "third_party"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "commercial_premises",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "guarantor",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "late_payment_penalty",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "tenant",
+            "object": "monthly_rent",
+            "target": "landlord"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "late_fee",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "breach_termination",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "tenant",
+            "object": "monthly_rent",
+            "target": "landlord"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "commercial_premises",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "guarantor_liability",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "tenant",
+            "object": "monthly_rent",
+            "target": "landlord"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "early_termination_penalty",
+      "conditions": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "commercial_premises",
+            "target": "landlord"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_fee",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_execution",
+      "steps": [
+        {
+          "ref": "deliver_premises"
+        },
+        {
+          "ref": "pay_rent"
+        }
+      ]
+    },
+    {
+      "name": "lease_termination",
+      "steps": [
+        {
+          "description": "30_day_notice"
+        },
+        {
+          "ref": "return_premises"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446403_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446403_es.txt"
+  }
+}

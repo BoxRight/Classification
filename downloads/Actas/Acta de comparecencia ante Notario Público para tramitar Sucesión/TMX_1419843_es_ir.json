@@ -1,0 +1,184 @@
+{
+  "law": "Acta de comparecencia ante Notario Público para tramitar Sucesión",
+  "authority": "administrative",
+  "enacted": "2018-09-20",
+  "imports": [
+    "Código de Procedimientos Civiles del Estado de Jalisco"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "heirs",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "family_court",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inheritance",
+      "type": "nonmovable"
+    },
+    {
+      "id": "testament",
+      "type": "movable"
+    },
+    {
+      "id": "court_file",
+      "type": "movable"
+    },
+    {
+      "id": "judicial_authorization",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "appear_before_notary",
+      "type": "simple",
+      "actor": "heirs",
+      "object": "inheritance",
+      "target": "notary"
+    },
+    {
+      "id": "designate_executor",
+      "type": "simple",
+      "actor": "deceased",
+      "object": "executor",
+      "target": "inheritance"
+    },
+    {
+      "id": "exhibit_documents",
+      "type": "simple",
+      "actor": "heirs",
+      "object": "court_file",
+      "target": "notary"
+    },
+    {
+      "id": "authorize_notarial_proceeding",
+      "type": "simple",
+      "actor": "judge",
+      "object": "judicial_authorization",
+      "target": "notary"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotarialFaith",
+      "subject": "notary",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "UniversalHeirs",
+      "subject": "heirs",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "UniversalExecutor",
+      "subject": "executor",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "JudicialAuthorization",
+      "subject": "family_court",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "heirs",
+        "object": "court_file",
+        "target": "notary"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "inheritance",
+        "target": "heirs"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "extrajudicial_succession_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialAuthorization"
+        },
+        {
+          "type": "ownership",
+          "name": "UniversalHeirs"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "inheritance",
+          "target": "heirs"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_succession_procedure",
+      "steps": [
+        {
+          "ref": "appear_before_notary"
+        },
+        {
+          "ref": "exhibit_documents"
+        },
+        {
+          "description": "verify_compliance_with_article_872"
+        },
+        {
+          "description": "continue_extrajudicial_succession"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de comparecencia ante Notario Público para tramitar Sucesión/TMX_1419843_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de comparecencia ante Notario Público para tramitar Sucesión/TMX_1419843_es.txt"
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "law": "Responsiva para Admisión de Vehículos en Taller de Reparación Automotriz",
+  "authority": "private",
+  "enacted": "2023-12-29",
+  "imports": [
+    "Código Civil para el Estado de Veracruz de Ignacio de la Llave - Artículos 2014, 2050, 1995, 1997"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "workshop",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "vehicle",
+      "type": "movable"
+    },
+    {
+      "id": "repair_services",
+      "type": "service"
+    },
+    {
+      "id": "payment",
+      "type": "money"
+    },
+    {
+      "id": "personal_objects",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_vehicle",
+      "type": "simple",
+      "actor": "client",
+      "object": "vehicle",
+      "target": "workshop"
+    },
+    {
+      "id": "perform_repairs",
+      "type": "simple",
+      "actor": "workshop",
+      "object": "repair_services",
+      "target": "client"
+    },
+    {
+      "id": "pay_services",
+      "type": "simple",
+      "actor": "client",
+      "object": "payment",
+      "target": "workshop"
+    },
+    {
+      "id": "return_vehicle",
+      "type": "simple",
+      "actor": "workshop",
+      "object": "vehicle",
+      "target": "client"
+    },
+    {
+      "id": "approve_repairs",
+      "type": "simple",
+      "actor": "client",
+      "object": "repair_services",
+      "target": "workshop"
+    },
+    {
+      "id": "remove_personal_objects",
+      "type": "simple",
+      "actor": "client",
+      "object": "personal_objects",
+      "target": "client"
+    },
+    {
+      "id": "inspect_vehicle",
+      "type": "simple",
+      "actor": "client",
+      "object": "vehicle",
+      "target": "client"
+    },
+    {
+      "id": "collect_vehicle",
+      "type": "simple",
+      "actor": "client",
+      "object": "vehicle",
+      "target": "client"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "RepairContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "VehicleInWorkshop",
+      "subject": "workshop",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PaymentDue",
+      "subject": "client",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "workshop",
+        "object": "repair_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "payment",
+        "target": "workshop"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "personal_objects",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "vehicle",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "workshop",
+        "object": "vehicle",
+        "target": "client"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "repair_approval_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "VehicleInWorkshop"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "repair_services",
+          "target": "workshop"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "workshop",
+            "object": "repair_services",
+            "target": "client"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "payment",
+          "target": "workshop"
+        }
+      }
+    },
+    {
+      "id": "vehicle_retention_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "PaymentDue"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "counter",
+          "actor": "workshop",
+          "object": "vehicle",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "warranty_claim_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "workshop",
+            "object": "repair_services",
+            "target": "client"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "repair_services",
+          "target": "workshop"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "vehicle_admission",
+      "steps": [
+        {
+          "ref": "inspect_vehicle"
+        },
+        {
+          "ref": "remove_personal_objects"
+        },
+        {
+          "ref": "deliver_vehicle"
+        }
+      ]
+    },
+    {
+      "name": "repair_process",
+      "steps": [
+        {
+          "ref": "approve_repairs"
+        },
+        {
+          "ref": "perform_repairs"
+        }
+      ]
+    },
+    {
+      "name": "vehicle_delivery",
+      "steps": [
+        {
+          "ref": "pay_services"
+        },
+        {
+          "ref": "return_vehicle"
+        },
+        {
+          "ref": "collect_vehicle"
+        }
+      ]
+    },
+    {
+      "name": "dispute_resolution",
+      "steps": [
+        {
+          "description": "mediation"
+        },
+        {
+          "description": "arbitration"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Responsiva para Admisión de Vehículos en Taller de Reparación Automotriz/TMX_2637891_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Responsiva para Admisión de Vehículos en Taller de Reparación Automotriz/TMX_2637891_es.txt"
+  }
+}

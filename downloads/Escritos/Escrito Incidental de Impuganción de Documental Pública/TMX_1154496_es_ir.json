@@ -1,0 +1,175 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary_public",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "expert_witness",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "public_document",
+      "type": "service"
+    },
+    {
+      "id": "notarial_instrument",
+      "type": "service"
+    },
+    {
+      "id": "signature",
+      "type": "service"
+    },
+    {
+      "id": "expert_report",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "present_document",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "public_document",
+      "target": "judge"
+    },
+    {
+      "id": "challenge_document",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "public_document",
+      "target": "judge"
+    },
+    {
+      "id": "forge_signature",
+      "type": "counter",
+      "actor": "plaintiff",
+      "object": "signature",
+      "target": "notarial_instrument"
+    },
+    {
+      "id": "conduct_expert_examination",
+      "type": "simple",
+      "actor": "expert_witness",
+      "object": "signature",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotarialAuthentication",
+      "subject": "notary_public",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DocumentFalsification",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "expert_report",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "expert_witness",
+        "object": "expert_report",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "document_challenge_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DocumentFalsification"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "expert_report",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "document_challenge_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "public_document",
+            "target": "judge"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "expert_witness",
+            "object": "signature",
+            "target": "judge"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "expert_witness",
+            "object": "expert_report",
+            "target": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Impuganción de Documental Pública/TMX_1154496_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Impuganción de Documental Pública/TMX_1154496_es.txt"
+  }
+}

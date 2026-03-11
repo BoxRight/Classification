@@ -1,0 +1,172 @@
+{
+  "law": "Acta de notificación de Demanda a Juicio Ordinario Civil de Responsabilidad Objetiva",
+  "authority": "judicial",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Artículo 116 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant_company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court_officer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "receiving_person",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lawsuit_documents",
+      "type": "service"
+    },
+    {
+      "id": "answer_to_lawsuit",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "serve_lawsuit",
+      "type": "simple",
+      "actor": "court_officer",
+      "object": "lawsuit_documents",
+      "target": "defendant_company"
+    },
+    {
+      "id": "answer_lawsuit",
+      "type": "simple",
+      "actor": "defendant_company",
+      "object": "answer_to_lawsuit",
+      "target": "plaintiff"
+    },
+    {
+      "id": "designate_address",
+      "type": "simple",
+      "actor": "defendant_company",
+      "object": "service",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LawsuitServed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ObjectiveLiabilityCase",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_company",
+        "object": "answer_to_lawsuit",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_company",
+        "object": "service",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "answer_deadline_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LawsuitServed"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant_company",
+          "object": "answer_to_lawsuit",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "default_judgment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant_company",
+          "object": "answer_to_lawsuit",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "AnswerDeemedNegative"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lawsuit_service_procedure",
+      "steps": [
+        {
+          "description": "Court officer arrives at defendant's address"
+        },
+        {
+          "description": "Verify correct address"
+        },
+        {
+          "description": "Request presence of legal representative"
+        },
+        {
+          "description": "Apply waiting citation if representative not present"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "court_officer",
+            "object": "lawsuit_documents",
+            "target": "defendant_company"
+          }
+        },
+        {
+          "description": "Inform of nine-day deadline to answer"
+        },
+        {
+          "description": "Inform of obligation to designate address for notifications"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de notificación de Demanda a Juicio Ordinario Civil de Responsabilidad Objetiva/TMX_1299861_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de notificación de Demanda a Juicio Ordinario Civil de Responsabilidad Objetiva/TMX_1299861_es.txt"
+  }
+}

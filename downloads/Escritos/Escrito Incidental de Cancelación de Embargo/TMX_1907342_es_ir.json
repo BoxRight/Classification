@@ -1,0 +1,127 @@
+{
+  "law": "Escrito Incidental de Cancelación de Embargo",
+  "authority": "judicial",
+  "enacted": "2024-04-10",
+  "imports": [
+    "Código de Comercio Arts. 1262, 1263, 1292",
+    "Código Civil Federal Arts. 3030, 3033",
+    "Ley del Registro Público de la Propiedad"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "registry_office",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "embargo_annotation",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "petitioner",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "EmbargoLien",
+      "subject": "real_estate_property",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "EmbargoExpiration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RegistryRecord",
+      "subject": "real_estate_property",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "embargo_annotation",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "embargo_expiration_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "EmbargoExpiration"
+        },
+        {
+          "type": "liability",
+          "name": "EmbargoLien"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "embargo_annotation",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "embargo_cancellation_incident",
+      "steps": [
+        {
+          "description": "File incident petition"
+        },
+        {
+          "description": "Admit incident and set procedural term"
+        },
+        {
+          "description": "Summon interested party"
+        },
+        {
+          "description": "Present and admit evidence"
+        },
+        {
+          "description": "Issue interlocutory ruling declaring embargo cancellation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Cancelación de Embargo/TMX_1907342_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Cancelación de Embargo/TMX_1907342_es.txt"
+  }
+}

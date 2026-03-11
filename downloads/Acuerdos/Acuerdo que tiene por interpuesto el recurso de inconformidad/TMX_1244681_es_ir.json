@@ -1,0 +1,151 @@
+{
+  "law": "Ley de Amparo",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "parte_quejosa",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tribunal_colegiado",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretaria",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "recurso_inconformidad",
+      "type": "service"
+    },
+    {
+      "id": "expediente",
+      "type": "movable"
+    },
+    {
+      "id": "cuaderno_antecedentes",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "interponer_recurso",
+      "type": "simple",
+      "actor": "parte_quejosa",
+      "object": "recurso_inconformidad",
+      "target": "juez_distrito"
+    },
+    {
+      "id": "remitir_expediente",
+      "type": "simple",
+      "actor": "juez_distrito",
+      "object": "expediente",
+      "target": "tribunal_colegiado"
+    },
+    {
+      "id": "formar_cuaderno",
+      "type": "simple",
+      "actor": "secretaria",
+      "object": "cuaderno_antecedentes",
+      "target": "tribunal_colegiado"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "RecursoInterpuesto",
+      "subject": "parte_quejosa",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CompetenciaJurisdiccional",
+      "subject": "tribunal_colegiado",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "juez_distrito",
+        "object": "expediente",
+        "target": "tribunal_colegiado"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "recurso_inconformidad_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "RecursoInterpuesto",
+          "subject": "parte_quejosa"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "juez_distrito",
+          "object": "expediente",
+          "target": "tribunal_colegiado"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "procedimiento_recurso_inconformidad",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "parte_quejosa",
+            "object": "recurso_inconformidad",
+            "target": "juez_distrito"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "juez_distrito",
+            "object": "expediente",
+            "target": "tribunal_colegiado"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "secretaria",
+            "object": "cuaderno_antecedentes",
+            "target": "tribunal_colegiado"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Acuerdos/Acuerdo que tiene por interpuesto el recurso de inconformidad/TMX_1244681_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Acuerdos/Acuerdo que tiene por interpuesto el recurso de inconformidad/TMX_1244681_es.txt"
+  }
+}

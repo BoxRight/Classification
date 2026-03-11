@@ -1,0 +1,167 @@
+{
+  "law": "Código Civil para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 187, 188 y 209 del Código Civil para el Distrito Federal",
+    "Artículos 893, 895 y 940 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "spouse_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "spouse_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "family_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "marital_assets",
+      "type": "movable"
+    },
+    {
+      "id": "real_estate_assets",
+      "type": "nonmovable"
+    },
+    {
+      "id": "marital_debts",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "contract_marriage",
+      "type": "simple",
+      "actor": "spouse_1",
+      "object": "marital_union",
+      "target": "spouse_2"
+    },
+    {
+      "id": "liquidate_marital_property",
+      "type": "simple",
+      "actor": "spouse_1",
+      "object": "marital_assets",
+      "target": "spouse_2"
+    },
+    {
+      "id": "modify_property_regime",
+      "type": "simple",
+      "actor": "spouse_1",
+      "object": "property_regime",
+      "target": "family_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "MaritalUnion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ConjugalPropertyRegime",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ConjugalDomicile",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "spouse_1",
+        "object": "marital_assets",
+        "target": "spouse_2"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "spouse_2",
+        "object": "marital_assets",
+        "target": "spouse_1"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "liquidation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConjugalPropertyRegime"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "spouse_1",
+          "object": "marital_assets",
+          "target": "spouse_2"
+        }
+      }
+    },
+    {
+      "id": "equal_distribution_rule",
+      "conditions": [
+        {
+          "act": {
+            "id": "liquidate_marital_property",
+            "type": "simple",
+            "actor": "spouse_1",
+            "object": "marital_assets",
+            "target": "spouse_2"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "EqualDistribution"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "marital_regime_modification_procedure",
+      "steps": [
+        {
+          "description": "File initial petition for voluntary jurisdiction"
+        },
+        {
+          "description": "Present liquidation agreement"
+        },
+        {
+          "description": "Notify Public Ministry"
+        },
+        {
+          "description": "Judicial declaration of regime change"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Cambio sociedad conyugal/TMX_2446419_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cambio sociedad conyugal/TMX_2446419_es.txt"
+  }
+}

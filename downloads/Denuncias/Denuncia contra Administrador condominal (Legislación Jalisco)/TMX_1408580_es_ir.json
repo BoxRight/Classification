@@ -1,0 +1,211 @@
+{
+  "law": "Código Penal para el Estado Libre y Soberano de Jalisco",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "complainant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "condominium_administrator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "construction_committee",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "construction_company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "urban_development_secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "general_prosecutor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "condominium_infrastructure",
+      "type": "nonmovable"
+    },
+    {
+      "id": "construction_permits",
+      "type": "service"
+    },
+    {
+      "id": "feasibility_report",
+      "type": "service"
+    },
+    {
+      "id": "condominium_patrimony",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "issue_false_permit",
+      "type": "simple",
+      "actor": "condominium_administrator",
+      "object": "feasibility_report",
+      "target": "complainant"
+    },
+    {
+      "id": "authorize_illegal_construction",
+      "type": "simple",
+      "actor": "condominium_administrator",
+      "object": "condominium_infrastructure",
+      "target": "construction_company"
+    },
+    {
+      "id": "file_complaint",
+      "type": "simple",
+      "actor": "complainant",
+      "object": "feasibility_report",
+      "target": "general_prosecutor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ValidConstructionPermit",
+      "subject": "condominium_administrator",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "IllegalConstruction",
+      "subject": "condominium_administrator",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CondominiumOwnership",
+      "subject": "complainant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_administrator",
+        "object": "feasibility_report",
+        "target": "complainant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "urban_development_secretary",
+        "object": "construction_permits",
+        "target": "condominium_administrator"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "false_document_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "condominium_administrator",
+          "object": "feasibility_report",
+          "target": "complainant"
+        },
+        {
+          "type": "certification",
+          "name": "ValidConstructionPermit",
+          "subject": "condominium_administrator"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "CriminalLiability",
+        "subject": "condominium_administrator"
+      }
+    },
+    {
+      "id": "patrimony_risk_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "IllegalConstruction",
+          "subject": "condominium_administrator"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "PatrimonyDamage",
+        "subject": "complainant"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "criminal_complaint_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "complainant",
+            "object": "feasibility_report",
+            "target": "general_prosecutor"
+          }
+        },
+        {
+          "description": "Investigation by prosecutor"
+        },
+        {
+          "description": "Verification of permits with urban development authority"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "illegal_construction_scenario",
+      "timeline": [
+        {
+          "event": "Administrator proposes construction with alleged permits",
+          "condition": null
+        },
+        {
+          "event": "Construction begins without valid permits",
+          "condition": null
+        },
+        {
+          "event": "Municipal supervisor identifies violation",
+          "condition": null
+        },
+        {
+          "event": "Residents verify permits are falsified",
+          "condition": null
+        },
+        {
+          "event": "Criminal complaint filed",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Denuncias/Denuncia contra Administrador condominal (Legislación Jalisco)/TMX_1408580_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Denuncias/Denuncia contra Administrador condominal (Legislación Jalisco)/TMX_1408580_es.txt"
+  }
+}

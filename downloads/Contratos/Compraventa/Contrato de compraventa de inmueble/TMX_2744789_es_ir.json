@@ -1,0 +1,201 @@
+{
+  "law": "Contrato de compraventa de inmueble",
+  "authority": "private",
+  "enacted": "2024-10-23",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita",
+    "Ley de Extinción de Dominio"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "purchase_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalCapacity",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalCapacity",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LicitResourcesOrigin",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "EnvironmentalCompliance",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RightOfFirstRefusalComplied",
+      "subject": "seller",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "transfer_ownership_rule",
+      "conditions": [
+        {
+          "ref": "pay_price"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyOwnership",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "environmental_defense_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "third_party",
+          "object": "environmental_claim",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "legal_defense",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "extinction_domain_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "authority",
+          "object": "extinction_procedure",
+          "target": "property"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "indemnification",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "property_sale_procedure",
+      "steps": [
+        {
+          "ref": "sell_property"
+        },
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "deliver_possession"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de inmueble/TMX_2744789_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de inmueble/TMX_2744789_es.txt"
+  }
+}

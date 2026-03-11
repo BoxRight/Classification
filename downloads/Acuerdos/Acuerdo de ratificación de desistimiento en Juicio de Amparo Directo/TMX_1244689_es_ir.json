@@ -1,0 +1,119 @@
+{
+  "law": "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+  "authority": "judicial",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Artículo 63 de la Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tribunal_colegiado",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretaria",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "demanda_amparo",
+      "type": "service"
+    },
+    {
+      "id": "escrito_desistimiento",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ratificar_desistimiento",
+      "type": "simple",
+      "actor": "quejoso",
+      "object": "escrito_desistimiento",
+      "target": "tribunal_colegiado"
+    },
+    {
+      "id": "desistir_demanda",
+      "type": "simple",
+      "actor": "quejoso",
+      "object": "demanda_amparo",
+      "target": "tribunal_colegiado"
+    },
+    {
+      "id": "sobreseer_juicio",
+      "type": "simple",
+      "actor": "tribunal_colegiado",
+      "object": "demanda_amparo",
+      "target": "quejoso"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "JuicioAmparoDirecto",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DesistimientoRatificado",
+      "subject": "quejoso",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "sobreseimiento_por_desistimiento",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DesistimientoRatificado"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "JuicioSobreseido"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_desistimiento_amparo",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "quejoso",
+            "object": "escrito_desistimiento",
+            "target": "tribunal_colegiado"
+          }
+        },
+        {
+          "ref": "ratificar_desistimiento"
+        },
+        {
+          "ref": "sobreseer_juicio"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Acuerdos/Acuerdo de ratificación de desistimiento en Juicio de Amparo Directo/TMX_1244689_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Acuerdos/Acuerdo de ratificación de desistimiento en Juicio de Amparo Directo/TMX_1244689_es.txt"
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "law": "Demanda ejecutiva por obligación de dar",
+  "authority": "judicial",
+  "enacted": "2018-08-27",
+  "imports": [
+    "Código Civil",
+    "Código de Procedimientos Civiles"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "machine",
+      "type": "movable"
+    },
+    {
+      "id": "machine_value",
+      "type": "money"
+    },
+    {
+      "id": "interest",
+      "type": "money"
+    },
+    {
+      "id": "damages",
+      "type": "money"
+    },
+    {
+      "id": "costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_machine",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "machine",
+      "target": "defendant"
+    },
+    {
+      "id": "return_machine",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "machine",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_value",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "machine_value",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_interest",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "interest",
+      "target": "plaintiff"
+    },
+    {
+      "id": "refuse_delivery",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "machine",
+      "target": "plaintiff"
+    },
+    {
+      "id": "refuse_payment",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "machine_value",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "DeliveryObligation",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LoanContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "DeliveryDueDate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "machine",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "machine_value",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "interest",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "damages",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LoanContract"
+        },
+        {
+          "ref": "refuse_delivery"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "machine_value",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "interest_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "DeliveryObligation"
+        },
+        {
+          "ref": "refuse_delivery"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "interest",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "ejecutive_procedure",
+      "steps": [
+        {
+          "description": "Requerimiento de entrega"
+        },
+        {
+          "description": "Embargo de la cosa o bienes equivalentes"
+        },
+        {
+          "description": "Emplazamiento legal"
+        },
+        {
+          "description": "Sentencia de remate"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda ejecutiva por obligación de dar/TMX_1415806_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda ejecutiva por obligación de dar/TMX_1415806_es.txt"
+  }
+}

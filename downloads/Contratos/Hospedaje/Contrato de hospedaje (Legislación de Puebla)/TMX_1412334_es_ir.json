@@ -1,0 +1,275 @@
+{
+  "law": "Contrato de hospedaje (Legislación de Puebla)",
+  "authority": "private",
+  "enacted": "2018-07-26",
+  "imports": [
+    "Código Civil para el Estado Libre y Soberano de Puebla",
+    "Ley General de Títulos y Operaciones de Crédito"
+  ],
+  "parties": [
+    {
+      "id": "propietaria",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "huesped",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "casa_habitacion",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "utilities",
+      "type": "service"
+    },
+    {
+      "id": "furniture",
+      "type": "movable"
+    },
+    {
+      "id": "keys",
+      "type": "movable"
+    },
+    {
+      "id": "equipaje",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "huesped",
+      "object": "monthly_rent",
+      "target": "propietaria"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "propietaria",
+      "object": "casa_habitacion",
+      "target": "huesped"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "huesped",
+      "object": "casa_habitacion",
+      "target": "propietaria"
+    },
+    {
+      "id": "pay_deposit",
+      "type": "simple",
+      "actor": "huesped",
+      "object": "deposit",
+      "target": "propietaria"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "propietaria",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "HospedajeRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "SecurityDeposit",
+      "subject": "huesped",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "huesped",
+        "object": "monthly_rent",
+        "target": "propietaria"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "huesped",
+        "object": "casa_habitacion",
+        "target": "propietaria"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "huesped",
+        "object": "casa_habitacion",
+        "target": "third_party"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "huesped",
+        "object": "utilities",
+        "target": "propietaria"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "late_payment_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "huesped",
+          "object": "monthly_rent",
+          "target": "propietaria"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "propietaria",
+          "object": "casa_habitacion",
+          "target": "huesped"
+        }
+      }
+    },
+    {
+      "id": "contract_rescission",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "huesped",
+          "object": "monthly_rent",
+          "target": "propietaria"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "damage_liability",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "HospedajeRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "huesped",
+          "object": "furniture",
+          "target": "propietaria"
+        }
+      }
+    },
+    {
+      "id": "deposit_return",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "huesped",
+          "object": "casa_habitacion",
+          "target": "propietaria"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "propietaria",
+          "object": "deposit",
+          "target": "huesped"
+        }
+      }
+    },
+    {
+      "id": "baggage_retention",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "huesped",
+          "object": "monthly_rent",
+          "target": "propietaria"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "propietaria",
+          "object": "equipaje",
+          "target": "huesped"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "written_notice_or_electronic_communication"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "propietaria",
+            "object": "casa_habitacion",
+            "target": "huesped"
+          }
+        }
+      ]
+    },
+    {
+      "name": "inspection_procedure",
+      "steps": [
+        {
+          "description": "joint_inspection_three_days_before_vacation"
+        },
+        {
+          "description": "assessment_of_damages"
+        },
+        {
+          "description": "immediate_repairs_or_replacement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Hospedaje/Contrato de hospedaje (Legislación de Puebla)/TMX_1412334_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Hospedaje/Contrato de hospedaje (Legislación de Puebla)/TMX_1412334_es.txt"
+  }
+}

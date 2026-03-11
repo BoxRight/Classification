@@ -1,0 +1,117 @@
+{
+  "law": "Contrato de prestación de servicios",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "service_recipient",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "services",
+      "type": "service"
+    },
+    {
+      "id": "payment",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "services",
+        "target": "service_recipient"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_recipient",
+        "object": "payment",
+        "target": "service_provider"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "services",
+          "target": "service_recipient"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_recipient",
+          "object": "payment",
+          "target": "service_provider"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_schedule",
+      "steps": [
+        {
+          "description": "Payment in installments on specified dates"
+        },
+        {
+          "description": "Payment via bank transfer to specified account"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios/TMX_1119600_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios/TMX_1119600_es.txt"
+  }
+}

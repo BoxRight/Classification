@@ -1,0 +1,226 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2023-04-21",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_fee",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "intellectual_property_rights",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "legal_constitution",
+      "subject": "client",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity",
+      "subject": "service_provider",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "professional_competence",
+      "subject": "service_provider",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "financial_solvency",
+      "subject": "service_provider",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "professional_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "monthly_fee",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "confidential_information",
+        "target": "client"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "professional_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "monthly_fee",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "confidential_information",
+          "target": "third_parties"
+        }
+      }
+    },
+    {
+      "id": "ip_assignment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "intellectual_property_rights",
+        "subject": "client"
+      }
+    },
+    {
+      "id": "termination_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "service_provider",
+          "object": "professional_services",
+          "target": "client"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "contract_termination",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "termination_notice_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "contract_termination_notice",
+          "target": "service_provider"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_procedure",
+      "steps": [
+        {
+          "description": "Written notice with 15 days advance"
+        },
+        {
+          "description": "Return of confidential information and materials"
+        },
+        {
+          "description": "Final payment settlement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_2459416_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_2459416_es.txt"
+  }
+}

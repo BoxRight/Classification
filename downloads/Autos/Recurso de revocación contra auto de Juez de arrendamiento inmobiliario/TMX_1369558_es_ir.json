@@ -1,0 +1,159 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "rental_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "revocation_appeal",
+      "type": "service"
+    },
+    {
+      "id": "judicial_order",
+      "type": "service"
+    },
+    {
+      "id": "personality_incident",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_revocation_appeal",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "revocation_appeal",
+      "target": "rental_judge"
+    },
+    {
+      "id": "reject_incident",
+      "type": "simple",
+      "actor": "rental_judge",
+      "object": "personality_incident",
+      "target": "defendant"
+    },
+    {
+      "id": "admit_incident",
+      "type": "simple",
+      "actor": "rental_judge",
+      "object": "personality_incident",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "RentalCase",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "JudicialOrderViolation",
+      "subject": "rental_judge",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "revocation_appeal",
+        "target": "rental_judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "rental_judge",
+        "object": "personality_incident",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "revocation_grounds_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "JudicialOrderViolation"
+        },
+        {
+          "type": "certification",
+          "name": "RentalCase"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "revocation_appeal",
+          "target": "rental_judge"
+        }
+      }
+    },
+    {
+      "id": "incident_admission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PersonalityLegitimationIssue"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "rental_judge",
+          "object": "personality_incident",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "revocation_appeal_procedure",
+      "steps": [
+        {
+          "ref": "file_revocation_appeal"
+        },
+        {
+          "description": "judicial_review_of_order"
+        },
+        {
+          "description": "decision_on_appeal"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Recurso de revocación contra auto de Juez de arrendamiento inmobiliario/TMX_1369558_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Recurso de revocación contra auto de Juez de arrendamiento inmobiliario/TMX_1369558_es.txt"
+  }
+}

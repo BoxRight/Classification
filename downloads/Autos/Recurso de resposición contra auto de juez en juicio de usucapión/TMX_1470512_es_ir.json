@@ -1,0 +1,109 @@
+{
+  "law": "Recurso de reposición contra auto de juez en juicio de usucapión",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares",
+    "Código de Procedimientos Civiles para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "judicial_auto",
+      "type": "service"
+    },
+    {
+      "id": "incident_motion",
+      "type": "service"
+    },
+    {
+      "id": "reposition_remedy",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LegalStanding",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "JudicialProceeding",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "reposition_remedy",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "reposition_remedy_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LegalStanding"
+        },
+        {
+          "type": "counter",
+          "actor": "civil_judge",
+          "object": "incident_motion",
+          "target": "petitioner"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "reposition_remedy",
+          "target": "civil_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "reposition_remedy_procedure",
+      "steps": [
+        {
+          "description": "File reposition remedy against judicial auto"
+        },
+        {
+          "description": "Argue legal or factual errors in the decision"
+        },
+        {
+          "description": "Request judge to review and modify the auto"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Recurso de resposición contra auto de juez en juicio de usucapión/TMX_1470512_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Recurso de resposición contra auto de juez en juicio de usucapión/TMX_1470512_es.txt"
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "law": "Contrato de arrendamiento",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlords",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "apartment",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "late_fee",
+      "type": "money"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    },
+    {
+      "id": "electricity_service",
+      "type": "service"
+    },
+    {
+      "id": "water_service",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "grant_use",
+      "type": "simple",
+      "actor": "landlords",
+      "object": "apartment",
+      "target": "tenant"
+    },
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlords"
+    },
+    {
+      "id": "pay_deposit",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "security_deposit",
+      "target": "landlords"
+    },
+    {
+      "id": "return_apartment",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "apartment",
+      "target": "landlords"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "property_title",
+      "subject": "landlords",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity",
+      "subject": "landlords",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "lease_agreement",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlords",
+        "object": "apartment",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlords"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "security_deposit",
+        "target": "landlords"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "apartment",
+        "target": "landlords"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "late_payment_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlords"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "late_fee",
+          "target": "landlords"
+        }
+      }
+    },
+    {
+      "id": "termination_for_non_payment",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlords"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "deposit_return",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contract_expiration"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "landlords",
+          "object": "security_deposit",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "termination_improper_use",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "apartment",
+          "target": "landlords"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "penalty_for_breach",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contract_termination"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_payment",
+          "target": "landlords"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento/TMX_1815112_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento/TMX_1815112_es.txt"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "law": "Demanda Ordinaria Civil - Acción Reivindicatoria",
+  "authority": "judicial",
+  "enacted": "2024-02-15",
+  "imports": [
+    "Código Civil para el Distrito Federal - Art. 828, 830, 806",
+    "Código de Procedimientos Civiles para el Distrito Federal - Art. 4, 7"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "previous_owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "witness_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "witness_2",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "rental_payments",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "acquire_property",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "property",
+      "target": "previous_owner"
+    },
+    {
+      "id": "fraudulent_possession",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "illegal_occupation",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "property",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyTitle",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PublicRegistryInscription",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "property",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "property",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "reivindicatory_action_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "asset",
+          "name": "PropertyTitle"
+        },
+        {
+          "ref": "illegal_occupation"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "property",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "fraudulent_possession_rule",
+      "conditions": [
+        {
+          "ref": "fraudulent_possession"
+        },
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_lawsuit_procedure",
+      "steps": [
+        {
+          "description": "File initial complaint"
+        },
+        {
+          "description": "Serve defendant"
+        },
+        {
+          "description": "Defendant response period"
+        },
+        {
+          "description": "Evidence presentation"
+        },
+        {
+          "description": "Testimonial hearing"
+        },
+        {
+          "description": "Final judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda Ordinaria Civil/TMX_2432743_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda Ordinaria Civil/TMX_2432743_es.txt"
+  }
+}

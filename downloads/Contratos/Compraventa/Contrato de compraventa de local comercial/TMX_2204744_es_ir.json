@@ -1,0 +1,214 @@
+{
+  "law": "Contrato de compraventa de local comercial",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2248, 2249, 2269, 2316, 2317"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_premises",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    },
+    {
+      "id": "initial_payment",
+      "type": "money"
+    },
+    {
+      "id": "monthly_installments",
+      "type": "money"
+    },
+    {
+      "id": "final_payment",
+      "type": "money"
+    },
+    {
+      "id": "promissory_notes",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "CommercialPremisesOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "commercial_premises",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "initial_payment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "monthly_installments",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "final_payment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "promissory_notes",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "commercial_premises",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "sale_completion_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "sale_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "CommercialPremisesOwnership",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "retro_right_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "commercial_premises",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "initial_payment",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "promissory_notes",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "monthly_installments",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "final_payment",
+            "target": "seller"
+          }
+        }
+      ]
+    },
+    {
+      "name": "public_deed_procedure",
+      "steps": [
+        {
+          "description": "Request for public deed execution"
+        },
+        {
+          "description": "Public deed execution with retro clause"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de local comercial/TMX_2204744_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de local comercial/TMX_2204744_es.txt"
+  }
+}

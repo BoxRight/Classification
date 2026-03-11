@@ -1,0 +1,150 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "instance_lapse_incident",
+      "type": "service"
+    },
+    {
+      "id": "sentence_execution",
+      "type": "service"
+    },
+    {
+      "id": "lease_lawsuit",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_incident",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "instance_lapse_incident",
+      "target": "judge"
+    },
+    {
+      "id": "declare_null_proceedings",
+      "type": "simple",
+      "actor": "judge",
+      "object": "sentence_execution",
+      "target": "petitioner"
+    },
+    {
+      "id": "initiate_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "lease_lawsuit",
+      "target": "petitioner"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LawsuitInitiated",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "LastPromotion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "InstanceLapsed",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "instance_lapse_incident",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "instance_lapse_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LawsuitInitiated"
+        },
+        {
+          "type": "date",
+          "name": "LastPromotion"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "InstanceLapsed"
+      }
+    },
+    {
+      "id": "nullification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "InstanceLapsed"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "sentence_execution",
+          "target": "petitioner"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "instance_lapse_procedure",
+      "steps": [
+        {
+          "ref": "file_incident"
+        },
+        {
+          "description": "present_evidence"
+        },
+        {
+          "ref": "declare_null_proceedings"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Caducidad de la Instancia/TMX_1364386_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Caducidad de la Instancia/TMX_1364386_es.txt"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "law": "Certificado de libertad de gravámenes",
+  "authority": "administrative",
+  "enacted": "2024-01-12",
+  "imports": [
+    "Artículo 104 de la Ley del Notariado para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "registrador_publico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "propietario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notario_publico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "solicitante",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bien_inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "certificado_libertad",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "certificar_libertad",
+      "type": "simple",
+      "actor": "registrador_publico",
+      "object": "certificado_libertad",
+      "target": "solicitante"
+    },
+    {
+      "id": "solicitar_certificado",
+      "type": "simple",
+      "actor": "solicitante",
+      "object": "certificado_libertad",
+      "target": "registrador_publico"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropiedadInscrita",
+      "subject": "propietario",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LibertadGravamenes",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "BienInmuebleLibre",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "registrador_publico",
+        "object": "certificado_libertad",
+        "target": "solicitante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "emision_certificado_regla",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "solicitante",
+          "object": "certificado_libertad",
+          "target": "registrador_publico"
+        },
+        {
+          "type": "ownership",
+          "name": "PropiedadInscrita",
+          "subject": "propietario"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "LibertadGravamenes"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "expedicion_certificado",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "solicitante",
+            "object": "certificado_libertad",
+            "target": "registrador_publico"
+          }
+        },
+        {
+          "description": "verificacion_registros"
+        },
+        {
+          "ref": "certificar_libertad"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificado de libertad de gravámenes/TMX_2204734_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificado de libertad de gravámenes/TMX_2204734_es.txt"
+  }
+}

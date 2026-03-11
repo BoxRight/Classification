@@ -1,0 +1,344 @@
+[
+  {
+    "source": {
+      "file_name": "TMX_1120572_es.txt",
+      "document_id": "TMX1120572",
+      "date": "2024-01-29"
+    },
+    "metadata": {
+      "contract_type": "Arrendamiento",
+      "classification": {
+        "obligations": "Bilateral",
+        "economic": "Oneroso",
+        "perfection": "Formal",
+        "execution": "Sucesivo",
+        "dependence": "Principal",
+        "certainty": "Conmutativo"
+      }
+    },
+    "roles": {
+      "arrendador": "Person",
+      "arrendatario": "Person",
+      "fiador": "Person"
+    },
+    "objects": {
+      "inmueble": {
+        "type": "Property",
+        "attributes": {
+          "purpose": "habitación"
+        }
+      },
+      "renta_mensual": {
+        "type": "Money",
+        "attributes": {
+          "purpose": "renta"
+        }
+      },
+      "deposito_garantia": {
+        "type": "Money",
+        "attributes": {
+          "purpose": "garantía"
+        }
+      },
+      "plazo_arrendamiento": {
+        "type": "Duration",
+        "attributes": {}
+      }
+    },
+    "behaviors": {
+      "b_1": {
+        "category": "transfer",
+        "signature": [
+          "arrendatario",
+          "renta_mensual",
+          "arrendador"
+        ],
+        "description": "P: ____________________.  c)Que para efectos de este contrato señala como su domicilio para recibir y oir toda clase de notificaciones el ubicado en _..."
+      },
+      "b_5": {
+        "category": "transfer",
+        "signature": [
+          "arrendatario",
+          "renta_mensual",
+          "arrendador"
+        ],
+        "description": "- El arrendatario pagará al arrendador o a quien sus derechos represente, la cantidad de: $____________________ (____________________) por el arrendam..."
+      },
+      "b_6": {
+        "category": "transfer",
+        "signature": [
+          "arrendatario",
+          "renta_mensual",
+          "arrendador"
+        ],
+        "description": "- Convienen expresamente el arrendatario ____________________ que todo mes de arrendamiento le es forzoso y que lo pagará íntegro aun cuando únicament..."
+      },
+      "b_7": {
+        "category": "prohibition",
+        "signature": [
+          "arrendatario"
+        ],
+        "description": "- Queda expresamente prohibido traspasar o subarrendar todo o parte del inmueble arrendado y en caso de hacerlo será con permiso y por escrito del arr..."
+      },
+      "b_9": {
+        "category": "use",
+        "signature": [
+          "arrendatario",
+          "inmueble"
+        ],
+        "description": "- El arrendatario hará uso del inmueble únicamente para habitación y si infringiere esta cláusula se dará por rescindido el contrato...."
+      },
+      "b_10": {
+        "category": "prohibition",
+        "signature": [
+          "arrendatario"
+        ],
+        "description": "- El inquilino no podrá retener ni descontar de la renta cantidad alguna por concepto de mejoras o reparaciones, aunque las hubiere hecho por orden de..."
+      },
+      "b_11": {
+        "category": "prohibition",
+        "signature": [
+          "arrendatario"
+        ],
+        "description": "- No podrá tener substancias corrosivas, materias inflamables o peligrosas en ____________________ que arrienda...."
+      },
+      "b_12": {
+        "category": "transfer",
+        "signature": [
+          "arrendador",
+          "inmueble",
+          "arrendatario"
+        ],
+        "description": "- El arrendatario recibe el inmueble con todo el servicio sanitario en perfecto estado y se compromete a conservarlo en ese mismo estado siendo por su..."
+      },
+      "b_13": {
+        "category": "transfer",
+        "signature": [
+          "arrendador",
+          "inmueble",
+          "arrendatario"
+        ],
+        "description": "- Para garantizar el cumplimiento de este contrato entregará el inquilino la cantidad de $____________________ (____________________) la cual se devol..."
+      },
+      "contrato_vigente": {
+        "category": "use",
+        "signature": [
+          "arrendador",
+          "arrendatario"
+        ],
+        "description": "Estado: contrato en vigor sin incumplimiento"
+      },
+      "incumplimiento_arrendatario": {
+        "category": "prohibition",
+        "signature": [
+          "arrendatario"
+        ],
+        "description": "Incumplimiento de obligaciones del arrendatario"
+      }
+    },
+    "facts": [
+      {
+        "id": "capacidad_arrendador",
+        "category": "representation",
+        "description": "- DECLARA \"EL ARRENDADOR\":  a) Que cuenta con la capacidad jurídica suficiente y suficiente para cel"
+      },
+      {
+        "id": "capacidad_arrendatario",
+        "category": "representation",
+        "description": "- DECLARA \"EL ARRENDATARIO\":  a) Que tiene las facultades suficientes y bastantes para obligarse en "
+      },
+      {
+        "id": "capacidad_fiador",
+        "category": "representation",
+        "description": "- DECLARA \"EL FIADOR\":  Ser una persona fisica, mayor de edad y con capacidad económica para fungir "
+      },
+      {
+        "id": "no_vicios_consentimiento",
+        "category": "warranty",
+        "description": "- DECLARAN LAS PARTES  a) Que en el presente contrato no existe dolo, error, mala fe o cualquier otr"
+      },
+      {
+        "id": "capacidad_arrendatario",
+        "category": "representation",
+        "description": "- El arrendatario declara haber recibido el inmueble ____________________ en perfecto estado, para s"
+      },
+      {
+        "id": "capacidad_fiador",
+        "category": "representation",
+        "description": "- Firma este contrato ____________________ como fiador solidario del inquilino y declara ser propiet"
+      },
+      {
+        "id": "fact_state_0",
+        "category": "state",
+        "description": "las partes contratantes, establecen que cuando el contrato de arrendamiento se haya celebrado por ti"
+      }
+    ],
+    "principal_contract": {
+      "normative_clauses": [
+        {
+          "id": "clause_0",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_1",
+              "deontic_type": "oblig"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "P: ____________________.  c)Que para efectos de este contrato señala como su dom"
+        },
+        {
+          "id": "clause_1",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_5",
+              "deontic_type": "oblig"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- El arrendatario pagará al arrendador o a quien sus derechos represente, la can"
+        },
+        {
+          "id": "clause_2",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_6",
+              "deontic_type": "oblig"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- Convienen expresamente el arrendatario ____________________ que todo mes de ar"
+        },
+        {
+          "id": "clause_3",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_7",
+              "deontic_type": "forbid"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- Queda expresamente prohibido traspasar o subarrendar todo o parte del inmueble"
+        },
+        {
+          "id": "clause_4",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_9",
+              "deontic_type": "oblig"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- El arrendatario hará uso del inmueble únicamente para habitación y si infringi"
+        },
+        {
+          "id": "clause_5",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_10",
+              "deontic_type": "forbid"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- El inquilino no podrá retener ni descontar de la renta cantidad alguna por con"
+        },
+        {
+          "id": "clause_6",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_11",
+              "deontic_type": "forbid"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- No podrá tener substancias corrosivas, materias inflamables o peligrosas en __"
+        },
+        {
+          "id": "clause_7",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_12",
+              "deontic_type": "oblig"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- El arrendatario recibe el inmueble con todo el servicio sanitario en perfecto "
+        },
+        {
+          "id": "clause_8",
+          "form": "CNF",
+          "literals": [
+            {
+              "kind": "neg_behavior",
+              "ref": "contrato_vigente"
+            },
+            {
+              "kind": "deontic",
+              "ref": "b_13",
+              "deontic_type": "oblig"
+            }
+          ],
+          "clause_arity": 2,
+          "source_clause": "- Para garantizar el cumplimiento de este contrato entregará el inquilino la can"
+        }
+      ],
+      "templates": [
+        {
+          "name": "fianza_solidaria",
+          "guaranteed_obligation": "b_1",
+          "fiador_role": "fiador",
+          "scope": "todas_obligaciones_arrendatario",
+          "solidary": true
+        }
+      ]
+    },
+    "accessory_contracts": []
+  }
+]

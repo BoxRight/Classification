@@ -1,0 +1,139 @@
+{
+  "law": "Carta de intención de compra de cartera",
+  "authority": "private",
+  "enacted": "2024-07-29",
+  "imports": [
+    "Artículo 1804 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "negotiator",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "financial_portfolio",
+      "type": "movable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "documentation",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "FinancialPortfolio",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "PurchaseIntent",
+      "subject": "buyer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "documentation",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "due_diligence_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "FinancialPortfolio"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "financial_portfolio",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "approval_condition_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "InternalApproval",
+          "subject": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "portfolio_acquisition_process",
+      "steps": [
+        {
+          "description": "delivery of documentation by seller"
+        },
+        {
+          "description": "inspection and audit by buyer"
+        },
+        {
+          "description": "internal approval by buyer"
+        },
+        {
+          "description": "execution of definitive purchase agreement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Cartas/Carta de intención de compra de cartera/TMX_2714230_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cartas/Carta de intención de compra de cartera/TMX_2714230_es.txt"
+  }
+}

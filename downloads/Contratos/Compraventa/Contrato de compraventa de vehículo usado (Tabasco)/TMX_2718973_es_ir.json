@@ -1,0 +1,229 @@
+{
+  "law": "Contrato de compraventa de vehículo usado (Tabasco)",
+  "authority": "private",
+  "enacted": "2024-08-15",
+  "imports": [
+    "Código Civil para el Estado de Tabasco"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "vehicle",
+      "type": "movable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "vehicle_documents",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_ownership",
+      "type": "simple",
+      "actor": "seller",
+      "object": "vehicle",
+      "target": "buyer"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "purchase_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_vehicle",
+      "type": "simple",
+      "actor": "seller",
+      "object": "vehicle",
+      "target": "buyer"
+    },
+    {
+      "id": "deliver_documents",
+      "type": "simple",
+      "actor": "seller",
+      "object": "vehicle_documents",
+      "target": "buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "VehicleOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LicitResourceOrigin",
+      "subject": "buyer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "vehicle",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "vehicle_documents",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "ownership_transfer_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "VehicleOwnership",
+          "subject": "seller"
+        },
+        {
+          "ref": "pay_price"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "VehicleOwnership",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "breach_rescission_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "seller",
+          "object": "vehicle",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "buyer_breach_rescission_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "vehicle",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "hidden_defects_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "HiddenDefects"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "vehicle",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "vehicle_sale_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "purchase_price",
+            "target": "seller"
+          }
+        },
+        {
+          "ref": "deliver_vehicle"
+        },
+        {
+          "ref": "deliver_documents"
+        },
+        {
+          "ref": "transfer_ownership"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de vehículo usado (Tabasco)/TMX_2718973_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de vehículo usado (Tabasco)/TMX_2718973_es.txt"
+  }
+}

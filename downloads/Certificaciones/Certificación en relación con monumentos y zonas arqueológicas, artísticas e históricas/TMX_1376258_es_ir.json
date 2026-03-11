@@ -1,0 +1,186 @@
+{
+  "law": "Ley Federal de Monumentos y Zonas Arqueológicas, Artísticas e Históricas",
+  "authority": "legislative",
+  "enacted": null,
+  "imports": [
+    "Ley Federal de Monumentos y Zonas Arqueológicas, Artísticas e Históricas - Artículo 6"
+  ],
+  "parties": [
+    {
+      "id": "property_owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "acquirer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "inah",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "inbal",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "historic_monument",
+      "type": "nonmovable"
+    },
+    {
+      "id": "artistic_monument",
+      "type": "nonmovable"
+    },
+    {
+      "id": "restoration_authorization",
+      "type": "service"
+    },
+    {
+      "id": "conservation_service",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "conserve_monument",
+      "type": "simple",
+      "actor": "property_owner",
+      "object": "conservation_service",
+      "target": "historic_monument"
+    },
+    {
+      "id": "restore_monument",
+      "type": "simple",
+      "actor": "property_owner",
+      "object": "restoration_authorization",
+      "target": "historic_monument"
+    },
+    {
+      "id": "notify_acquirer",
+      "type": "simple",
+      "actor": "notary",
+      "object": "conservation_service",
+      "target": "acquirer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "HistoricMonumentDeclaration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ArtisticMonumentDeclaration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "MonumentOwnership",
+      "subject": "property_owner",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "property_owner",
+        "object": "conservation_service",
+        "target": "historic_monument"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "conservation_service",
+        "target": "acquirer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "historic_monument_conservation_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "MonumentOwnership",
+          "subject": "property_owner"
+        },
+        {
+          "type": "certification",
+          "name": "HistoricMonumentDeclaration"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "property_owner",
+          "object": "conservation_service",
+          "target": "historic_monument"
+        }
+      }
+    },
+    {
+      "id": "restoration_authorization_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "MonumentOwnership",
+          "subject": "property_owner"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "inah",
+          "object": "restoration_authorization",
+          "target": "property_owner"
+        }
+      }
+    },
+    {
+      "id": "notarial_notification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "HistoricMonumentDeclaration"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "conservation_service",
+          "target": "acquirer"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación en relación con monumentos y zonas arqueológicas, artísticas e históricas/TMX_1376258_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación en relación con monumentos y zonas arqueológicas, artísticas e históricas/TMX_1376258_es.txt"
+  }
+}

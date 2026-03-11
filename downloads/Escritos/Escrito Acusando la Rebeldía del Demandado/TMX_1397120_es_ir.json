@@ -1,0 +1,143 @@
+{
+  "law": "Escrito Acusando la Rebeldía del Demandado",
+  "authority": "judicial",
+  "enacted": "2024-03-14",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "answer",
+      "type": "service"
+    },
+    {
+      "id": "notification",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "lawsuit",
+      "target": "defendant"
+    },
+    {
+      "id": "fail_to_answer",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "answer",
+      "target": "plaintiff"
+    },
+    {
+      "id": "notify_defendant",
+      "type": "simple",
+      "actor": "judge",
+      "object": "notification",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "proper_notification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "answer_deadline_expired",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "answer",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "default_judgment_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "proper_notification"
+        },
+        {
+          "type": "date",
+          "name": "answer_deadline_expired"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "answer",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "defendant_in_default"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "declare_default_procedure",
+      "steps": [
+        {
+          "description": "verify proper notification of defendant"
+        },
+        {
+          "description": "confirm answer deadline has expired"
+        },
+        {
+          "description": "declare defendant in default"
+        },
+        {
+          "description": "admit plaintiff's facts unless proven otherwise"
+        },
+        {
+          "description": "open case to evidence period"
+        },
+        {
+          "description": "establish notification by court bulletin for future proceedings"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Acusando la Rebeldía del Demandado/TMX_1397120_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Acusando la Rebeldía del Demandado/TMX_1397120_es.txt"
+  }
+}

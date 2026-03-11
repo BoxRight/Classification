@@ -1,0 +1,230 @@
+{
+  "law": "Escrito Inicial de Demanda de Prescripción Positiva",
+  "authority": "judicial",
+  "enacted": "2024-03-11",
+  "imports": [
+    "Artículos 119, 127 del Reglamento de la Ley del Impuesto Sobre la Renta",
+    "Artículos 5.128, 823 del Código Civil para el Estado Libre y Soberano de México"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "property_registry_director",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_title",
+      "type": "service"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "property_taxes",
+      "type": "money"
+    },
+    {
+      "id": "utility_services",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "RegisteredOwnership",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyPossession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyRegistration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "PossessionStartDate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "PossessionDuration",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "property_title",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "property_title",
+        "target": "property_registry_director"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "legal_costs",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "legal_costs",
+        "target": "property_registry_director"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "adverse_possession_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PropertyPossession",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "numeric",
+          "name": "PossessionDuration"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "property_title",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "good_faith_possession_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PropertyPossession",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "AcquiredOwnership",
+        "subject": "plaintiff"
+      }
+    },
+    {
+      "id": "registry_cancellation_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "AcquiredOwnership",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "property_registry_director",
+          "object": "property_title",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "tax_exemption_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "AcquiredOwnership",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "TaxExemption"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "adverse_possession_lawsuit",
+      "steps": [
+        {
+          "description": "File initial complaint"
+        },
+        {
+          "description": "Summon defendants"
+        },
+        {
+          "description": "Open evidence period"
+        },
+        {
+          "description": "Present testimonial evidence"
+        },
+        {
+          "description": "Request judicial declarations"
+        },
+        {
+          "description": "Obtain final judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Prescripción Positiva/TMX_1980729_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Prescripción Positiva/TMX_1980729_es.txt"
+  }
+}

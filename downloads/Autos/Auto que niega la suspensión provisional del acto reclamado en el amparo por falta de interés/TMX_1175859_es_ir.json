@@ -1,0 +1,125 @@
+{
+  "law": "Auto que niega la suspensión provisional del acto reclamado en el amparo por falta de interés jurídico",
+  "authority": "judicial",
+  "enacted": "2024-05-09",
+  "imports": [
+    "Artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículos 2, 21, 128, 138, 260 de la Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "autoridades_responsables",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "suspension_provisional",
+      "type": "service"
+    },
+    {
+      "id": "informe_previo",
+      "type": "service"
+    },
+    {
+      "id": "interes_juridico",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "InteresJuridico",
+      "subject": "quejoso",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TerceroExtraño",
+      "subject": "quejoso",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "autoridades_responsables",
+        "object": "informe_previo",
+        "target": "juez_distrito"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "juez_distrito",
+        "object": "suspension_provisional",
+        "target": "quejoso"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "negacion_suspension_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "quejoso",
+          "object": "interes_juridico",
+          "target": "juez_distrito"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "juez_distrito",
+          "object": "suspension_provisional",
+          "target": "quejoso"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "suspension_procedure",
+      "steps": [
+        {
+          "description": "formar incidente de suspensión por duplicado"
+        },
+        {
+          "description": "pedir informe previo a autoridades responsables"
+        },
+        {
+          "description": "celebrar audiencia incidental"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que niega la suspensión provisional del acto reclamado en el amparo por falta de interés/TMX_1175859_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que niega la suspensión provisional del acto reclamado en el amparo por falta de interés/TMX_1175859_es.txt"
+  }
+}

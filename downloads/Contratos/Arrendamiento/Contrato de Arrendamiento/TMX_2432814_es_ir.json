@@ -1,0 +1,254 @@
+{
+  "law": "Contrato de Arrendamiento",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código de Comercio Art. 75, 1049"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "event_venue",
+      "type": "nonmovable"
+    },
+    {
+      "id": "rental_payment",
+      "type": "money"
+    },
+    {
+      "id": "advance_payment",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "venue_services",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_advance",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "advance_payment",
+      "target": "landlord"
+    },
+    {
+      "id": "pay_balance",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "rental_payment",
+      "target": "landlord"
+    },
+    {
+      "id": "provide_venue",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "venue_services",
+      "target": "tenant"
+    },
+    {
+      "id": "cancel_event",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "event_venue",
+      "target": "landlord"
+    },
+    {
+      "id": "damage_property",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "event_venue",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "venue_ownership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "lease_relation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "guarantor_liability",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "advance_payment",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "rental_payment",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "venue_services",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "event_venue",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_schedule_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "lease_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "advance_payment",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "cancellation_penalty_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "event_venue",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "advance_payment",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "damage_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "event_venue",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "security_deposit",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "guarantor_liability_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "guarantor_liability",
+          "subject": "guarantor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "rental_payment",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "rental_payment_process",
+      "steps": [
+        {
+          "ref": "pay_advance"
+        },
+        {
+          "ref": "pay_balance"
+        }
+      ]
+    },
+    {
+      "name": "event_cancellation_process",
+      "steps": [
+        {
+          "description": "notify_30_days_advance"
+        },
+        {
+          "ref": "cancel_event"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2432814_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2432814_es.txt"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "law": "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 120, 237, 259 de la Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "complainant_party",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "coordination_forensic_services",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "other_parties",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "graphoscopy_expert_evidence",
+      "type": "service"
+    },
+    {
+      "id": "questionnaire",
+      "type": "movable"
+    },
+    {
+      "id": "fine_fifty_days_minimum_wage",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "offer_expert_evidence",
+      "type": "simple",
+      "actor": "complainant_party",
+      "object": "graphoscopy_expert_evidence",
+      "target": "judge"
+    },
+    {
+      "id": "admit_expert_evidence",
+      "type": "simple",
+      "actor": "judge",
+      "object": "graphoscopy_expert_evidence",
+      "target": "complainant_party"
+    },
+    {
+      "id": "distribute_questionnaire",
+      "type": "simple",
+      "actor": "judge",
+      "object": "questionnaire",
+      "target": "other_parties"
+    },
+    {
+      "id": "expand_questionnaire",
+      "type": "simple",
+      "actor": "other_parties",
+      "object": "questionnaire",
+      "target": "judge"
+    },
+    {
+      "id": "provide_expert_names",
+      "type": "simple",
+      "actor": "coordination_forensic_services",
+      "object": "graphoscopy_expert_evidence",
+      "target": "judge"
+    },
+    {
+      "id": "present_expert",
+      "type": "simple",
+      "actor": "complainant_party",
+      "object": "graphoscopy_expert_evidence",
+      "target": "judge"
+    },
+    {
+      "id": "name_expert",
+      "type": "simple",
+      "actor": "other_parties",
+      "object": "graphoscopy_expert_evidence",
+      "target": "judge"
+    },
+    {
+      "id": "impose_fine",
+      "type": "simple",
+      "actor": "judge",
+      "object": "fine_fifty_days_minimum_wage",
+      "target": "coordination_forensic_services"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ExpertEvidenceOffered",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ExpertEvidenceAdmitted",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "other_parties",
+        "object": "questionnaire",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "coordination_forensic_services",
+        "object": "graphoscopy_expert_evidence",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "complainant_party",
+        "object": "graphoscopy_expert_evidence",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "expert_evidence_admission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ExpertEvidenceOffered"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ExpertEvidenceAdmitted"
+      }
+    },
+    {
+      "id": "questionnaire_expansion_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ExpertEvidenceAdmitted"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "other_parties",
+          "object": "questionnaire",
+          "target": "judge"
+        }
+      }
+    },
+    {
+      "id": "fine_imposition_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "coordination_forensic_services",
+          "object": "graphoscopy_expert_evidence",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "fine_fifty_days_minimum_wage",
+          "target": "coordination_forensic_services"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "expert_evidence_preparation",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "questionnaire",
+            "target": "other_parties"
+          }
+        },
+        {
+          "description": "Three days term for questionnaire expansion"
+        },
+        {
+          "description": "Official communication to Coordination of Forensic Services"
+        },
+        {
+          "description": "Three days term for expert nomination"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "complainant_party",
+            "object": "graphoscopy_expert_evidence",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "Personal notification to all parties"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Acuerdos/Acuerdo admisorio de prueba pericial/TMX_1232384_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Acuerdos/Acuerdo admisorio de prueba pericial/TMX_1232384_es.txt"
+  }
+}

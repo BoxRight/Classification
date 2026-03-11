@@ -1,0 +1,136 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "nullity_action",
+      "type": "service"
+    },
+    {
+      "id": "concluded_judgment",
+      "type": "service"
+    },
+    {
+      "id": "fraudulent_evidence",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_nullity_action",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "nullity_action",
+      "target": "civil_judge"
+    },
+    {
+      "id": "present_fraudulent_evidence",
+      "type": "counter",
+      "actor": "plaintiff",
+      "object": "fraudulent_evidence",
+      "target": "civil_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "concluded_judgment_exists",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "fraudulent_evidence_presented",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "nullity_action",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "nullity_action_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "concluded_judgment_exists"
+        },
+        {
+          "type": "certification",
+          "name": "fraudulent_evidence_presented"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "nullity_action",
+          "target": "civil_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullity_filing_procedure",
+      "steps": [
+        {
+          "description": "Identify previous judgment details"
+        },
+        {
+          "description": "Establish domicile for notifications"
+        },
+        {
+          "description": "Authorize representatives"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "nullity_action",
+            "target": "civil_judge"
+          }
+        },
+        {
+          "description": "Present factual basis"
+        },
+        {
+          "description": "Cite legal foundation"
+        },
+        {
+          "description": "Request judicial provision"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Nulidad/TMX_1596753_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Nulidad/TMX_1596753_es.txt"
+  }
+}

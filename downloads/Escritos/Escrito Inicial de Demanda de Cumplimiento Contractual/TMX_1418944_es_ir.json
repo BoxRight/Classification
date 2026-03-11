@@ -1,0 +1,149 @@
+{
+  "law": "Demanda de Cumplimiento Contractual TMX1.418.944",
+  "authority": "judicial",
+  "enacted": "2024-02-12",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    },
+    {
+      "id": "property_title",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "property",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "property_title",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_fulfillment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "sale_price",
+            "target": "defendant"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "breach_damages_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "defendant",
+            "object": "property",
+            "target": "plaintiff"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "sale_price",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_enforcement_procedure",
+      "steps": [
+        {
+          "description": "filing_initial_complaint"
+        },
+        {
+          "description": "defendant_service"
+        },
+        {
+          "description": "answer_period"
+        },
+        {
+          "description": "evidence_period"
+        },
+        {
+          "description": "final_judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Cumplimiento Contractual/TMX_1418944_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Cumplimiento Contractual/TMX_1418944_es.txt"
+  }
+}

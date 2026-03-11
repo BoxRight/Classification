@@ -1,0 +1,225 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 1063 del Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "principal_sum",
+      "type": "money"
+    },
+    {
+      "id": "ordinary_interest",
+      "type": "money"
+    },
+    {
+      "id": "default_interest",
+      "type": "money"
+    },
+    {
+      "id": "court_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_principal",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "principal_sum",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_ordinary_interest",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "ordinary_interest",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_default_interest",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "default_interest",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "court_costs",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "definitive_judgment",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "debt_obligation",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "credit_granted",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "principal_sum",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "ordinary_interest",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "default_interest",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "court_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "judgment_execution_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "definitive_judgment"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "principal_sum",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "ordinary_interest_calculation_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "debt_obligation",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "ordinary_interest",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "default_interest_calculation_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "debt_obligation",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "default_interest",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "judgment_liquidation_procedure",
+      "steps": [
+        {
+          "description": "Calculate principal amount owed"
+        },
+        {
+          "description": "Calculate ordinary interest from contract period"
+        },
+        {
+          "description": "Calculate default interest from default date"
+        },
+        {
+          "description": "Sum all amounts for total liquidation"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "court_costs",
+            "target": "defendant"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Liquidación de Sentencia/TMX_2492229_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Liquidación de Sentencia/TMX_2492229_es.txt"
+  }
+}

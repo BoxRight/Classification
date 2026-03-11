@@ -1,0 +1,122 @@
+{
+  "law": "Incidente de reposición de autos",
+  "authority": "judicial",
+  "enacted": "2024-04-17",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "case_file",
+      "type": "service"
+    },
+    {
+      "id": "initial_demand",
+      "type": "service"
+    },
+    {
+      "id": "evidence_documents",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "case_file_lost",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "legal_proceedings_initiated",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "case_file",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_secretary",
+        "object": "case_file",
+        "target": "petitioner"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "file_reconstruction_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "case_file_lost"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "case_file",
+          "target": "petitioner"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "file_reconstruction_procedure",
+      "steps": [
+        {
+          "description": "judicial_inspection_by_secretary"
+        },
+        {
+          "description": "documentary_evidence_review"
+        },
+        {
+          "description": "interlocutory_sentence_issuance"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Incidente de reposición de autos/TMX_2449934_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Incidente de reposición de autos/TMX_2449934_es.txt"
+  }
+}

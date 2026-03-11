@@ -1,0 +1,221 @@
+{
+  "law": "Demanda Oral de Filiación",
+  "authority": "judicial",
+  "enacted": "2023-11-27",
+  "imports": [
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Convención sobre los Derechos del Niño",
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff_mother",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_father",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "minor_child",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "paternity_recognition",
+      "type": "service"
+    },
+    {
+      "id": "civil_registry_inscription",
+      "type": "service"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "pregnancy_expenses",
+      "type": "money"
+    },
+    {
+      "id": "birth_expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "biological_paternity",
+      "subject": "defendant_father",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "romantic_relationship",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "pregnancy_notification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "birth_certificate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "financial_burden",
+      "subject": "plaintiff_mother",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_father",
+        "object": "paternity_recognition",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_father",
+        "object": "civil_registry_inscription",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_father",
+        "object": "legal_costs",
+        "target": "plaintiff_mother"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "paternity_recognition_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "biological_paternity",
+          "subject": "defendant_father"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant_father",
+          "object": "paternity_recognition",
+          "target": "minor_child"
+        }
+      }
+    },
+    {
+      "id": "civil_registry_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant_father",
+          "object": "paternity_recognition",
+          "target": "minor_child"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "civil_registry_inscription",
+          "target": "minor_child"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "paternity_lawsuit_procedure",
+      "steps": [
+        {
+          "description": "file_initial_complaint"
+        },
+        {
+          "description": "serve_defendant"
+        },
+        {
+          "description": "present_evidence"
+        },
+        {
+          "description": "genetic_testing"
+        },
+        {
+          "description": "issue_judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "paternity_case_timeline",
+      "timeline": [
+        {
+          "event": "romantic_relationship_start",
+          "condition": null
+        },
+        {
+          "event": "pregnancy_occurs",
+          "condition": null
+        },
+        {
+          "event": "pregnancy_notification_to_father",
+          "condition": null
+        },
+        {
+          "event": "father_refuses_responsibility",
+          "condition": null
+        },
+        {
+          "event": "relationship_ends",
+          "condition": null
+        },
+        {
+          "event": "child_birth",
+          "condition": null
+        },
+        {
+          "event": "civil_registry_inscription_mother_only",
+          "condition": null
+        },
+        {
+          "event": "paternity_lawsuit_filed",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda Oral de Filiación/TMX_2632942_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda Oral de Filiación/TMX_2632942_es.txt"
+  }
+}

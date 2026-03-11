@@ -1,0 +1,481 @@
+                                                                         http://www.tirantonline.com.mx
+
+
+Document TMX2,456,391
+
+Formulario
+Title: Contrato de alojamiento y compra de dominio web
+Issuer: Particular
+Date: 29/01/2024
+
+
+TEXT:
+
+     CONTRATO DE ALOJAMIENTO Y COMPRA DE DOMINIO WEB TMX 2.456.391
+
+
+Normativa: Artículos 2606, 2607, 2608 del Código Civil del Distrito Federal.
+
+
+Supuesto: Contrato de prestación de servicios de alojamiento y compra de dominio para el
+establecimiento de una plataforma electrónica. Incluye declaración de la personalidad de las
+partes, personas morales y cláusulas que describen el cumplimiento de las obligaciones,
+características del servicio, penas convencionales y solución de controversias.
+
+
+
+
+CONTRATO DE ALOJAMIENTO Y COMPRA DE DOMINIO DE PLATAFORMAS
+ELECTRÓNICAS QUE CELEBRADO POR PARTE DE ____________________ A LA QUE EN
+LO SUCESIVO SE LE DENOMINARA "EL CLIENTE" REPRESENTADO EN ESTE ACTO
+POR ____________________ EN SU CARACTER DE ____________________; Y POR LA OTRA
+____________________ REPRESENTADA EN ESTE ACTO POR ____________________ A
+QUIEN EN LO SUCESIVO SE LE DENOMINARA "EL PROVEDOR" AL TENOR DE LAS
+SIGUIENTES DECLARACIONES Y CLAUSULAS:
+
+DECLARACIONES
+
+I.- Declara EL CLIENTE:
+
+a) Ser una ____________________, constituida conforme a las leyes de la República Mexicana,
+dedicada conforme a su objeto social, entre otras actividades, a ____________________, con domicilio
+en ____________________ y con Registro Federal de Contribuyentes ____________________. Según
+lo acredita con el testimonio de la escritura número ____________________ de fecha
+____________________, otorgada ante la fe del Licenciado ____________________, Notario Público
+No. ____________________ de la Ciudad de ____________________. Representada en este acto por
+____________________ cuyo poder consta en la escritura pública número ____________________ de
+fecha ____________________, otorgada ante la fe del Licenciado ____________________ Notario
+
+
+
+
+                                                                                                    1/9
+Público ____________________ de ____________________, sin que exista limitación, revocación, o
+suspensión alguna, agregando que su representado está facultado jurídicamente para obligarse en
+términos del presente Contrato.
+
+b) Que, para el debido cumplimiento de sus funciones, requiere contratar ____________________ para
+____________________ durante el periodo que inicia el ____________________ 202____ y concluye
+el ____________________.
+
+c) Que el CLIENTE está interesado en la contratación de los servicios de:
+
+      Servicio de conexión a Internet a través de la capacidad portadora del PROVEEDOR.
+      Servicio de alojamiento de los Contenidos del CLIENTE en los Servidores del PROVEEDOR
+      ubicados en [...] [indicar la dirección].
+      Otros servicios consistentes en [citar todos y cada uno de los servicios adicionales en su caso].
+
+El CLIENTE está interesado en contratar dichos servicios para llevar a cabo actividades de
+____________________ electrónico mediante la presentación de productos y servicios a través de su
+página web [indicar la causa concreta].
+
+II.- Declara EL PROVEEDOR:
+
+a) Ser una ____________________, constituida conforme a las leyes de la República Mexicana,
+dedicada conforme a su objeto social, entre otras actividades, a ____________________, con domicilio
+en ____________________ y con Registro Federal de Contribuyentes ____________________. Según
+lo acredita con el testimonio de la escritura número ____________________ de fecha
+____________________, otorgada ante la fe del Licenciado ____________________, Notario Público
+No. ____________________ de la Ciudad de ____________________. Representada en este acto por
+____________________ cuyo poder consta en la escritura pública número ____________________ de
+fecha ____________________, otorgada ante la fe del Licenciado ____________________, Notario
+Público ____________________ de ____________________, sin que exista limitación, revocación, o
+suspensión alguna, agregando que su representado está facultado jurídicamente para obligarse en
+términos del presente Contrato.
+
+b) Declara ____________________ que tiene atribuciones para elaborar, desarrollar y dar
+mantenimiento a contenidos, páginas, plataformas electrónicas y sitios de internet se le soliciten, estando
+entre sus objetivos principales ____________________ para lo que cuenta con conocimiento y todos los
+medios necesarios para los efectos del cumplimiento del presente contrato, por lo que se designa a
+____________________ como responsable de ____________________ y señalando como su domicilio
+legal el ubicado en ____________________ además de contar con todos los derechos de propiedad
+respecto del dominio ____________________. Que el PROVEDOR es una empresa especializada en la
+prestación de servicios de conexión a Internet y de alojamiento de contenidos en los servidores [citar los
+servicios que presta].
+
+Reconociéndose las partes capacidad suficiente para contratar y obligarse, se conviene entre ambas
+partes el presente DE ALOJAMIENTO Y COMPRA DE DOMINIO DE PLATAFORMAS
+ELECTRÓNICAS que en el presente contrato se llamará EL SITIO WEB, que libre y espontáneamente
+sujetan a las siguientes CLÁUSULAS que a continuación se mencionan:
+
+PRIMERA. - OBJETO En virtud del Contrato el PROVEEDOR se obliga a prestar al CLIENTE los
+servicios de conexión a Internet a través de la capacidad portadora del PROVEEDOR y alojamiento de
+los contenidos del CLIENTE en los servidores del PROVEEDOR ubicados en ____________________
+así como el dominio ____________________ y alojamiento de ____________________, en adelante "
+los Servicios", en los términos y condiciones previstos en el Contrato y en todos sus Anexos.
+
+                                                                                                          2/9
+SEGUNDA. - CALIDAD DE LA PRESTACIÓN DEL SERVICIO El PROVEEDOR responderá de
+la calidad del trabajo desarrollado con la diligencia exigible a una empresa experta en la realización de
+los trabajos objeto del Contrato. Por lo que, El PROVEEDOR se obliga a gestionar y obtener, a su cargo,
+todas las licencias, permisos y autorizaciones administrativas que pudieran ser necesarias para la
+realización de los Servicios.
+
+TERCERA. - ESPECIFICACIONES DEL SERVICIO El PROVEEDOR prestará los Servicios en
+los siguientes términos y condiciones específicos:
+
+· Acceso a Internet de forma continua y sin limitaciones de tiempo a través de la capacidad portadora del
+PROVEEDOR con un caudal de ancho de banda de [indicar].
+
+· Servicio de asistencia técnica que consiste en ____________________                          mediante
+____________________ en un horario de ____________________.
+
+· El registro de un nombre de dominio en Internet ____________________, en el caso de registrarse más
+nombres de dominio tendrá un costo adicional de ____________________.
+
+· Con el fin de responder de la dirección de IP del nombre de dominio y de la máquina para intercambio
+del correo del dominio, El CLIENTE tendrá ____________________ número de entradas en los
+servidores DNS primario y secundario del PROVEEDOR.
+
+· El CLIENTE dispondrá de ____________________ número de buzones de correo
+____________________ que podrán ampliarse según tarifa ____________________, mediante aviso
+escrito al PROVEEDOR.
+
+· ____________________, ____________________, ____________________ especificados por El
+CLIENTE tendrán acceso a ____________________ número de cuentas ____________________ de
+acceso privado. Una de ellas es la cuenta principal de ____________________ y da acceso a la raíz del
+servidor. El resto pueden ser asignadas a ____________________ dentro del servidor, de modo que sólo
+tengan acceso al contenido del subdirectorio asignado. Las cuentas ____________________ de acceso
+privado podrán ampliarse según tarifa ____________________, mediante aviso escrito al
+PROVEEDOR.
+
+· El alojamiento de los Contenidos del CLIENTE en el disco duro de los servidores del PROVEEDOR
+designados en este Contrato ____________________, mediante aviso escrito al PROVEEDOR.
+mediante los protocolos HTTP para el acceso público a los contenidos del CLIENTE por los usuarios de
+Internet y ____________________ para acceso privado por el CLIENTE para acceso privado a sus
+contenidos.
+
+· La provisión de herramientas necesarias para que el CLIENTE pueda tener acceso al análisis estadístico
+de los accesos a las páginas web del CLIENTE, realizado sobres los archivos de log del servidor web.
+
+· Suministrar al CLIENTE todos los códigos, identificaciones, claves, elementos necesarios que permitan
+y den acceso a sus contenidos.
+
+· La instalación y configuración del software ____________________ de base ubicado en las
+instalaciones del PROVEEDOR que sea necesario para el funcionamiento de los servicios de conexión a
+Internet y alojamiento de los contenidos del CLIENTE.
+
+· El PROVEEDOR conforme a las indicaciones del Cliente, tendrá el control exclusivo de los accesos al
+sistema operativo de los servidores del PROVEEDOR, prestando al CLIENTE los siguientes servicios
+de administración de usuarios (i) crear, mantener y borrar usuarios y passwords del sistema operativo;
+
+                                                                                                        3/9
+(ii) crear, mantener y borrar los perfiles de usuario del sistema operativo; (iii) crear, mantener y borrar
+los scripts de login, logon de los usuarios del sistema operativo.
+
+· El PROVEEDOR se hará responsable de la actualización y mantenimiento de los componentes
+hardware, dispositivos de protección ____________________ y los sistemas operativos de los
+servidores que el PROVEEDOR proporcione al CLIENTE como parte del servicio de conexión a
+Internet y alojamiento de los contenidos del CLIENTE.
+
+CUARTA.- AUTORIZACIÓN El CLIENTE autoriza al PROVEEDOR a realizar el respaldo, copias
+de seguridad de la información y los procedimientos de recuperación regulares del contenido y su
+almacenamiento. Todo ello de la información que se genere en los servidores del PROVEEDOR en
+relación con los contenidos del CLIENTE. En el caso de que el CLIENTE deberá contar con las copias
+de seguridad que se realicen, deberá solicitarlas por escrito al PROVEEDOR. El PROVEEDOR deberá
+guardar las copias de seguridad un periodo de ____________________ después de la finalización de
+este contrato o de cualquiera de sus prórrogas, avisando al CLIENTE antes de proceder a la destrucción
+de las copias de seguridad. (o indicar si no se quiere que se guarden copias por parte del proveedor).
+
+QUINTA. - CONTENIDOS Corresponde en exclusiva al CLIENTE el control de todos los contenidos
+alojados en los servidores del PROVEEDOR, siendo la única responsable de la legalidad, idoneidad y
+exactitud de los datos. También deberá tener la licencia o cualquier permiso necesario para la utilización
+de los datos de cualquier naturaleza que ponga a disposición de los usuarios de Internet. El CLIENTE
+será la única responsable de asegurarse que los productos, servicios y materiales que ponga a disposición
+del público a través del servidor del PROVEEDOR, cumplen con la legislación aplicable a cada uno de
+ellos y será responsable de cualquier daño que puedan producir y de cualquier reclamación que se
+produzca por su utilización.
+
+SEXTA .- POLÍTICA DE USO El CLIENTE es el único responsable de determinar si los servicios que
+constituyen el objeto de este Contrato se ajustan a sus necesidades, por lo que el PROVEEDOR no
+garantiza que el servicio de alojamiento de los contenidos o la conectividad prestada se ajuste a las
+necesidades específicas del CLIENTE El PROVEEDOR no garantiza que el servicio de alojamiento de
+los contenidos o la conectividad de red puedan proporcionar capacidad suficiente para responder a
+ocasiones en las que con independencia de la voluntad de las partes aumente significativamente los
+volúmenes de demanda de uso estimados actualmente por el CLIENTE.
+
+SEXTA .- POLÍTICA DE USO El CLIENTE se obliga a hacer constar de forma clara, visible y
+accesible desde sus contenidos, sus datos identificativos y como único responsable de los contenidos,
+poniendo un aviso en sus contenidos de la Política de uso.
+
+SÉPTIMA. - VALOR DEL CONTRATO Y FORMA DE PAGO EL CLIENTE pagará al
+PRESTADOR DE SERVICIOS por la ejecución del presente contrato la suma de
+(____________________ 00/100 M.N.) El pago se realizará, tras la aceptación de los trabajos por el
+CLIENTE, mediante transferencia bancaria a la cuenta ____________________ a los
+____________________ días de la fecha de recepción de la factura ____________________.
+
+OCTAVA. - ACUERDO DE CALIDAD DE SERVICIO
+
+· Todos los Servicios prestados por el PROVEEDOR se realizarán por personal especializado en cada
+materia. El personal del PROVEEDOR acudirá previsto de todo el material necesario, adecuado y
+actualizado, para prestar los Servicios.
+
+· Las averías o el mal funcionamiento de los Servicios se comunicarán al PROVEEDOR en su domicilio
+a través de ____________________ al ____________________.
+
+
+                                                                                                          4/9
+· Los problemas y fallas se resolverán en un período máximo de ____________________ tendiendo a la
+gravedad de la incidencia: Se entiende por incidencia crítica: las incidencias que, en el marco de la
+prestación de los Servicios, afectan significativamente al CLIENTE. Se entiende por incidencia grave:
+las incidencias que, en el marco de la prestación de los Servicios, afectan moderadamente al CLIENTE.
+Se entiende por incidencia leve: las incidencias que se limitan a entorpecer la prestación de los Servicios.
+
+La reparación se realizará en los siguientes períodos máximos desde el aviso:
+
+· Incidencia crítica
+
+· Incidencia grave
+
+· Incidencia leve
+
+El estado de los Servicios se revisará ____________________ por el CLIENTE y el PROVEEDOR para
+comprobar su buen funcionamiento.
+
+NOVENA. Las partes convienen en que la vigencia del presente instrumento concluirá una vez que
+____________________ a que se refiere el presente contrato.
+
+DÉCIMA. Las partes podrán rescindir este contrato en el caso de que una de ellas incumpla en sus
+obligaciones y se abstenga de reparar dicho incumplimiento dentro de los ____________________ días
+siguientes al aviso, notificación o solicitud que la otra parte contratante le haga en el sentido de que
+proceda a cumplir las obligaciones motivo del requerimiento.
+
+DÉCIMA PRIMERA. La rescisión o terminación de este contrato no afectará de manera alguna la
+validez y exigibilidad de las obligaciones contraídas con anterioridad, las que por su naturaleza o
+disposición de la ley o por voluntad de las partes, deban diferirse a fecha posterior a la rescisión o
+terminación del contrato.
+
+DÉCIMA SEGUNDA. Ninguna de las partes podrá transferir total o parcialmente los derechos ni las
+obligaciones derivadas del presente instrumento.
+
+DÉCIMA TERCERA. Las partes reconocen la personalidad con que comparecen sus respectivos
+representantes, independientemente de lo cual EL PROVEEDOR se obliga a entregar los documentos
+notariales en que aparezcan los poderes y facultades con base en los cuales se otorga y firma este
+instrumento.
+
+DÉCIMA CUARTA. - MODIFICACIÓN Las Partes podrán modificar el contrato de mutuo acuerdo y
+por escrito.
+
+DÉCIMA QUINTA. El PROVEEDOR se obliga a no divulgar ninguno de los aspectos de EL
+CLIENTE ni proporcionar a terceras personas, verbalmente o por escrito, directa o indirectamente,
+información alguna sobre los sistemas o actividades de cualquier clase que observe en las instalaciones o
+en el desarrollo de actividades del CLIENTE.
+
+LAS PARTES se obligan mutuamente a utilizar con absoluta discreción y solo para cuestiones
+necesarias o relevantes, los datos que se proporcionan mutuamente producto de la relación que nace con
+este documento, ya que el no hacerlo será causal de rescisión del presente contrato, pactando una pena
+mínima de $____________________ (____________________ pesos 00/100) y la rescisión del
+contrato.
+
+DÉCIMA SEXTA. Es obligación deL CLIENTE proporcionar al PROVEEDOR toda la documentación
+
+                                                                                                           5/9
+y todos los elementos necesarios para el análisis, estudio y, en su caso, realización o trámite de los casos
+encomendados AL PROVEEDOR, así como colaborar con EL PROVEEDOR en cualquier solicitud de
+información o aclaración que requiera para la correcta prestación de los servicios objeto de este contrato.
+
+DÉCIMA SÉPTIMA. DESCRIPCIÓN DE LA INFRAESTRUCTURA TECNOLÓGICA: El
+diseño de página web será instalado en un servidor que almacenará la página durante
+____________________ año contado a partir de la compra del dominio ____________________ de la
+página web objeto del presente contrato.
+
+(agregar si se considera necesario) DÉCIMA OCTAVA. INSTALACIÓN EL CLIENTE y EL
+PROVEEDOR pactan como prestación de servicio la instalación del SITIO WEB resultante, teniendo en
+cuenta las siguientes consideraciones:
+
+1). La responsabilidad directa por la consecución de la infraestructura tecnológica, la configuración de
+esta y el espacio libre en disco duro que se requiera para la página web será exclusiva de EL
+PROVEEDOR;
+
+2) El SITIO WEB será instalado en la infraestructura tecnológica que se utiliza en las demás páginas
+donde se alojan las páginas web de ____________________, lo que indica que todo costo relacionado
+con la instalación llevada a cabo por los empleados de EL PROVEEDOR será cubierto por éste, librando
+de responsabilidad a EL CLIENTE.
+
+3). En el proceso de instalación de la página web en el servidor es de ____________________ horas a
+partir de la compra del dominio.
+
+4). El proceso de instalación sólo se refiere al montaje, de la herramienta final del SITIO WEB, que
+obtenga EL PROVEEDOR.
+
+5). El proceso para llevar a cabo la instalación será el siguiente:
+
+a). En comunicación escrita por medio de correo electrónico o llamada telefónica el contratista del
+proyecto enviará la petición para comenzar el procedimiento.
+
+b). En un término de dos días hábiles el encargado del proyecto, por parte de EL CLIENTE, emitirá un
+comunicado de vía libre para comenzar los trabajos y habilitará el acceso SSH o FTP a la infraestructura
+tecnológica suministrada.
+
+c). En los dos días hábiles siguientes el equipo técnico de EL PROVEEDOR revisará remotamente el
+servidor y verificará que la infraestructura acordada esté disponible para la visualización de la página.
+
+d). Se firma el acta de aceptación del servicio prestado por parte del contratante.
+
+DÉCIMA NOVENA. CAPACITACIÓN El servicio de capacitación que se presta dentro del presente
+contrato, se prestara a un grupo de ____________________ personas que EL CLIENTE DETERMINE
+PARA ESTE FIN.
+
+1) Este grupo estará conformado por los usuarios comunes de la herramienta,
+
+2). La capacitación será realizada a cuatro usuarios comunes que defina EL CLIENTE. Bajo las
+siguientes condiciones:
+
+a) EL PROVEEDOR brindará un total de ____________________ horas de capacitación, tomando un
+día laboral de 0:00 am a OO:00 m.
+
+                                                                                                           6/9
+b). La capacitación incluye la explicación del manejo de los correos electrónicos, utilizando como ayuda
+visual ejemplos concretos de situaciones reales para el manejo de la aplicación.
+
+3). En ningún caso EL PROVEEDOR dará capacitaciones a usuarios externos de la aplicación, es decir a
+clientes o personal externo del CLIENTE.
+
+d). Se da por hecho que los usuarios a ser capacitados conocen y manejan el navegador de internet, ya
+que la capacitación no incluye manejo de Software o Hardware adicional, bajo el cual pueda correr la
+página web construida por EL PROVEEDOR.
+
+e). La capacitación será brindada en las instalaciones de EL CLIENTE, en los equipos desde donde es
+accedida la herramienta, lo que significa que EL CLIENTE debe garantizar la disponibilidad de los
+recursos. Cualquier inconveniente que se presente para dicha disposición, deberá ser informado con un
+día de anticipación, so pena de que EL CLIENTE quede exento de asistir a la jornada de capacitación en
+dicho día.
+
+f). El proceso de capacitación comienza, una vez pasados 5 días calendario de la creación de la
+instalación del SITIO WEB, es decir de la puesta en marcha del sistema. Si pasado este término de
+tiempo EL CLIENTE no ha determinado la fecha de la realización de la capacitación EL PROVEEDOR
+queda libre de dicha responsabilidad.
+
+VIGÉSIMA. PUESTA EN MARCHA Como prestación del servicio de puesta en marcha, se define el
+proceso mediante el cual el producto resultante entrará en operación comercial, significando que los
+usuarios utilicen la herramienta basados en datos reales. Para ejecutar el proceso de puesta en marcha, se
+establecen como responsabilidades:
+
+a) EL CLIENTE se compromete a solicitar por escrito si desea realizar algún cambio en la página web a
+EL PROVEEDOR.
+
+b). EL CLIENTE no será responsable por información errónea, o incompleta que se encuentre registrada
+la plataforma tecnológica actual de la hecha por EL PROVEEDOR ni por los efectos que se puedan
+causar con dicha situación.
+
+c). El proceso de puesta en marcha se define siguiendo las siguientes actividades:
+
+1. Una vez terminada la instalación de la página web y firmada el acta de INSTALACIÓN DEL SITIO
+WEB por parte de EL CLIENTE, en comunicación escrita, se entenderá que el trabajo está terminado.
+
+2. En el término de quince días calendario contados desde la emisión de la comunicación de comienzo
+de la actividad, EL CLIENTE elaborará un documento asignando las prioridades sobre el tipo de
+información que tiene mayor importancia.
+
+3. EL CLIENTE se encargará de solicitar por escrito todo cambio que se requiera en la página web.
+
+4. Se realizan las pruebas con el sistema encontrando los errores, ayudados con el seguimiento de
+pruebas. EL PROVEEDOR hará las recomendaciones escritas para el correcto ingreso y
+complementación de datos al SITIO WEB objeto de este contrato.
+
+6. Una vez corregidos los errores de ingreso de información, el SITIO WEB objeto de este contrato
+pasará a las pruebas de aceptación y a la firma del acta de aceptación del servicio prestado, por parte de
+quien designe EL CLIENTE.
+
+VIGÉSIMA PRIMERA. - EL PROVEEDOR reconoce los derechos de propiedad comercial de EL
+
+                                                                                                         7/9
+CLIENTE sobre el resultado del sistema instalado. Dichos derechos protegen tanto el SITIO WEB,
+como los datos, listados, diagramas y esquemas elaborados en la fase de análisis, el manual de
+aplicación, los restantes datos y materiales de apoyo, los símbolos de identificación, las contraseñas, los
+números de usuario y los símbolos de seguridad.
+
+EL CLIENTE reconoce que el producto de la labor de programación de EL PROVEEDOR le es cedido
+por EL PROVEEDOR contratada para su uso y para su reproducción, cesión, venta, alquiler o préstamo
+y EL PROVEEDOR se compromete a CEDER AL CLIENTE su uso parcial o total y a transmitir los
+derechos que tenga sobre él en virtud de este contrato.
+
+VIGÉSIMA SEGUNDA. - RESOLUCIÓN Las Partes podrán resolver el Contrato, con derecho a la
+indemnización de daños y perjuicios causados, en caso de incumplimiento de las obligaciones
+establecidas en el mismo.
+
+VIGÉSIMA TERCERA. ACTUALIZACIÓN. En el caso de que alguna o algunas de las cláusulas del
+contrato pasen a ser inválidas, ilegales o inejecutables en virtud de alguna norma jurídica, se
+considerarán ineficaces en la medida que corresponda, pero en los demás, este contrato conservará su
+validez.
+
+Las partes contratantes acuerdan sustituir la cláusula o cláusulas afectadas por otra u otras que tengan los
+efectos económicos más semejantes a los de las sustituidas.
+
+VIGÉSIMA CUARTA. ARBITRAJE
+
+a). Como primera medida de solución a los conflictos, si los trabajos y obligaciones adquiridas por las
+partes, no pudieren realizarse normalmente, debido a fuerza mayor o caso fortuito; deberán ser
+informados (Por escrito) a la parte afectada, dentro de la vigencia del contrato. Una vez estudiados y
+aprobados se modificará el contrato mediante un acta que formará parte de este.
+
+b). Cualquier reclamo o controversia relacionado o surgido del presente contrato, será resuelto de manera
+directa por las partes, de acuerdo con el procedimiento que se expone a continuación, y cualquiera de las
+dos partes podrá iniciar dicho procedimiento mediante la entrega a la otra parte de un aviso por escrito
+conteniendo una descripción del conflicto y el monto involucrado: Tras recibir una demanda, los
+representantes autorizados de las partes contratantes se reunirán en un lugar y hora acordada para
+intentar resolver el conflicto mediante negociación. Si el conflicto sigue sin resolución después de esta
+reunión, cualquiera de las partes podrá iniciar una conciliación obligatoria, siguiendo las reglas
+necesarias mediante un árbitro autorizado en la ciudad de San Luis Potosí. Salvo cuando las partes
+contratantes hubiesen acordado renunciar a la mediación, ésta se deberá iniciar antes de empezar
+cualquier otro proceso para la resolución de conflictos.
+
+c). El árbitro tendrá su sede en la ciudad de ____________________.
+
+d). La prioridad sobre los elementos que forman parte integral del contrato se establece de la siguiente
+manera:
+
+1.- Documento de especificaciones.
+
+2.- Alcance del contrato.
+
+3.- Criterios de aceptación, propuesta presentada por el Proveedor, y las demás cláusulas que componen
+el contrato; todas definidas en cuanto no contradigan el objeto mismo del presente contrato.
+
+VIGÉSIMA QUINTA. CONFIDENCIALIDAD EL PROVEEDOR garantiza que su servidor, donde
+
+                                                                                                           8/9
+están guardados todos los datos, Información Confidencial, código de programación, esquema de base
+de datos cumple con todas las medidas de seguridad que garantizan la confidencialidad y seguridad del
+tratamiento de sus datos, y garantiza la más absoluta seguridad de la información.
+
+La información suministrada por EL CLIENTE al PROVEEDOR será manejada por este bajo los
+principios de confidencialidad y seguridad vigentes.
+
+VIGÉSIMA SÉPTIMA. LEY APLICABLE
+
+Este contrato se celebra y las obligaciones derivadas de su suscripción serán ejecutadas en territorio
+Mexicano. Por lo anterior, son las leyes de la república Mexicana las que rigen en todas sus partes el
+presente contrato y conforme a ellas deberá interpretarse así como solucionar cualquier diferencia que
+eventualmente tenga lugar entre las partes.
+
+Leído el presente contrato y para que así conste, y en prueba de conformidad y aceptación al contenido
+de este contrato, LAS PARTES firman por duplicado en la fecha y lugar indicados en cada una de las
+____________________ Páginas en tamaño oficio que constan en el presente contrato a los
+____________________ días del mes de ____________________ del año ____________________.
+
+FIRMAS
+
+
+
+
+              El Cliente                                 El Proveedor
+
+
+
+
+               Testigo                                     Testigo
+
+
+
+
+Este documento se ofrece con una finalidad informativa. Velamos por la actualidad, exactitud y
+veracidad de los mismos, si bien se advierte que no son los textos oficiales y se declina toda
+responsabilidad por los daños que puedan causarse debido a las inexactitudes o incorrecciones en los
+mismos.
+
+
+
+
+                                                                                                       9/9
+

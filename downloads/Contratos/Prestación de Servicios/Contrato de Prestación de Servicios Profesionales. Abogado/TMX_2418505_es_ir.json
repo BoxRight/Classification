@@ -1,0 +1,226 @@
+{
+  "law": "Contrato de Prestación de Servicios Profesionales. Abogado",
+  "authority": "private",
+  "enacted": "2024-04-22",
+  "imports": [
+    "Artículos 13, 15 de la Ley Federal del Trabajo",
+    "Artículo 96 de la Ley del Impuesto Sobre la Renta",
+    "Artículo 83 de la Ley Federal del Derecho de Autor",
+    "Artículos 2606, 2607, 2608 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "empresa",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "documentation",
+      "type": "service"
+    },
+    {
+      "id": "expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_legal_services",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "legal_services",
+      "target": "empresa"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "professional_fees",
+      "target": "profesionista"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "legal_services",
+      "target": "empresa"
+    },
+    {
+      "id": "divulge_information",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "confidential_information",
+      "target": "empresa"
+    },
+    {
+      "id": "provide_documentation",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "documentation",
+      "target": "profesionista"
+    },
+    {
+      "id": "pay_expenses",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "expenses",
+      "target": "profesionista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalLicense",
+      "subject": "profesionista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TaxCompliance",
+      "subject": "profesionista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "legal_services",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "professional_fees",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "confidential_information",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "documentation",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "expenses",
+        "target": "profesionista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "termination_for_breach",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "act": {
+            "ref": "breach_contract"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination",
+        "subject": "empresa"
+      }
+    },
+    {
+      "id": "confidentiality_penalty",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "act": {
+            "ref": "divulge_information"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "MonetaryPenalty",
+        "subject": "profesionista"
+      }
+    },
+    {
+      "id": "expense_reimbursement",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "type": "asset",
+          "name": "TravelRequired"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_expenses"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de Prestación de Servicios Profesionales. Abogado/TMX_2418505_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de Prestación de Servicios Profesionales. Abogado/TMX_2418505_es.txt"
+  }
+}

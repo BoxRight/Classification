@@ -1,0 +1,371 @@
+{
+  "law": "Acta constitutiva de Asociación Civil",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 2554, 2587, 2670, 2671, 2672, 2673, 2674, 2675, 2676, 2681 del Código Civil para el Distrito Federal",
+    "Artículo 11 del Reglamento de la Ley de Inversión Extranjera"
+  ],
+  "parties": [
+    {
+      "id": "asociacion_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "asociados_fundadores",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "director",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "consejo_directores",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "asamblea_asociados",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "liquidadores",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "patrimonio_social",
+      "type": "money"
+    },
+    {
+      "id": "aportaciones",
+      "type": "money"
+    },
+    {
+      "id": "bienes_asociacion",
+      "type": "movable"
+    },
+    {
+      "id": "titulos_credito",
+      "type": "movable"
+    },
+    {
+      "id": "estado_financiero",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "adquirir_bienes",
+      "type": "simple",
+      "actor": "asociacion_civil",
+      "object": "bienes_asociacion",
+      "target": "third_parties"
+    },
+    {
+      "id": "realizar_aportacion",
+      "type": "simple",
+      "actor": "asociados_fundadores",
+      "object": "aportaciones",
+      "target": "asociacion_civil"
+    },
+    {
+      "id": "administrar_asociacion",
+      "type": "simple",
+      "actor": "director",
+      "object": "asociacion_civil",
+      "target": "asociados_fundadores"
+    },
+    {
+      "id": "convocar_asamblea",
+      "type": "simple",
+      "actor": "director",
+      "object": "convocatoria",
+      "target": "asociados_fundadores"
+    },
+    {
+      "id": "excluir_asociado",
+      "type": "simple",
+      "actor": "asamblea_asociados",
+      "object": "exclusion",
+      "target": "asociado"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PersonalidadJuridica",
+      "subject": "asociacion_civil",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PatrimonioSocial",
+      "subject": "asociacion_civil",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CalidadAsociado",
+      "subject": "asociados_fundadores",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "RepresentacionLegal",
+      "subject": "director",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asociacion_civil",
+        "object": "denominacion_ac",
+        "target": "publico"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "director",
+        "object": "registro_asociados",
+        "target": "asociacion_civil"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "director",
+        "object": "estado_financiero",
+        "target": "asociados_fundadores"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asociacion_civil",
+        "object": "especulacion_comercial",
+        "target": "terceros"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asociados_fundadores",
+        "object": "derecho_voto",
+        "target": "asamblea_asociados"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "exclusion_por_desleal",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "asociado",
+          "object": "actos_desleales",
+          "target": "asociacion_civil"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "asamblea_asociados",
+          "object": "exclusion",
+          "target": "asociado"
+        }
+      }
+    },
+    {
+      "id": "exclusion_por_incapacidad",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "IncapacidadJudicial",
+          "subject": "asociado"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "asamblea_asociados",
+          "object": "exclusion",
+          "target": "asociado"
+        }
+      }
+    },
+    {
+      "id": "disolucion_por_termino",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "VencimientoPlazo"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "EstadoDisolucion",
+        "subject": "asociacion_civil"
+      }
+    },
+    {
+      "id": "convocatoria_obligatoria",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "cinco_por_ciento_asociados",
+          "object": "solicitud_convocatoria",
+          "target": "director"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "director",
+          "object": "convocatoria_asamblea",
+          "target": "asociados_fundadores"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitucion_asociacion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asociados_fundadores",
+            "object": "escritura_constitutiva",
+            "target": "notario"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asociados_fundadores",
+            "object": "registro_publico",
+            "target": "autoridad_registral"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asamblea_asociados",
+            "object": "designacion_director",
+            "target": "director"
+          }
+        }
+      ]
+    },
+    {
+      "name": "celebracion_asamblea",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "director",
+            "object": "convocatoria",
+            "target": "asociados_fundadores"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asociados_fundadores",
+            "object": "comparecencia",
+            "target": "asamblea"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asamblea_asociados",
+            "object": "votacion",
+            "target": "resoluciones"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "secretario",
+            "object": "acta_asamblea",
+            "target": "libro_actas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "liquidacion_asociacion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asamblea_asociados",
+            "object": "acuerdo_disolucion",
+            "target": "asociacion_civil"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "asamblea_asociados",
+            "object": "nombramiento_liquidadores",
+            "target": "liquidadores"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "liquidadores",
+            "object": "cobro_creditos",
+            "target": "deudores"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "liquidadores",
+            "object": "pago_deudas",
+            "target": "acreedores"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "liquidadores",
+            "object": "distribucion_remanente",
+            "target": "asociados_fundadores"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de Asociación Civil/TMX_1376731_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de Asociación Civil/TMX_1376731_es.txt"
+  }
+}

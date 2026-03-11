@@ -1,0 +1,158 @@
+{
+  "law": "Código de Procedimientos Civiles del Estado de México",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 1.165, 2.115, 1.303 del Código de Procedimientos Civiles del Estado de México",
+    "Artículos 7.1 al 7.1174 del Código Civil para el Estado de México"
+  ],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "civil_liability_claim",
+      "type": "service"
+    },
+    {
+      "id": "answer_to_complaint",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_answer",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "answer_to_complaint",
+      "target": "civil_judge"
+    },
+    {
+      "id": "deny_claims",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "civil_liability_claim",
+      "target": "plaintiff"
+    },
+    {
+      "id": "raise_exceptions",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "procedural_exceptions",
+      "target": "civil_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "CivilProceeding",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "CivilLiabilityCase",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "answer_to_complaint",
+        "target": "civil_judge"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "procedural_exceptions",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "answer_filing_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "CivilProceeding"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "answer_to_complaint",
+          "target": "civil_judge"
+        }
+      }
+    },
+    {
+      "id": "exception_raising_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "CivilLiabilityCase",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "procedural_exceptions",
+          "target": "civil_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "answer_filing_procedure",
+      "steps": [
+        {
+          "ref": "file_answer"
+        },
+        {
+          "ref": "deny_claims"
+        },
+        {
+          "ref": "raise_exceptions"
+        },
+        {
+          "description": "offer_evidence"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda de responsabilidad civil/TMX_1807436_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda de responsabilidad civil/TMX_1807436_es.txt"
+  }
+}

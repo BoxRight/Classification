@@ -1,0 +1,202 @@
+{
+  "law": "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 120 de la Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "appellant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "collegiate_circuit_court",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "superior_court_chamber",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "harmed_third_party",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "direct_amparo_demand",
+      "type": "service"
+    },
+    {
+      "id": "justified_report",
+      "type": "service"
+    },
+    {
+      "id": "bond",
+      "type": "money"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "annual_rent",
+      "type": "money"
+    },
+    {
+      "id": "court_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_amparo_demand",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "direct_amparo_demand",
+      "target": "collegiate_circuit_court"
+    },
+    {
+      "id": "render_justified_report",
+      "type": "simple",
+      "actor": "superior_court_chamber",
+      "object": "justified_report",
+      "target": "collegiate_circuit_court"
+    },
+    {
+      "id": "post_bond",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "bond",
+      "target": "superior_court_chamber"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "amparo_demand_admitted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "suspension_granted",
+      "subject": "appellant",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "bond_requirement",
+      "subject": "appellant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "superior_court_chamber",
+        "object": "justified_report",
+        "target": "collegiate_circuit_court"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant",
+        "object": "bond",
+        "target": "superior_court_chamber"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "suspension_effectiveness_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "amparo_demand_admitted"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "suspension_granted",
+        "subject": "appellant"
+      }
+    },
+    {
+      "id": "bond_posting_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "suspension_granted",
+          "subject": "appellant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "appellant",
+          "object": "bond",
+          "target": "superior_court_chamber"
+        }
+      }
+    },
+    {
+      "id": "suspension_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "appellant",
+          "object": "bond",
+          "target": "superior_court_chamber"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "suspension_loss",
+        "subject": "appellant"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "amparo_admission_procedure",
+      "steps": [
+        {
+          "ref": "file_amparo_demand"
+        },
+        {
+          "description": "court_admits_demand"
+        },
+        {
+          "ref": "render_justified_report"
+        },
+        {
+          "description": "notify_harmed_third_party"
+        },
+        {
+          "description": "decree_suspension"
+        },
+        {
+          "ref": "post_bond"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Acuerdo de admisión de demanda de amparo directo/TMX_1160106_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Acuerdo de admisión de demanda de amparo directo/TMX_1160106_es.txt"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "law": "Convenio de confidencialidad",
+  "authority": "private",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Artículos 21, 22, 23 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares"
+  ],
+  "parties": [
+    {
+      "id": "empresa",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "personal_data",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "protect_information",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "confidential_information",
+      "target": "cliente"
+    },
+    {
+      "id": "maintain_confidentiality",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "confidential_information",
+      "target": "cliente"
+    },
+    {
+      "id": "provide_information",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "confidential_information",
+      "target": "empresa"
+    },
+    {
+      "id": "divulge_information",
+      "type": "counter",
+      "actor": "empresa",
+      "object": "confidential_information",
+      "target": null
+    },
+    {
+      "id": "instruct_personnel",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "confidential_information",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ConfidentialityRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RFC_Registration",
+      "subject": "empresa",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RFC_Registration",
+      "subject": "cliente",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "InformationOwnership",
+      "subject": "cliente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "confidential_information",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": "maintain_confidentiality",
+        "type": "simple",
+        "actor": "empresa",
+        "object": "confidential_information",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": "divulge_information",
+        "type": "counter",
+        "actor": "empresa",
+        "object": "confidential_information",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": "instruct_personnel",
+        "type": "simple",
+        "actor": "empresa",
+        "object": "confidential_information",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "confidentiality_obligations",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConfidentialityRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "confidential_information",
+          "target": "cliente"
+        }
+      }
+    },
+    {
+      "id": "public_domain_exception",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PublicDomainInformation"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "confidential_information",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "legal_mandate_exception",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialMandate"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "confidential_information",
+          "target": null
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio de confidencialidad/TMX_1964036_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio de confidencialidad/TMX_1964036_es.txt"
+  }
+}

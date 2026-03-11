@@ -1,0 +1,196 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rental_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "confession_evidence",
+      "type": "service"
+    },
+    {
+      "id": "documentary_evidence",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "appear_at_hearing",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "rental_property",
+      "target": "judge"
+    },
+    {
+      "id": "fail_to_appear",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "rental_property",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LegalHearing",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RentalDispute",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "HearingDate",
+      "subject": null,
+      "value": "2024-01-04"
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "confession_evidence",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "confession_evidence",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "evidence_abandonment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "confession_evidence",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "EvidenceAbandoned"
+      }
+    },
+    {
+      "id": "precluded_rights_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "rental_property",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "RightsPrecluded"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "rental_hearing_procedure",
+      "steps": [
+        {
+          "description": "Call parties to appear before judge"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "rental_property",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "Attempt conciliation between parties"
+        },
+        {
+          "description": "Present and examine evidence"
+        },
+        {
+          "description": "Hear final arguments"
+        },
+        {
+          "description": "Schedule final judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "rental_hearing_timeline",
+      "timeline": [
+        {
+          "event": "hearing_scheduled",
+          "condition": {
+            "type": "certification",
+            "name": "RentalDispute"
+          }
+        },
+        {
+          "event": "plaintiff_appears",
+          "condition": null
+        },
+        {
+          "event": "defendant_fails_to_appear",
+          "condition": null
+        },
+        {
+          "event": "evidence_presented",
+          "condition": null
+        },
+        {
+          "event": "judgment_scheduled",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Actas/Acta de audiencia de ley en juicio de arrendamiento inmobiliario/TMX_1302679_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de audiencia de ley en juicio de arrendamiento inmobiliario/TMX_1302679_es.txt"
+  }
+}

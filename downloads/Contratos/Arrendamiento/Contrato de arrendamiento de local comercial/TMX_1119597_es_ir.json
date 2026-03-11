@@ -1,0 +1,263 @@
+{
+  "law": "Contrato de arrendamiento de local comercial",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 2389, 2399, 2340 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "arrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "arrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "local_comercial",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "penalty",
+      "type": "money"
+    },
+    {
+      "id": "utilities",
+      "type": "service"
+    },
+    {
+      "id": "insurance_policy",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "monthly_rent",
+      "target": "arrendador"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "arrendador",
+      "object": "local_comercial",
+      "target": "arrendatario"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "local_comercial",
+      "target": "arrendador"
+    },
+    {
+      "id": "pay_utilities",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "utilities",
+      "target": null
+    },
+    {
+      "id": "provide_insurance",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "insurance_policy",
+      "target": "arrendador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "lease_relation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "property_ownership",
+      "subject": "arrendador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "monthly_rent",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "local_comercial",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "utilities",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "insurance_policy",
+        "target": "arrendador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "late_payment_interest",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "monthly_rent",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "penalty",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "non_vacation_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "local_comercial",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "penalty",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "rescission_for_misuse",
+      "conditions": [
+        {
+          "description": "destinar la finca a fin diferente al estipulado"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescission_right",
+        "subject": "arrendador"
+      }
+    },
+    {
+      "id": "rescission_for_non_payment",
+      "conditions": [
+        {
+          "description": "deja de pagar rentas consecutivas"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescission_right",
+        "subject": "arrendador"
+      }
+    },
+    {
+      "id": "guarantor_obligation",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "monthly_rent",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "fiador",
+          "object": "monthly_rent",
+          "target": "arrendador"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "arrendatario",
+            "object": "local_comercial",
+            "target": "arrendador"
+          }
+        },
+        {
+          "description": "mostrar justificantes de pagos al corriente"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "arrendador",
+            "object": "deposit",
+            "target": "arrendatario"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de local comercial/TMX_1119597_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de local comercial/TMX_1119597_es.txt"
+  }
+}

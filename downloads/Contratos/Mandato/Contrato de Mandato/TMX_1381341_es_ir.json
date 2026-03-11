@@ -1,0 +1,157 @@
+{
+  "law": "Contrato de Mandato",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "mandante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "mandatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "renta_mensual",
+      "type": "money"
+    },
+    {
+      "id": "comision",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "administrar_inmueble",
+      "type": "simple",
+      "actor": "mandatario",
+      "object": "inmueble",
+      "target": "mandante"
+    },
+    {
+      "id": "celebrar_arrendamiento",
+      "type": "simple",
+      "actor": "mandatario",
+      "object": "inmueble",
+      "target": null
+    },
+    {
+      "id": "entregar_copia_contrato",
+      "type": "simple",
+      "actor": "mandatario",
+      "object": "contrato_arrendamiento",
+      "target": "mandante"
+    },
+    {
+      "id": "pagar_comision",
+      "type": "simple",
+      "actor": "mandante",
+      "object": "comision",
+      "target": "mandatario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropiestadInmueble",
+      "subject": "mandante",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "AdministracionInmueble",
+      "subject": "mandatario",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mandatario",
+        "object": "inmueble",
+        "target": "mandante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mandatario",
+        "object": "contrato_arrendamiento",
+        "target": "mandante"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mandatario",
+        "object": "inmueble",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "administracion_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropiestadInmueble",
+          "subject": "mandante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "mandatario",
+          "object": "inmueble",
+          "target": "mandante"
+        }
+      }
+    },
+    {
+      "id": "comision_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "mandatario",
+          "object": "inmueble",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "mandatario",
+          "object": "comision",
+          "target": "mandante"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Mandato/Contrato de Mandato/TMX_1381341_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Mandato/Contrato de Mandato/TMX_1381341_es.txt"
+  }
+}

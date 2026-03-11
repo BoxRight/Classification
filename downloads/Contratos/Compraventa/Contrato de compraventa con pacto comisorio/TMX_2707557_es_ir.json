@@ -1,0 +1,260 @@
+{
+  "law": "Contrato de compraventa con pacto comisorio",
+  "authority": "private",
+  "enacted": "2024-07-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    },
+    {
+      "id": "down_payment",
+      "type": "money"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    },
+    {
+      "id": "conventional_penalty",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "sale_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "buyer",
+      "object": "sale_price",
+      "target": "seller"
+    },
+    {
+      "id": "breach_obligations",
+      "type": "counter",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "buyer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "sale_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "commissory_pact_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        },
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "sale_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "penalty_retention_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "sale_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "penalty_amount",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "conventional_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "sale_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "conventional_penalty",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "seller_breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "conventional_penalty",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sale_completion",
+      "steps": [
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "deliver_possession"
+        },
+        {
+          "ref": "sell_property"
+        }
+      ]
+    },
+    {
+      "name": "breach_resolution",
+      "steps": [
+        {
+          "ref": "breach_payment"
+        },
+        {
+          "description": "automatic_contract_termination"
+        },
+        {
+          "description": "retain_payments_as_penalty"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa con pacto comisorio/TMX_2707557_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa con pacto comisorio/TMX_2707557_es.txt"
+  }
+}

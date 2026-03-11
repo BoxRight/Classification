@@ -1,0 +1,157 @@
+{
+  "law": "Código Civil para la Ciudad de México",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "leased_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "lease_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "lease_contract",
+      "target": "landlord"
+    },
+    {
+      "id": "terminate_contract",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "lease_contract",
+      "target": "tenant"
+    },
+    {
+      "id": "notify_termination",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "lease_contract",
+      "target": "tenant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "lease_contract",
+        "target": "tenant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "lease_contract",
+          "target": "tenant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination_notification",
+      "steps": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "tenant",
+            "object": "lease_contract",
+            "target": "landlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "landlord",
+            "object": "lease_contract",
+            "target": "tenant"
+          }
+        },
+        {
+          "description": "judicial_notification"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Notificación de rescisión de contrato de arrendamiento en jurisdicción voluntaria/TMX_2560908_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Notificación de rescisión de contrato de arrendamiento en jurisdicción voluntaria/TMX_2560908_es.txt"
+  }
+}

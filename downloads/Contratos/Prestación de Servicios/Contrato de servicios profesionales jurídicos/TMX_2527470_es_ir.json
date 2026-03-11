@@ -1,0 +1,222 @@
+{
+  "law": "Contrato de servicios profesionales jurídicos",
+  "authority": "private",
+  "enacted": "2023-02-27",
+  "imports": [
+    "Código Civil del Estado de Jalisco"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_fees",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "intellectual_property",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_legal_services",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "legal_services",
+      "target": "client"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "client",
+      "object": "monthly_fees",
+      "target": "service_provider"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "service_provider",
+      "object": "legal_services",
+      "target": "client"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "service_provider",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalLicense",
+      "subject": "service_provider",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "legal_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "monthly_fees",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "confidential_information",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "intellectual_property",
+        "target": "service_provider"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "legal_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "act": {
+            "ref": "provide_legal_services"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "monthly_fees",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "confidentiality_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "confidential_information",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "intellectual_property_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "intellectual_property",
+          "target": "service_provider"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de servicios profesionales jurídicos/TMX_2527470_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de servicios profesionales jurídicos/TMX_2527470_es.txt"
+  }
+}

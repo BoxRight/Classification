@@ -1,0 +1,11 @@
+thresholds:
+  role: 5
+  object: 5
+  institution: 5
+  act: 5
+  rule: 3
+paths:
+  downloads: "downloads"
+  ontology: "ontology"
+  templates: "templates"
+  normalization: "normalization"

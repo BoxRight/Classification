@@ -1,0 +1,248 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Ley del Régimen Patrimonial y Servicio Público"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "grantors",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "city_of_mexico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "urban_development_office",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "public_deed",
+      "type": "service"
+    },
+    {
+      "id": "movable_property",
+      "type": "movable"
+    },
+    {
+      "id": "identification_documents",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "inform_reading_right",
+      "type": "simple",
+      "actor": "notary",
+      "object": "reading_right_information",
+      "target": "grantors"
+    },
+    {
+      "id": "read_deed",
+      "type": "simple",
+      "actor": "notary",
+      "object": "public_deed",
+      "target": "grantors"
+    },
+    {
+      "id": "explain_legal_consequences",
+      "type": "simple",
+      "actor": "notary",
+      "object": "legal_explanation",
+      "target": "grantors"
+    },
+    {
+      "id": "sign_deed",
+      "type": "simple",
+      "actor": "grantors",
+      "object": "public_deed",
+      "target": "notary"
+    },
+    {
+      "id": "warn_false_declaration_penalties",
+      "type": "simple",
+      "actor": "notary",
+      "object": "penalty_warning",
+      "target": "grantors"
+    },
+    {
+      "id": "authorize_deed_definitively",
+      "type": "simple",
+      "actor": "notary",
+      "object": "public_deed",
+      "target": "grantors"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotaryIdentification",
+      "subject": "notary",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DocumentVerification",
+      "subject": "notary",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "GrantorComprehension",
+      "subject": "grantors",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "reading_right_information",
+        "target": "grantors"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "public_deed",
+        "target": "grantors"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "legal_explanation",
+        "target": "grantors"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "penalty_warning",
+        "target": "grantors"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "definitive_authorization",
+        "target": "city_of_mexico"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "notary_certification_requirements",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PublicDeedExecution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "certification_procedure",
+          "target": "grantors"
+        }
+      }
+    },
+    {
+      "id": "city_property_authorization_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CityPropertyTransaction"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "definitive_authorization",
+          "target": "city_of_mexico"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notary_certification_procedure",
+      "steps": [
+        {
+          "ref": "inform_reading_right"
+        },
+        {
+          "ref": "read_deed"
+        },
+        {
+          "ref": "explain_legal_consequences"
+        },
+        {
+          "ref": "warn_false_declaration_penalties"
+        },
+        {
+          "ref": "sign_deed"
+        },
+        {
+          "ref": "authorize_deed_definitively"
+        }
+      ]
+    },
+    {
+      "name": "fingerprint_signature_procedure",
+      "steps": [
+        {
+          "description": "designate_person_to_sign_on_behalf"
+        },
+        {
+          "description": "accept_signing_on_behalf"
+        },
+        {
+          "description": "apply_fingerprint"
+        },
+        {
+          "description": "sign_on_behalf"
+        },
+        {
+          "description": "witness_signature"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones en relación con la ley del notariado/TMX_1376261_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones en relación con la ley del notariado/TMX_1376261_es.txt"
+  }
+}

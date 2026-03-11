@@ -1,0 +1,229 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2023-04-21",
+  "imports": [
+    "Artículos 2606-2615 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "empresa",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "documentation",
+      "type": "service"
+    },
+    {
+      "id": "expense_reimbursement",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "professional_services",
+      "target": "empresa"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "professional_fees",
+      "target": "profesionista"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "confidential_information",
+      "target": "empresa"
+    },
+    {
+      "id": "provide_documentation",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "documentation",
+      "target": "profesionista"
+    },
+    {
+      "id": "reimburse_expenses",
+      "type": "simple",
+      "actor": "empresa",
+      "object": "expense_reimbursement",
+      "target": "profesionista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProfessionalQualification",
+      "subject": "profesionista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TaxCompliance",
+      "subject": "profesionista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "professional_services",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "professional_fees",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "confidential_information",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "documentation",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "expense_reimbursement",
+        "target": "profesionista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "provide_services"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_fees"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_confidentiality"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "profesionista",
+          "object": "penalty_fee",
+          "target": "empresa"
+        }
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "profesionista",
+            "object": "professional_services",
+            "target": "empresa"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_1858901_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_1858901_es.txt"
+  }
+}

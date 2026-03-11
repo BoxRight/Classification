@@ -1,0 +1,178 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "interested_parties",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "public_prosecutor",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "health_secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "treasury_secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "succession_assets",
+      "type": "movable"
+    },
+    {
+      "id": "petition_documents",
+      "type": "movable"
+    },
+    {
+      "id": "case_file",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "TestamentarySuccession",
+      "subject": "deceased",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CaseRegistration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "JudicialJurisdiction",
+      "subject": "judge",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "case_file",
+        "target": "petitioner"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "interested_parties",
+        "object": "succession_assets",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "public_prosecutor",
+        "object": "succession_assets",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "succession_admission_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "petition_documents",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "CaseRegistration"
+      }
+    },
+    {
+      "id": "notification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "CaseRegistration"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "succession_assets",
+          "target": "interested_parties"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "testamentary_succession_procedure",
+      "steps": [
+        {
+          "description": "File petition with documents and copies"
+        },
+        {
+          "description": "Register case file"
+        },
+        {
+          "description": "Schedule hearing under Article 790"
+        },
+        {
+          "description": "Notify interested parties"
+        },
+        {
+          "description": "Notify Public Prosecutor"
+        },
+        {
+          "description": "Notify Health Secretary"
+        },
+        {
+          "description": "Notify Treasury Secretary"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Auto admisorio de demanda de juicio sucesorio/TMX_1424517_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Auto admisorio de demanda de juicio sucesorio/TMX_1424517_es.txt"
+  }
+}

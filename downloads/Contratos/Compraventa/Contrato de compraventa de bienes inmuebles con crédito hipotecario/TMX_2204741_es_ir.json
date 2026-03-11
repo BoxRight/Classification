@@ -1,0 +1,276 @@
+{
+  "law": "Contrato de compraventa de bienes inmuebles con crédito hipotecario",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículos 2269, 2270, 2271 del Código Civil para el Distrito Federal",
+    "Ley Federal de Protección al Consumidor",
+    "Ley de Condominios para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "bank",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    },
+    {
+      "id": "down_payment",
+      "type": "money"
+    },
+    {
+      "id": "mortgage_credit",
+      "type": "money"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "promissory_notes",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "sale_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "take_possession",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "payment_default",
+      "type": "counter",
+      "actor": "buyer",
+      "object": "monthly_payment",
+      "target": "seller"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "MortgageDebt",
+      "subject": "buyer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "sale_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "property",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "property",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "payment_default_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "payment_default"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "interest_penalty",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "payment_default"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "contract_rescission",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "warranty_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PropertyDelivery"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "defect_repair",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sale_execution",
+      "steps": [
+        {
+          "ref": "sell_property"
+        },
+        {
+          "ref": "buy_property"
+        },
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "deliver_property"
+        },
+        {
+          "ref": "take_possession"
+        }
+      ]
+    },
+    {
+      "name": "rescission_procedure",
+      "steps": [
+        {
+          "description": "Notice of default"
+        },
+        {
+          "description": "Return property to seller"
+        },
+        {
+          "description": "Pay penalty and damages"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de bienes inmuebles con crédito hipotecario/TMX_2204741_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de bienes inmuebles con crédito hipotecario/TMX_2204741_es.txt"
+  }
+}

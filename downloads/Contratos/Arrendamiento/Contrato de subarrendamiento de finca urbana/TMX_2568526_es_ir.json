@@ -1,0 +1,314 @@
+{
+  "law": "Contrato de subarrendamiento de finca urbana",
+  "authority": "private",
+  "enacted": "2023-06-16",
+  "imports": [
+    "Código Civil para el Estado de Sinaloa"
+  ],
+  "parties": [
+    {
+      "id": "subarrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "subarrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "propietario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "finca_urbana",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "penalty",
+      "type": "money"
+    },
+    {
+      "id": "interest",
+      "type": "money"
+    },
+    {
+      "id": "utility_services",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "monthly_rent",
+      "target": "subarrendador"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "subarrendador",
+      "object": "finca_urbana",
+      "target": "subarrendatario"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "finca_urbana",
+      "target": "subarrendador"
+    },
+    {
+      "id": "pay_utilities",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "utility_services",
+      "target": "subarrendador"
+    },
+    {
+      "id": "maintain_property",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "finca_urbana",
+      "target": "subarrendador"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "subarrendatario",
+      "object": "monthly_rent",
+      "target": "subarrendador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SubleaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "propietario",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "OwnerAuthorization",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "subarrendador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "subarrendatario",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "GuarantorProperty",
+      "subject": "fiador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "monthly_rent",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendador",
+        "object": "finca_urbana",
+        "target": "subarrendatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "finca_urbana",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "utility_services",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "finca_urbana",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "finca_urbana",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "fiador",
+        "object": "monthly_rent",
+        "target": "subarrendador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SubleaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "monthly_rent",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "late_payment_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "subarrendatario",
+          "object": "monthly_rent",
+          "target": "subarrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "interest",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "contract_termination",
+      "conditions": [
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "guarantor_liability",
+      "conditions": [
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "fiador",
+          "object": "monthly_rent",
+          "target": "subarrendador"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "ref": "deliver_property"
+        },
+        {
+          "ref": "pay_rent"
+        },
+        {
+          "ref": "return_property"
+        }
+      ]
+    },
+    {
+      "name": "termination_process",
+      "steps": [
+        {
+          "description": "Notice of breach"
+        },
+        {
+          "description": "Contract rescission"
+        },
+        {
+          "ref": "return_property"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de subarrendamiento de finca urbana/TMX_2568526_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de subarrendamiento de finca urbana/TMX_2568526_es.txt"
+  }
+}

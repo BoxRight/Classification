@@ -1,0 +1,109 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "civil_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "answer_document",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "CivilLawsuitFiled",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalStandingChallenged",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "answer_document",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "answer_filing_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "CivilLawsuitFiled"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "answer_document",
+          "target": "civil_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_answer_procedure",
+      "steps": [
+        {
+          "description": "Challenge plaintiff's standing and right to claim"
+        },
+        {
+          "description": "Deny facts alleged in complaint"
+        },
+        {
+          "description": "Assert exceptions and defenses"
+        },
+        {
+          "description": "Offer evidence to support defense"
+        },
+        {
+          "description": "Request favorable judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda civil/TMX_1815717_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda civil/TMX_1815717_es.txt"
+  }
+}

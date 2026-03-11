@@ -1,0 +1,205 @@
+{
+  "law": "Demanda de terminación de contrato de arrendamiento de local comercial",
+  "authority": "judicial",
+  "enacted": "2017-12-21",
+  "imports": [
+    "Código Civil del Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "lease_execution",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "commercial_property",
+      "target": "tenant"
+    },
+    {
+      "id": "rent_payment",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "property_return",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "commercial_property",
+      "target": "landlord"
+    },
+    {
+      "id": "termination_notice",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "commercial_property",
+      "target": "tenant"
+    },
+    {
+      "id": "non_compliance",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "commercial_property",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TerminationNoticeReceived",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "LeaseTermExpirationDate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "commercial_property",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "commercial_property",
+        "target": "tenant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_termination_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "TerminationNoticeReceived",
+          "subject": "tenant"
+        },
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "costs_payment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "legal_costs",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "landlord",
+            "object": "commercial_property",
+            "target": "tenant"
+          }
+        },
+        {
+          "description": "judicial_notification"
+        },
+        {
+          "description": "voluntary_compliance_period"
+        },
+        {
+          "description": "judicial_demand_filing"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Demanda de terminación de contrato de arrendamiento de local comercial/TMX_1364368_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Demanda de terminación de contrato de arrendamiento de local comercial/TMX_1364368_es.txt"
+  }
+}

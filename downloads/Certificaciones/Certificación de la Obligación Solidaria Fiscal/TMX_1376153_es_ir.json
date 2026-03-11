@@ -1,0 +1,164 @@
+{
+  "law": "Código Fiscal de la Ciudad de México y Código Financiero del Estado de México",
+  "authority": "legislative",
+  "enacted": null,
+  "imports": [
+    "Artículo 48 del Código Fiscal de la Ciudad de México",
+    "Artículo 41 del Código Financiero del Estado de México"
+  ],
+  "parties": [
+    {
+      "id": "acquirer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "treasury_cdmx",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "treasury_state_mexico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate",
+      "type": "nonmovable"
+    },
+    {
+      "id": "tax_contributions",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "acquire_real_estate",
+      "type": "simple",
+      "actor": "acquirer",
+      "object": "real_estate",
+      "target": null
+    },
+    {
+      "id": "pay_contributions",
+      "type": "simple",
+      "actor": "acquirer",
+      "object": "tax_contributions",
+      "target": "treasury_cdmx"
+    },
+    {
+      "id": "notify_solidarity_obligation",
+      "type": "simple",
+      "actor": "notary",
+      "object": null,
+      "target": "acquirer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "SolidarityObligation",
+      "subject": "acquirer",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "RealEstateOwnership",
+      "subject": "acquirer",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "solidarity_obligation_cdmx",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "acquirer",
+          "object": "real_estate",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "acquirer",
+          "object": "tax_contributions",
+          "target": "treasury_cdmx"
+        }
+      }
+    },
+    {
+      "id": "solidarity_obligation_state_mexico",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "acquirer",
+          "object": "real_estate",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "acquirer",
+          "object": "tax_contributions",
+          "target": "treasury_state_mexico"
+        }
+      }
+    },
+    {
+      "id": "notary_notification_requirement",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "acquirer",
+          "object": "real_estate",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": null,
+          "target": "acquirer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_certification_process",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "acquirer",
+            "object": "real_estate",
+            "target": null
+          }
+        },
+        {
+          "ref": "notify_solidarity_obligation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación de la Obligación Solidaria Fiscal/TMX_1376153_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación de la Obligación Solidaria Fiscal/TMX_1376153_es.txt"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "law": "Contrato de copropiedad empresarial sobre negocio de farmacia",
+  "authority": "private",
+  "enacted": "2024-07-03",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "copropietario_i",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "copropietario_ii",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "negocio_farmacia",
+      "type": "nonmovable"
+    },
+    {
+      "id": "aportacion_inicial",
+      "type": "money"
+    },
+    {
+      "id": "utilidades",
+      "type": "money"
+    },
+    {
+      "id": "productos_farmaceuticos",
+      "type": "movable"
+    },
+    {
+      "id": "participacion",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "aportar_capital",
+      "type": "simple",
+      "actor": "copropietario_i",
+      "object": "aportacion_inicial",
+      "target": "negocio_farmacia"
+    },
+    {
+      "id": "administrar_negocio",
+      "type": "simple",
+      "actor": "copropietario_i",
+      "object": "negocio_farmacia",
+      "target": "copropietario_ii"
+    },
+    {
+      "id": "distribuir_utilidades",
+      "type": "simple",
+      "actor": "copropietario_i",
+      "object": "utilidades",
+      "target": "copropietario_ii"
+    },
+    {
+      "id": "transferir_participacion",
+      "type": "simple",
+      "actor": "copropietario_i",
+      "object": "participacion",
+      "target": "copropietario_ii"
+    },
+    {
+      "id": "incumplir_obligaciones",
+      "type": "counter",
+      "actor": "copropietario_i",
+      "object": "negocio_farmacia",
+      "target": "copropietario_ii"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "CopropiedadFarmacia",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "RepresentacionComun",
+      "subject": "copropietario_i",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ParticipacionProporcional",
+      "subject": "copropietario_i",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ParticipacionProporcional",
+      "subject": "copropietario_ii",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "copropietario_i",
+        "object": "aportacion_inicial",
+        "target": "negocio_farmacia"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "copropietario_ii",
+        "object": "aportacion_inicial",
+        "target": "negocio_farmacia"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "copropietario_i",
+        "object": "negocio_farmacia",
+        "target": "copropietario_ii"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "copropietario_i",
+        "object": "utilidades",
+        "target": "copropietario_ii"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "copropietario_ii",
+        "object": "utilidades",
+        "target": "copropietario_i"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "copropietario_i",
+        "object": "negocio_farmacia",
+        "target": "copropietario_ii"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "distribucion_utilidades",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CopropiedadFarmacia"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "distribuir_utilidades"
+        }
+      }
+    },
+    {
+      "id": "derecho_preferente",
+      "conditions": [
+        {
+          "ref": "transferir_participacion"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "copropietario_ii",
+          "object": "participacion",
+          "target": "copropietario_i"
+        }
+      }
+    },
+    {
+      "id": "terminacion_por_incumplimiento",
+      "conditions": [
+        {
+          "ref": "incumplir_obligaciones"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "PenaConvencional",
+        "subject": "copropietario_i"
+      }
+    },
+    {
+      "id": "responsabilidad_solidaria",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CopropiedadFarmacia"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ResponsabilidadSolidaria",
+        "subject": "copropietario_i"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "liquidacion",
+      "steps": [
+        {
+          "description": "Inventario de activos y pasivos"
+        },
+        {
+          "description": "Liquidación de pasivos"
+        },
+        {
+          "description": "Distribución de activos restantes"
+        }
+      ]
+    },
+    {
+      "name": "transferencia_participacion",
+      "steps": [
+        {
+          "description": "Notificación por escrito al representante común"
+        },
+        {
+          "description": "Comunicación a demás copropietarios"
+        },
+        {
+          "description": "Ejercicio del derecho preferente"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Copropiedad/Contrato de copropiedad empresarial sobre negocio de farmacia/TMX_2708417_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Copropiedad/Contrato de copropiedad empresarial sobre negocio de farmacia/TMX_2708417_es.txt"
+  }
+}

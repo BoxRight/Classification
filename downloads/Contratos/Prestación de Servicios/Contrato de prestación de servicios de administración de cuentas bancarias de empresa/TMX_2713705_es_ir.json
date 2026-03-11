@@ -1,0 +1,160 @@
+{
+  "law": "Contrato de prestación de servicios de administración de cuentas bancarias de empresa",
+  "authority": "private",
+  "enacted": "2024-07-23",
+  "imports": [
+    "Artículos 2606, 2607, 2608, 2609, 2610, 2611, 2612, 2613, 2614, 2615 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "empresa",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "prestador_servicios",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "servicios_administracion",
+      "type": "service"
+    },
+    {
+      "id": "honorarios_profesionales",
+      "type": "money"
+    },
+    {
+      "id": "informacion_confidencial",
+      "type": "service"
+    },
+    {
+      "id": "documentacion_empresa",
+      "type": "service"
+    },
+    {
+      "id": "cuentas_bancarias",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractualRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "ContractTerm",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "servicios_administracion",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "honorarios_profesionales",
+        "target": "prestador_servicios"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "informacion_confidencial",
+        "target": "terceros"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "incumplimiento_rescision",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "prestador_servicios",
+          "object": "servicios_administracion",
+          "target": "empresa"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContract",
+        "subject": "empresa"
+      }
+    },
+    {
+      "id": "falta_pago_rescision",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "empresa",
+          "object": "honorarios_profesionales",
+          "target": "prestador_servicios"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContract",
+        "subject": "prestador_servicios"
+      }
+    },
+    {
+      "id": "divulgacion_confidencial_rescision",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "prestador_servicios",
+          "object": "informacion_confidencial",
+          "target": "terceros"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContract",
+        "subject": "empresa"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "rescision_process",
+      "steps": [
+        {
+          "description": "Notificar por escrito a la parte incumplidora"
+        },
+        {
+          "description": "Otorgar plazo de 30 días naturales para subsanar incumplimiento"
+        },
+        {
+          "description": "Dar por rescindido el contrato si persiste el incumplimiento"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de cuentas bancarias de empresa/TMX_2713705_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de cuentas bancarias de empresa/TMX_2713705_es.txt"
+  }
+}

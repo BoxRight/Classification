@@ -1,0 +1,170 @@
+{
+  "law": "Código de Procedimientos Civiles",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "divorce_petition",
+      "type": "service"
+    },
+    {
+      "id": "property_deeds",
+      "type": "movable"
+    },
+    {
+      "id": "marriage_certificate",
+      "type": "movable"
+    },
+    {
+      "id": "complaint_appeal",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_divorce_petition",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "divorce_petition",
+      "target": "judge"
+    },
+    {
+      "id": "reject_petition",
+      "type": "simple",
+      "actor": "judge",
+      "object": "divorce_petition",
+      "target": "petitioner"
+    },
+    {
+      "id": "file_complaint_appeal",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "complaint_appeal",
+      "target": "judge"
+    },
+    {
+      "id": "submit_property_deeds",
+      "type": "counter",
+      "actor": "petitioner",
+      "object": "property_deeds",
+      "target": "judge"
+    },
+    {
+      "id": "submit_marriage_certificate",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "marriage_certificate",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "date",
+      "name": "filing_date",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "marital_property",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "property_deeds",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "complaint_appeal",
+        "target": "petitioner"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "property_documentation_requirement",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "marital_property"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "property_deeds",
+          "target": "judge"
+        }
+      }
+    },
+    {
+      "id": "verbal_warning_requirement",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "petitioner",
+          "object": "property_deeds",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "complaint_appeal",
+          "target": "petitioner"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "complaint_appeal_process",
+      "steps": [
+        {
+          "ref": "file_complaint_appeal"
+        },
+        {
+          "description": "judge_renders_report_to_superior"
+        },
+        {
+          "description": "proceed_according_to_law"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Recurso de queja por no admitir demanda pues falta presentar documentación/TMX_1380242_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Recurso de queja por no admitir demanda pues falta presentar documentación/TMX_1380242_es.txt"
+  }
+}

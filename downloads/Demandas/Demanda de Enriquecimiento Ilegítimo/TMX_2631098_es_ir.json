@@ -1,0 +1,253 @@
+{
+  "law": "Demanda de Enriquecimiento Ilegítimo",
+  "authority": "judicial",
+  "enacted": "2023-11-17",
+  "imports": [
+    "Código Civil del Estado de Querétaro",
+    "Código de Procedimientos Civiles del Estado de Querétaro"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_real_estate",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "original_company",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "land_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_payments",
+      "type": "money"
+    },
+    {
+      "id": "legal_interests",
+      "type": "money"
+    },
+    {
+      "id": "damages",
+      "type": "money"
+    },
+    {
+      "id": "court_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "enter_purchase_contract",
+      "type": "simple",
+      "actor": "original_company",
+      "object": "land_property",
+      "target": "defendant_real_estate"
+    },
+    {
+      "id": "assign_rights",
+      "type": "simple",
+      "actor": "original_company",
+      "object": "land_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "make_payments",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "purchase_payments",
+      "target": "defendant_real_estate"
+    },
+    {
+      "id": "refuse_deed_execution",
+      "type": "counter",
+      "actor": "defendant_real_estate",
+      "object": "land_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "return_payments",
+      "type": "simple",
+      "actor": "defendant_real_estate",
+      "object": "purchase_payments",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_interests",
+      "type": "simple",
+      "actor": "defendant_real_estate",
+      "object": "legal_interests",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_damages",
+      "type": "simple",
+      "actor": "defendant_real_estate",
+      "object": "damages",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_court_costs",
+      "type": "simple",
+      "actor": "defendant_real_estate",
+      "object": "court_costs",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "LandOwnership",
+      "subject": "defendant_real_estate",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PaymentsMade",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "UnlawfulEnrichment",
+      "subject": "defendant_real_estate",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_real_estate",
+        "object": "purchase_payments",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_real_estate",
+        "object": "legal_interests",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_real_estate",
+        "object": "damages",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_real_estate",
+        "object": "court_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "unlawful_enrichment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PaymentsMade"
+        },
+        {
+          "ref": "refuse_deed_execution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "return_payments"
+        }
+      }
+    },
+    {
+      "id": "damages_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "UnlawfulEnrichment"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_damages"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "judicial_claim_procedure",
+      "steps": [
+        {
+          "description": "File lawsuit for unlawful enrichment"
+        },
+        {
+          "description": "Serve defendant"
+        },
+        {
+          "description": "Present evidence"
+        },
+        {
+          "description": "Obtain judgment for payment of claims"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "unlawful_enrichment_case",
+      "timeline": [
+        {
+          "event": "Original purchase contract executed",
+          "condition": null
+        },
+        {
+          "event": "Rights assignment communicated",
+          "condition": null
+        },
+        {
+          "event": "Payments made by plaintiff",
+          "condition": null
+        },
+        {
+          "event": "Deed execution refused",
+          "condition": null
+        },
+        {
+          "event": "Lawsuit filed for unlawful enrichment",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Demandas/Demanda de Enriquecimiento Ilegítimo/TMX_2631098_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda de Enriquecimiento Ilegítimo/TMX_2631098_es.txt"
+  }
+}

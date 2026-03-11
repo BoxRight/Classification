@@ -1,0 +1,222 @@
+{
+  "law": "Demanda de usucapión - Código Civil para el Estado de Michoacán de Ocampo",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 407, 409, 410, 422, 423, 427, 428 Del Código Civil para el Estado de Michoacán de Ocampo",
+    "Artículos 46, 301, 302, 312, 313, 314 del Código de Procedimientos Civiles para el Estado de Michoacán de Ocampo"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "verbal_seller",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "property_taxes",
+      "type": "money"
+    },
+    {
+      "id": "property_improvements",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "verbal_sale",
+      "type": "simple",
+      "actor": "verbal_seller",
+      "object": "immovable_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "payment_purchase_price",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "purchase_price",
+      "target": "verbal_seller"
+    },
+    {
+      "id": "peaceful_possession",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "immovable_property",
+      "target": null
+    },
+    {
+      "id": "pay_taxes",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "property_taxes",
+      "target": null
+    },
+    {
+      "id": "make_improvements",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "property_improvements",
+      "target": "immovable_property"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "registered_ownership",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "peaceful_possession_years",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "good_faith_possession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "continuous_possession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "public_possession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "uninterrupted_possession",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "immovable_property",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "adverse_possession_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "peaceful_possession_years"
+        },
+        {
+          "type": "asset",
+          "name": "good_faith_possession"
+        },
+        {
+          "type": "asset",
+          "name": "continuous_possession"
+        },
+        {
+          "type": "asset",
+          "name": "public_possession"
+        },
+        {
+          "type": "asset",
+          "name": "uninterrupted_possession"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "adverse_possession_ownership",
+        "subject": "plaintiff"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "usucaption_lawsuit",
+      "steps": [
+        {
+          "description": "File lawsuit for adverse possession"
+        },
+        {
+          "description": "Notify interested parties"
+        },
+        {
+          "description": "Present evidence of peaceful possession"
+        },
+        {
+          "description": "Judicial inspection of property"
+        },
+        {
+          "description": "Obtain judicial declaration of ownership"
+        },
+        {
+          "description": "Register new ownership in property registry"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "adverse_possession_timeline",
+      "timeline": [
+        {
+          "event": "verbal_sale_contract",
+          "condition": null
+        },
+        {
+          "event": "payment_of_purchase_price",
+          "condition": null
+        },
+        {
+          "event": "begin_peaceful_possession",
+          "condition": null
+        },
+        {
+          "event": "continuous_possession_over_prescribed_years",
+          "condition": {
+            "type": "asset",
+            "name": "peaceful_possession_years"
+          }
+        },
+        {
+          "event": "file_usucaption_lawsuit",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Demandas/Demanda de usucapión (aplicable al estado de Michoacán)/TMX_2625764_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda de usucapión (aplicable al estado de Michoacán)/TMX_2625764_es.txt"
+  }
+}

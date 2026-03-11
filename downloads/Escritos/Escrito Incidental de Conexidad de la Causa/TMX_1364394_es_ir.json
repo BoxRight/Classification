@@ -1,0 +1,156 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lease_contract",
+      "type": "service"
+    },
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "termination_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "extension_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "connection_incident",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LegalPersonality",
+      "subject": "actor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseTerminationCase",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseExtensionCase",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ConnectionOfCauses",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "actor",
+        "object": "connection_incident",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "connection_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SameParties"
+        },
+        {
+          "type": "asset",
+          "name": "SameActions"
+        },
+        {
+          "type": "asset",
+          "name": "SameFacts"
+        },
+        {
+          "type": "asset",
+          "name": "SameInstance"
+        },
+        {
+          "type": "asset",
+          "name": "SameMatter"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "actor",
+          "object": "connection_incident",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "connection_incident_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "actor",
+            "object": "termination_lawsuit",
+            "target": "demandado"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "demandado",
+            "object": "extension_lawsuit",
+            "target": "actor"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "actor",
+            "object": "connection_incident",
+            "target": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Conexidad de la Causa/TMX_1364394_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Conexidad de la Causa/TMX_1364394_es.txt"
+  }
+}

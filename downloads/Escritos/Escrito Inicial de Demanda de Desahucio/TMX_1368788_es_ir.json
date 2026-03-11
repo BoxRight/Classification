@@ -1,0 +1,168 @@
+{
+  "law": "Demanda de Desahucio - Código Civil para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 2489 del Código Civil para el Distrito Federal",
+    "Artículo 490 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "apartment",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "apartment",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "RentArrears",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "MonthsInArrears",
+      "subject": null,
+      "value": 2
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "apartment",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "eviction_for_nonpayment",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseContract"
+        },
+        {
+          "type": "liability",
+          "name": "RentArrears",
+          "subject": "tenant"
+        },
+        {
+          "type": "numeric",
+          "name": "MonthsInArrears",
+          "value": 2
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "apartment",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "eviction_proceeding",
+      "steps": [
+        {
+          "description": "File initial eviction complaint"
+        },
+        {
+          "description": "Present evidence of ownership"
+        },
+        {
+          "description": "Present lease contract"
+        },
+        {
+          "description": "Prove rent arrears exceeding two months"
+        },
+        {
+          "description": "Request court order for eviction"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Desahucio/TMX_1368788_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Desahucio/TMX_1368788_es.txt"
+  }
+}

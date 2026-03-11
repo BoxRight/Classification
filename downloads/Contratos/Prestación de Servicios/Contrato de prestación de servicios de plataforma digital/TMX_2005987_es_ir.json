@@ -1,0 +1,268 @@
+{
+  "law": "Contrato de prestación de servicios de plataforma digital",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículos 2606-2615 del Código Civil para el Distrito Federal",
+    "Artículos 13,15 de la Ley Federal del Trabajo"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "digital_platform_services",
+      "type": "service"
+    },
+    {
+      "id": "website",
+      "type": "service"
+    },
+    {
+      "id": "contract_payment",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "digital_platform_services",
+      "target": "client"
+    },
+    {
+      "id": "pay_contract_amount",
+      "type": "simple",
+      "actor": "client",
+      "object": "contract_payment",
+      "target": "service_provider"
+    },
+    {
+      "id": "deliver_website",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "website",
+      "target": "client"
+    },
+    {
+      "id": "provide_information",
+      "type": "simple",
+      "actor": "client",
+      "object": "confidential_information",
+      "target": "service_provider"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "client",
+      "object": "digital_platform_services",
+      "target": "service_provider"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "IntellectualPropertyRights",
+      "subject": "client",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "TechnicalAutonomy",
+      "subject": "service_provider",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "digital_platform_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "contract_payment",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "confidential_information",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "contract_rights",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "digital_platform_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "contract_payment",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "confidentiality_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "confidential_information",
+          "target": "third_parties"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "installation_procedure",
+      "steps": [
+        {
+          "description": "Request installation via email or phone"
+        },
+        {
+          "description": "Client authorizes work within 2 business days"
+        },
+        {
+          "description": "Technical team reviews server within 2 business days"
+        },
+        {
+          "description": "Sign service acceptance certificate"
+        }
+      ]
+    },
+    {
+      "name": "training_procedure",
+      "steps": [
+        {
+          "description": "Training for 3 users designated by client"
+        },
+        {
+          "description": "2 hours of training provided"
+        },
+        {
+          "description": "Training begins 5 calendar days after installation"
+        }
+      ]
+    },
+    {
+      "name": "dispute_resolution_procedure",
+      "steps": [
+        {
+          "description": "Written notice of conflict"
+        },
+        {
+          "description": "Direct negotiation between representatives"
+        },
+        {
+          "description": "Mandatory conciliation with authorized arbitrator"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de plataforma digital/TMX_2005987_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de plataforma digital/TMX_2005987_es.txt"
+  }
+}

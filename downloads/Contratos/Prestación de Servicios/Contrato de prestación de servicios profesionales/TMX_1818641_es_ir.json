@@ -1,0 +1,205 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2023-04-21",
+  "imports": [
+    "Artículos 2606-2615 del Código Civil para el Distrito Federal",
+    "Artículo 83 de la Ley Federal de Derechos de Autor",
+    "Artículo 96 de la Ley del Impuesto Sobre la Renta"
+  ],
+  "parties": [
+    {
+      "id": "association",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "professional",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "developed_materials",
+      "type": "movable"
+    },
+    {
+      "id": "confidential_information",
+      "type": "movable"
+    },
+    {
+      "id": "necessary_documentation",
+      "type": "movable"
+    },
+    {
+      "id": "travel_expenses",
+      "type": "money"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "professional_qualification",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "service_contract_relation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "professional_services",
+        "target": "association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "association",
+        "object": "professional_fees",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "association",
+        "object": "necessary_documentation",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "professional_services",
+          "target": "association"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "association",
+          "object": "contract_termination",
+          "target": "professional"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "confidentiality_obligation",
+          "target": "association"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "penalty_payment",
+          "target": "association"
+        }
+      }
+    },
+    {
+      "id": "travel_expenses_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "travel_requirement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "association",
+          "object": "travel_expenses",
+          "target": "professional"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "association",
+            "object": "necessary_documentation",
+            "target": "professional"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "professional",
+            "object": "professional_services",
+            "target": "association"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "association",
+            "object": "professional_fees",
+            "target": "professional"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_1818641_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_1818641_es.txt"
+  }
+}

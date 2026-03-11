@@ -1,0 +1,243 @@
+{
+  "law": "Contrato de compraventa de esperanza",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "vendedora",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "compradora",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "finca_rustica",
+      "type": "nonmovable"
+    },
+    {
+      "id": "cosecha",
+      "type": "movable"
+    },
+    {
+      "id": "precio_total",
+      "type": "money"
+    },
+    {
+      "id": "anticipo_firma",
+      "type": "money"
+    },
+    {
+      "id": "pago_entrega",
+      "type": "money"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vender_cosecha",
+      "type": "simple",
+      "actor": "vendedora",
+      "object": "cosecha",
+      "target": "compradora"
+    },
+    {
+      "id": "pagar_anticipo",
+      "type": "simple",
+      "actor": "compradora",
+      "object": "anticipo_firma",
+      "target": "vendedora"
+    },
+    {
+      "id": "pagar_saldo",
+      "type": "simple",
+      "actor": "compradora",
+      "object": "pago_entrega",
+      "target": "vendedora"
+    },
+    {
+      "id": "invertir_anticipo",
+      "type": "simple",
+      "actor": "vendedora",
+      "object": "anticipo_firma",
+      "target": "vendedora"
+    },
+    {
+      "id": "cultivar_producto",
+      "type": "simple",
+      "actor": "vendedora",
+      "object": "cosecha",
+      "target": "vendedora"
+    },
+    {
+      "id": "entregar_cosecha",
+      "type": "simple",
+      "actor": "vendedora",
+      "object": "cosecha",
+      "target": "compradora"
+    },
+    {
+      "id": "incumplir_obligaciones",
+      "type": "counter",
+      "actor": "vendedora",
+      "object": "cosecha",
+      "target": "compradora"
+    },
+    {
+      "id": "incumplir_pago",
+      "type": "counter",
+      "actor": "compradora",
+      "object": "precio_total",
+      "target": "vendedora"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropiedadFinca",
+      "subject": "vendedora",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoEsperanza",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "CapacidadJuridica",
+      "subject": "vendedora",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "CapacidadJuridica",
+      "subject": "compradora",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedora",
+        "object": "cosecha",
+        "target": "compradora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compradora",
+        "object": "precio_total",
+        "target": "vendedora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedora",
+        "object": "anticipo_firma",
+        "target": "vendedora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedora",
+        "object": "cosecha",
+        "target": "vendedora"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "pago_anticipo_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoEsperanza"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pagar_anticipo"
+        }
+      }
+    },
+    {
+      "id": "pago_saldo_rule",
+      "conditions": [
+        {
+          "ref": "entregar_cosecha"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pagar_saldo"
+        }
+      }
+    },
+    {
+      "id": "rescision_vendedora_rule",
+      "conditions": [
+        {
+          "ref": "incumplir_obligaciones"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "compradora",
+          "object": "pena_convencional",
+          "target": "vendedora"
+        }
+      }
+    },
+    {
+      "id": "rescision_compradora_rule",
+      "conditions": [
+        {
+          "ref": "incumplir_pago"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "vendedora",
+          "object": "pena_convencional",
+          "target": "compradora"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de esperanza/TMX_2204743_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de esperanza/TMX_2204743_es.txt"
+  }
+}

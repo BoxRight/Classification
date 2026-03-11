@@ -1,0 +1,176 @@
+{
+  "law": "Contrato de constitución de servidumbre",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "propietario_a",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "propietario_b",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "predio_sirviente",
+      "type": "nonmovable"
+    },
+    {
+      "id": "predio_dominante",
+      "type": "nonmovable"
+    },
+    {
+      "id": "pared_medianera",
+      "type": "nonmovable"
+    },
+    {
+      "id": "retribucion",
+      "type": "money"
+    },
+    {
+      "id": "area_colindante",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropiedadPredioSirviente",
+      "subject": "propietario_a",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropiedadPredioDominante",
+      "subject": "propietario_b",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ServidumbreConstituida",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietario_a",
+        "object": "pared_medianera",
+        "target": "elevacion_altura"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietario_a",
+        "object": "area_colindante",
+        "target": "edificacion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietario_b",
+        "object": "retribucion",
+        "target": "propietario_a"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "constitucion_servidumbre",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropiedadPredioSirviente",
+          "subject": "propietario_a"
+        },
+        {
+          "type": "ownership",
+          "name": "PropiedadPredioDominante",
+          "subject": "propietario_b"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ServidumbreConstituida"
+      }
+    },
+    {
+      "id": "obligaciones_servidumbre",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServidumbreConstituida"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "propietario_a",
+          "object": "pared_medianera",
+          "target": "elevacion_altura"
+        }
+      }
+    },
+    {
+      "id": "pago_retribucion",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServidumbreConstituida"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "propietario_b",
+          "object": "retribucion",
+          "target": "propietario_a"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitucion_servidumbre",
+      "steps": [
+        {
+          "description": "Verificación de propiedad de ambos predios"
+        },
+        {
+          "description": "Firma del contrato de servidumbre"
+        },
+        {
+          "description": "Pago de retribución según calendario"
+        },
+        {
+          "description": "Inscripción en Registro Público de la Propiedad"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Constitución/Contrato de constitución de servidumbre/TMX_1421544_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Constitución/Contrato de constitución de servidumbre/TMX_1421544_es.txt"
+  }
+}

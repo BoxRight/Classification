@@ -1,0 +1,240 @@
+{
+  "law": "Contrato de compraventa de bien inmueble con reserva de dominio",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2228, 2230, 2311, 2312, 2313, 2314, 2315"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "first_payment",
+      "type": "money"
+    },
+    {
+      "id": "second_payment",
+      "type": "money"
+    },
+    {
+      "id": "third_payment",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PurchaseContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "first_payment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "second_payment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "third_payment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "property",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "domain_reservation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PurchaseContract"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyOwnership",
+        "subject": "seller"
+      }
+    },
+    {
+      "id": "payment_breach_rescission",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "property",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "penalty_fee",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "full_payment_transfer",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyOwnership",
+        "subject": "buyer"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_schedule",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "first_payment",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "second_payment",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "third_payment",
+            "target": "seller"
+          }
+        }
+      ]
+    },
+    {
+      "name": "notarization_process",
+      "steps": [
+        {
+          "description": "Document delivery to notary within specified days"
+        },
+        {
+          "description": "Public deed execution within 90 days"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "seller",
+            "object": "property",
+            "target": "buyer"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de bien inmueble con reserva de dominio/TMX_1795031_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de bien inmueble con reserva de dominio/TMX_1795031_es.txt"
+  }
+}

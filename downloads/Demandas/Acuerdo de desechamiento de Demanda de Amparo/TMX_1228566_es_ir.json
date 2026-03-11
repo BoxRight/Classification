@@ -1,0 +1,207 @@
+{
+  "law": "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 6, 12, 21, 61, 113 de la Ley de Amparo",
+    "Artículo 107 de la Constitución Política de los Estados Unidos Mexicanos"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff_amparo",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "district_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "commercial_plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "commercial_defendant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "third_party_company",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "amparo_demand",
+      "type": "service"
+    },
+    {
+      "id": "payment_obligation",
+      "type": "money"
+    },
+    {
+      "id": "seized_assets",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_amparo",
+      "type": "simple",
+      "actor": "plaintiff_amparo",
+      "object": "amparo_demand",
+      "target": "district_judge"
+    },
+    {
+      "id": "order_payment",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "payment_obligation",
+      "target": "commercial_defendant"
+    },
+    {
+      "id": "seize_assets",
+      "type": "simple",
+      "actor": "executor",
+      "object": "seized_assets",
+      "target": "third_party_company"
+    },
+    {
+      "id": "dismiss_amparo",
+      "type": "simple",
+      "actor": "district_judge",
+      "object": "amparo_demand",
+      "target": "plaintiff_amparo"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "CommercialJudgment",
+      "subject": "civil_judge",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "AssetOwnership",
+      "subject": "third_party_company",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalStanding",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff_amparo",
+        "object": "amparo_demand",
+        "target": "district_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "amparo_standing_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "LegalStanding"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff_amparo",
+          "object": "amparo_demand",
+          "target": "district_judge"
+        }
+      }
+    },
+    {
+      "id": "dismissal_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "plaintiff_amparo",
+          "object": "amparo_demand",
+          "target": "district_judge"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "district_judge",
+          "object": "amparo_demand",
+          "target": "plaintiff_amparo"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "amparo_dismissal_procedure",
+      "steps": [
+        {
+          "ref": "file_amparo"
+        },
+        {
+          "description": "examine_demand"
+        },
+        {
+          "description": "determine_standing"
+        },
+        {
+          "ref": "dismiss_amparo"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "amparo_dismissal_scenario",
+      "timeline": [
+        {
+          "event": "amparo_filed",
+          "condition": null
+        },
+        {
+          "event": "lack_of_standing_determined",
+          "condition": {
+            "type": "capability",
+            "name": "LegalStanding"
+          }
+        },
+        {
+          "event": "amparo_dismissed",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Demandas/Acuerdo de desechamiento de Demanda de Amparo/TMX_1228566_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Acuerdo de desechamiento de Demanda de Amparo/TMX_1228566_es.txt"
+  }
+}

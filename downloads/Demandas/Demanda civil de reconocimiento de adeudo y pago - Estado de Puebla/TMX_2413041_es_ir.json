@@ -1,0 +1,210 @@
+{
+  "law": "Demanda civil de reconocimiento de adeudo y pago - Estado de Puebla",
+  "authority": "judicial",
+  "enacted": "2022-04-29",
+  "imports": [
+    "Código de Procedimientos Civiles del Estado de Puebla",
+    "Código Civil Vigente para el Estado",
+    "Ley Orgánica del Poder Judicial del Estado"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "principal_debt",
+      "type": "money"
+    },
+    {
+      "id": "ordinary_interests",
+      "type": "money"
+    },
+    {
+      "id": "moratory_interests",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "recognize_debt",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "principal_debt",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_principal",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "principal_debt",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_ordinary_interests",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "ordinary_interests",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_moratory_interests",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "moratory_interests",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "legal_costs",
+      "target": "plaintiff"
+    },
+    {
+      "id": "default_payment",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "principal_debt",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "ContractualDebt",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PaymentDefault",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "principal_debt",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "ordinary_interests",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "moratory_interests",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "moratory_interest_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "PaymentDefault",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "moratory_interests",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "ordinary_interest_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ContractualDebt",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "ordinary_interests",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_lawsuit_procedure",
+      "steps": [
+        {
+          "description": "filing_complaint"
+        },
+        {
+          "description": "service_of_process"
+        },
+        {
+          "description": "conciliation_hearing"
+        },
+        {
+          "description": "answer_to_complaint"
+        },
+        {
+          "description": "evidence_phase"
+        },
+        {
+          "description": "final_judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda civil de reconocimiento de adeudo y pago - Estado de Puebla/TMX_2413041_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda civil de reconocimiento de adeudo y pago - Estado de Puebla/TMX_2413041_es.txt"
+  }
+}

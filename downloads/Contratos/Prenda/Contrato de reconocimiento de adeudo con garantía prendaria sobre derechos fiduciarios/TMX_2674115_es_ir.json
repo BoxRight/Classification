@@ -1,0 +1,261 @@
+{
+  "law": "Contrato de reconocimiento de adeudo con garantía prendaria sobre derechos fiduciarios",
+  "authority": "private",
+  "enacted": "2024-04-19",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 1796, 1796bis, 1797"
+  ],
+  "parties": [
+    {
+      "id": "acreedor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deudor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "debt_amount",
+      "type": "money"
+    },
+    {
+      "id": "fiduciary_rights",
+      "type": "service"
+    },
+    {
+      "id": "first_payment",
+      "type": "money"
+    },
+    {
+      "id": "second_payment",
+      "type": "money"
+    },
+    {
+      "id": "third_payment",
+      "type": "money"
+    },
+    {
+      "id": "fourth_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_debt",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "debt_amount",
+      "target": "acreedor"
+    },
+    {
+      "id": "provide_guarantee",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "fiduciary_rights",
+      "target": "acreedor"
+    },
+    {
+      "id": "make_first_payment",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "first_payment",
+      "target": "acreedor"
+    },
+    {
+      "id": "make_second_payment",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "second_payment",
+      "target": "acreedor"
+    },
+    {
+      "id": "make_third_payment",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "third_payment",
+      "target": "acreedor"
+    },
+    {
+      "id": "make_fourth_payment",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "fourth_payment",
+      "target": "acreedor"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "deudor",
+      "object": "debt_amount",
+      "target": "acreedor"
+    },
+    {
+      "id": "execute_guarantee",
+      "type": "simple",
+      "actor": "acreedor",
+      "object": "fiduciary_rights",
+      "target": "deudor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "debt_recognition",
+      "subject": "deudor",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "fiduciary_guarantee",
+      "subject": "acreedor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "contract_validity",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deudor",
+        "object": "first_payment",
+        "target": "acreedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deudor",
+        "object": "second_payment",
+        "target": "acreedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deudor",
+        "object": "third_payment",
+        "target": "acreedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deudor",
+        "object": "fourth_payment",
+        "target": "acreedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deudor",
+        "object": "fiduciary_rights",
+        "target": "acreedor"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "acreedor",
+        "object": "fiduciary_rights",
+        "target": "deudor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_consequence_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "deudor",
+          "object": "debt_amount",
+          "target": "acreedor"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "acreedor",
+          "object": "fiduciary_rights",
+          "target": "deudor"
+        }
+      }
+    },
+    {
+      "id": "full_payment_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "deudor",
+          "object": "debt_amount",
+          "target": "acreedor"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "guarantee_release"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_schedule",
+      "steps": [
+        {
+          "ref": "make_first_payment"
+        },
+        {
+          "ref": "make_second_payment"
+        },
+        {
+          "ref": "make_third_payment"
+        },
+        {
+          "ref": "make_fourth_payment"
+        }
+      ]
+    },
+    {
+      "name": "guarantee_execution",
+      "steps": [
+        {
+          "description": "verify_breach"
+        },
+        {
+          "ref": "execute_guarantee"
+        },
+        {
+          "description": "recover_amount"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prenda/Contrato de reconocimiento de adeudo con garantía prendaria sobre derechos fiduciarios/TMX_2674115_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prenda/Contrato de reconocimiento de adeudo con garantía prendaria sobre derechos fiduciarios/TMX_2674115_es.txt"
+  }
+}

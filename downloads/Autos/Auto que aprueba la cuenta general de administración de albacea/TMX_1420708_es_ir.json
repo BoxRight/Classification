@@ -1,0 +1,114 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "albacea",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "interesados",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "cuenta_general_administracion",
+      "type": "service"
+    },
+    {
+      "id": "proceso_sucesorio",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "presentar_cuenta",
+      "type": "simple",
+      "actor": "albacea",
+      "object": "cuenta_general_administracion",
+      "target": "juez"
+    },
+    {
+      "id": "aprobar_cuenta",
+      "type": "simple",
+      "actor": "juez",
+      "object": "cuenta_general_administracion",
+      "target": "albacea"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "SucesorshipProcess",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "aprobacion_cuenta_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "SucesorshipProcess"
+        },
+        {
+          "type": "simple",
+          "actor": "albacea",
+          "object": "cuenta_general_administracion",
+          "target": "juez"
+        },
+        {
+          "type": "counter",
+          "actor": "interesados",
+          "object": "cuenta_general_administracion",
+          "target": "albacea"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "juez",
+          "object": "cuenta_general_administracion",
+          "target": "albacea"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "aprobacion_cuenta_administracion",
+      "steps": [
+        {
+          "ref": "presentar_cuenta"
+        },
+        {
+          "description": "periodo_impugnacion_interesados"
+        },
+        {
+          "ref": "aprobar_cuenta"
+        },
+        {
+          "description": "notificar_decision"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que aprueba la cuenta general de administración de albacea/TMX_1420708_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que aprueba la cuenta general de administración de albacea/TMX_1420708_es.txt"
+  }
+}

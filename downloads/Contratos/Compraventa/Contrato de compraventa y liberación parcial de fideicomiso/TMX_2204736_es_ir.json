@@ -1,0 +1,178 @@
+{
+  "law": "Contrato de compraventa y liberación parcial de fideicomiso",
+  "authority": "private",
+  "enacted": "2024-01-17",
+  "imports": [
+    "Artículo 104 de la Ley del Notariado para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "fiduciary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "purchaser",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property_lot",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "trust_certificate",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_property",
+      "type": "simple",
+      "actor": "fiduciary",
+      "object": "property_lot",
+      "target": "purchaser"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "purchaser",
+      "object": "purchase_price",
+      "target": "fiduciary"
+    },
+    {
+      "id": "partial_release",
+      "type": "simple",
+      "actor": "fiduciary",
+      "object": "trust_certificate",
+      "target": "purchaser"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "purchaser",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "TrustRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyTitle",
+      "subject": "purchaser",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "fiduciary",
+        "object": "property_lot",
+        "target": "purchaser"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "purchaser",
+        "object": "purchase_price",
+        "target": "fiduciary"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "purchaser",
+        "object": "transaction_costs",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "property_transfer_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "purchaser",
+          "object": "purchase_price",
+          "target": "fiduciary"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyOwnership",
+        "subject": "purchaser"
+      }
+    },
+    {
+      "id": "trust_partial_release_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "TrustRelation"
+        },
+        {
+          "ref": "transfer_property"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "PropertyTitle",
+        "subject": "purchaser"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sale_and_trust_release_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "purchaser",
+            "object": "purchase_price",
+            "target": "fiduciary"
+          }
+        },
+        {
+          "ref": "transfer_property"
+        },
+        {
+          "ref": "partial_release"
+        },
+        {
+          "description": "payment of transaction costs by purchaser"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa y liberación parcial de fideicomiso/TMX_2204736_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa y liberación parcial de fideicomiso/TMX_2204736_es.txt"
+  }
+}

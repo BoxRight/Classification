@@ -1,0 +1,179 @@
+{
+  "law": "Contrato de prestación de servicios profesionales jurídicos",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "prestador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_legal_services",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "legal_services",
+      "target": "cliente"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "professional_fees",
+      "target": "prestador"
+    },
+    {
+      "id": "pay_expenses",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "expenses",
+      "target": "prestador"
+    },
+    {
+      "id": "inform_progress",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "legal_services",
+      "target": "cliente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "legal_capacity",
+      "subject": "cliente",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "professional_capacity",
+      "subject": "prestador",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "service_contract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "legal_services",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "professional_fees",
+        "target": "prestador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "expenses",
+        "target": "prestador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "legal_services",
+        "target": "cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "provide_legal_services"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_fees"
+        }
+      }
+    },
+    {
+      "id": "expense_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_expenses"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales jurídicos/TMX_1445093_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales jurídicos/TMX_1445093_es.txt"
+  }
+}

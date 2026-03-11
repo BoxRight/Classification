@@ -1,0 +1,244 @@
+{
+  "law": "Ley de Inversión Extranjera",
+  "authority": "administrative",
+  "enacted": "1993-12-27",
+  "imports": [
+    "Artículos 32, 33, 34 de la Ley de Inversión Extranjera",
+    "Artículos 42, 43, 44 del Reglamento de la Ley de Inversión Extranjera y del Registro Nacional de Inversiones Extranjeras"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "foreign_investor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "mexican_company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "foreign_company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "rnie",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rnie_registration",
+      "type": "service"
+    },
+    {
+      "id": "registration_application",
+      "type": "service"
+    },
+    {
+      "id": "annual_renewal",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "register_in_rnie",
+      "type": "simple",
+      "actor": "foreign_investor",
+      "object": "rnie_registration",
+      "target": "rnie"
+    },
+    {
+      "id": "verify_registration",
+      "type": "simple",
+      "actor": "notary",
+      "object": "rnie_registration",
+      "target": "foreign_investor"
+    },
+    {
+      "id": "notify_omission",
+      "type": "simple",
+      "actor": "notary",
+      "object": "registration_application",
+      "target": "rnie"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ForeignInvestmentParticipation",
+      "subject": "mexican_company",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RNIERegistration",
+      "subject": "foreign_investor",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "FortyDayDeadline",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "TenDayNotificationDeadline",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "foreign_investor",
+        "object": "rnie_registration",
+        "target": "rnie"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "rnie_registration",
+        "target": "foreign_investor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "registration_application",
+        "target": "rnie"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "registration_obligation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ForeignInvestmentParticipation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "foreign_investor",
+          "object": "rnie_registration",
+          "target": "rnie"
+        }
+      }
+    },
+    {
+      "id": "notary_verification_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "foreign_investor",
+            "object": "rnie_registration",
+            "target": "notary"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "rnie_registration",
+          "target": "foreign_investor"
+        }
+      }
+    },
+    {
+      "id": "notification_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "foreign_investor",
+            "object": "rnie_registration",
+            "target": "notary"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "registration_application",
+          "target": "rnie"
+        }
+      }
+    },
+    {
+      "id": "annual_renewal_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "RNIERegistration"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "foreign_investor",
+          "object": "annual_renewal",
+          "target": "rnie"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "foreign_investment_certification",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "rnie_registration",
+            "target": "foreign_investor"
+          }
+        },
+        {
+          "description": "If registration not proven within 10 business days"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "registration_application",
+            "target": "rnie"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación de inversión extranjera/TMX_1376166_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación de inversión extranjera/TMX_1376166_es.txt"
+  }
+}

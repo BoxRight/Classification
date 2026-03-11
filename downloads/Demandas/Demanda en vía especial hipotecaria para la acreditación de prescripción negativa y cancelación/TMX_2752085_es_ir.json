@@ -1,0 +1,188 @@
+{
+  "law": "Demanda en vía especial hipotecaria para la acreditación de prescripción negativa y cancelación de hipoteca",
+  "authority": "judicial",
+  "enacted": "2024-11-12",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "creditor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "mortgage",
+      "type": "service"
+    },
+    {
+      "id": "credit_obligation",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "constitute_mortgage",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "mortgage",
+      "target": "creditor"
+    },
+    {
+      "id": "exercise_collection_action",
+      "type": "counter",
+      "actor": "creditor",
+      "object": "credit_obligation",
+      "target": "plaintiff"
+    },
+    {
+      "id": "declare_negative_prescription",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "credit_obligation",
+      "target": "plaintiff"
+    },
+    {
+      "id": "cancel_mortgage_registration",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "mortgage",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "MortgageObligation",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "TenYearPrescriptionPeriod",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyRegistration",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "credit_obligation",
+        "target": "civil_judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_judge",
+        "object": "mortgage",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "negative_prescription_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "TenYearPrescriptionPeriod"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "creditor",
+            "object": "credit_obligation",
+            "target": "plaintiff"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ExtinctionOfObligation",
+        "subject": "plaintiff"
+      }
+    },
+    {
+      "id": "mortgage_extinction_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ExtinctionOfObligation",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "MortgageCancellation"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "special_mortgage_proceeding",
+      "steps": [
+        {
+          "description": "File lawsuit for negative prescription"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "civil_judge",
+            "object": "credit_obligation",
+            "target": "plaintiff"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "civil_judge",
+            "object": "mortgage",
+            "target": "plaintiff"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda en vía especial hipotecaria para la acreditación de prescripción negativa y cancelación/TMX_2752085_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda en vía especial hipotecaria para la acreditación de prescripción negativa y cancelación/TMX_2752085_es.txt"
+  }
+}

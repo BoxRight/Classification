@@ -1,0 +1,245 @@
+{
+  "law": "Acta constitutiva de Sociedad Civil. Consultoría",
+  "authority": "private",
+  "enacted": "2023-10-25",
+  "imports": [
+    "Artículos 2693-2728 del Código Civil para el Estado de Hidalgo"
+  ],
+  "parties": [
+    {
+      "id": "society",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "partners",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "administration_committee",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "partner_administrator",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "social_capital",
+      "type": "money"
+    },
+    {
+      "id": "social_parts",
+      "type": "movable"
+    },
+    {
+      "id": "consultation_services",
+      "type": "service"
+    },
+    {
+      "id": "political_consultation",
+      "type": "service"
+    },
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "marketing_services",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "contribute_capital",
+      "type": "simple",
+      "actor": "partners",
+      "object": "social_capital",
+      "target": "society"
+    },
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "society",
+      "object": "consultation_services",
+      "target": null
+    },
+    {
+      "id": "transfer_social_parts",
+      "type": "simple",
+      "actor": "partners",
+      "object": "social_parts",
+      "target": "partners"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SocietyConstitution",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SocialCapital",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MexicanNationality",
+      "subject": "society",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalRepresentation",
+      "subject": "administration_committee",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "Administration",
+      "subject": "partner_administrator",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "partners",
+        "object": "social_capital",
+        "target": "society"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "partners",
+        "object": "warranty_obligations",
+        "target": "society"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "partners",
+        "object": "social_parts",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "unanimous_consent_modification",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SocietyConstitution"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "ContractModification",
+        "subject": "partners"
+      }
+    },
+    {
+      "id": "capital_increase_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "AssemblyAgreement"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "CapitalIncrease",
+        "subject": "society"
+      }
+    },
+    {
+      "id": "transfer_restriction_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SocialParts"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "partners",
+          "object": "social_parts",
+          "target": "third_parties"
+        }
+      }
+    },
+    {
+      "id": "administration_appointment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "GeneralAssemblyDecision"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "Administration",
+        "subject": "administration_committee"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "society_constitution",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "partners",
+            "object": "social_capital",
+            "target": "society"
+          }
+        },
+        {
+          "description": "Designate administration"
+        },
+        {
+          "description": "Register in Public Commerce Registry"
+        }
+      ]
+    },
+    {
+      "name": "capital_modification",
+      "steps": [
+        {
+          "description": "General Assembly agreement"
+        },
+        {
+          "description": "Statute modification"
+        },
+        {
+          "description": "Notarial inscription"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de Sociedad Civil. Consultoría/TMX_2628401_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de Sociedad Civil. Consultoría/TMX_2628401_es.txt"
+  }
+}

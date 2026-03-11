@@ -1,0 +1,103 @@
+{
+  "law": "Carta responsiva para la participación en actividades recreativas de riesgo",
+  "authority": "private",
+  "enacted": "2024-05-15",
+  "imports": [
+    "Código Civil Federal artículo 1915"
+  ],
+  "parties": [
+    {
+      "id": "participant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "company_organization",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "offroad_tour",
+      "type": "service"
+    },
+    {
+      "id": "vehicle",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "mental_physical_faculties",
+      "subject": "participant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "no_cardiac_problems",
+      "subject": "participant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "no_back_injuries",
+      "subject": "participant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "participant",
+        "object": "offroad_tour",
+        "target": "company_organization"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "liability_release_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "participant",
+          "object": "offroad_tour",
+          "target": "company_organization"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "damage_liability_release",
+        "subject": "company_organization"
+      }
+    },
+    {
+      "id": "assumption_of_risk_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "participant",
+          "object": "offroad_tour",
+          "target": "company_organization"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "personal_risk_assumption",
+        "subject": "participant"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Cartas/Carta responsiva para la participación en actividades recreativas de riesgo/TMX_2603567_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cartas/Carta responsiva para la participación en actividades recreativas de riesgo/TMX_2603567_es.txt"
+  }
+}

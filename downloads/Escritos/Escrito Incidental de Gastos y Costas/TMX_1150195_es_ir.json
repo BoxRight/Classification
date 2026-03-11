@@ -1,0 +1,113 @@
+{
+  "law": "Escrito Incidental de Gastos y Costas",
+  "authority": "judicial",
+  "enacted": "2024-04-10",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gastos_y_costas",
+      "type": "money"
+    },
+    {
+      "id": "planilla_gastos",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "iniciar_incidente",
+      "type": "simple",
+      "actor": "actor",
+      "object": "gastos_y_costas",
+      "target": "juez"
+    },
+    {
+      "id": "dar_vista",
+      "type": "simple",
+      "actor": "juez",
+      "object": "planilla_gastos",
+      "target": "demandado"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "representacion_legal",
+      "subject": "actor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "actor",
+        "object": "gastos_y_costas",
+        "target": "demandado"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "incidente_gastos_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "representacion_legal",
+          "subject": "actor"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "actor",
+          "object": "gastos_y_costas",
+          "target": "demandado"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "incidente_gastos_y_costas",
+      "steps": [
+        {
+          "ref": "iniciar_incidente"
+        },
+        {
+          "ref": "dar_vista"
+        },
+        {
+          "description": "manifestar_derechos_demandado"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Gastos y Costas/TMX_1150195_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Gastos y Costas/TMX_1150195_es.txt"
+  }
+}

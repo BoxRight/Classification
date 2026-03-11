@@ -1,0 +1,214 @@
+{
+  "law": "Contrato de prestación de servicios de administración de nómina",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Ley Federal del Trabajo",
+    "Ley del Impuesto Sobre la Renta",
+    "Ley Federal del Derecho de Autor"
+  ],
+  "parties": [
+    {
+      "id": "empresa",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "payroll_administration_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_fees",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "work_materials",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "payroll_administration_services",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "monthly_fees",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "work_materials",
+        "target": "empresa"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "empresa",
+        "object": "necessary_documentation",
+        "target": "profesionista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "profesionista",
+          "object": "payroll_administration_services",
+          "target": "empresa"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "monthly_fees",
+          "target": "profesionista"
+        }
+      }
+    },
+    {
+      "id": "breach_rescission_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "profesionista",
+            "object": "payroll_administration_services",
+            "target": "empresa"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "empresa",
+          "object": "contract_rescission",
+          "target": "profesionista"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "profesionista",
+            "object": "confidential_information",
+            "target": "third_parties"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "liability",
+        "act": {
+          "type": "simple",
+          "actor": "profesionista",
+          "object": "penalty_payment",
+          "target": "empresa"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payroll_administration",
+      "steps": [
+        {
+          "description": "Calculate and prepare payroll"
+        },
+        {
+          "description": "Process payroll payments"
+        },
+        {
+          "description": "Issue payroll receipts"
+        },
+        {
+          "description": "Process IMSS registrations"
+        },
+        {
+          "description": "Calculate and pay employer-employee contributions"
+        },
+        {
+          "description": "Prepare annual salary declarations"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de nómina/TMX_2536317_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de nómina/TMX_2536317_es.txt"
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "law": "Contrato de renta vitalicia",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículos 2774, 2775, 2776 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "pensionista",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deudor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deudor_heirs",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "notarization_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_property",
+      "type": "simple",
+      "actor": "pensionista",
+      "object": "property",
+      "target": "deudor"
+    },
+    {
+      "id": "pay_monthly_rent",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "monthly_payment",
+      "target": "pensionista"
+    },
+    {
+      "id": "pay_notarization_costs",
+      "type": "simple",
+      "actor": "pensionista",
+      "object": "notarization_costs",
+      "target": null
+    },
+    {
+      "id": "pay_notarization_costs_deudor",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "notarization_costs",
+      "target": null
+    },
+    {
+      "id": "heirs_pay_rent",
+      "type": "simple",
+      "actor": "deudor_heirs",
+      "object": "monthly_payment",
+      "target": "pensionista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "pensionista",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LifeAnnuityContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PensionistAlive",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "DeudorDeceased",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "pensionista",
+        "object": "property",
+        "target": "deudor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deudor",
+        "object": "monthly_payment",
+        "target": "pensionista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "monthly_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LifeAnnuityContract"
+        },
+        {
+          "type": "asset",
+          "name": "PensionistAlive"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "deudor",
+          "object": "monthly_payment",
+          "target": "pensionista"
+        }
+      }
+    },
+    {
+      "id": "heirs_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LifeAnnuityContract"
+        },
+        {
+          "type": "asset",
+          "name": "DeudorDeceased"
+        },
+        {
+          "type": "asset",
+          "name": "PensionistAlive"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "deudor_heirs",
+          "object": "monthly_payment",
+          "target": "pensionista"
+        }
+      }
+    },
+    {
+      "id": "cost_sharing_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LifeAnnuityContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "pensionista",
+          "object": "notarization_costs",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "cost_sharing_rule_deudor",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LifeAnnuityContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "deudor",
+          "object": "notarization_costs",
+          "target": null
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Renta Vitalicia/Contrato de renta vitalicia/TMX_1788029_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Renta Vitalicia/Contrato de renta vitalicia/TMX_1788029_es.txt"
+  }
+}

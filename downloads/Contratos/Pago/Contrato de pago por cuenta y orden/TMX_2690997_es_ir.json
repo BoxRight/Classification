@@ -1,0 +1,197 @@
+{
+  "law": "Contrato de pago por cuenta y orden",
+  "authority": "private",
+  "enacted": "2024-05-30",
+  "imports": [
+    "Artículos 1896, 1897, 1899, 1900, 1901, 1902, 1903 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "agente_de_pago",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "fondos_pago",
+      "type": "money"
+    },
+    {
+      "id": "comision",
+      "type": "money"
+    },
+    {
+      "id": "gastos_adicionales",
+      "type": "money"
+    },
+    {
+      "id": "documentacion_pagos",
+      "type": "service"
+    },
+    {
+      "id": "registro_pagos",
+      "type": "service"
+    },
+    {
+      "id": "pagos_terceros",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoPagoVigente",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "agente_de_pago",
+        "object": "pagos_terceros",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "agente_de_pago",
+        "object": "registro_pagos",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "agente_de_pago",
+        "object": "documentacion_pagos",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "fondos_pago",
+        "target": "agente_de_pago"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "comision",
+        "target": "agente_de_pago"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "gastos_adicionales",
+        "target": "agente_de_pago"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "obligaciones_agente",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoPagoVigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "agente_de_pago",
+          "object": "pagos_terceros",
+          "target": "cliente"
+        }
+      }
+    },
+    {
+      "id": "obligaciones_cliente",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoPagoVigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cliente",
+          "object": "fondos_pago",
+          "target": "agente_de_pago"
+        }
+      }
+    },
+    {
+      "id": "resolucion_incumplimiento",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cliente",
+          "object": "fondos_pago",
+          "target": "agente_de_pago"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContratoTerminado"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_pago",
+      "steps": [
+        {
+          "description": "Cliente provee fondos necesarios"
+        },
+        {
+          "description": "Cliente indica detalles de pagos"
+        },
+        {
+          "description": "Agente realiza pagos a terceros"
+        },
+        {
+          "description": "Agente mantiene registro detallado"
+        },
+        {
+          "description": "Agente proporciona documentación"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Pago/Contrato de pago por cuenta y orden/TMX_2690997_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Pago/Contrato de pago por cuenta y orden/TMX_2690997_es.txt"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "law": "Código Civil para el Distrito Federal",
+  "authority": "private",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "lender",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "borrower",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "movable"
+    },
+    {
+      "id": "daily_fine",
+      "type": "money"
+    },
+    {
+      "id": "replacement_value",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "use_property",
+      "type": "simple",
+      "actor": "borrower",
+      "object": "property",
+      "target": "lender"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "borrower",
+      "object": "property",
+      "target": "lender"
+    },
+    {
+      "id": "maintain_property",
+      "type": "simple",
+      "actor": "borrower",
+      "object": "property",
+      "target": "lender"
+    },
+    {
+      "id": "inspect_property",
+      "type": "simple",
+      "actor": "lender",
+      "object": "property",
+      "target": "borrower"
+    },
+    {
+      "id": "transfer_agreement",
+      "type": "counter",
+      "actor": "borrower",
+      "object": "property",
+      "target": "lender"
+    },
+    {
+      "id": "damage_property",
+      "type": "counter",
+      "actor": "borrower",
+      "object": "property",
+      "target": "lender"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "CommodateRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "lender",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "borrower",
+        "object": "property",
+        "target": "lender"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "borrower",
+        "object": "property",
+        "target": "lender"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "borrower",
+        "object": "property",
+        "target": "lender"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "lender",
+        "object": "property",
+        "target": "borrower"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "borrower",
+        "object": "property",
+        "target": "lender"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "commodate_establishment",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CommodateRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "borrower",
+          "object": "property",
+          "target": "lender"
+        }
+      }
+    },
+    {
+      "id": "return_on_demand",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "lender",
+          "object": "property",
+          "target": "borrower"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "borrower",
+          "object": "property",
+          "target": "lender"
+        }
+      }
+    },
+    {
+      "id": "damage_liability",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "borrower",
+          "object": "property",
+          "target": "lender"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "borrower",
+          "object": "replacement_value",
+          "target": "lender"
+        }
+      }
+    },
+    {
+      "id": "delay_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "borrower",
+          "object": "property",
+          "target": "lender"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "borrower",
+          "object": "daily_fine",
+          "target": "lender"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Commodate agreement/TMX_1979354_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Commodate agreement/TMX_1979354_es.txt"
+  }
+}

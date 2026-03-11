@@ -1,0 +1,315 @@
+{
+  "law": "Contrato de subarrendamiento de local comercial",
+  "authority": "private",
+  "enacted": "2023-06-16",
+  "imports": [
+    "Artículos 2280, 2283, 2284, 2362, 2363, 2364 del Código Civil para el Estado de Sinaloa"
+  ],
+  "parties": [
+    {
+      "id": "subarrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "subarrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "propietario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "local_comercial",
+      "type": "nonmovable"
+    },
+    {
+      "id": "renta_mensual",
+      "type": "money"
+    },
+    {
+      "id": "deposito",
+      "type": "money"
+    },
+    {
+      "id": "servicios",
+      "type": "service"
+    },
+    {
+      "id": "inmueble_garantia",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "subarrendar",
+      "type": "simple",
+      "actor": "subarrendador",
+      "object": "local_comercial",
+      "target": "subarrendatario"
+    },
+    {
+      "id": "pagar_renta",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "renta_mensual",
+      "target": "subarrendador"
+    },
+    {
+      "id": "devolver_inmueble",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "local_comercial",
+      "target": "subarrendador"
+    },
+    {
+      "id": "pagar_servicios",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "servicios",
+      "target": null
+    },
+    {
+      "id": "mora_pago",
+      "type": "counter",
+      "actor": "subarrendatario",
+      "object": "renta_mensual",
+      "target": "subarrendador"
+    },
+    {
+      "id": "uso_indebido",
+      "type": "counter",
+      "actor": "subarrendatario",
+      "object": "local_comercial",
+      "target": null
+    },
+    {
+      "id": "danos_inmueble",
+      "type": "counter",
+      "actor": "subarrendatario",
+      "object": "local_comercial",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "RelacionSubarrendamiento",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "AutorizacionPropietario",
+      "subject": "subarrendador",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropiedadInmuebleGarantia",
+      "subject": "fiador",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoArrendamientoOriginal",
+      "subject": "subarrendador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "renta_mensual",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "local_comercial",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "servicios",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "fiador",
+        "object": "renta_mensual",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "local_comercial",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "obligacion_renta",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "RelacionSubarrendamiento"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "renta_mensual",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "rescision_mora",
+      "conditions": [
+        {
+          "ref": "mora_pago"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "rescision_uso_indebido",
+      "conditions": [
+        {
+          "ref": "uso_indebido"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "rescision_danos",
+      "conditions": [
+        {
+          "ref": "danos_inmueble"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "pena_incumplimiento",
+      "conditions": [
+        {
+          "ref": "mora_pago"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "renta_mensual",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "garantia_fiador",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropiedadInmuebleGarantia",
+          "subject": "fiador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "fiador",
+          "object": "renta_mensual",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "devolucion_termino",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "VencimientoContrato"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "local_comercial",
+          "target": "subarrendador"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_subarrendamiento",
+      "steps": [
+        {
+          "ref": "subarrendar"
+        },
+        {
+          "ref": "pagar_renta"
+        },
+        {
+          "ref": "pagar_servicios"
+        },
+        {
+          "ref": "devolver_inmueble"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de subarrendamiento de local comercial/TMX_2568525_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de subarrendamiento de local comercial/TMX_2568525_es.txt"
+  }
+}

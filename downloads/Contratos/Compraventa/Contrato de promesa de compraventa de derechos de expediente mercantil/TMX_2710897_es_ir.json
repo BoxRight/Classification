@@ -1,0 +1,279 @@
+{
+  "law": "Contrato de promesa de compraventa de derechos de expediente mercantil",
+  "authority": "private",
+  "enacted": "2024-07-08",
+  "imports": [
+    "Artículos 2029, 2030, 2031 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "promitente_vendedor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "promitente_comprador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "derechos_expediente",
+      "type": "service"
+    },
+    {
+      "id": "precio_total",
+      "type": "money"
+    },
+    {
+      "id": "pago_inicial",
+      "type": "money"
+    },
+    {
+      "id": "pago_intermedio",
+      "type": "money"
+    },
+    {
+      "id": "pago_final",
+      "type": "money"
+    },
+    {
+      "id": "mandato_especial",
+      "type": "service"
+    },
+    {
+      "id": "informacion_progreso",
+      "type": "service"
+    },
+    {
+      "id": "documentacion_adicional",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vender_derechos",
+      "type": "simple",
+      "actor": "promitente_vendedor",
+      "object": "derechos_expediente",
+      "target": "promitente_comprador"
+    },
+    {
+      "id": "pagar_inicial",
+      "type": "simple",
+      "actor": "promitente_comprador",
+      "object": "pago_inicial",
+      "target": "promitente_vendedor"
+    },
+    {
+      "id": "pagar_intermedio",
+      "type": "simple",
+      "actor": "promitente_comprador",
+      "object": "pago_intermedio",
+      "target": "promitente_vendedor"
+    },
+    {
+      "id": "pagar_final",
+      "type": "simple",
+      "actor": "promitente_comprador",
+      "object": "pago_final",
+      "target": "promitente_vendedor"
+    },
+    {
+      "id": "ceder_derechos",
+      "type": "simple",
+      "actor": "promitente_vendedor",
+      "object": "derechos_expediente",
+      "target": "promitente_comprador"
+    },
+    {
+      "id": "otorgar_mandato_especial",
+      "type": "simple",
+      "actor": "promitente_vendedor",
+      "object": "mandato_especial",
+      "target": "promitente_comprador"
+    },
+    {
+      "id": "informar_progreso",
+      "type": "simple",
+      "actor": "promitente_vendedor",
+      "object": "informacion_progreso",
+      "target": "promitente_comprador"
+    },
+    {
+      "id": "proporcionar_documentacion",
+      "type": "simple",
+      "actor": "promitente_vendedor",
+      "object": "documentacion_adicional",
+      "target": "promitente_comprador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "titularidad_derechos",
+      "subject": "promitente_vendedor",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "capacidad_legal",
+      "subject": "promitente_comprador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedor",
+        "object": "derechos_expediente",
+        "target": "promitente_comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_comprador",
+        "object": "pago_inicial",
+        "target": "promitente_vendedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_comprador",
+        "object": "pago_intermedio",
+        "target": "promitente_vendedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_comprador",
+        "object": "pago_final",
+        "target": "promitente_vendedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedor",
+        "object": "derechos_expediente",
+        "target": "promitente_comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedor",
+        "object": "mandato_especial",
+        "target": "promitente_comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedor",
+        "object": "informacion_progreso",
+        "target": "promitente_comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedor",
+        "object": "documentacion_adicional",
+        "target": "promitente_comprador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_por_incumplimiento_vendedor",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "promitente_vendedor",
+          "object": "derechos_expediente",
+          "target": "promitente_comprador"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "promitente_comprador",
+          "object": "pago_inicial",
+          "target": "promitente_vendedor"
+        }
+      }
+    },
+    {
+      "id": "rescision_por_incumplimiento_comprador",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "promitente_comprador",
+          "object": "pago_inicial",
+          "target": "promitente_vendedor"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "promitente_vendedor",
+          "object": "pago_inicial",
+          "target": "promitente_vendedor"
+        }
+      }
+    },
+    {
+      "id": "cesion_completa_pagos",
+      "conditions": [
+        {
+          "ref": "pagar_inicial"
+        },
+        {
+          "ref": "pagar_intermedio"
+        },
+        {
+          "ref": "pagar_final"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "promitente_vendedor",
+          "object": "derechos_expediente",
+          "target": "promitente_comprador"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de promesa de compraventa de derechos de expediente mercantil/TMX_2710897_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de promesa de compraventa de derechos de expediente mercantil/TMX_2710897_es.txt"
+  }
+}

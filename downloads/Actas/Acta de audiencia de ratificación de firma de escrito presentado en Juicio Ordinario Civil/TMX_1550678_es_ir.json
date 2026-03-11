@@ -1,0 +1,142 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "compareciente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "escrito",
+      "type": "service"
+    },
+    {
+      "id": "credencial_votar",
+      "type": "movable"
+    },
+    {
+      "id": "copia_fotostática",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "comparecer",
+      "type": "simple",
+      "actor": "compareciente",
+      "object": "escrito",
+      "target": "judge"
+    },
+    {
+      "id": "identificar",
+      "type": "simple",
+      "actor": "compareciente",
+      "object": "credencial_votar",
+      "target": "judge"
+    },
+    {
+      "id": "ratificar_firma",
+      "type": "simple",
+      "actor": "compareciente",
+      "object": "escrito",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "identificacion_oficial",
+      "subject": "compareciente",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "firma_autentica",
+      "subject": "compareciente",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "escrito_presentado",
+      "subject": "compareciente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente",
+        "object": "escrito",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "ratificacion_firma_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "identificacion_oficial",
+          "subject": "compareciente"
+        },
+        {
+          "ref": "comparecer"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "escrito_ratificado",
+        "subject": "compareciente"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "audiencia_ratificacion",
+      "steps": [
+        {
+          "ref": "comparecer"
+        },
+        {
+          "ref": "identificar"
+        },
+        {
+          "description": "declarar_abierta_audiencia"
+        },
+        {
+          "ref": "ratificar_firma"
+        },
+        {
+          "description": "acordar_ratificacion"
+        },
+        {
+          "description": "terminar_diligencia"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de audiencia de ratificación de firma de escrito presentado en Juicio Ordinario Civil/TMX_1550678_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de audiencia de ratificación de firma de escrito presentado en Juicio Ordinario Civil/TMX_1550678_es.txt"
+  }
+}

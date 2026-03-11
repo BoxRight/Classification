@@ -1,0 +1,239 @@
+{
+  "law": "Contrato de servicios profesionales médicos",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2606-2615, 2546-2560"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "professional",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "medical_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "monthly_payments",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "professional_license",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "mexican_nationality",
+      "subject": "client",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "mexican_nationality",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "professional_knowledge",
+      "subject": "professional",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "medical_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "professional_fees",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contract_validity"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "medical_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_completion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "professional_fees",
+          "target": "professional"
+        }
+      }
+    },
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "client",
+          "object": "contractual_obligations",
+          "target": "professional"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "breach_termination_rule_professional",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "contractual_obligations",
+          "target": "client"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "confidentiality_breach_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "confidential_information",
+          "target": "client"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "penalty_payment",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "contract_completion_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_completion"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_termination"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "service_provision",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "professional",
+            "object": "medical_services",
+            "target": "client"
+          }
+        },
+        {
+          "description": "inform_client_of_progress"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "client",
+            "object": "professional_fees",
+            "target": "professional"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de servicios profesionales médicos/TMX_2009519_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de servicios profesionales médicos/TMX_2009519_es.txt"
+  }
+}

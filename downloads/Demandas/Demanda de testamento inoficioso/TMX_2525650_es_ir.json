@@ -1,0 +1,319 @@
+{
+  "law": "Demanda de testamento inoficioso",
+  "authority": "judicial",
+  "enacted": "2023-02-21",
+  "imports": [
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Código Civil para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "surviving_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "child_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "child_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "universal_heir",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "succession",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inheritance_assets",
+      "type": "movable"
+    },
+    {
+      "id": "monthly_alimony",
+      "type": "money"
+    },
+    {
+      "id": "testament",
+      "type": "movable"
+    },
+    {
+      "id": "monthly_income",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_alimony",
+      "type": "simple",
+      "actor": "deceased_spouse",
+      "object": "monthly_alimony",
+      "target": "surviving_spouse"
+    },
+    {
+      "id": "provide_child_alimony",
+      "type": "simple",
+      "actor": "deceased_spouse",
+      "object": "monthly_alimony",
+      "target": "child_1"
+    },
+    {
+      "id": "dispose_assets",
+      "type": "simple",
+      "actor": "universal_heir",
+      "object": "inheritance_assets",
+      "target": null
+    },
+    {
+      "id": "omit_alimony_provision",
+      "type": "counter",
+      "actor": "deceased_spouse",
+      "object": "monthly_alimony",
+      "target": "surviving_spouse"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "MarriageRelation",
+      "subject": "surviving_spouse",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "FilialRelation",
+      "subject": "child_1",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "FilialRelation",
+      "subject": "child_2",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DeathCertification",
+      "subject": "deceased_spouse",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TestamentaryDesignation",
+      "subject": "universal_heir",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "InheritanceEstate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "AlimonyObligation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "EconomicNeed",
+      "subject": "surviving_spouse",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "EconomicNeed",
+      "subject": "child_1",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "EconomicNeed",
+      "subject": "child_2",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deceased_spouse",
+        "object": "monthly_alimony",
+        "target": "surviving_spouse"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deceased_spouse",
+        "object": "monthly_alimony",
+        "target": "child_1"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deceased_spouse",
+        "object": "monthly_alimony",
+        "target": "child_2"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "universal_heir",
+        "object": "inheritance_assets",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "testamentary_inofficiousness_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "MarriageRelation"
+        },
+        {
+          "type": "certification",
+          "name": "FilialRelation"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "deceased_spouse",
+            "object": "monthly_alimony",
+            "target": "surviving_spouse"
+          }
+        },
+        {
+          "type": "capability",
+          "name": "EconomicNeed"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "TestamentaryInofficiousness"
+      }
+    },
+    {
+      "id": "alimony_entitlement_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "MarriageRelation"
+        },
+        {
+          "type": "capability",
+          "name": "EconomicNeed"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "surviving_spouse",
+          "object": "monthly_alimony",
+          "target": "succession"
+        }
+      }
+    },
+    {
+      "id": "child_alimony_entitlement_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "FilialRelation"
+        },
+        {
+          "type": "capability",
+          "name": "EconomicNeed"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "child_1",
+          "object": "monthly_alimony",
+          "target": "succession"
+        }
+      }
+    },
+    {
+      "id": "provisional_measure_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "TestamentaryInofficiousness"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "universal_heir",
+          "object": "inheritance_assets",
+          "target": null
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "testamentary_inofficiousness_procedure",
+      "steps": [
+        {
+          "description": "File complaint for testamentary inofficiousness"
+        },
+        {
+          "description": "Present testimonial evidence"
+        },
+        {
+          "description": "Present documentary evidence"
+        },
+        {
+          "description": "Request provisional measures"
+        },
+        {
+          "description": "Obtain judicial declaration of inofficiousness"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda de testamento inoficioso/TMX_2525650_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda de testamento inoficioso/TMX_2525650_es.txt"
+  }
+}

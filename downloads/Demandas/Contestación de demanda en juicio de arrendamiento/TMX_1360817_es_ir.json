@@ -1,0 +1,175 @@
+{
+  "law": "Contestación de demanda en juicio de arrendamiento",
+  "authority": "judicial",
+  "enacted": "2024-01-23",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rental_contract",
+      "type": "service"
+    },
+    {
+      "id": "commercial_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "rent_payment",
+      "type": "money"
+    },
+    {
+      "id": "power_of_attorney",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "celebrate_contract",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "rental_contract",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "rent_payment",
+      "target": "plaintiff"
+    },
+    {
+      "id": "change_commercial_activity",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "commercial_property",
+      "target": "commercial_property"
+    },
+    {
+      "id": "damage_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "commercial_property",
+      "target": "commercial_property"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ContractExistence",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalStanding",
+      "subject": "legal_representative",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "power_of_attorney",
+        "target": "commercial_property"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_denial_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "rental_contract",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ContractExistence",
+        "subject": null
+      }
+    },
+    {
+      "id": "lack_of_standing_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "legal_representative",
+          "object": "power_of_attorney",
+          "target": "commercial_property"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "LegalStanding",
+        "subject": "legal_representative"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "answer_to_complaint",
+      "steps": [
+        {
+          "description": "Deny all facts alleged by plaintiff"
+        },
+        {
+          "description": "Raise exception of lack of legal standing"
+        },
+        {
+          "description": "Raise exception of lack of evidence"
+        },
+        {
+          "description": "Offer testimonial evidence"
+        },
+        {
+          "description": "Offer documentary evidence"
+        },
+        {
+          "description": "Request dismissal of case"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda en juicio de arrendamiento/TMX_1360817_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda en juicio de arrendamiento/TMX_1360817_es.txt"
+  }
+}

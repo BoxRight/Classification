@@ -1,0 +1,177 @@
+{
+  "law": "Cuestionario de Prueba Pericial",
+  "authority": "judicial",
+  "enacted": "2024-02-15",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "requesting_party",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court_appointed_expert",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "damaged_property_owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "adjacent_building_owner",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "damaged_house",
+      "type": "nonmovable"
+    },
+    {
+      "id": "adjacent_building",
+      "type": "nonmovable"
+    },
+    {
+      "id": "structural_damages",
+      "type": "service"
+    },
+    {
+      "id": "repair_costs",
+      "type": "money"
+    },
+    {
+      "id": "expert_report",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "conduct_expert_examination",
+      "type": "simple",
+      "actor": "court_appointed_expert",
+      "object": "damaged_house",
+      "target": "requesting_party"
+    },
+    {
+      "id": "evaluate_damage_causation",
+      "type": "simple",
+      "actor": "court_appointed_expert",
+      "object": "structural_damages",
+      "target": "requesting_party"
+    },
+    {
+      "id": "assess_repair_costs",
+      "type": "simple",
+      "actor": "court_appointed_expert",
+      "object": "repair_costs",
+      "target": "requesting_party"
+    },
+    {
+      "id": "provide_expert_report",
+      "type": "simple",
+      "actor": "court_appointed_expert",
+      "object": "expert_report",
+      "target": "requesting_party"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "JudicialProceeding",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ExpertDesignation",
+      "subject": "court_appointed_expert",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_appointed_expert",
+        "object": "expert_report",
+        "target": "requesting_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "expert_examination_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "JudicialProceeding"
+        },
+        {
+          "type": "certification",
+          "name": "ExpertDesignation",
+          "subject": "court_appointed_expert"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court_appointed_expert",
+          "object": "expert_report",
+          "target": "requesting_party"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "expert_evaluation_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "court_appointed_expert",
+            "object": "damaged_house",
+            "target": "requesting_party"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "court_appointed_expert",
+            "object": "structural_damages",
+            "target": "requesting_party"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "court_appointed_expert",
+            "object": "repair_costs",
+            "target": "requesting_party"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "court_appointed_expert",
+            "object": "expert_report",
+            "target": "requesting_party"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Cuestionario de Prueba Pericial/TMX_1418945_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cuestionario de Prueba Pericial/TMX_1418945_es.txt"
+  }
+}

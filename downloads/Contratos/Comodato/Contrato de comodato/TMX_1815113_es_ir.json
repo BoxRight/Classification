@@ -1,0 +1,156 @@
+{
+  "law": "Contrato de comodato",
+  "authority": "private",
+  "enacted": "2023-12-19",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "comodante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "comodatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "maintenance_costs",
+      "type": "money"
+    },
+    {
+      "id": "utility_services",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "comodante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ComodatoRelation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodante",
+        "object": "inmueble",
+        "target": "comodatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodatario",
+        "object": "maintenance_costs",
+        "target": "inmueble"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodatario",
+        "object": "utility_services",
+        "target": "inmueble"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodatario",
+        "object": "inmueble",
+        "target": "comodante"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodante",
+        "object": "inmueble",
+        "target": "comodatario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "comodatario",
+          "object": "inmueble",
+          "target": "comodante"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "improper_use_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "comodatario",
+          "object": "inmueble",
+          "target": "comodante"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractRescission"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "property_return",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "comodatario",
+            "object": "inmueble",
+            "target": "comodante"
+          }
+        },
+        {
+          "description": "execution of delivery-reception act"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Comodato/Contrato de comodato/TMX_1815113_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Comodato/Contrato de comodato/TMX_1815113_es.txt"
+  }
+}

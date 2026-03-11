@@ -1,0 +1,248 @@
+{
+  "law": "Escrito Inicial de Demanda de Desocupación de Inmueble por terminación de Contrato de Arrendamiento",
+  "authority": "judicial",
+  "enacted": "2024-10-07",
+  "imports": [
+    "Artículos 830, 2398, 2425 del Código Civil de la Ciudad de México",
+    "Artículos 520, 521, 522, 523 del Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "unpaid_rent",
+      "type": "money"
+    },
+    {
+      "id": "damages",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "utilities",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "RentDebt",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        },
+        {
+          "type": "asset",
+          "name": "LeaseContract"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination",
+        "subject": "tenant"
+      }
+    },
+    {
+      "id": "eviction_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ContractTermination",
+          "subject": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "property",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "debt_payment_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "RentDebt",
+          "subject": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "unpaid_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "damages_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ContractTermination",
+          "subject": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "damages",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "eviction_proceeding",
+      "steps": [
+        {
+          "description": "Declarar terminación del contrato de arrendamiento"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "property",
+            "target": "landlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "unpaid_rent",
+            "target": "landlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "damages",
+            "target": "landlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "legal_costs",
+            "target": "landlord"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Escrito Inicial de Demanda de Desocupación de Inmueble por terminación de Contrato de/TMX_927921_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Escrito Inicial de Demanda de Desocupación de Inmueble por terminación de Contrato de/TMX_927921_es.txt"
+  }
+}

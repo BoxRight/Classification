@@ -1,0 +1,253 @@
+#!/usr/bin/env python3
+"""
+Batch IR Generation via Anthropic Agent
+
+Walks through every .txt file in downloads/, sends each to the Anthropic API
+with the IR extraction spec, and saves one IR JSON per .txt file.
+"""
+
+import os
+import re
+import json
+import sys
+import argparse
+from pathlib import Path
+
+# Project root
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+# Load API key from .env
+def load_env() -> str | None:
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(PROJECT_ROOT / ".env")
+    except ImportError:
+        env_path = PROJECT_ROOT / ".env"
+        if env_path.exists():
+            with open(env_path, "r") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        key, _, val = line.partition("=")
+                        key = key.strip()
+                        val = val.strip().strip('"').strip("'")
+                        if key == "ANTHROPIC_API_KEY":
+                            os.environ[key] = val
+                            break
+    return os.environ.get("ANTHROPIC_API_KEY")
+
+
+def get_spec_prompt() -> str:
+    """Load the IR agent spec from config."""
+    spec_path = PROJECT_ROOT / "config" / "ir_agent_spec.md"
+    if not spec_path.exists():
+        raise FileNotFoundError(f"IR spec not found: {spec_path}")
+    return spec_path.read_text(encoding="utf-8")
+
+
+def extract_json_from_response(text: str) -> dict:
+    """Extract JSON from API response, handling markdown code blocks."""
+    text = text.strip()
+    # Remove markdown code block if present
+    if "```json" in text:
+        match = re.search(r"```json\s*([\s\S]*?)```", text)
+        if match:
+            text = match.group(1).strip()
+    elif "```" in text:
+        match = re.search(r"```\s*([\s\S]*?)```", text)
+        if match:
+            text = match.group(1).strip()
+    return json.loads(text)
+
+
+def generate_ir_for_document(
+    text: str,
+    spec: str,
+    agent_client,
+    model: str = "claude-sonnet-4-20250514",
+    validation_errors: str | None = None,
+) -> dict:
+    """Call Anthropic API to generate IR for a single document."""
+    user_content = f"Extract the Legal IR from the following document:\n\n{text}"
+    if validation_errors:
+        user_content += f"\n\n---\nYour previous output failed validation. Fix these errors and return valid JSON only:\n{validation_errors}"
+
+    response = agent_client.messages.create(
+        model=model,
+        max_tokens=8192,
+        system=spec,
+        messages=[{"role": "user", "content": user_content}],
+    )
+    content = response.content[0]
+    if content.type != "text":
+        raise ValueError(f"Unexpected response type: {content.type}")
+    return extract_json_from_response(content.text)
+
+
+def find_txt_files(root: Path) -> list[Path]:
+    """Find all .txt files under root."""
+    return sorted(root.rglob("*.txt"))
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Batch IR generation via Anthropic agent")
+    parser.add_argument(
+        "--downloads",
+        default=str(PROJECT_ROOT / "downloads"),
+        help="Root directory containing .txt files",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="List files without processing",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Limit number of files to process (for testing)",
+    )
+    parser.add_argument(
+        "--skip",
+        type=int,
+        default=0,
+        help="Skip first N files (resume from file N+1)",
+    )
+    parser.add_argument(
+        "--file",
+        type=str,
+        default=None,
+        help="Process only this .txt file (path relative to downloads or absolute)",
+    )
+    parser.add_argument(
+        "--model",
+        default="claude-sonnet-4-20250514",
+        help="Anthropic model to use",
+    )
+    parser.add_argument(
+        "--retry-on-invalid",
+        action="store_true",
+        help="Retry once with validation errors when output fails schema validation",
+    )
+    parser.add_argument(
+        "--no-validate",
+        action="store_true",
+        help="Skip Pydantic validation (save raw output)",
+    )
+    args = parser.parse_args()
+
+    downloads_path = Path(args.downloads).resolve()
+    if not downloads_path.exists():
+        print(f"Error: Directory not found: {downloads_path}")
+        return 1
+
+    txt_files = find_txt_files(downloads_path)
+    if not txt_files:
+        print(f"No .txt files found under {downloads_path}")
+        return 0
+
+    if args.file:
+        arg_path = Path(args.file)
+        file_path = (downloads_path / arg_path) if not arg_path.is_absolute() else arg_path
+        file_path = file_path.resolve()
+        if not file_path.exists():
+            print(f"Error: File not found: {file_path}", file=sys.stderr)
+            return 1
+        files_to_process = [file_path]
+        print(f"Processing single file: {file_path.relative_to(downloads_path)}")
+    else:
+        files_to_process = txt_files[args.skip:]
+        if args.limit:
+            files_to_process = files_to_process[: args.limit]
+
+    if args.dry_run:
+        print(f"Would process {len(files_to_process)} files:")
+        for p in files_to_process[:20]:
+            print(f"  {p.relative_to(downloads_path)}")
+        if len(files_to_process) > 20:
+            print(f"  ... and {len(files_to_process) - 20} more")
+        return 0
+
+    api_key = load_env()
+    if not api_key:
+        print("Error: ANTHROPIC_API_KEY not found in .env or environment")
+        return 1
+
+    try:
+        import anthropic
+    except ImportError:
+        print("Error: anthropic package required. Run: pip install anthropic python-dotenv")
+        return 1
+
+    client = anthropic.Anthropic(api_key=api_key)
+    spec = get_spec_prompt()
+
+    try:
+        from src.ir.agent_models import validate_ir, ir_to_dict
+    except ImportError as e:
+        if args.no_validate:
+            validate_ir = None
+            ir_to_dict = lambda x: x  # noqa: E731
+        else:
+            print(f"Error: {e}. Install pydantic or use --no-validate")
+            return 1
+
+    print(f"Processing {len(files_to_process)} .txt files...")
+
+    ok = 0
+    fail = 0
+
+    for i, txt_path in enumerate(files_to_process, 1):
+        rel = txt_path.relative_to(downloads_path)
+        out_path = txt_path.parent / f"{txt_path.stem}_ir.json"
+
+        try:
+            text = txt_path.read_text(encoding="utf-8")
+        except Exception as e:
+            print(f"  [{i}/{len(files_to_process)}] SKIP {rel}: read error: {e}")
+            fail += 1
+            continue
+
+        try:
+            ir_raw = generate_ir_for_document(text, spec, client, model=args.model)
+            source_meta = {"file": str(rel), "path": str(txt_path)}
+
+            if validate_ir is not None and not args.no_validate:
+                try:
+                    validated = validate_ir(ir_raw)
+                    ir = ir_to_dict(validated)
+                except Exception as ve:
+                    if args.retry_on_invalid:
+                        err_msg = str(ve)
+                        ir_raw = generate_ir_for_document(
+                            text, spec, client, model=args.model, validation_errors=err_msg
+                        )
+                        try:
+                            validated = validate_ir(ir_raw)
+                            ir = ir_to_dict(validated)
+                        except Exception as ve2:
+                            print(f"  [{i}/{len(files_to_process)}] FAIL {rel}: validation retry failed: {ve2}")
+                            fail += 1
+                            continue
+                    else:
+                        print(f"  [{i}/{len(files_to_process)}] FAIL {rel}: validation: {ve}")
+                        fail += 1
+                        continue
+            else:
+                ir = ir_raw
+
+            ir["_source"] = source_meta
+            out_path.write_text(json.dumps(ir, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"  [{i}/{len(files_to_process)}] OK {rel} -> {out_path.name}")
+            ok += 1
+        except Exception as e:
+            print(f"  [{i}/{len(files_to_process)}] FAIL {rel}: {e}")
+            fail += 1
+
+    print(f"\nDone: {ok} succeeded, {fail} failed")
+    return 0 if fail == 0 else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

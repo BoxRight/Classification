@@ -1,0 +1,209 @@
+{
+  "law": "Escrito inicial de demanda. Terminación de contrato de arrendamiento inmobiliario",
+  "authority": "judicial",
+  "enacted": "2024-04-23",
+  "imports": [
+    "Código Civil del Estado de México",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "rent",
+      "type": "money"
+    },
+    {
+      "id": "keys",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "lease_agreement",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "property",
+      "target": "tenant"
+    },
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "rent",
+      "target": "landlord"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    },
+    {
+      "id": "deliver_keys",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "keys",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "property_ownership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "lease_relation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "rent_debt",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_breach",
+        "subject": "tenant"
+      }
+    },
+    {
+      "id": "vacate_on_termination_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "contract_breach",
+          "subject": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "property",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination_procedure",
+      "steps": [
+        {
+          "description": "Notify tenant of lease termination"
+        },
+        {
+          "description": "Request vacation within sixty days"
+        },
+        {
+          "description": "File judicial demand if tenant fails to comply"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "court",
+            "object": "property",
+            "target": "tenant"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "lease_termination_scenario",
+      "timeline": [
+        {
+          "event": "verbal lease agreement established",
+          "condition": null
+        },
+        {
+          "event": "tenant stops paying rent",
+          "condition": {
+            "type": "counter",
+            "actor": "tenant",
+            "object": "rent",
+            "target": "landlord"
+          }
+        },
+        {
+          "event": "landlord notifies termination through court",
+          "condition": null
+        },
+        {
+          "event": "tenant refuses to vacate after sixty day notice",
+          "condition": null
+        },
+        {
+          "event": "judicial demand filed for property vacation",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Escrito inicial de demanda. Terminación de contrato de arrendamiento inmobiliario/TMX_2493645_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Escrito inicial de demanda. Terminación de contrato de arrendamiento inmobiliario/TMX_2493645_es.txt"
+  }
+}

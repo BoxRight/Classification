@@ -1,0 +1,197 @@
+{
+  "law": "Convenio de Terminación de Contrato de Prestación de Servicios",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Artículo 2614 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "prestador_servicios",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "contrato_servicios",
+      "type": "service"
+    },
+    {
+      "id": "entregables",
+      "type": "service"
+    },
+    {
+      "id": "pago_servicios",
+      "type": "money"
+    },
+    {
+      "id": "informacion_confidencial",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "rescindir_contrato",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "contrato_servicios",
+      "target": "prestador_servicios"
+    },
+    {
+      "id": "entregar_productos",
+      "type": "simple",
+      "actor": "prestador_servicios",
+      "object": "entregables",
+      "target": "cliente"
+    },
+    {
+      "id": "guardar_confidencialidad",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "informacion_confidencial",
+      "target": "prestador_servicios"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoTerminacion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "FechaTerminacion",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "entregables",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "informacion_confidencial",
+        "target": "prestador_servicios"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "informacion_confidencial",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "informacion_confidencial",
+        "target": "prestador_servicios"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "informacion_confidencial",
+        "target": "cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "terminacion_mutua",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoTerminacion"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "FiniquitoMutuo"
+      }
+    },
+    {
+      "id": "entrega_siete_dias",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoTerminacion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "entregar_productos"
+        }
+      }
+    },
+    {
+      "id": "confidencialidad_permanente",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoTerminacion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "guardar_confidencialidad"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_terminacion",
+      "steps": [
+        {
+          "act": {
+            "ref": "rescindir_contrato"
+          }
+        },
+        {
+          "act": {
+            "ref": "entregar_productos"
+          }
+        },
+        {
+          "description": "Mutuo finiquito y renuncia a acciones"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Convenio de Terminación de Contrato de Prestación de Servicios/TMX_2505816_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Convenio de Terminación de Contrato de Prestación de Servicios/TMX_2505816_es.txt"
+  }
+}

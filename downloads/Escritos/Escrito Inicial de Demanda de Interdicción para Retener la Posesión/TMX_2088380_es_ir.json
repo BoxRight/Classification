@@ -1,0 +1,201 @@
+{
+  "law": "Interdicto de Retener la Posesión - Artículos 805, 806, 807 del Código Civil para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "indemnification",
+      "type": "money"
+    },
+    {
+      "id": "bond",
+      "type": "money"
+    },
+    {
+      "id": "costs_and_expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "disturb_possession",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_indemnification",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "indemnification",
+      "target": "plaintiff"
+    },
+    {
+      "id": "provide_bond",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "bond",
+      "target": "judge"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "costs_and_expenses",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PeacefulPossession",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "defendant",
+        "object": "property",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "indemnification",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "bond",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "costs_and_expenses",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "possession_disturbance_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "indemnification_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "indemnification",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "interdict_proceeding",
+      "steps": [
+        {
+          "description": "File initial complaint"
+        },
+        {
+          "description": "Offer documentary evidence"
+        },
+        {
+          "description": "Request confessional proof"
+        },
+        {
+          "description": "Obtain judicial order"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Interdicción para Retener la Posesión/TMX_2088380_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Interdicción para Retener la Posesión/TMX_2088380_es.txt"
+  }
+}

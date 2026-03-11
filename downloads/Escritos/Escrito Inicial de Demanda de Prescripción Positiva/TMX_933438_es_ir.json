@@ -1,0 +1,214 @@
+{
+  "law": "Escrito Inicial de Demanda de Prescripción Positiva",
+  "authority": "judicial",
+  "enacted": "2024-02-12",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "property_registry_director",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "original_seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "intermediate_seller",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property_lot",
+      "type": "nonmovable"
+    },
+    {
+      "id": "truck",
+      "type": "movable"
+    },
+    {
+      "id": "original_deed",
+      "type": "service"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "possess_property",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "property_lot",
+      "target": "property_lot"
+    },
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "original_seller",
+      "object": "property_lot",
+      "target": "intermediate_seller"
+    },
+    {
+      "id": "resell_property",
+      "type": "simple",
+      "actor": "intermediate_seller",
+      "object": "property_lot",
+      "target": "plaintiff"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "intermediate_seller",
+      "object": "property_lot",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyPossession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyTitle",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyRegistration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "PossessionStartDate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "property_lot",
+        "target": "property_registry_director"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_1",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "positive_prescription_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyPossession",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "date",
+          "name": "PossessionStartDate"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyOwnership",
+        "subject": "plaintiff"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "positive_prescription_lawsuit",
+      "steps": [
+        {
+          "description": "File initial complaint"
+        },
+        {
+          "description": "Serve defendants"
+        },
+        {
+          "description": "Present evidence of possession"
+        },
+        {
+          "description": "Obtain judicial declaration"
+        },
+        {
+          "description": "Cancel prior registration"
+        },
+        {
+          "description": "Register new ownership"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "property_acquisition_timeline",
+      "timeline": [
+        {
+          "event": "Original sale contract executed",
+          "condition": null
+        },
+        {
+          "event": "Property resold to plaintiff",
+          "condition": null
+        },
+        {
+          "event": "Plaintiff takes possession",
+          "condition": null
+        },
+        {
+          "event": "Continuous peaceful possession begins",
+          "condition": null
+        },
+        {
+          "event": "Prescription period completed",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Prescripción Positiva/TMX_933438_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Prescripción Positiva/TMX_933438_es.txt"
+  }
+}

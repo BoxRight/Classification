@@ -1,0 +1,151 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_clerk",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "notification",
+      "type": "service"
+    },
+    {
+      "id": "embargoed_vehicle",
+      "type": "movable"
+    },
+    {
+      "id": "nullification_incident",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "DefectiveNotification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ViolationOfDueProcess",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "JudicialProceedingInProgress",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_clerk",
+        "object": "notification",
+        "target": "petitioner"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "embargoed_vehicle",
+        "target": "court_clerk"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "proper_notification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "RequiresPersonalDelivery"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court_clerk",
+          "object": "notification",
+          "target": "petitioner"
+        }
+      }
+    },
+    {
+      "id": "nullification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DefectiveNotification"
+        },
+        {
+          "type": "certification",
+          "name": "ViolationOfDueProcess"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ProceedingNullity"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullification_incident_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "petitioner",
+            "object": "nullification_incident",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "Court reviews grounds for nullification"
+        },
+        {
+          "description": "Court declares nullity if procedural violations found"
+        },
+        {
+          "description": "Proper notification procedure ordered"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Nulidad de Actuaciones/TMX_1300045_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Nulidad de Actuaciones/TMX_1300045_es.txt"
+  }
+}

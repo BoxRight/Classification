@@ -1,0 +1,218 @@
+{
+  "law": "Contrato de maternidad subrogada",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículos 15, 27 de la Ley de Maternidad Subrogada para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "gestante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "subrogada",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "subrogado",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "embrion",
+      "type": "service"
+    },
+    {
+      "id": "gastos_medicos",
+      "type": "money"
+    },
+    {
+      "id": "ropa_maternidad",
+      "type": "money"
+    },
+    {
+      "id": "alimentos",
+      "type": "service"
+    },
+    {
+      "id": "producto_gestacional",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "implantacion_embrion",
+      "type": "simple",
+      "actor": "medico_responsable",
+      "object": "embrion",
+      "target": "gestante"
+    },
+    {
+      "id": "entrega_producto",
+      "type": "simple",
+      "actor": "gestante",
+      "object": "producto_gestacional",
+      "target": "subrogados"
+    },
+    {
+      "id": "pago_gastos",
+      "type": "simple",
+      "actor": "subrogados",
+      "object": "gastos_medicos",
+      "target": "gestante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "capacidad_legal_gestante",
+      "subject": "gestante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "buen_estado_salud",
+      "subject": "gestante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "imposibilidad_fisica_gestacion",
+      "subject": "subrogada",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "contrato_maternidad_subrogada",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "gestante",
+        "object": "embrion",
+        "target": "gestante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "gestante",
+        "object": "producto_gestacional",
+        "target": "subrogados"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subrogados",
+        "object": "gastos_medicos",
+        "target": "gestante"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "gestante",
+        "object": "relaciones_sexuales",
+        "target": "gestante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_por_no_candidata",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "gestante",
+          "object": "examenes_medicos",
+          "target": "gestante"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    },
+    {
+      "id": "rescision_por_tiempo",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "18_meses_sin_embarazo"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    },
+    {
+      "id": "renuncia_filiacion",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "nacimiento_producto"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "renuncia_derechos_filiacion",
+        "subject": "gestante"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_gestacion_subrogada",
+      "steps": [
+        {
+          "description": "Examenes medicos y psicologicos previos"
+        },
+        {
+          "ref": "implantacion_embrion"
+        },
+        {
+          "description": "Abstinencia sexual hasta fijacion del ovulo"
+        },
+        {
+          "description": "Revisiones medicas durante 36 semanas"
+        },
+        {
+          "description": "Permanencia en Ciudad de Mexico ultimas 4 semanas"
+        },
+        {
+          "description": "Notificacion fecha alumbramiento"
+        },
+        {
+          "ref": "entrega_producto"
+        },
+        {
+          "description": "Firma certificado de alumbramiento"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Maternidad Subrogada/Contrato de maternidad subrogada/TMX_1381568_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Maternidad Subrogada/Contrato de maternidad subrogada/TMX_1381568_es.txt"
+  }
+}

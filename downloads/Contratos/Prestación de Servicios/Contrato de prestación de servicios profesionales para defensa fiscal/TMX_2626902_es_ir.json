@@ -1,0 +1,203 @@
+{
+  "law": "Contrato de prestación de servicios profesionales para defensa fiscal",
+  "authority": "private",
+  "enacted": "2023-10-16",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "fiscal_defense_services",
+      "type": "service"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "professional_license",
+      "subject": "service_provider",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_representation_authority",
+      "subject": "service_provider",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "service_contract_relation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "fiscal_defense_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "professional_fees",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "confidential_information",
+        "target": "client"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_formation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "professional_license",
+          "subject": "service_provider"
+        },
+        {
+          "type": "capability",
+          "name": "legal_representation_authority",
+          "subject": "service_provider"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "service_contract_relation"
+      }
+    },
+    {
+      "id": "service_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "fiscal_defense_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "professional_fees",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "termination_for_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "client",
+          "object": "professional_fees",
+          "target": "service_provider"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "service_contract_relation",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "confidential_information",
+          "target": "client"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_procedure",
+      "steps": [
+        {
+          "description": "provide_written_notice_14_days"
+        },
+        {
+          "description": "allow_cure_period"
+        },
+        {
+          "description": "terminate_if_uncured"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales para defensa fiscal/TMX_2626902_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales para defensa fiscal/TMX_2626902_es.txt"
+  }
+}

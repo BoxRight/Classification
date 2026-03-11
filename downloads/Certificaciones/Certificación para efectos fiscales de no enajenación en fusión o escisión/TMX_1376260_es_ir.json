@@ -1,0 +1,111 @@
+{
+  "law": "Certificación para efectos fiscales de no enajenación en fusión o escisión",
+  "authority": "administrative",
+  "enacted": "2024-05-15",
+  "imports": [
+    "Código Fiscal de la Federación artículo 14",
+    "Código Fiscal de la Federación artículo 14B"
+  ],
+  "parties": [
+    {
+      "id": "compareciente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "notario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "sociedad_resultante",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "fusion_escision",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "declarar_cumplimiento",
+      "type": "simple",
+      "actor": "compareciente",
+      "object": "fusion_escision",
+      "target": "notario"
+    },
+    {
+      "id": "cumplir_articulo_14b",
+      "type": "simple",
+      "actor": "sociedad_resultante",
+      "object": "fusion_escision",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "no_enajenacion_fiscal",
+      "subject": "sociedad_resultante",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente",
+        "object": "fusion_escision",
+        "target": "notario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "sociedad_resultante",
+        "object": "fusion_escision",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "no_enajenacion_rule",
+      "conditions": [
+        {
+          "ref": "cumplir_articulo_14b"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "no_enajenacion_fiscal",
+        "subject": "sociedad_resultante"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "certificacion_notarial",
+      "steps": [
+        {
+          "ref": "declarar_cumplimiento"
+        },
+        {
+          "description": "notario certifica cumplimiento del artículo 14B"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación para efectos fiscales de no enajenación en fusión o escisión/TMX_1376260_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación para efectos fiscales de no enajenación en fusión o escisión/TMX_1376260_es.txt"
+  }
+}

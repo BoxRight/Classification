@@ -1,0 +1,231 @@
+{
+  "law": "Contrato de subarrendamiento de finca rústica",
+  "authority": "private",
+  "enacted": "2023-06-16",
+  "imports": [
+    "Código Civil para el Estado de Sinaloa"
+  ],
+  "parties": [
+    {
+      "id": "subarrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "subarrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "finca_rustica",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "monthly_rent",
+      "target": "subarrendador"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "subarrendador",
+      "object": "finca_rustica",
+      "target": "subarrendatario"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "subarrendatario",
+      "object": "finca_rustica",
+      "target": "subarrendador"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "subarrendatario",
+      "object": "monthly_rent",
+      "target": "subarrendador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SubleaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "OriginalLeaseAuthorization",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "FiadorProperty",
+      "subject": "fiador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "monthly_rent",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "finca_rustica",
+        "target": "subarrendador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subarrendatario",
+        "object": "finca_rustica",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SubleaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "monthly_rent",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "subarrendatario",
+            "object": "monthly_rent",
+            "target": "subarrendador"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subarrendatario",
+          "object": "penalty_payment",
+          "target": "subarrendador"
+        }
+      }
+    },
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "subarrendatario",
+            "object": "monthly_rent",
+            "target": "subarrendador"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "fiador_liability_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SubleaseRelation"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "subarrendatario",
+            "object": "monthly_rent",
+            "target": "subarrendador"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "fiador",
+          "object": "monthly_rent",
+          "target": "subarrendador"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "ref": "deliver_property"
+        },
+        {
+          "description": "monthly rent payments"
+        },
+        {
+          "ref": "return_property"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de subarrendamiento de finca rústica/TMX_2568527_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de subarrendamiento de finca rústica/TMX_2568527_es.txt"
+  }
+}

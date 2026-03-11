@@ -1,0 +1,171 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 974, 975, 980, 981, 982, 983 del Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "minor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "judgment",
+      "type": "service"
+    },
+    {
+      "id": "sentence_execution",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_execution_incident",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "sentence_execution",
+      "target": "judge"
+    },
+    {
+      "id": "non_compliance_with_judgment",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "judgment",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ExecutoriedJudgment",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "DefendantNonCompliance",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MinorInterestProtection",
+      "subject": "minor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "judgment",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "sentence_execution",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "execution_after_non_compliance",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ExecutoriedJudgment"
+        },
+        {
+          "type": "liability",
+          "name": "DefendantNonCompliance",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "sentence_execution",
+          "target": "judge"
+        }
+      }
+    },
+    {
+      "id": "minor_interest_priority",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "MinorInterestProtection",
+          "subject": "minor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "sentence_execution",
+          "target": "minor"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "execution_incident_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "sentence_execution",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "notify_defendant"
+        },
+        {
+          "description": "admit_evidence"
+        },
+        {
+          "description": "proceed_according_to_law"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Ejecución de Sentencia/TMX_2496644_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Ejecución de Sentencia/TMX_2496644_es.txt"
+  }
+}

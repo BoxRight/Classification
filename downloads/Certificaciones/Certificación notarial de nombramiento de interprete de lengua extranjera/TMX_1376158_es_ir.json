@@ -1,0 +1,180 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Ley del Notariado para la Ciudad de México, Artículo 107"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "non_spanish_speaker",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "interpreter",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "deed",
+      "type": "service"
+    },
+    {
+      "id": "interpretation_service",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "designate_interpreter",
+      "type": "simple",
+      "actor": "notary",
+      "object": "interpretation_service",
+      "target": "interpreter"
+    },
+    {
+      "id": "accept_designation",
+      "type": "simple",
+      "actor": "interpreter",
+      "object": "interpretation_service",
+      "target": "notary"
+    },
+    {
+      "id": "explain_deed_content",
+      "type": "simple",
+      "actor": "interpreter",
+      "object": "deed",
+      "target": "non_spanish_speaker"
+    },
+    {
+      "id": "declare_consent",
+      "type": "simple",
+      "actor": "interpreter",
+      "object": "deed",
+      "target": "notary"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "spanish_language_proficiency",
+      "subject": "non_spanish_speaker",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "interpretation_capability",
+      "subject": "interpreter",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "notarial_deed_execution",
+      "subject": "notary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "interpretation_service",
+        "target": "interpreter"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "interpreter",
+        "object": "interpretation_service",
+        "target": "non_spanish_speaker"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "interpreter",
+        "object": "deed",
+        "target": "notary"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "interpreter_requirement_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "non_spanish_speaker",
+          "object": "spanish_language_proficiency",
+          "target": null
+        },
+        {
+          "type": "certification",
+          "name": "notarial_deed_execution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "interpretation_service",
+          "target": "interpreter"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_interpretation_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "interpretation_service",
+            "target": "interpreter"
+          }
+        },
+        {
+          "ref": "accept_designation"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "deed",
+            "target": "interpreter"
+          }
+        },
+        {
+          "ref": "explain_deed_content"
+        },
+        {
+          "ref": "declare_consent"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación notarial de nombramiento de interprete de lengua extranjera/TMX_1376158_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación notarial de nombramiento de interprete de lengua extranjera/TMX_1376158_es.txt"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "law": "Código Civil para el Distrito Federal",
+  "authority": "private",
+  "enacted": null,
+  "imports": [
+    "Artículos 2398, 2409 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "previous_owner",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "rent_debt",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "additional_deposit",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "acquire_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "property",
+      "target": null
+    },
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "pay_debt",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "rent_debt",
+      "target": "landlord"
+    },
+    {
+      "id": "pay_additional_deposit",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "additional_deposit",
+      "target": "landlord"
+    },
+    {
+      "id": "accept_renewal",
+      "type": "simple",
+      "actor": "tenant",
+      "object": null,
+      "target": "landlord"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "RentDebt",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SecurityDeposit",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "rent_debt",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "renewal_condition_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "rent_debt",
+          "target": "landlord"
+        },
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "additional_deposit",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "RenewalEligibility"
+      }
+    },
+    {
+      "id": "non_acceptance_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": null,
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "property",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_renewal_notification",
+      "steps": [
+        {
+          "description": "notify rent increase and ownership change"
+        },
+        {
+          "description": "request payment of outstanding debt"
+        },
+        {
+          "description": "request additional security deposit"
+        },
+        {
+          "description": "await tenant written acceptance within specified days"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Avisos/Aviso de aumento de renta y cambio de propietario/TMX_2436154_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Avisos/Aviso de aumento de renta y cambio de propietario/TMX_2436154_es.txt"
+  }
+}

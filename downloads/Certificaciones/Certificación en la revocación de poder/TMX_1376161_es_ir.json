@@ -1,0 +1,180 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "principal",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "agent",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary_granting",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary_revoking",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "power_of_attorney",
+      "type": "service"
+    },
+    {
+      "id": "revocation_notice",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "revoke_power",
+      "type": "simple",
+      "actor": "principal",
+      "object": "power_of_attorney",
+      "target": "agent"
+    },
+    {
+      "id": "notify_agent",
+      "type": "simple",
+      "actor": "principal",
+      "object": "revocation_notice",
+      "target": "agent"
+    },
+    {
+      "id": "notify_granting_notary",
+      "type": "simple",
+      "actor": "principal",
+      "object": "revocation_notice",
+      "target": "notary_granting"
+    },
+    {
+      "id": "record_revocation",
+      "type": "simple",
+      "actor": "notary_granting",
+      "object": "revocation_notice",
+      "target": "principal"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PowerOfAttorneyExists",
+      "subject": "principal",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RevocationExecuted",
+      "subject": "principal",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "principal",
+        "object": "revocation_notice",
+        "target": "agent"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "principal",
+        "object": "revocation_notice",
+        "target": "notary_granting"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary_granting",
+        "object": "revocation_notice",
+        "target": "principal"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "revocation_effectiveness_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "RevocationExecuted",
+          "subject": "principal"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "notify_agent"
+        }
+      }
+    },
+    {
+      "id": "protocol_notation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "RevocationExecuted",
+          "subject": "principal"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "notify_granting_notary"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "power_revocation_procedure",
+      "steps": [
+        {
+          "act": {
+            "ref": "revoke_power"
+          }
+        },
+        {
+          "act": {
+            "ref": "notify_agent"
+          }
+        },
+        {
+          "act": {
+            "ref": "notify_granting_notary"
+          }
+        },
+        {
+          "act": {
+            "ref": "record_revocation"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación en la revocación de poder/TMX_1376161_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación en la revocación de poder/TMX_1376161_es.txt"
+  }
+}

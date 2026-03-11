@@ -1,0 +1,143 @@
+{
+  "law": "Resolución de segunda instancia revocando auto en juicio sucesorio",
+  "authority": "judicial",
+  "enacted": "2019-03-01",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "surviving_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "family_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "appellate_court",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "marital_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "inheritance_assets",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "MaritalSociety",
+      "subject": "surviving_spouse",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "InheritanceProceeding",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "surviving_spouse",
+        "object": "marital_property",
+        "target": "family_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "surviving_spouse_preference_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "MaritalSociety"
+        },
+        {
+          "type": "asset",
+          "name": "InheritanceProceeding"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "surviving_spouse",
+          "object": "marital_property",
+          "target": "family_judge"
+        }
+      }
+    },
+    {
+      "id": "executor_supervision_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "MaritalSociety",
+          "subject": "surviving_spouse"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "executor",
+          "object": "marital_property",
+          "target": "surviving_spouse"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "appeal_procedure",
+      "steps": [
+        {
+          "description": "Appeal filed against family court decision"
+        },
+        {
+          "description": "Appeal admitted with devolutive effect"
+        },
+        {
+          "description": "Record integrated and sent to appellate court"
+        },
+        {
+          "description": "Grievances expressed by appellant"
+        },
+        {
+          "description": "Decision rendered revoking lower court order"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Resolución de segunda instancia revocando auto en juicio sucesorio/TMX_1450383_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Resolución de segunda instancia revocando auto en juicio sucesorio/TMX_1450383_es.txt"
+  }
+}

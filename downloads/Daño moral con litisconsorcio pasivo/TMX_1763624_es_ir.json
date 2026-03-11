@@ -1,0 +1,219 @@
+{
+  "law": "Demanda de Daño Moral con Litisconsorcio Pasivo",
+  "authority": "judicial",
+  "enacted": "2020-11-10",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_primary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_secondary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "business_entity",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "moral_damages_compensation",
+      "type": "money"
+    },
+    {
+      "id": "indirect_damages_amount",
+      "type": "money"
+    },
+    {
+      "id": "business_reputation",
+      "type": "service"
+    },
+    {
+      "id": "professional_honor",
+      "type": "service"
+    },
+    {
+      "id": "sentence_publication",
+      "type": "service"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "cause_moral_damage",
+      "type": "counter",
+      "actor": "defendant_primary",
+      "object": "business_reputation",
+      "target": "plaintiff"
+    },
+    {
+      "id": "defame_business",
+      "type": "counter",
+      "actor": "defendant_primary",
+      "object": "professional_honor",
+      "target": "plaintiff"
+    },
+    {
+      "id": "suspend_service",
+      "type": "counter",
+      "actor": "business_entity",
+      "object": "business_reputation",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "BusinessOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "MoralDamagesClaim",
+      "subject": "defendant_primary",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "JointLiability",
+      "subject": "defendant_secondary",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LicitBusiness",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_primary",
+        "object": "moral_damages_compensation",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_primary",
+        "object": "indirect_damages_amount",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_primary",
+        "object": "sentence_publication",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_primary",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "moral_damage_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant_primary",
+          "object": "business_reputation",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant_primary",
+          "object": "moral_damages_compensation",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "joint_liability_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "JointLiability",
+          "subject": "defendant_secondary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant_secondary",
+          "object": "moral_damages_compensation",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_ordinary_procedure",
+      "steps": [
+        {
+          "description": "File complaint with court"
+        },
+        {
+          "description": "Service of process to defendants"
+        },
+        {
+          "description": "Defendant response period"
+        },
+        {
+          "description": "Appointment of joint representation per Article 53"
+        },
+        {
+          "description": "Conciliation hearing"
+        },
+        {
+          "description": "Evidence offering period"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Daño moral con litisconsorcio pasivo/TMX_1763624_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Daño moral con litisconsorcio pasivo/TMX_1763624_es.txt"
+  }
+}

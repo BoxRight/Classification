@@ -1,0 +1,214 @@
+{
+  "law": "Contrato de compraventa entre cónyuges",
+  "authority": "private",
+  "enacted": "2024-07-23",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "spouse_1_seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "spouse_2_buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "initial_payment",
+      "type": "money"
+    },
+    {
+      "id": "remaining_payment",
+      "type": "money"
+    },
+    {
+      "id": "monthly_installment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "spouse_1_seller",
+      "object": "real_estate_property",
+      "target": "spouse_2_buyer"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "spouse_2_buyer",
+      "object": "real_estate_property",
+      "target": "spouse_1_seller"
+    },
+    {
+      "id": "pay_purchase_price",
+      "type": "simple",
+      "actor": "spouse_2_buyer",
+      "object": "purchase_price",
+      "target": "spouse_1_seller"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "spouse_1_seller",
+      "object": "real_estate_property",
+      "target": "spouse_2_buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "spouse_1_seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "spouse_1_seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "spouse_2_buyer",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "MarriageRelation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "spouse_1_seller",
+        "object": "real_estate_property",
+        "target": "spouse_2_buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "spouse_2_buyer",
+        "object": "purchase_price",
+        "target": "spouse_1_seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "spouse_1_seller",
+        "object": "real_estate_property",
+        "target": "spouse_2_buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_completion_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "spouse_2_buyer",
+          "object": "purchase_price",
+          "target": "spouse_1_seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "spouse_1_seller",
+          "object": "real_estate_property",
+          "target": "spouse_2_buyer"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "spouse_2_buyer",
+          "object": "purchase_price",
+          "target": "spouse_1_seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "spouse_2_buyer",
+          "object": "purchase_price",
+          "target": "spouse_1_seller"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "spouse_2_buyer",
+            "object": "initial_payment",
+            "target": "spouse_1_seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "spouse_2_buyer",
+            "object": "monthly_installment",
+            "target": "spouse_1_seller"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dispute_resolution_procedure",
+      "steps": [
+        {
+          "description": "amistoso_negotiation"
+        },
+        {
+          "description": "mediation"
+        },
+        {
+          "description": "tribunal_jurisdiction"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa entre cónyuges/TMX_2713783_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa entre cónyuges/TMX_2713783_es.txt"
+  }
+}

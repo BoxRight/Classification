@@ -1,0 +1,102 @@
+{
+  "law": "Auto que fija fecha para audiencia de pruebas",
+  "authority": "judicial",
+  "enacted": "2024-01-11",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "public_prosecutor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "testimonial_evidence",
+      "type": "service"
+    },
+    {
+      "id": "legal_reports",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "schedule_hearing",
+      "type": "simple",
+      "actor": "judge",
+      "object": "testimonial_evidence",
+      "target": "parties"
+    },
+    {
+      "id": "provide_legal_intervention",
+      "type": "simple",
+      "actor": "public_prosecutor",
+      "object": "legal_reports",
+      "target": "court"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "legal_reports_rendered",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "hearing_date",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "hearing_scheduling_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "legal_reports_rendered"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "hearing_scheduled"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "testimonial_hearing_procedure",
+      "steps": [
+        {
+          "description": "verify legal reports have been rendered"
+        },
+        {
+          "ref": "schedule_hearing"
+        },
+        {
+          "ref": "provide_legal_intervention"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que fija fecha para audiencia de pruebas/TMX_1425020_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que fija fecha para audiencia de pruebas/TMX_1425020_es.txt"
+  }
+}

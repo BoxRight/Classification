@@ -1,0 +1,157 @@
+{
+  "law": "Contrato de promesa de compraventa",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículos 2243, 2244, 2246 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "promitente_vendedora",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "promitente_compradora",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "escritura_definitiva",
+      "type": "service"
+    },
+    {
+      "id": "precio_total",
+      "type": "money"
+    },
+    {
+      "id": "gastos_tramitacion",
+      "type": "money"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "propiedad_inmueble",
+      "subject": "promitente_vendedora",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoPomesaVenta",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedora",
+        "object": "inmueble",
+        "target": "promitente_compradora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_compradora",
+        "object": "inmueble",
+        "target": "promitente_vendedora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedora",
+        "object": "escritura_definitiva",
+        "target": "promitente_compradora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_vendedora",
+        "object": "gastos_tramitacion",
+        "target": "promitente_compradora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_compradora",
+        "object": "gastos_tramitacion",
+        "target": "promitente_vendedora"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "pena_incumplimiento",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "promitente_vendedora",
+          "object": "inmueble",
+          "target": "promitente_compradora"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "promitente_vendedora",
+          "object": "pena_convencional",
+          "target": "promitente_compradora"
+        }
+      }
+    },
+    {
+      "id": "pena_incumplimiento_comprador",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "promitente_compradora",
+          "object": "inmueble",
+          "target": "promitente_vendedora"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "promitente_compradora",
+          "object": "pena_convencional",
+          "target": "promitente_vendedora"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de promesa de compraventa/TMX_917674_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de promesa de compraventa/TMX_917674_es.txt"
+  }
+}

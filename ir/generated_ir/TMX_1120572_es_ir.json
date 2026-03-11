@@ -1,0 +1,75 @@
+{
+  "law": "TMX_1120572_es_normalized.txt",
+  "authority": "private",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [],
+  "procedures": [],
+  "scenarios": [],
+  "_unresolved": [
+    "http://www.tirantonline.com.mx Document TMX1,120,572 Formulario Title: LeaseContract de casa habitación Issuer: Particular Date: 29/01/2024 TEXT: LeaseContract DE CASA HABITACION TMX1.120.572 Normativa: Artículos 1949, 1950, 2846, 2847 y 2848 del Codigo Civil para el Distrito Federal.",
+    "Supuesto: LeaseContract inmobiliario entre personas físicas con fiador.",
+    "Incluye declaración de la personalidad de las partes, cláusulas respecto a las obligaciones de las partes, el pay de servicios, cuidado del inmueble, responsabilidad por daños y prohibición de cesión de derechos o subarrendamiento.",
+    "LeaseContract QUE CELEBRAN POR UNA PARTE ____________________, A QUIEN EN LO SUCESIVO Y PARA LOS EFECTOS DEL PRESENTE INSTRUMENTO SE LE DENOMINARA \"EL ARRENDADOR\", POR LA OTRA PARTE ____________________, A QUIEN EN LO SUCESIVO SE LE DENOMINARA \"EL ARRENDATARIO\";",
+    "Y POR LA OTRA PARTE ____________________, A QUIEN EN LO SUCESIVO SE LE DENOMINARA \"EL FIADOR\", TODOS LOS CUALES SE SUJETAN A LAS SIGUIENTES DECLARACIONES Y CLAUSULAS: I.- DECLARA \"EL ARRENDADOR\": a) Que cuenta con la capacidad jurídica suficiente y suficiente para celebrar el presente contrato.",
+    "b) Que es landlord property ubicado en ____________________, ____________________ C.P: ____________________.",
+    "c)Que para efectos de este contrato señala como su domicilio para receive y oir toda clase de notificaciones el ubicado en ____________________, C.P____________________.",
+    "II.- DECLARA \"EL ARRENDATARIO\": a) Que tiene las facultades suficientes y bastantes para obligarse en términos del presente instrumento.",
+    "1/4 b) Que tiene interés en receive en arrendamiento property que se describe en el inciso b), de la declaración número I, el cual sabe y le consta, se encuentra en las condiciones necesarias de seguridad, higiene y salubridad para ser habitado y que cuenta con el equipo en perfecto estado de uso que se menciona en el inventario que se anexa al presente, por lo que no condicionara el monthly_rent a ningún tipo de mejora.",
+    "c)Que para efectos del presente contrato señala como su domicilio para receive y oír toda clase de notificaciones el mismo property motivo del arrendamiento.",
+    "III.- DECLARA \"EL FIADOR\": Ser una persona fisica, mayor de edad y con capacidad económica para fungir en el presente contrato como guarantor por \"EL ARRENDATARIO\", obligándose en los términos del mismo.",
+    "Ser landlord del bien property ubicado en ____________________, C.P.: ____________________ (COMO EN ESCRITURA ____________________) según consta en la escritura pública número ____________________ de fecha ____________________ pasada ante la fe del notario público ____________________ Lic.",
+    "____________________, de ____________________, inscrita en el Registro Público de la Propiedad de ____________________, bajo el folio ____________________ de fecha ____________________, el cual señala como garantía del cabal cumplimiento de sus obligaciones contraídas en el presente contrato.",
+    "Que el bien property que señala como garantía y que ha quedado descrito en el inciso inmediato anterior se encuentra libre de gravámenes y limitación en su dominio y al corriente en el pay de todos sus impuestos, derechos, aprovechamientos, contribuciones y pagos de servicios, obligándose a no enajenar, traspasar, transfer o comprometerse con terceros durante el tiempo que dure la ContractRelation derivada del presente contrato.",
+    "d)Que para efectos de este contrato señala como su domicilio para receive y oir toda clase de notificaciones el ubicado en ____________________.",
+    "IV.- DECLARAN LAS PARTES a) Que en el presente contrato no existe dolo, error, mala fe o cualquier otro vicio de la voluntad, por lo que expresamente renuncian a invocarlos en cualquier tiempo.",
+    "Segunda.- Convienen expresamente tenant ____________________ que todo mes de arrendamiento le es forzoso y que lo pay íntegro aun cuando únicamente ocupe la localidad un solo día.",
+    "Artículo ____________________ del Código Civil.",
+    "2/4 Tercera.- El término del arrendamiento será de ____________________.",
+    "Cuarta.- Queda expresamente prohibit transfer o sublease todo o parte property arrendado y en caso de hacerlo será con permiso y por escrito del landlord como lo previenen los Artículos ____________________ del código civil.",
+    "Quinta.- tenant declara haber recibido property ____________________ en perfecto estado, para servir como ____________________ de conformidad con los Artículos ____________________ del Código Civil.",
+    "Sexta.- Queda expresamente convenido que cualquier mejora que hiciere tenant en la ____________________ queda a beneficio de la finca y que para hacerlas requerirá previamente el permiso por escrito del arrendador.",
+    "Séptima.- tenant hará uso property únicamente para habitación y si infringiere esta cláusula se dará por rescindido el contrato.",
+    "Octava.- El tenant must_not retener ni descontar de monthly_rent cantidad alguna por concepto de mejoras o reparaciones, aunque las hubiere hecho por orden de alguna autoridad, pues en caso de receive orden must avisar inmediatamente landlord para lo cual renuncia a los beneficios que pudieran favorecerle.",
+    "Novena.- must_not tener substancias corrosivas, materias inflamables o peligrosas en ____________________ que arrienda.",
+    "Décima.- tenant recibe property con todo el servicio sanitario en perfecto estado y se compromete a conservarlo en ese mismo estado siendo por su cuenta todos los gastos que erogar para maintain las bombas, fregaderos, caños, excusados así como puertas y ventanas en el estado como los recibió en esta fecha hasta que haga entrega de la ____________________ al arrendador.",
+    "Décima primera.- Para garantizar el cumplimiento de este contrato transfer el tenant la cantidad de $____________________ (____________________) la cual se devolverá cuando desocupe la localidad siempre que no deba nada por rentas y según constancias por escrito le extienda landlord por haber cumplido con las obligaciones que este contrato impone.",
+    "Décima segunda.- Firma este contrato ____________________ como guarantor solidario del tenant y declara ser landlord de ____________________ acreditándolo con: ____________________ y señala como su domicilio ____________________.",
+    "Decimotercera- las partes contratantes, establecen que cuando el LeaseContract se haya celebrado por tiempo determinado, concluya el día prefijado sin necesidad de desahucio y cuando no sea por tiempo determinado cada una partes lo dará por terminado previo aviso con ____________________ días de anticipación.",
+    "Las partes contratantes, perfectamente enteradas del contenido y alcance de todas y cada una de las cláusulas anteriores, firman el presente contrato y están conformes en que su fecha comience a regir.",
+    "En ____________________ a ____________________ de ____________________ de _____________________ 3/4 landlord tenant Este documento se ofrece con una finalidad informativa.",
+    "Velamos por la actualidad, exactitud y veracidad de los mismos, si bien se advierte que no son los textos oficiales y se declina toda responsabilidad por los daños que puedan causarse debido a las inexactitudes o incorrecciones en los mismos.",
+    "4/4"
+  ]
+}

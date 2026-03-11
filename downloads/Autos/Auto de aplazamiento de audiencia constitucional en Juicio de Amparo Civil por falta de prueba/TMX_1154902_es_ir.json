@@ -1,0 +1,170 @@
+{
+  "law": "Auto de aplazamiento de audiencia constitucional en Juicio de Amparo Civil por falta de prueba documental pública",
+  "authority": "judicial",
+  "enacted": "2024-05-07",
+  "imports": [
+    "Ley de Amparo",
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "complainant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "responsible_authority",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "certified_copy",
+      "type": "service"
+    },
+    {
+      "id": "constitutional_hearing",
+      "type": "service"
+    },
+    {
+      "id": "fine",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "postpone_hearing",
+      "type": "simple",
+      "actor": "judge",
+      "object": "constitutional_hearing",
+      "target": null
+    },
+    {
+      "id": "issue_certified_copy",
+      "type": "simple",
+      "actor": "responsible_authority",
+      "object": "certified_copy",
+      "target": "complainant"
+    },
+    {
+      "id": "fail_to_issue_copy",
+      "type": "counter",
+      "actor": "responsible_authority",
+      "object": "certified_copy",
+      "target": "complainant"
+    },
+    {
+      "id": "impose_fine",
+      "type": "simple",
+      "actor": "judge",
+      "object": "fine",
+      "target": "responsible_authority"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "DocumentRequested",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "DeadlineExpired",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "responsible_authority",
+        "object": "certified_copy",
+        "target": "complainant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "postponement_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "responsible_authority",
+          "object": "certified_copy",
+          "target": "complainant"
+        }
+      ],
+      "consequence": {
+        "type": "simple",
+        "actor": "judge",
+        "object": "constitutional_hearing",
+        "target": null
+      }
+    },
+    {
+      "id": "fine_imposition_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "DeadlineExpired"
+        },
+        {
+          "type": "counter",
+          "actor": "responsible_authority",
+          "object": "certified_copy",
+          "target": "complainant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "fine",
+          "target": "responsible_authority"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "hearing_postponement_procedure",
+      "steps": [
+        {
+          "description": "Request certified copy from responsible authority"
+        },
+        {
+          "ref": "fail_to_issue_copy"
+        },
+        {
+          "ref": "postpone_hearing"
+        },
+        {
+          "description": "Set deadline for compliance"
+        },
+        {
+          "ref": "impose_fine"
+        },
+        {
+          "description": "Notify parties"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto de aplazamiento de audiencia constitucional en Juicio de Amparo Civil por falta de prueba/TMX_1154902_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto de aplazamiento de audiencia constitucional en Juicio de Amparo Civil por falta de prueba/TMX_1154902_es.txt"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "law": "Contrato de prestación de servicios profesionales de asistencia técnica",
+  "authority": "private",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Artículos 2606, 2607, 2608, 2609, 2610, 2611, 2612, 2613, 2614, 2615, 2546, 2547, 2551, 2554, 2555, 2556, 2557, 2558, 2559, 2560 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "prestador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "servicios_asistencia_tecnica",
+      "type": "service"
+    },
+    {
+      "id": "contraprestacion_mensual",
+      "type": "money"
+    },
+    {
+      "id": "informacion_confidencial",
+      "type": "movable"
+    },
+    {
+      "id": "creaciones",
+      "type": "movable"
+    },
+    {
+      "id": "documentos_materiales",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "prestar_servicios",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "servicios_asistencia_tecnica",
+      "target": "cliente"
+    },
+    {
+      "id": "pagar_contraprestacion",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "contraprestacion_mensual",
+      "target": "prestador"
+    },
+    {
+      "id": "mantener_confidencialidad",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "informacion_confidencial",
+      "target": "cliente"
+    },
+    {
+      "id": "entregar_documentos",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "documentos_materiales",
+      "target": "cliente"
+    },
+    {
+      "id": "ceder_derechos_creaciones",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "creaciones",
+      "target": "cliente"
+    },
+    {
+      "id": "terminar_contrato",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "servicios_asistencia_tecnica",
+      "target": "prestador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractRelation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "servicios_asistencia_tecnica",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "contraprestacion_mensual",
+        "target": "prestador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "informacion_confidencial",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "creaciones",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "creaciones",
+        "target": "prestador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cliente",
+          "object": "contraprestacion_mensual",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "cliente",
+          "object": "servicios_asistencia_tecnica",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "document_return_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cliente",
+          "object": "servicios_asistencia_tecnica",
+          "target": "prestador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestador",
+          "object": "documentos_materiales",
+          "target": "cliente"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "prestacion_servicios",
+      "steps": [
+        {
+          "description": "Evaluación y diagnóstico"
+        },
+        {
+          "description": "Planificación y diseño"
+        },
+        {
+          "description": "Implementación"
+        },
+        {
+          "description": "Monitoreo y seguimiento"
+        },
+        {
+          "description": "Asesoramiento técnico"
+        },
+        {
+          "description": "Reportes y documentación"
+        },
+        {
+          "description": "Capacitación y formación"
+        },
+        {
+          "description": "Soporte técnico"
+        },
+        {
+          "description": "Evaluación final y entrega"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de asistencia técnica/TMX_2638671_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de asistencia técnica/TMX_2638671_es.txt"
+  }
+}

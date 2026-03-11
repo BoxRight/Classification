@@ -1,0 +1,250 @@
+{
+  "law": "Ley de Propiedad en Condominio de Inmuebles para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Código Civil para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "condominium_owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "administrator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "general_assembly",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "procuraduria",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "condominium_unit",
+      "type": "nonmovable"
+    },
+    {
+      "id": "common_areas",
+      "type": "nonmovable"
+    },
+    {
+      "id": "maintenance_fees",
+      "type": "money"
+    },
+    {
+      "id": "administration_fees",
+      "type": "money"
+    },
+    {
+      "id": "extraordinary_fees",
+      "type": "money"
+    },
+    {
+      "id": "reserve_fund",
+      "type": "money"
+    },
+    {
+      "id": "constitution_deed",
+      "type": "service"
+    },
+    {
+      "id": "condominium_regulations",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "CondominionOwnership",
+      "subject": "condominium_owner",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CondominionRegime",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "MaintenanceFeeDebt",
+      "subject": "condominium_owner",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NotarialCertification",
+      "subject": "notary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "constitution_deed",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "condominium_regulations",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_owner",
+        "object": "maintenance_fees",
+        "target": "general_assembly"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_owner",
+        "object": "administration_fees",
+        "target": "general_assembly"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_owner",
+        "object": "common_areas",
+        "target": "condominium_owner"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_owner",
+        "object": "condominium_unit",
+        "target": "condominium_owner"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "fee_payment_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "CondominionOwnership"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "condominium_owner",
+          "object": "maintenance_fees",
+          "target": "general_assembly"
+        }
+      }
+    },
+    {
+      "id": "debt_transfer_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "MaintenanceFeeDebt"
+        },
+        {
+          "type": "simple",
+          "actor": "condominium_owner",
+          "object": "condominium_unit",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "MaintenanceFeeDebt",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "violation_sanction_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "condominium_owner",
+          "object": "condominium_regulations",
+          "target": "general_assembly"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "Fine",
+        "subject": "condominium_owner"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_certification",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "constitution_deed",
+            "target": "buyer"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "condominium_regulations",
+            "target": "buyer"
+          }
+        },
+        {
+          "description": "explain_legal_articles"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación en condominio/TMX_1376257_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación en condominio/TMX_1376257_es.txt"
+  }
+}

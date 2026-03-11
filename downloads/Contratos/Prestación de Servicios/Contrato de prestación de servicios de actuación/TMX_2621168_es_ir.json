@@ -1,0 +1,195 @@
+{
+  "law": "Contrato de prestación de servicios de actuación",
+  "authority": "private",
+  "enacted": "2023-09-06",
+  "imports": [
+    "Artículos 2606, 2607, 2608, 2609, 2610, 2611, 2612, 2613, 2614, 2615, 2546, 2547, 2551, 2554, 2555, 2556, 2557, 2558, 2559, 2560 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "contratante",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "acting_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_acting_services",
+      "type": "simple",
+      "actor": "actor",
+      "object": "acting_services",
+      "target": "contratante"
+    },
+    {
+      "id": "pay_compensation",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "monthly_payment",
+      "target": "actor"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "actor",
+      "object": "confidential_information",
+      "target": "contratante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalLicense",
+      "subject": "actor",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ActingCompetence",
+      "subject": "actor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "actor",
+        "object": "acting_services",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "monthly_payment",
+        "target": "actor"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "actor",
+        "object": "confidential_information",
+        "target": "third_party"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "safety_measures",
+        "target": "actor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "monthly_payment",
+          "target": "actor"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "actor",
+          "object": "confidential_information",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "actor",
+          "object": "penalty_payment",
+          "target": "contratante"
+        }
+      }
+    },
+    {
+      "id": "immediate_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "actor",
+          "object": "contract_obligations",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "Written notice of breach"
+        },
+        {
+          "description": "14-day cure period"
+        },
+        {
+          "description": "Immediate termination if not cured"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de actuación/TMX_2621168_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de actuación/TMX_2621168_es.txt"
+  }
+}

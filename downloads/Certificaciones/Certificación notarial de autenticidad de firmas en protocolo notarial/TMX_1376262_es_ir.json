@@ -1,0 +1,105 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "legislative",
+  "enacted": null,
+  "imports": [
+    "Artículo 103 de la Ley del Notariado para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "delegate",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "assembly_attendees",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "assembly_minutes",
+      "type": "service"
+    },
+    {
+      "id": "signature_certification",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "SignatureAuthenticity",
+      "subject": "delegate",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProtocolizeMinutes",
+      "subject": "notary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "delegate",
+        "object": "signature_certification",
+        "target": "notary"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "signature_certification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "delegate",
+          "object": "assembly_minutes",
+          "target": "notary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "delegate",
+          "object": "signature_certification",
+          "target": "notary"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_signature_certification",
+      "steps": [
+        {
+          "description": "delegate appears before notary to protocolize minutes"
+        },
+        {
+          "description": "delegate declares under oath that signatures correspond to actual attendees"
+        },
+        {
+          "description": "notary inserts certification in protocol"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación notarial de autenticidad de firmas en protocolo notarial/TMX_1376262_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación notarial de autenticidad de firmas en protocolo notarial/TMX_1376262_es.txt"
+  }
+}

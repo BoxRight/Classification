@@ -1,0 +1,250 @@
+{
+  "law": "Cancelación del contrato de mutuo y la liberación de su garantía real hipotecaria",
+  "authority": "private",
+  "enacted": "2024-01-11",
+  "imports": [
+    "Artículo 27 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículo 357 de la Ley General de Títulos y Operaciones de Crédito"
+  ],
+  "parties": [
+    {
+      "id": "issste",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "borrower",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "trustee_bank",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "beneficiary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "loan_amount",
+      "type": "money"
+    },
+    {
+      "id": "real_estate_lot",
+      "type": "nonmovable"
+    },
+    {
+      "id": "trust_consideration",
+      "type": "money"
+    },
+    {
+      "id": "annual_fees",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LoanRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "MortgageGuarantee",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "TrustRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "RealEstateOwnership",
+      "subject": "borrower",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "LoanDebt",
+      "subject": "borrower",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "issste",
+        "object": "loan_amount",
+        "target": "borrower"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "borrower",
+        "object": "loan_amount",
+        "target": "issste"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "borrower",
+        "object": "real_estate_lot",
+        "target": "trustee_bank"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "trustee_bank",
+        "object": "real_estate_lot",
+        "target": "beneficiary"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "beneficiary",
+        "object": "annual_fees",
+        "target": "trustee_bank"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "loan_cancellation_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "borrower",
+          "object": "loan_amount",
+          "target": "issste"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "LoanDebt",
+        "subject": "borrower"
+      }
+    },
+    {
+      "id": "mortgage_release_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "LoanDebt",
+          "subject": "borrower"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "MortgageGuarantee"
+      }
+    },
+    {
+      "id": "trust_transfer_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "TrustRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "trustee_bank",
+          "object": "real_estate_lot",
+          "target": "beneficiary"
+        }
+      }
+    },
+    {
+      "id": "trust_extinction_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "TrustExpiration"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "TrustRelation"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "loan_cancellation_procedure",
+      "steps": [
+        {
+          "description": "Verify full payment of loan by borrower"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "issste",
+            "object": "loan_amount",
+            "target": "borrower"
+          }
+        },
+        {
+          "description": "Cancel mortgage guarantee registration"
+        }
+      ]
+    },
+    {
+      "name": "trust_constitution_procedure",
+      "steps": [
+        {
+          "description": "Obtain foreign relations permit"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "borrower",
+            "object": "real_estate_lot",
+            "target": "trustee_bank"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "beneficiary",
+            "object": "trust_consideration",
+            "target": "borrower"
+          }
+        },
+        {
+          "description": "Register trust in public property registry"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Mutuo/Cancelación del contrato de mutuo y la liberación de su garantía real hipotecaria/TMX_2204733_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Mutuo/Cancelación del contrato de mutuo y la liberación de su garantía real hipotecaria/TMX_2204733_es.txt"
+  }
+}

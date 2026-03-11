@@ -1,0 +1,177 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "minor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_clerk",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "final_judgment",
+      "type": "service"
+    },
+    {
+      "id": "notification_proceeding",
+      "type": "service"
+    },
+    {
+      "id": "birth_certificate",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "notify_judgment",
+      "type": "simple",
+      "actor": "court_clerk",
+      "object": "final_judgment",
+      "target": "defendant"
+    },
+    {
+      "id": "notify_minor",
+      "type": "counter",
+      "actor": "court_clerk",
+      "object": "final_judgment",
+      "target": "minor"
+    },
+    {
+      "id": "leave_citation",
+      "type": "simple",
+      "actor": "court_clerk",
+      "object": "notification_proceeding",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "legal_capacity",
+      "subject": "minor",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "notification_date",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_clerk",
+        "object": "final_judgment",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_clerk",
+        "object": "final_judgment",
+        "target": "minor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "personal_notification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "court_clerk",
+          "object": "final_judgment",
+          "target": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court_clerk",
+          "object": "notification_proceeding",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "citation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "defendant_absent"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court_clerk",
+          "object": "notification_proceeding",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "nullity_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "court_clerk",
+          "object": "final_judgment",
+          "target": "minor"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "notification_nullity"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullity_incident_procedure",
+      "steps": [
+        {
+          "description": "file_nullity_motion"
+        },
+        {
+          "description": "present_facts_and_legal_grounds"
+        },
+        {
+          "description": "request_interlocutory_judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Nulidad de Notificaciones/TMX_1400600_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Nulidad de Notificaciones/TMX_1400600_es.txt"
+  }
+}

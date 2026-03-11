@@ -1,0 +1,237 @@
+{
+  "law": "Contrato de Prestación de Servicios Profesionales",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículos 13, 15 de la Ley Federal del Trabajo",
+    "Artículo 96 de la Ley del Impuesto Sobre la Renta",
+    "Artículo 83 de la Ley Federal del Derecho de Autor"
+  ],
+  "parties": [
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "professional",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "developed_materials",
+      "type": "service"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "necessary_documentation",
+      "type": "service"
+    },
+    {
+      "id": "travel_expenses",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "professional_qualifications",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "tax_compliance",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "service_contract_relation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "professional_services",
+        "target": "company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "professional_fees",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "developed_materials",
+        "target": "company"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "necessary_documentation",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "travel_expenses",
+        "target": "professional"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "professional_services",
+          "target": "company"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "company",
+          "object": "professional_fees",
+          "target": "professional"
+        }
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "professional_services",
+          "target": "company"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "company",
+          "object": "service_contract_relation",
+          "target": "termination"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "confidential_information",
+          "target": "third_parties"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "penalty_fee",
+          "target": "company"
+        }
+      }
+    },
+    {
+      "id": "travel_expenses_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "travel_requirement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "company",
+          "object": "travel_expenses",
+          "target": "professional"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de Prestación de Servicios Profesionales/TMX_2444151_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de Prestación de Servicios Profesionales/TMX_2444151_es.txt"
+  }
+}

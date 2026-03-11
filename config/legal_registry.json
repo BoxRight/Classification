@@ -1,0 +1,155 @@
+{
+    "institutions": {
+        "ArrendamientoHabitacional": {
+            "name": "ArrendamientoHabitacional",
+            "description": "Contrato de arrendamiento de inmueble para uso habitacional",
+            "match": {
+                "contract_type": "Arrendamiento",
+                "required_roles": [
+                    "arrendador",
+                    "arrendatario"
+                ],
+                "required_objects": [
+                    "inmueble"
+                ]
+            }
+        },
+        "ArrendamientoComercial": {
+            "name": "ArrendamientoComercial",
+            "description": "Contrato de arrendamiento para uso comercial",
+            "match": {
+                "contract_type": "Arrendamiento",
+                "required_roles": [
+                    "arrendador",
+                    "arrendatario"
+                ],
+                "object_attribute": {
+                    "id": "inmueble",
+                    "attributes.purpose": "comercial"
+                }
+            }
+        }
+    },
+    "templates": {
+        "FianzaSolidariaTemplate": {
+            "name": "FianzaSolidariaTemplate",
+            "description": "Fianza solidaria con fiador como garante de obligaciones",
+            "trigger": {
+                "role_exists": "fiador"
+            },
+            "parameters": {
+                "deudor": "arrendatario",
+                "fiador": "fiador",
+                "acreedor": "arrendador",
+                "scope": "todas_obligaciones_arrendatario",
+                "solidary": true
+            }
+        },
+        "DepositoGarantiaTemplate": {
+            "name": "DepositoGarantiaTemplate",
+            "description": "Depósito en garantía para asegurar cumplimiento",
+            "trigger": {
+                "object_attribute": {
+                    "type": "Money",
+                    "attributes.purpose": "garantía"
+                }
+            },
+            "parameters": {
+                "acreedor": "arrendador",
+                "deudor": "arrendatario",
+                "monto_ref": "deposito_garantia",
+                "secured_property": "inmueble"
+            }
+        },
+        "UsoHabitacionalExclusivoTemplate": {
+            "name": "UsoHabitacionalExclusivoTemplate",
+            "description": "Restricción de uso exclusivo para habitación",
+            "trigger": {
+                "behavior_category": "use",
+                "object_attribute": {
+                    "id": "inmueble",
+                    "attributes.purpose": "habitación"
+                }
+            },
+            "parameters": {
+                "usuario": "arrendatario",
+                "bien": "inmueble",
+                "uso_permitido": "habitación"
+            }
+        },
+        "RescisionPorIncumplimientoTemplate": {
+            "name": "RescisionPorIncumplimientoTemplate",
+            "description": "Poder de rescisión en caso de incumplimiento",
+            "trigger": {
+                "behavior_exists": "incumplimiento_arrendatario"
+            },
+            "parameters": {
+                "acreedor": "arrendador",
+                "deudor": "arrendatario",
+                "breach_behavior": "incumplimiento_arrendatario"
+            }
+        },
+        "PagoRentaMensualTemplate": {
+            "name": "PagoRentaMensualTemplate",
+            "description": "Obligación de pago de renta mensual",
+            "trigger": {
+                "behavior_category": "transfer",
+                "object_exists": "renta_mensual"
+            },
+            "parameters": {
+                "deudor": "arrendatario",
+                "acreedor": "arrendador",
+                "monto": "renta_mensual",
+                "periodicidad": "mensual"
+            }
+        }
+    },
+    "principles": {
+        "PactaSuntServanda": {
+            "name": "PactaSuntServanda",
+            "description": "Los pactos deben cumplirse - principio de obligatoriedad contractual",
+            "trigger": {
+                "classification.obligations": "Bilateral"
+            },
+            "jurisdiction": "CivilLaw",
+            "scope": "global"
+        },
+        "BuenaFeContractual": {
+            "name": "BuenaFeContractual",
+            "description": "Principio de buena fe en la ejecución contractual",
+            "trigger": {
+                "always": true
+            },
+            "jurisdiction": "CivilLaw",
+            "scope": "global"
+        },
+        "NoEnriquecimientoIlicito": {
+            "name": "NoEnriquecimientoIlicito",
+            "description": "Prohibición de enriquecimiento sin causa",
+            "trigger": {
+                "behavior_category": "transfer"
+            },
+            "jurisdiction": "CivilLaw",
+            "scope": "institution"
+        },
+        "EquilibrioContractual": {
+            "name": "EquilibrioContractual",
+            "description": "Principio de equilibrio en contratos bilaterales onerosos",
+            "trigger": {
+                "classification.obligations": "Bilateral",
+                "classification.economic": "Oneroso"
+            },
+            "jurisdiction": "CivilLaw",
+            "scope": "global"
+        },
+        "ProhibicionAbusoDerecho": {
+            "name": "ProhibicionAbusoDerecho",
+            "description": "Prohibición del ejercicio abusivo de derechos",
+            "trigger": {
+                "always": true
+            },
+            "jurisdiction": "CivilLaw",
+            "scope": "global"
+        }
+    }
+}

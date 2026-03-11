@@ -1,0 +1,254 @@
+{
+  "law": "Acta constitutiva de Sociedad Civil. Notaría",
+  "authority": "private",
+  "enacted": "2023-10-24",
+  "imports": [
+    "Código Civil para el Estado de Hidalgo"
+  ],
+  "parties": [
+    {
+      "id": "associates",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_society",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "administration_committee",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "managing_partner",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "social_capital",
+      "type": "money"
+    },
+    {
+      "id": "social_contributions",
+      "type": "money"
+    },
+    {
+      "id": "notarial_services",
+      "type": "service"
+    },
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "financial_services",
+      "type": "service"
+    },
+    {
+      "id": "accounting_services",
+      "type": "service"
+    },
+    {
+      "id": "social_rights",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "contribute_capital",
+      "type": "simple",
+      "actor": "associates",
+      "object": "social_contributions",
+      "target": "civil_society"
+    },
+    {
+      "id": "provide_notarial_services",
+      "type": "simple",
+      "actor": "civil_society",
+      "object": "notarial_services",
+      "target": "third_parties"
+    },
+    {
+      "id": "transfer_social_rights",
+      "type": "simple",
+      "actor": "associates",
+      "object": "social_rights",
+      "target": "associates"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SocietyConstitution",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "SocialRights",
+      "subject": "associates",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "NotarialCapacity",
+      "subject": "civil_society",
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "SocialCapital",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "social_contributions",
+        "target": "civil_society"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_society",
+        "object": "notarial_services",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "social_rights",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "capital_contribution_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SocietyConstitution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "associates",
+          "object": "social_contributions",
+          "target": "civil_society"
+        }
+      }
+    },
+    {
+      "id": "unanimous_consent_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SocietyConstitution"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "ModifyContract",
+        "subject": "associates"
+      }
+    },
+    {
+      "id": "transfer_restriction_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "SocialRights",
+          "subject": "associates"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "associates",
+          "object": "social_rights",
+          "target": "third_parties"
+        }
+      }
+    },
+    {
+      "id": "administration_powers_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SocietyConstitution"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "AdministrativePowers",
+        "subject": "managing_partner"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "society_constitution",
+      "steps": [
+        {
+          "ref": "contribute_capital"
+        },
+        {
+          "description": "Designate managing partner"
+        },
+        {
+          "description": "Register in public registry"
+        }
+      ]
+    },
+    {
+      "name": "capital_increase",
+      "steps": [
+        {
+          "description": "Assembly resolution"
+        },
+        {
+          "description": "Notarial formalization"
+        },
+        {
+          "description": "Registry inscription"
+        }
+      ]
+    },
+    {
+      "name": "rights_transfer",
+      "steps": [
+        {
+          "description": "Unanimous consent of associates"
+        },
+        {
+          "description": "Record in associates book"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de Sociedad Civil. Notaría/TMX_2628258_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de Sociedad Civil. Notaría/TMX_2628258_es.txt"
+  }
+}

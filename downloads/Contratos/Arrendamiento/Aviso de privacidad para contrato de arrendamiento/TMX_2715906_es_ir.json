@@ -1,0 +1,222 @@
+{
+  "law": "Aviso de privacidad para contrato de arrendamiento",
+  "authority": "private",
+  "enacted": "2024-08-08",
+  "imports": [
+    "Ley Federal de Protección de Datos Personales en Posesión de los Particulares"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "personal_data",
+      "type": "service"
+    },
+    {
+      "id": "lease_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "collect_data",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "personal_data",
+      "target": "tenant"
+    },
+    {
+      "id": "process_data",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "personal_data",
+      "target": "tenant"
+    },
+    {
+      "id": "store_data",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "personal_data",
+      "target": "tenant"
+    },
+    {
+      "id": "access_data",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "personal_data",
+      "target": "landlord"
+    },
+    {
+      "id": "rectify_data",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "personal_data",
+      "target": "landlord"
+    },
+    {
+      "id": "cancel_data",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "personal_data",
+      "target": "landlord"
+    },
+    {
+      "id": "oppose_treatment",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "personal_data",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DataConsent",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "personal_data",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "personal_data",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "personal_data",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "personal_data",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "personal_data",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "data_collection_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "collect_data"
+        }
+      }
+    },
+    {
+      "id": "data_protection_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DataConsent",
+          "subject": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "process_data"
+        }
+      }
+    },
+    {
+      "id": "arco_rights_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "ref": "access_data"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "data_collection_procedure",
+      "steps": [
+        {
+          "act": {
+            "ref": "collect_data"
+          }
+        },
+        {
+          "act": {
+            "ref": "process_data"
+          }
+        },
+        {
+          "act": {
+            "ref": "store_data"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Aviso de privacidad para contrato de arrendamiento/TMX_2715906_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Aviso de privacidad para contrato de arrendamiento/TMX_2715906_es.txt"
+  }
+}

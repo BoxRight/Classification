@@ -1,0 +1,147 @@
+{
+  "law": "Convenio de ampliación de vigencia al contrato de prestación de servicios",
+  "authority": "private",
+  "enacted": "2024-10-24",
+  "imports": [
+    "Código Civil del Distrito Federal - Artículos 2606, 2607, 2608"
+  ],
+  "parties": [
+    {
+      "id": "el_cliente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "el_prestador",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "server_rental_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "data_servers",
+      "type": "movable"
+    },
+    {
+      "id": "encryptors",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ExtendedContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "ExtensionPeriod",
+      "subject": null,
+      "value": "3 months"
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "el_prestador",
+        "object": "server_rental_services",
+        "target": "el_cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "el_cliente",
+        "object": "monthly_payment",
+        "target": "el_prestador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "el_prestador",
+        "object": "maintenance_support",
+        "target": "el_cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_extension_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ExtendedContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "el_prestador",
+          "object": "server_rental_services",
+          "target": "el_cliente"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ExtendedContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "el_cliente",
+          "object": "monthly_payment",
+          "target": "el_prestador"
+        }
+      }
+    },
+    {
+      "id": "future_extension_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "ExtensionEnd"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "el_cliente",
+          "object": "new_contract",
+          "target": "el_prestador"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Convenio de ampliación de vigencia al contrato de prestación de servicios/TMX_2744966_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Convenio de ampliación de vigencia al contrato de prestación de servicios/TMX_2744966_es.txt"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "law": "Contrato de Arrendamiento",
+  "authority": "private",
+  "enacted": "2024-01-18",
+  "imports": [
+    "Artículos 2331, 2332, 2333, 2334, 2335, 2339, 2345, 2346, 2356, 2357, 2358 del Código Civil para el Estado de Veracruz De Ignacio de la Llave"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "insurance_coverage",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "insurance_coverage",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "commercial_property",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "commercial_property",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "guarantor",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "late_payment_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "money",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "early_termination_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "money",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "non_vacation_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "money",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "automatic_rescission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "CriminalInvestigation"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "guarantor_solidarity_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_renewal",
+      "steps": [
+        {
+          "description": "tenant provides written notice"
+        },
+        {
+          "description": "landlord evaluates renewal request"
+        }
+      ]
+    },
+    {
+      "name": "property_delivery",
+      "steps": [
+        {
+          "description": "tenant removes furniture and equipment"
+        },
+        {
+          "description": "tenant delivers property free of claims"
+        },
+        {
+          "description": "landlord inspects property condition"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2641133_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2641133_es.txt"
+  }
+}

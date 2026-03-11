@@ -1,0 +1,185 @@
+{
+  "law": "Certificación notarial de identidad y capacidad",
+  "authority": "administrative",
+  "enacted": "2024-05-15",
+  "imports": [
+    "Artículo 103 de la Ley del Notariado para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "notario",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "compareciente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "escritura",
+      "type": "service"
+    },
+    {
+      "id": "documento_identificacion",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "certificar_identidad",
+      "type": "simple",
+      "actor": "notario",
+      "object": "documento_identificacion",
+      "target": "compareciente"
+    },
+    {
+      "id": "dar_fe",
+      "type": "simple",
+      "actor": "notario",
+      "object": "escritura",
+      "target": "compareciente"
+    },
+    {
+      "id": "verificar_capacidad",
+      "type": "simple",
+      "actor": "notario",
+      "object": "escritura",
+      "target": "compareciente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "capacidad_legal",
+      "subject": "compareciente",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "identidad_verificada",
+      "subject": "compareciente",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "conocimiento_compareciente",
+      "subject": "notario",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notario",
+        "object": "documento_identificacion",
+        "target": "compareciente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notario",
+        "object": "escritura",
+        "target": "compareciente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "certificacion_identidad_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "identidad_verificada",
+          "subject": "compareciente"
+        },
+        {
+          "type": "capability",
+          "name": "capacidad_legal",
+          "subject": "compareciente"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "notario",
+          "object": "escritura",
+          "target": "compareciente"
+        }
+      }
+    },
+    {
+      "id": "conocimiento_directo_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "conocimiento_compareciente",
+          "subject": "notario"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "identidad_verificada",
+        "subject": "compareciente"
+      }
+    },
+    {
+      "id": "identificacion_documental_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notario",
+            "object": "documento_identificacion",
+            "target": "compareciente"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "identidad_verificada",
+        "subject": "compareciente"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "verificacion_identidad_capacidad",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notario",
+            "object": "documento_identificacion",
+            "target": "compareciente"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notario",
+            "object": "escritura",
+            "target": "compareciente"
+          }
+        },
+        {
+          "ref": "dar_fe"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación notarial de identidad y capacidad/TMX_1376156_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación notarial de identidad y capacidad/TMX_1376156_es.txt"
+  }
+}

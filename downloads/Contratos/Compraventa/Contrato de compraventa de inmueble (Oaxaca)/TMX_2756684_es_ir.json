@@ -1,0 +1,213 @@
+{
+  "law": "Contrato de compraventa de inmueble (Oaxaca)",
+  "authority": "private",
+  "enacted": "2024-11-26",
+  "imports": [
+    "Artículos 2124, 2125, 2131, 2138, 2144, 2157, 2163, 2167, y 2191 del Código Civil del Estado Libre y Soberano de Oaxaca"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "property_documents",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyRegistration",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "real_estate",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property_documents",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "real_estate",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_default_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "contract_resolution_buyer_default",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "real_estate",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "contract_resolution_seller_default",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "seller",
+          "object": "real_estate",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "penalty_clause_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "property_transfer",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "purchase_price",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "seller",
+            "object": "real_estate",
+            "target": "buyer"
+          }
+        },
+        {
+          "description": "Elevate contract to public deed before notary"
+        },
+        {
+          "description": "Register contract in Public Property Registry"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de inmueble (Oaxaca)/TMX_2756684_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de inmueble (Oaxaca)/TMX_2756684_es.txt"
+  }
+}

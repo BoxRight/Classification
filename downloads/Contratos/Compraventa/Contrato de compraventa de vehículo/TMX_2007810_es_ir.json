@@ -1,0 +1,205 @@
+{
+  "law": "Contrato de compraventa de vehículo",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículos 2216, 2217, 2224, 2221 y 2188 del Código Civil del Estado de Veracruz de Ignacio de la Llave"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "vehicle",
+      "type": "movable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "vehicle_documents",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_vehicle",
+      "type": "simple",
+      "actor": "seller",
+      "object": "vehicle",
+      "target": "buyer"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "purchase_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_vehicle",
+      "type": "simple",
+      "actor": "seller",
+      "object": "vehicle",
+      "target": "buyer"
+    },
+    {
+      "id": "deliver_documents",
+      "type": "simple",
+      "actor": "seller",
+      "object": "vehicle_documents",
+      "target": "buyer"
+    },
+    {
+      "id": "transfer_ownership",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "vehicle",
+      "target": "buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "vehicle_ownership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "sale_contract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "vehicle",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "vehicle_documents",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "seller",
+          "object": "vehicle",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "penalty_payment",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule_buyer",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "penalty_payment",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "cancellation_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "within_five_days"
+        },
+        {
+          "type": "asset",
+          "name": "vehicle_not_delivered"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "cancellation",
+          "target": "seller"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "vehicle_sale_procedure",
+      "steps": [
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "deliver_vehicle"
+        },
+        {
+          "ref": "deliver_documents"
+        },
+        {
+          "ref": "transfer_ownership"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de vehículo/TMX_2007810_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de vehículo/TMX_2007810_es.txt"
+  }
+}

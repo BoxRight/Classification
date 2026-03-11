@@ -1,0 +1,273 @@
+{
+  "law": "Contrato de prestación de servicios profesionales para el desarrollo de obra literaria",
+  "authority": "private",
+  "enacted": "2023-04-13",
+  "imports": [
+    "Artículos 13, 24, 27, 30, 31, 33, 217 y 218 de la Ley Federal del Derecho de Autor",
+    "Artículos 2606, 2607, 2608, 2609, 2610, 2611, 2612, 2613, 2614, 2615 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "literary_work",
+      "type": "service"
+    },
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_fees",
+      "type": "money"
+    },
+    {
+      "id": "intellectual_property_rights",
+      "type": "service"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "professional_services",
+      "target": "client"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "client",
+      "object": "monthly_fees",
+      "target": "service_provider"
+    },
+    {
+      "id": "assign_ip_rights",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "intellectual_property_rights",
+      "target": "client"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "service_provider",
+      "object": "confidential_information",
+      "target": "client"
+    },
+    {
+      "id": "terminate_contract",
+      "type": "simple",
+      "actor": "client",
+      "object": "professional_services",
+      "target": "service_provider"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProfessionalCompetence",
+      "subject": "service_provider",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "IntellectualPropertyOwnership",
+      "subject": "client",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "professional_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "monthly_fees",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "intellectual_property_rights",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "confidential_information",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "professional_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "act": {
+            "ref": "provide_services"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "monthly_fees",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "ip_assignment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "IntellectualPropertyOwnership",
+        "subject": "client"
+      }
+    },
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_confidentiality"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "professional_services",
+          "target": "service_provider"
+        }
+      }
+    },
+    {
+      "id": "material_breach_termination_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "service_provider",
+            "object": "professional_services",
+            "target": "client"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminate_contract"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_procedure",
+      "steps": [
+        {
+          "description": "Written notice with 15 days advance"
+        },
+        {
+          "act": {
+            "ref": "terminate_contract"
+          }
+        }
+      ]
+    },
+    {
+      "name": "breach_termination_procedure",
+      "steps": [
+        {
+          "description": "Written notice requiring compliance"
+        },
+        {
+          "description": "14 day cure period"
+        },
+        {
+          "act": {
+            "ref": "terminate_contract"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales para el desarrollo de obra literaria/TMX_2540629_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales para el desarrollo de obra literaria/TMX_2540629_es.txt"
+  }
+}

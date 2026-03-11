@@ -1,0 +1,142 @@
+{
+  "law": "Recurso de revocación contra decreto de copia certificada",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "promovente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_arrendamiento",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "copia_certificada",
+      "type": "service"
+    },
+    {
+      "id": "recurso_revocacion",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "DecreeIssued",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CertifiedCopyAuthorized",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "VistaOmitted",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promovente",
+        "object": "recurso_revocacion",
+        "target": "juez_arrendamiento"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "juez_arrendamiento",
+        "object": "vista",
+        "target": "promovente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "vista_requirement",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "actor",
+          "object": "copia_certificada",
+          "target": "juez_arrendamiento"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "juez_arrendamiento",
+          "object": "vista",
+          "target": "promovente"
+        }
+      }
+    },
+    {
+      "id": "revocation_grounds",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "VistaOmitted"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "counter",
+          "actor": "promovente",
+          "object": "decreto_impugnado",
+          "target": "juez_arrendamiento"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "recurso_revocacion_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "promovente",
+            "object": "recurso_revocacion",
+            "target": "juez_arrendamiento"
+          }
+        },
+        {
+          "description": "dar vista a la contraria"
+        },
+        {
+          "description": "resolver revocacion del decreto"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Copias/Recurso de revocación contra el decreto que obsequia la expedición de la copia certificada que/TMX_1374775_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Copias/Recurso de revocación contra el decreto que obsequia la expedición de la copia certificada que/TMX_1374775_es.txt"
+  }
+}

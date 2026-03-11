@@ -1,0 +1,194 @@
+{
+  "law": "Cláusula de beneficiario en contrato de compraventa (Legislación de Jalisco)",
+  "authority": "private",
+  "enacted": "2024-01-17",
+  "imports": [
+    "Código Civil del Estado de Jalisco, Artículo 2665 Bis"
+  ],
+  "parties": [
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "beneficiary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_registry",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "public_property_registry",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "death_certificate",
+      "type": "service"
+    },
+    {
+      "id": "tax_payment",
+      "type": "money"
+    },
+    {
+      "id": "public_document",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_property_on_death",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "real_estate_property",
+      "target": "beneficiary"
+    },
+    {
+      "id": "exhibit_death_certificate",
+      "type": "simple",
+      "actor": "beneficiary",
+      "object": "death_certificate",
+      "target": "public_property_registry"
+    },
+    {
+      "id": "pay_transmission_taxes",
+      "type": "simple",
+      "actor": "beneficiary",
+      "object": "tax_payment",
+      "target": "public_property_registry"
+    },
+    {
+      "id": "exhibit_public_document",
+      "type": "simple",
+      "actor": "beneficiary",
+      "object": "public_document",
+      "target": "public_property_registry"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "BuyerDeath",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MarriageOrBirthCertificate",
+      "subject": "beneficiary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "beneficiary",
+        "object": "death_certificate",
+        "target": "public_property_registry"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "beneficiary",
+        "object": "tax_payment",
+        "target": "public_property_registry"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "beneficiary",
+        "object": "public_document",
+        "target": "public_property_registry"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "property_transfer_on_death",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "buyer"
+        },
+        {
+          "type": "date",
+          "name": "BuyerDeath"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyOwnership",
+        "subject": "beneficiary"
+      }
+    },
+    {
+      "id": "beneficiary_obligations_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "beneficiary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "beneficiary",
+          "object": "death_certificate",
+          "target": "public_property_registry"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "beneficiary_property_registration",
+      "steps": [
+        {
+          "ref": "exhibit_death_certificate"
+        },
+        {
+          "ref": "pay_transmission_taxes"
+        },
+        {
+          "ref": "exhibit_public_document"
+        },
+        {
+          "description": "Registry makes corresponding annotations"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Cláusula de beneficiario en contrato de compraventa (Legislación de Jalisco)/TMX_1505326_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Cláusula de beneficiario en contrato de compraventa (Legislación de Jalisco)/TMX_1505326_es.txt"
+  }
+}

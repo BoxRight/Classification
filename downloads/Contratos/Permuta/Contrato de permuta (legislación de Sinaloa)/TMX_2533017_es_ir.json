@@ -1,0 +1,141 @@
+{
+  "law": "Contrato de permuta (legislación de Sinaloa)",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Estado de Sinaloa"
+  ],
+  "parties": [
+    {
+      "id": "party_a",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "party_b",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property_a",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_b",
+      "type": "nonmovable"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "exchange_property_a",
+      "type": "simple",
+      "actor": "party_a",
+      "object": "property_a",
+      "target": "party_b"
+    },
+    {
+      "id": "exchange_property_b",
+      "type": "simple",
+      "actor": "party_b",
+      "object": "property_b",
+      "target": "party_a"
+    },
+    {
+      "id": "pay_penalty",
+      "type": "simple",
+      "actor": "party_a",
+      "object": "penalty_payment",
+      "target": "party_b"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "property_a_ownership",
+      "subject": "party_a",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "property_b_ownership",
+      "subject": "party_b",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "party_a",
+        "object": "property_a",
+        "target": "party_b"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "party_b",
+        "object": "property_b",
+        "target": "party_a"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "party_a",
+          "object": "property_a",
+          "target": "party_b"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "party_a",
+          "object": "penalty_payment",
+          "target": "party_b"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule_b",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "party_b",
+          "object": "property_b",
+          "target": "party_a"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "party_b",
+          "object": "penalty_payment",
+          "target": "party_a"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Permuta/Contrato de permuta (legislación de Sinaloa)/TMX_2533017_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Permuta/Contrato de permuta (legislación de Sinaloa)/TMX_2533017_es.txt"
+  }
+}

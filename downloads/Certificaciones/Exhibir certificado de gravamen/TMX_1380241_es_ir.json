@@ -1,0 +1,98 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lien_certificate",
+      "type": "service"
+    },
+    {
+      "id": "seized_property",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LienCertificate",
+      "subject": "seized_property",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "SeizedProperty",
+      "subject": "petitioner",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "lien_certificate",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "exhibit_certificate_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "SeizedProperty"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "lien_certificate",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "exhibit_lien_certificate",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "petitioner",
+            "object": "lien_certificate",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "certificate_attachment_to_case_file"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Exhibir certificado de gravamen/TMX_1380241_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Exhibir certificado de gravamen/TMX_1380241_es.txt"
+  }
+}

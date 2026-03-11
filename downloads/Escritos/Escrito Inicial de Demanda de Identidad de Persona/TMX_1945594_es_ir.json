@@ -1,0 +1,152 @@
+{
+  "law": "Escrito Inicial de Demanda de Identidad de Persona",
+  "authority": "judicial",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Artículos 8, 17, 133 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Código de Procedimientos Civiles"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased_person",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "family_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "civil_registry_official",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "identity_resolution",
+      "type": "service"
+    },
+    {
+      "id": "birth_certificate",
+      "type": "service"
+    },
+    {
+      "id": "death_certificate",
+      "type": "service"
+    },
+    {
+      "id": "marriage_certificate",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PersonIdentity",
+      "subject": "deceased_person",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MultipleNamesUsed",
+      "subject": "deceased_person",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "Death",
+      "subject": "deceased_person",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "Marriage",
+      "subject": "deceased_person",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "identity_resolution",
+        "target": "family_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "identity_confirmation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "MultipleNamesUsed",
+          "subject": "deceased_person"
+        },
+        {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "birth_certificate",
+          "target": "family_judge"
+        },
+        {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "death_certificate",
+          "target": "family_judge"
+        },
+        {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "marriage_certificate",
+          "target": "family_judge"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "PersonIdentity",
+        "subject": "deceased_person"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "non_contentious_identity_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "petitioner",
+            "object": "identity_resolution",
+            "target": "family_judge"
+          }
+        },
+        {
+          "description": "Present documentary evidence"
+        },
+        {
+          "description": "Conduct testimonial hearing"
+        },
+        {
+          "description": "Issue judicial resolution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Identidad de Persona/TMX_1945594_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Identidad de Persona/TMX_1945594_es.txt"
+  }
+}

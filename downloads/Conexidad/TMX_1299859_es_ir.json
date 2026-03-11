@@ -1,0 +1,152 @@
+{
+  "law": "Formulario de Conexidad",
+  "authority": "judicial",
+  "enacted": "2017-10-30",
+  "imports": [],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "conexity_exception",
+      "type": "service"
+    },
+    {
+      "id": "lawsuit_consolidation",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_conexity_exception",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "conexity_exception",
+      "target": "judge"
+    },
+    {
+      "id": "consolidate_lawsuits",
+      "type": "simple",
+      "actor": "judge",
+      "object": "lawsuit_consolidation",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PendingLawsuit",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "SameParties",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "SameActions",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "SameCause",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NoImpediments",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "conexity_exception",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "conexity_exception_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PendingLawsuit"
+        },
+        {
+          "type": "certification",
+          "name": "SameParties"
+        },
+        {
+          "type": "certification",
+          "name": "SameActions"
+        },
+        {
+          "type": "certification",
+          "name": "NoImpediments"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "lawsuit_consolidation",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "conexity_exception_procedure",
+      "steps": [
+        {
+          "description": "File conexity exception within response deadline"
+        },
+        {
+          "description": "Provide evidence of pending lawsuit"
+        },
+        {
+          "description": "Demonstrate same parties and actions"
+        },
+        {
+          "description": "Show no impediments under article 40"
+        },
+        {
+          "description": "Request consolidation under articles 39 and 41"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Conexidad/TMX_1299859_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Conexidad/TMX_1299859_es.txt"
+  }
+}

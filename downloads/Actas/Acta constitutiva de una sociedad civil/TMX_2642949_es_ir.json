@@ -1,0 +1,268 @@
+{
+  "law": "Acta constitutiva de una sociedad civil",
+  "authority": "private",
+  "enacted": "2024-01-30",
+  "imports": [
+    "Código Civil para el Distrito Federal (Artículos 2670-2680)",
+    "Ley Federal de Fomento a las Actividades Realizadas por Organizaciones de la Sociedad Civil (Artículos 5-9)"
+  ],
+  "parties": [
+    {
+      "id": "asociacion_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "asociados",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "consejo_administracion",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "comite_vigilancia",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "asamblea_general",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "cuotas_ordinarias",
+      "type": "money"
+    },
+    {
+      "id": "cuotas_extraordinarias",
+      "type": "money"
+    },
+    {
+      "id": "derechos_humanos",
+      "type": "service"
+    },
+    {
+      "id": "servicios_juridicos",
+      "type": "service"
+    },
+    {
+      "id": "patrimonio_asociacion",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pagar_cuotas",
+      "type": "simple",
+      "actor": "asociados",
+      "object": "cuotas_ordinarias",
+      "target": "asociacion_civil"
+    },
+    {
+      "id": "promover_derechos_humanos",
+      "type": "simple",
+      "actor": "asociacion_civil",
+      "object": "derechos_humanos",
+      "target": "asociados"
+    },
+    {
+      "id": "brindar_asesoria_juridica",
+      "type": "simple",
+      "actor": "asociacion_civil",
+      "object": "servicios_juridicos",
+      "target": "asociados"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "constitucion_asociacion",
+      "subject": "asociacion_civil",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "objeto_social_derechos_humanos",
+      "subject": "asociacion_civil",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "sin_fines_lucro",
+      "subject": "asociacion_civil",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "duracion_99_anos",
+      "subject": "asociacion_civil",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asociados",
+        "object": "cuotas_ordinarias",
+        "target": "asociacion_civil"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asociados",
+        "object": "cuotas_extraordinarias",
+        "target": "asociacion_civil"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "consejo_administracion",
+        "object": "rendicion_cuentas",
+        "target": "asamblea_general"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asociacion_civil",
+        "object": "derechos_humanos",
+        "target": "asociados"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "exclusion_por_morosidad",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "asociados",
+          "object": "cuotas_ordinarias",
+          "target": "asociacion_civil"
+        },
+        {
+          "type": "numeric",
+          "name": "cuotas_impagadas",
+          "value": 2
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "exclusion_asociado",
+        "subject": "asociados"
+      }
+    },
+    {
+      "id": "obligacion_cuotas",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "membresia_activa",
+          "subject": "asociados"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "asociados",
+          "object": "cuotas_ordinarias",
+          "target": "asociacion_civil"
+        }
+      }
+    },
+    {
+      "id": "rendicion_cuentas_consejo",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "consejo_en_funciones",
+          "subject": "consejo_administracion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "consejo_administracion",
+          "object": "informe_gestion",
+          "target": "asamblea_general"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitucion_asociacion",
+      "steps": [
+        {
+          "description": "Protocolización ante notario"
+        },
+        {
+          "description": "Inscripción en Registro Público de Personas Morales"
+        },
+        {
+          "description": "Obtención de RFC"
+        },
+        {
+          "description": "Autorización de libros contables"
+        }
+      ]
+    },
+    {
+      "name": "proceso_electoral",
+      "steps": [
+        {
+          "description": "Convocatoria con 60 días de anticipación"
+        },
+        {
+          "description": "Registro de candidatos con 30 días mínimo"
+        },
+        {
+          "description": "Votación secreta"
+        },
+        {
+          "description": "Escrutinio público"
+        },
+        {
+          "description": "Comunicación de resultados"
+        }
+      ]
+    },
+    {
+      "name": "exclusion_asociado",
+      "steps": [
+        {
+          "description": "Identificación de causa de exclusión"
+        },
+        {
+          "description": "Decisión de Comité de Honor y Justicia"
+        },
+        {
+          "description": "Derecho de apelación ante Asamblea General"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de una sociedad civil/TMX_2642949_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de una sociedad civil/TMX_2642949_es.txt"
+  }
+}

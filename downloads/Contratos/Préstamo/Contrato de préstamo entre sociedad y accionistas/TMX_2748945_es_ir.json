@@ -1,0 +1,255 @@
+{
+  "law": "Contrato de préstamo entre sociedad y accionistas",
+  "authority": "private",
+  "enacted": "2024-11-06",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2384, 2386, 2393, 2394"
+  ],
+  "parties": [
+    {
+      "id": "sociedad",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "socios_accionistas",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "representante_legal",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "prestamo_monto",
+      "type": "money"
+    },
+    {
+      "id": "intereses",
+      "type": "money"
+    },
+    {
+      "id": "intereses_moratorios",
+      "type": "money"
+    },
+    {
+      "id": "garantias",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "otorgar_prestamo",
+      "type": "simple",
+      "actor": "sociedad",
+      "object": "prestamo_monto",
+      "target": "socios_accionistas"
+    },
+    {
+      "id": "devolver_prestamo",
+      "type": "simple",
+      "actor": "socios_accionistas",
+      "object": "prestamo_monto",
+      "target": "sociedad"
+    },
+    {
+      "id": "pagar_intereses",
+      "type": "simple",
+      "actor": "socios_accionistas",
+      "object": "intereses",
+      "target": "sociedad"
+    },
+    {
+      "id": "incumplir_pago",
+      "type": "counter",
+      "actor": "socios_accionistas",
+      "object": "prestamo_monto",
+      "target": "sociedad"
+    },
+    {
+      "id": "terminar_contrato",
+      "type": "simple",
+      "actor": "sociedad",
+      "object": "prestamo_monto",
+      "target": "socios_accionistas"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoVigente",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "AprobacionAsamblea",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CalidadAccionistas",
+      "subject": "socios_accionistas",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "sociedad",
+        "object": "prestamo_monto",
+        "target": "socios_accionistas"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socios_accionistas",
+        "object": "prestamo_monto",
+        "target": "sociedad"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socios_accionistas",
+        "object": "intereses",
+        "target": "sociedad"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socios_accionistas",
+        "object": "garantias",
+        "target": "sociedad"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "prestamo_otorgamiento",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoVigente"
+        },
+        {
+          "type": "asset",
+          "name": "AprobacionAsamblea"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "otorgar_prestamo"
+        }
+      }
+    },
+    {
+      "id": "devolucion_prestamo",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoVigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "devolver_prestamo"
+        }
+      }
+    },
+    {
+      "id": "pago_intereses",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoVigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pagar_intereses"
+        }
+      }
+    },
+    {
+      "id": "incumplimiento_moratorios",
+      "conditions": [
+        {
+          "act": {
+            "ref": "incumplir_pago"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "socios_accionistas",
+          "object": "intereses_moratorios",
+          "target": "sociedad"
+        }
+      }
+    },
+    {
+      "id": "terminacion_anticipada",
+      "conditions": [
+        {
+          "act": {
+            "ref": "incumplir_pago"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminar_contrato"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_prestamo",
+      "steps": [
+        {
+          "act": {
+            "ref": "otorgar_prestamo"
+          }
+        },
+        {
+          "act": {
+            "ref": "devolver_prestamo"
+          }
+        },
+        {
+          "act": {
+            "ref": "pagar_intereses"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Préstamo/Contrato de préstamo entre sociedad y accionistas/TMX_2748945_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Préstamo/Contrato de préstamo entre sociedad y accionistas/TMX_2748945_es.txt"
+  }
+}

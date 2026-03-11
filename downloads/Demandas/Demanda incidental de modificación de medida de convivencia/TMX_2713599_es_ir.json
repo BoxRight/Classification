@@ -1,0 +1,190 @@
+{
+  "law": "Demanda incidental de modificación de medida de convivencia",
+  "authority": "judicial",
+  "enacted": "2024-07-22",
+  "imports": [
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "minor_child",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "custodial_parent",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "family_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "assisted_visitation",
+      "type": "service"
+    },
+    {
+      "id": "virtual_visitation",
+      "type": "service"
+    },
+    {
+      "id": "child_support",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_assisted_visitation",
+      "type": "simple",
+      "actor": "custodial_parent",
+      "object": "assisted_visitation",
+      "target": "petitioner"
+    },
+    {
+      "id": "provide_virtual_visitation",
+      "type": "simple",
+      "actor": "custodial_parent",
+      "object": "virtual_visitation",
+      "target": "petitioner"
+    },
+    {
+      "id": "pay_child_support",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "child_support",
+      "target": "custodial_parent"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "GuardianshipAndCustody",
+      "subject": "custodial_parent",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProtectionMeasures",
+      "subject": "minor_child",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ParentChildRelationship",
+      "subject": "petitioner",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "assisted_visitation",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "virtual_visitation",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "child_support",
+        "target": "custodial_parent"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "visitation_modification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ProtectionMeasures",
+          "subject": "minor_child"
+        },
+        {
+          "type": "asset",
+          "name": "ParentChildRelationship",
+          "subject": "petitioner"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "assisted_visitation",
+          "target": "minor_child"
+        }
+      }
+    },
+    {
+      "id": "child_welfare_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "GuardianshipAndCustody",
+          "subject": "custodial_parent"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "custodial_parent",
+          "object": "assisted_visitation",
+          "target": "petitioner"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "visitation_modification_procedure",
+      "steps": [
+        {
+          "description": "File incidental motion for visitation modification"
+        },
+        {
+          "description": "Present evidence of compliance with child support obligations"
+        },
+        {
+          "description": "Request implementation of assisted and virtual visitation"
+        },
+        {
+          "description": "Judicial determination based on best interest of child"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda incidental de modificación de medida de convivencia/TMX_2713599_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda incidental de modificación de medida de convivencia/TMX_2713599_es.txt"
+  }
+}

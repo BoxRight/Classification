@@ -1,0 +1,297 @@
+{
+  "law": "Contrato de servidumbre de paso terrestre de camiones de carga",
+  "authority": "private",
+  "enacted": "2024-06-25",
+  "imports": [
+    "Código Civil Federal Arts. 1097-1104"
+  ],
+  "parties": [
+    {
+      "id": "parte_a",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "parte_b",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "predio_sirviente",
+      "type": "nonmovable"
+    },
+    {
+      "id": "predio_dominante",
+      "type": "nonmovable"
+    },
+    {
+      "id": "parque_maniobras",
+      "type": "nonmovable"
+    },
+    {
+      "id": "comedor",
+      "type": "nonmovable"
+    },
+    {
+      "id": "productos_agricolas",
+      "type": "movable"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "grant_easement",
+      "type": "simple",
+      "actor": "parte_a",
+      "object": "parque_maniobras",
+      "target": "parte_b"
+    },
+    {
+      "id": "maintain_facilities",
+      "type": "simple",
+      "actor": "parte_a",
+      "object": "parque_maniobras",
+      "target": "parte_a"
+    },
+    {
+      "id": "use_properly",
+      "type": "simple",
+      "actor": "parte_b",
+      "object": "parque_maniobras",
+      "target": "parte_a"
+    },
+    {
+      "id": "pay_penalty",
+      "type": "simple",
+      "actor": "parte_b",
+      "object": "pena_convencional",
+      "target": "parte_a"
+    },
+    {
+      "id": "indemnify_damages",
+      "type": "simple",
+      "actor": "parte_b",
+      "object": "pena_convencional",
+      "target": "parte_a"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "predio_sirviente_ownership",
+      "subject": "parte_a",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "predio_dominante_ownership",
+      "subject": "parte_b",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "easement_relation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_a",
+        "object": "parque_maniobras",
+        "target": "parte_a"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_b",
+        "object": "parque_maniobras",
+        "target": "parte_a"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_b",
+        "object": "parque_maniobras",
+        "target": "parte_b"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "easement_grant_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "predio_sirviente_ownership",
+          "subject": "parte_a"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "parte_b",
+          "object": "parque_maniobras",
+          "target": "parte_b"
+        }
+      }
+    },
+    {
+      "id": "maintenance_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "easement_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parte_a",
+          "object": "parque_maniobras",
+          "target": "parte_a"
+        }
+      }
+    },
+    {
+      "id": "proper_use_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "easement_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parte_b",
+          "object": "parque_maniobras",
+          "target": "parte_a"
+        }
+      }
+    },
+    {
+      "id": "penalty_for_misuse_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "parte_b",
+          "object": "parque_maniobras",
+          "target": "parte_a"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parte_b",
+          "object": "pena_convencional",
+          "target": "parte_a"
+        }
+      }
+    },
+    {
+      "id": "damage_indemnification_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "parte_b",
+          "object": "parque_maniobras",
+          "target": "parte_a"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parte_b",
+          "object": "pena_convencional",
+          "target": "parte_a"
+        }
+      }
+    },
+    {
+      "id": "mutual_termination_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "parte_a",
+          "object": "easement_relation",
+          "target": "parte_b"
+        },
+        {
+          "type": "simple",
+          "actor": "parte_b",
+          "object": "easement_relation",
+          "target": "parte_a"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "parte_b",
+          "object": "parque_maniobras",
+          "target": "parte_a"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_termination"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "dispute_resolution_procedure",
+      "steps": [
+        {
+          "description": "mutual_agreement_attempt"
+        },
+        {
+          "description": "judicial_resolution"
+        }
+      ]
+    },
+    {
+      "name": "inspection_procedure",
+      "steps": [
+        {
+          "description": "periodic_inspections"
+        },
+        {
+          "description": "unannounced_audits"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Servidumbre/Contrato de servidumbre de paso terrestre de camiones de carga/TMX_2705449_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Servidumbre/Contrato de servidumbre de paso terrestre de camiones de carga/TMX_2705449_es.txt"
+  }
+}

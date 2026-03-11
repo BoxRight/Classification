@@ -1,0 +1,155 @@
+{
+  "law": "Carta responsiva para el uso de instalaciones destinadas a la celebración de un evento público",
+  "authority": "private",
+  "enacted": "2024-05-15",
+  "imports": [
+    "Código Civil para el Distrito Federal Artículo 2117"
+  ],
+  "parties": [
+    {
+      "id": "collaborator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "facility_owner",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "facilities",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_damages",
+      "type": "money"
+    },
+    {
+      "id": "personal_valuables",
+      "type": "movable"
+    },
+    {
+      "id": "prohibited_items",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "EventParticipation",
+      "subject": "collaborator",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PropertyDamage",
+      "subject": "collaborator",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PersonalSafety",
+      "subject": "collaborator",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "truthful_information",
+        "target": "facility_owner"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "compliance_with_rules",
+        "target": "facility_owner"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "personal_responsibility",
+        "target": "collaborator"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "emergency_contact_info",
+        "target": "facility_owner"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "prohibited_items",
+        "target": "facilities"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "damage_liability_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "collaborator",
+          "object": "property_damage",
+          "target": "facilities"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "collaborator",
+          "object": "property_damages",
+          "target": "facility_owner"
+        }
+      }
+    },
+    {
+      "id": "emergency_authorization_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "collaborator",
+          "object": "medical_emergency",
+          "target": "collaborator"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "EmergencyMedicalCare",
+        "subject": "facility_owner"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Cartas/Carta responsiva para el uso de instalaciones destinadas a la celebración de un evento público/TMX_1979343_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cartas/Carta responsiva para el uso de instalaciones destinadas a la celebración de un evento público/TMX_1979343_es.txt"
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "law": "Ley de Propiedad en Condominio de Inmuebles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 29, 31, 32 y 33 de la Ley de Propiedad en Condominio de Inmuebles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "condominium_administrators",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "absent_condominiums",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "dissenting_condominiums",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "assembly_minutes",
+      "type": "service"
+    },
+    {
+      "id": "condominium_unit",
+      "type": "nonmovable"
+    },
+    {
+      "id": "condominium_fees",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "convene_assembly",
+      "type": "simple",
+      "actor": "condominium_administrators",
+      "object": "assembly_minutes",
+      "target": "plaintiff"
+    },
+    {
+      "id": "invalid_convocation",
+      "type": "counter",
+      "actor": "condominium_administrators",
+      "object": "assembly_minutes",
+      "target": "plaintiff"
+    },
+    {
+      "id": "hold_assembly_without_quorum",
+      "type": "counter",
+      "actor": "condominium_administrators",
+      "object": "assembly_minutes",
+      "target": "absent_condominiums"
+    },
+    {
+      "id": "discuss_unlisted_topics",
+      "type": "counter",
+      "actor": "condominium_administrators",
+      "object": "assembly_minutes",
+      "target": "plaintiff"
+    },
+    {
+      "id": "adopt_contrary_resolutions",
+      "type": "counter",
+      "actor": "condominium_administrators",
+      "object": "assembly_minutes",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "CondomniumOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AssemblyMinutesInvalid",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "QuorumDeficiency",
+      "subject": null,
+      "value": "75"
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_administrators",
+        "object": "assembly_minutes",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_administrators",
+        "object": "assembly_minutes",
+        "target": "absent_condominiums"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "quorum_requirement_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "QuorumDeficiency",
+          "value": "75"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "AssemblyMinutesInvalid"
+      }
+    },
+    {
+      "id": "proper_convocation_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "condominium_administrators",
+            "object": "assembly_minutes",
+            "target": "plaintiff"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "AssemblyMinutesInvalid"
+      }
+    },
+    {
+      "id": "agenda_compliance_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "condominium_administrators",
+            "object": "assembly_minutes",
+            "target": "plaintiff"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "AssemblyMinutesInvalid"
+      }
+    },
+    {
+      "id": "nullity_consequence_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AssemblyMinutesInvalid"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "assembly_minutes",
+          "target": "condominium_administrators"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullity_lawsuit_procedure",
+      "steps": [
+        {
+          "description": "File nullity lawsuit"
+        },
+        {
+          "description": "Serve defendants"
+        },
+        {
+          "description": "Present documentary evidence"
+        },
+        {
+          "description": "Present testimonial evidence"
+        },
+        {
+          "description": "Obtain judicial declaration of nullity"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "assembly_nullity_scenario",
+      "timeline": [
+        {
+          "event": "Invalid assembly convocation",
+          "condition": {
+            "act": {
+              "type": "counter",
+              "actor": "condominium_administrators",
+              "object": "assembly_minutes",
+              "target": "plaintiff"
+            }
+          }
+        },
+        {
+          "event": "Assembly held without proper quorum",
+          "condition": {
+            "type": "numeric",
+            "name": "QuorumDeficiency"
+          }
+        },
+        {
+          "event": "Unlisted topics discussed",
+          "condition": {
+            "act": {
+              "type": "counter",
+              "actor": "condominium_administrators",
+              "object": "assembly_minutes",
+              "target": "plaintiff"
+            }
+          }
+        },
+        {
+          "event": "Resolutions contrary to constitutive documents adopted",
+          "condition": {
+            "act": {
+              "type": "counter",
+              "actor": "condominium_administrators",
+              "object": "assembly_minutes",
+              "target": "plaintiff"
+            }
+          }
+        },
+        {
+          "event": "Rights of absent and dissenting condominiums violated",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Actas/Demanda de nulidad de acta de asamblea general de condóminos (CDMX)/TMX_2756544_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Demanda de nulidad de acta de asamblea general de condóminos (CDMX)/TMX_2756544_es.txt"
+  }
+}

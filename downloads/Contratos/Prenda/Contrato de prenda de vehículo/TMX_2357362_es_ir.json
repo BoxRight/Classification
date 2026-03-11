@@ -1,0 +1,198 @@
+{
+  "law": "Contrato de prenda de vehículo",
+  "authority": "private",
+  "enacted": "2024-04-30",
+  "imports": [
+    "Artículos 2856, 2857, 2858 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "parte_deudora",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "parte_acreedora",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "vehiculo_garantia",
+      "type": "movable"
+    },
+    {
+      "id": "prestamo_dinero",
+      "type": "money"
+    },
+    {
+      "id": "intereses",
+      "type": "money"
+    },
+    {
+      "id": "automovil_comprado",
+      "type": "movable"
+    },
+    {
+      "id": "automovil_usado",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "prestar_dinero",
+      "type": "simple",
+      "actor": "parte_acreedora",
+      "object": "prestamo_dinero",
+      "target": "parte_deudora"
+    },
+    {
+      "id": "pagar_capital_intereses",
+      "type": "simple",
+      "actor": "parte_deudora",
+      "object": "prestamo_dinero",
+      "target": "parte_acreedora"
+    },
+    {
+      "id": "constituir_prenda",
+      "type": "simple",
+      "actor": "parte_deudora",
+      "object": "vehiculo_garantia",
+      "target": "parte_acreedora"
+    },
+    {
+      "id": "conservar_vehiculo",
+      "type": "simple",
+      "actor": "parte_deudora",
+      "object": "vehiculo_garantia",
+      "target": null
+    },
+    {
+      "id": "entregar_factura",
+      "type": "simple",
+      "actor": "parte_deudora",
+      "object": "vehiculo_garantia",
+      "target": "parte_acreedora"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropiedadVehiculo",
+      "subject": "parte_deudora",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "PrendaVehicular",
+      "subject": "parte_acreedora",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "DeudaPendiente",
+      "subject": "parte_deudora",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_deudora",
+        "object": "prestamo_dinero",
+        "target": "parte_acreedora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_deudora",
+        "object": "intereses",
+        "target": "parte_acreedora"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_deudora",
+        "object": "vehiculo_garantia",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "parte_deudora",
+        "object": "vehiculo_garantia",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "garantia_prenda_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "DeudaPendiente",
+          "subject": "parte_deudora"
+        }
+      ],
+      "consequence": {
+        "type": "collateral",
+        "name": "PrendaVehicular",
+        "subject": "parte_acreedora"
+      }
+    },
+    {
+      "id": "conservacion_vehiculo_rule",
+      "conditions": [
+        {
+          "type": "collateral",
+          "name": "PrendaVehicular",
+          "subject": "parte_acreedora"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parte_deudora",
+          "object": "vehiculo_garantia",
+          "target": null
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitucion_prenda",
+      "steps": [
+        {
+          "ref": "prestar_dinero"
+        },
+        {
+          "ref": "constituir_prenda"
+        },
+        {
+          "ref": "entregar_factura"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prenda/Contrato de prenda de vehículo/TMX_2357362_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prenda/Contrato de prenda de vehículo/TMX_2357362_es.txt"
+  }
+}

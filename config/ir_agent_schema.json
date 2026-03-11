@@ -1,0 +1,363 @@
+{
+  "$defs": {
+    "Act": {
+      "description": "Action between actors.",
+      "properties": {
+        "id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Id"
+        },
+        "type": {
+          "enum": [
+            "simple",
+            "counter"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "actor": {
+          "title": "Actor",
+          "type": "string"
+        },
+        "object": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Object"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target"
+        }
+      },
+      "required": [
+        "type",
+        "actor"
+      ],
+      "title": "Act",
+      "type": "object"
+    },
+    "InstitutionalFact": {
+      "description": "Institutional condition (patrimony fact).",
+      "properties": {
+        "type": {
+          "enum": [
+            "asset",
+            "liability",
+            "certification",
+            "collateral",
+            "capability",
+            "ownership",
+            "numeric",
+            "date"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "subject": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject"
+        },
+        "value": {
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "title": "InstitutionalFact",
+      "type": "object"
+    },
+    "LegalObject": {
+      "description": "Contractual or legal object.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "movable",
+            "nonmovable",
+            "money",
+            "service"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "title": "LegalObject",
+      "type": "object"
+    },
+    "Norm": {
+      "description": "Normative generator.",
+      "properties": {
+        "modality": {
+          "enum": [
+            "obligation",
+            "claim",
+            "prohibition",
+            "privilege"
+          ],
+          "title": "Modality",
+          "type": "string"
+        },
+        "act": {
+          "$ref": "#/$defs/Act"
+        }
+      },
+      "required": [
+        "modality",
+        "act"
+      ],
+      "title": "Norm",
+      "type": "object"
+    },
+    "Party": {
+      "description": "Legal actor.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "const": "person",
+          "default": "person",
+          "title": "Type",
+          "type": "string"
+        },
+        "subtype": {
+          "enum": [
+            "physical",
+            "legal"
+          ],
+          "title": "Subtype",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "subtype"
+      ],
+      "title": "Party",
+      "type": "object"
+    },
+    "Procedure": {
+      "description": "Sequence of acts.",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Steps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "Procedure",
+      "type": "object"
+    },
+    "Rule": {
+      "description": "Rule that generates norms or facts.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Conditions",
+          "type": "array"
+        },
+        "consequence": {
+          "additionalProperties": true,
+          "title": "Consequence",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "consequence"
+      ],
+      "title": "Rule",
+      "type": "object"
+    },
+    "Scenario": {
+      "description": "Scenario with timeline (if document describes events).",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "timeline": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Timeline",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "Scenario",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "description": "Legal Intermediate Representation (agent output).",
+  "properties": {
+    "law": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Law"
+    },
+    "authority": {
+      "default": "private",
+      "enum": [
+        "private",
+        "administrative",
+        "judicial",
+        "legislative",
+        "constitutional"
+      ],
+      "title": "Authority",
+      "type": "string"
+    },
+    "enacted": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Enacted"
+    },
+    "imports": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Imports",
+      "type": "array"
+    },
+    "parties": {
+      "items": {
+        "$ref": "#/$defs/Party"
+      },
+      "title": "Parties",
+      "type": "array"
+    },
+    "objects": {
+      "items": {
+        "$ref": "#/$defs/LegalObject"
+      },
+      "title": "Objects",
+      "type": "array"
+    },
+    "acts": {
+      "items": {
+        "$ref": "#/$defs/Act"
+      },
+      "title": "Acts",
+      "type": "array"
+    },
+    "facts": {
+      "items": {
+        "$ref": "#/$defs/InstitutionalFact"
+      },
+      "title": "Facts",
+      "type": "array"
+    },
+    "norms": {
+      "items": {
+        "$ref": "#/$defs/Norm"
+      },
+      "title": "Norms",
+      "type": "array"
+    },
+    "rules": {
+      "items": {
+        "$ref": "#/$defs/Rule"
+      },
+      "title": "Rules",
+      "type": "array"
+    },
+    "procedures": {
+      "items": {
+        "$ref": "#/$defs/Procedure"
+      },
+      "title": "Procedures",
+      "type": "array"
+    },
+    "scenarios": {
+      "items": {
+        "$ref": "#/$defs/Scenario"
+      },
+      "title": "Scenarios",
+      "type": "array"
+    }
+  },
+  "title": "LegalIR",
+  "type": "object"
+}

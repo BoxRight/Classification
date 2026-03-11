@@ -1,0 +1,125 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 833 del Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "requesting_party",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "succession_case",
+      "type": "service"
+    },
+    {
+      "id": "connected_case",
+      "type": "service"
+    },
+    {
+      "id": "accumulation_request",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "request_accumulation",
+      "type": "simple",
+      "actor": "requesting_party",
+      "object": "accumulation_request",
+      "target": "judge"
+    },
+    {
+      "id": "order_accumulation",
+      "type": "simple",
+      "actor": "judge",
+      "object": "accumulation_request",
+      "target": "requesting_party"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "intestate_succession",
+      "subject": "deceased",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "judicial_authority",
+      "subject": "judge",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "accumulation_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "requesting_party",
+          "object": "accumulation_request",
+          "target": "judge"
+        },
+        {
+          "type": "certification",
+          "name": "proper_foundation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "accumulation_request",
+          "target": "requesting_party"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "case_accumulation_procedure",
+      "steps": [
+        {
+          "ref": "request_accumulation"
+        },
+        {
+          "description": "review of foundation and legal requirements"
+        },
+        {
+          "ref": "order_accumulation"
+        },
+        {
+          "description": "continue proceedings as accumulated cases"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que ordena la acumulación de otro juicio sucesorio/TMX_1425373_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que ordena la acumulación de otro juicio sucesorio/TMX_1425373_es.txt"
+  }
+}

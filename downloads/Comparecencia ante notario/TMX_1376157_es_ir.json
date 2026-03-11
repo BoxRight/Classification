@@ -1,0 +1,139 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Artículo 101 de la ley del Notariado para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "notario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "compareciente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "protocolo_notarial",
+      "type": "service"
+    },
+    {
+      "id": "escritura_publica",
+      "type": "service"
+    },
+    {
+      "id": "acta_notarial",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "comparecer",
+      "type": "simple",
+      "actor": "compareciente",
+      "object": "protocolo_notarial",
+      "target": "notario"
+    },
+    {
+      "id": "hacer_constar",
+      "type": "simple",
+      "actor": "notario",
+      "object": "escritura_publica",
+      "target": "compareciente"
+    },
+    {
+      "id": "dar_fe",
+      "type": "simple",
+      "actor": "notario",
+      "object": "acta_notarial",
+      "target": "compareciente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotarioTitular",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NotarioAsociado",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NotarioSuplente",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NotarioAdscrito",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notario",
+        "object": "protocolo_notarial",
+        "target": "compareciente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "comparecencia_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "NotarioTitular"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "notario",
+          "object": "escritura_publica",
+          "target": "compareciente"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "comparecencia_procedure",
+      "steps": [
+        {
+          "description": "Indicar número de libro e instrumento"
+        },
+        {
+          "description": "Señalar lugar y fecha"
+        },
+        {
+          "description": "Identificar al notario actuante"
+        },
+        {
+          "description": "Indicar acto jurídico y partes"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Comparecencia ante notario/TMX_1376157_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Comparecencia ante notario/TMX_1376157_es.txt"
+  }
+}

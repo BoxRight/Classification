@@ -1,0 +1,327 @@
+{
+  "law": "Contrato privado de compraventa de inmueble con condición resolutoria",
+  "authority": "private",
+  "enacted": "2024-11-08",
+  "imports": [
+    "Artículos 2814, 2815, 2856, 2873, 2858, 2859, 2884, 288, 1158, 1161 del Código Civil para el Distrito Federal",
+    "Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita",
+    "Ley de Extinción de Dominio"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "sale_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "fulfill_condition",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "resolutory_condition",
+      "target": "seller"
+    },
+    {
+      "id": "notify_fulfillment",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "notification",
+      "target": "seller"
+    },
+    {
+      "id": "acknowledge_notification",
+      "type": "simple",
+      "actor": "seller",
+      "object": "receipt",
+      "target": "buyer"
+    },
+    {
+      "id": "restitute_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "restitute_price",
+      "type": "simple",
+      "actor": "seller",
+      "object": "sale_price",
+      "target": "buyer"
+    },
+    {
+      "id": "provide_documentation",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "lawful_origin_proof",
+      "target": "seller"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "property_ownership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "legal_capacity",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "legal_capacity",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "sale_contract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "lawful_resources",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "sale_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "resolutory_condition",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "lawful_origin_proof",
+        "target": "seller"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "resolutory_condition_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "resolutory_condition",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "property",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "price_restitution_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "resolutory_condition",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "sale_price",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "breach_resolution_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "sale_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "contract_resolution",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "notification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "resolutory_condition",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "notification",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "acknowledgment_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "notification",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "receipt",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "fulfill_condition"
+        },
+        {
+          "ref": "notify_fulfillment"
+        },
+        {
+          "ref": "acknowledge_notification"
+        },
+        {
+          "ref": "deliver_property"
+        },
+        {
+          "ref": "transfer_property"
+        }
+      ]
+    },
+    {
+      "name": "contract_resolution",
+      "steps": [
+        {
+          "ref": "restitute_property"
+        },
+        {
+          "ref": "restitute_price"
+        },
+        {
+          "description": "cancel_operation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato privado de compraventa de inmueble con condición resolutoria/TMX_2750453_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato privado de compraventa de inmueble con condición resolutoria/TMX_2750453_es.txt"
+  }
+}

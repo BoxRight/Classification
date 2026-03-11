@@ -1,0 +1,195 @@
+{
+  "law": "Contrato de compraventa a plazos con reserva de dominio",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "first_payment",
+      "type": "money"
+    },
+    {
+      "id": "second_payment",
+      "type": "money"
+    },
+    {
+      "id": "third_payment",
+      "type": "money"
+    },
+    {
+      "id": "promissory_notes",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "reserved_ownership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "sale_contract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "promissory_notes",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "property",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "sale_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "ownership_transfer_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "property_ownership",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_termination",
+        "subject": "buyer"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_schedule",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "first_payment",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "second_payment",
+            "target": "seller"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "third_payment",
+            "target": "seller"
+          }
+        }
+      ]
+    },
+    {
+      "name": "property_transfer",
+      "steps": [
+        {
+          "description": "full_payment_verification"
+        },
+        {
+          "description": "notarial_deed_execution"
+        },
+        {
+          "description": "ownership_transfer"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa a plazos con reserva de dominio/TMX_1979374_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa a plazos con reserva de dominio/TMX_1979374_es.txt"
+  }
+}

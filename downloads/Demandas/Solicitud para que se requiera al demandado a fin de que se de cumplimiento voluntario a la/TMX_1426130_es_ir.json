@@ -1,0 +1,127 @@
+{
+  "law": "Solicitud para que se requiera al demandado a fin de que se de cumplimiento voluntario a la sentencia",
+  "authority": "judicial",
+  "enacted": "2018-10-29",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "attorney",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "sentence",
+      "type": "service"
+    },
+    {
+      "id": "voluntary_compliance",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "comply_with_sentence",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "sentence",
+      "target": "civil_judge"
+    },
+    {
+      "id": "request_compliance",
+      "type": "simple",
+      "actor": "attorney",
+      "object": "voluntary_compliance",
+      "target": "civil_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "sentence_executable",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "sentence",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "voluntary_compliance_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "sentence_executable"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "voluntary_compliance",
+          "target": "civil_judge"
+        }
+      }
+    },
+    {
+      "id": "forced_execution_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "voluntary_compliance",
+          "target": "civil_judge"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "forced_execution_authorized"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "voluntary_compliance_procedure",
+      "steps": [
+        {
+          "ref": "request_compliance"
+        },
+        {
+          "description": "five_day_term_for_compliance"
+        },
+        {
+          "description": "warning_of_forced_execution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Solicitud para que se requiera al demandado a fin de que se de cumplimiento voluntario a la/TMX_1426130_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Solicitud para que se requiera al demandado a fin de que se de cumplimiento voluntario a la/TMX_1426130_es.txt"
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "law": "Contrato de permuta de bienes inmuebles de extinción parcial de fideicomiso",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículo 2327, 2328, 2329, 2330 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "fiduciary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "fiduciary_delegate",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "individual_party",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "individual_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "trustor_1",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "trustor_2",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "land_fractions_individual",
+      "type": "nonmovable"
+    },
+    {
+      "id": "land_lots_trust",
+      "type": "nonmovable"
+    },
+    {
+      "id": "trust_patrimony",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "exchange_land",
+      "type": "simple",
+      "actor": "individual_party",
+      "object": "land_fractions_individual",
+      "target": "fiduciary"
+    },
+    {
+      "id": "counter_exchange_land",
+      "type": "simple",
+      "actor": "fiduciary",
+      "object": "land_lots_trust",
+      "target": "individual_party"
+    },
+    {
+      "id": "incorporate_land",
+      "type": "simple",
+      "actor": "fiduciary",
+      "object": "land_fractions_individual",
+      "target": "trust_patrimony"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "land_ownership_individual",
+      "subject": "individual_party",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "land_ownership_trust",
+      "subject": "fiduciary",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "property_free_of_liens",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "trust_relationship",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "individual_party",
+        "object": "land_fractions_individual",
+        "target": "fiduciary"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "fiduciary",
+        "object": "land_lots_trust",
+        "target": "individual_party"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "individual_party",
+        "object": "warranty_against_eviction",
+        "target": "fiduciary"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "fiduciary",
+        "object": "warranty_against_eviction",
+        "target": "individual_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "exchange_completion_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "trust_relationship"
+        },
+        {
+          "type": "ownership",
+          "name": "land_ownership_individual",
+          "subject": "individual_party"
+        },
+        {
+          "type": "ownership",
+          "name": "land_ownership_trust",
+          "subject": "fiduciary"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "exchange_completed"
+      }
+    },
+    {
+      "id": "trust_partial_extinction_rule",
+      "conditions": [
+        {
+          "ref": "counter_exchange_land"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "trust_partially_extinguished"
+      }
+    },
+    {
+      "id": "incorporation_rule",
+      "conditions": [
+        {
+          "ref": "exchange_land"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "fiduciary",
+          "object": "land_fractions_individual",
+          "target": "trust_patrimony"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "property_exchange_procedure",
+      "steps": [
+        {
+          "ref": "exchange_land"
+        },
+        {
+          "ref": "counter_exchange_land"
+        },
+        {
+          "ref": "incorporate_land"
+        },
+        {
+          "description": "property_title_transfer"
+        },
+        {
+          "description": "registry_inscription"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Permuta/Contrato de permuta de bienes inmuebles de extinción parcial de fideicomiso/TMX_1983390_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Permuta/Contrato de permuta de bienes inmuebles de extinción parcial de fideicomiso/TMX_1983390_es.txt"
+  }
+}

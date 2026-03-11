@@ -1,0 +1,151 @@
+{
+  "law": "Código Fiscal de la Federación Artículo 29 y Regla 2.7.1.23 Resolución Miscelánea Fiscal",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Código Fiscal de la Federación",
+    "Resolución Miscelánea Fiscal"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "transferor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "acquirer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "cfdi",
+      "type": "service"
+    },
+    {
+      "id": "real_estate",
+      "type": "nonmovable"
+    },
+    {
+      "id": "public_deed",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "issue_cfdi",
+      "type": "simple",
+      "actor": "transferor",
+      "object": "cfdi",
+      "target": "acquirer"
+    },
+    {
+      "id": "certify_cfdi_obligation",
+      "type": "simple",
+      "actor": "notary",
+      "object": "public_deed",
+      "target": "acquirer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PropertyTransfer",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NotarialCertification",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "transferor",
+        "object": "cfdi",
+        "target": "acquirer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "public_deed",
+        "target": "acquirer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cfdi_obligation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PropertyTransfer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "transferor",
+          "object": "cfdi",
+          "target": "acquirer"
+        }
+      }
+    },
+    {
+      "id": "notarial_certification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PropertyTransfer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "public_deed",
+          "target": "acquirer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_cfdi_certification",
+      "steps": [
+        {
+          "description": "Advertir a la parte adquirente sobre obligación de CFDI"
+        },
+        {
+          "description": "Manifestar conocimiento y conformidad del adquirente"
+        },
+        {
+          "description": "Liberar al notario de responsabilidad"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación del comprobante fiscal digital/TMX_1376263_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación del comprobante fiscal digital/TMX_1376263_es.txt"
+  }
+}

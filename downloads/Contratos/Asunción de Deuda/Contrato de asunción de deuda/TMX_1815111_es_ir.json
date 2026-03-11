@@ -1,0 +1,193 @@
+{
+  "law": "Contrato de asunción de deuda",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2058, 2059, 2060"
+  ],
+  "parties": [
+    {
+      "id": "acreedor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deudor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "asunto",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "deuda",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_debt",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "deuda",
+      "target": "asunto"
+    },
+    {
+      "id": "assume_debt",
+      "type": "simple",
+      "actor": "asunto",
+      "object": "deuda",
+      "target": "acreedor"
+    },
+    {
+      "id": "pay_debt",
+      "type": "simple",
+      "actor": "asunto",
+      "object": "deuda",
+      "target": "acreedor"
+    },
+    {
+      "id": "fallback_payment",
+      "type": "simple",
+      "actor": "deudor",
+      "object": "deuda",
+      "target": "acreedor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "DebtRelation",
+      "subject": "deudor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CreditorRight",
+      "subject": "acreedor",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DebtTransfer",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "OriginalGuarantees",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "asunto",
+        "object": "deuda",
+        "target": "acreedor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "debt_assumption_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DebtTransfer"
+        },
+        {
+          "type": "liability",
+          "name": "DebtRelation",
+          "subject": "deudor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_debt"
+        }
+      }
+    },
+    {
+      "id": "insolvency_fallback_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "asunto",
+            "object": "deuda",
+            "target": "acreedor"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "fallback_payment"
+        }
+      }
+    },
+    {
+      "id": "guarantee_continuity_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DebtTransfer"
+        }
+      ],
+      "consequence": {
+        "type": "collateral",
+        "name": "OriginalGuarantees"
+      }
+    },
+    {
+      "id": "nullity_restoration_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "judicial_authority",
+            "object": "contract",
+            "target": null
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "fallback_payment"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "debt_assumption_process",
+      "steps": [
+        {
+          "ref": "transfer_debt"
+        },
+        {
+          "ref": "assume_debt"
+        },
+        {
+          "description": "creditor_consent"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Asunción de Deuda/Contrato de asunción de deuda/TMX_1815111_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Asunción de Deuda/Contrato de asunción de deuda/TMX_1815111_es.txt"
+  }
+}

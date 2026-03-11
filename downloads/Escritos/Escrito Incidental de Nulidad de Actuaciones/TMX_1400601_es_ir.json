@@ -1,0 +1,131 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "notifier_executor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "final_sentence",
+      "type": "service"
+    },
+    {
+      "id": "nullity_incident",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_vacate_property",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "property",
+      "target": "civil_judge"
+    },
+    {
+      "id": "execute_sentence",
+      "type": "simple",
+      "actor": "notifier_executor",
+      "object": "final_sentence",
+      "target": "petitioner"
+    },
+    {
+      "id": "personal_notification",
+      "type": "counter",
+      "actor": "civil_judge",
+      "object": "final_sentence",
+      "target": "petitioner"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "FinalSentenceDictated",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ExecutionAttempted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PersonalNotificationViolation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "property",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "nullity_grounds_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PersonalNotificationViolation"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "NullityProcedure"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullity_incident_procedure",
+      "steps": [
+        {
+          "description": "File nullity incident based on Article 166"
+        },
+        {
+          "description": "Present facts regarding procedural violations"
+        },
+        {
+          "description": "Offer presumptive and instrumental evidence"
+        },
+        {
+          "description": "Request declaration of nullity"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Nulidad de Actuaciones/TMX_1400601_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Nulidad de Actuaciones/TMX_1400601_es.txt"
+  }
+}

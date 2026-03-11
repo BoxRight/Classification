@@ -1,0 +1,221 @@
+{
+  "law": "Ley de Impuesto al Valor Agregado",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Artículos 1, 3, 9, 78 de la Ley de Impuesto al Valor Agregado",
+    "Artículo 28 del Reglamento de la Ley del Impuesto al Valor Agregado",
+    "Artículo 31 de la Ley del Impuesto al Valor Agregado",
+    "Artículo 78 del Reglamento de la Ley del Impuesto al Valor Agregado"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tax_authorities",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "land",
+      "type": "nonmovable"
+    },
+    {
+      "id": "residential_construction",
+      "type": "nonmovable"
+    },
+    {
+      "id": "non_residential_construction",
+      "type": "nonmovable"
+    },
+    {
+      "id": "vat_tax",
+      "type": "money"
+    },
+    {
+      "id": "parking_space",
+      "type": "nonmovable"
+    },
+    {
+      "id": "storage_unit",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "vat_exemption_land",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "vat_exemption_residential",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "vat_exemption_accessory_residential",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "vat_exemption_new_residential",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "periodic_tax_declarations",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "vat_tax",
+        "target": "tax_authorities"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "vat_tax",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "vat_exemption_land_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "seller",
+          "object": "land",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "vat_exemption_land"
+      }
+    },
+    {
+      "id": "vat_exemption_residential_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "seller",
+          "object": "residential_construction",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "vat_exemption_residential"
+      }
+    },
+    {
+      "id": "vat_calculation_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "seller",
+          "object": "non_residential_construction",
+          "target": "buyer"
+        },
+        {
+          "type": "capability",
+          "name": "non_regular_taxpayer",
+          "subject": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "vat_tax",
+          "target": "tax_authorities"
+        }
+      }
+    },
+    {
+      "id": "vat_retention_exemption_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "periodic_tax_declarations",
+          "subject": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "counter",
+          "actor": "notary",
+          "object": "vat_tax",
+          "target": "tax_authorities"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "vat_certification_process",
+      "steps": [
+        {
+          "description": "Determine property type and destination"
+        },
+        {
+          "description": "Verify seller taxpayer status"
+        },
+        {
+          "description": "Calculate VAT if applicable"
+        },
+        {
+          "description": "Include certification clause in deed"
+        },
+        {
+          "description": "Retain and remit tax if required"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación del Impuesto al Valor Agregado/TMX_1376150_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación del Impuesto al Valor Agregado/TMX_1376150_es.txt"
+  }
+}

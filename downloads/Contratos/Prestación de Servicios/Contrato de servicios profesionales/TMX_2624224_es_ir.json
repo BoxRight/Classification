@@ -1,0 +1,226 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2023-10-03",
+  "imports": [
+    "Código Civil del Estado de México - Artículos 7.825, 7.827, 7.828, 7.830, 7.833, 7.834"
+  ],
+  "parties": [
+    {
+      "id": "comitente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "comisionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "commission_payment",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "comisionista",
+      "object": "professional_services",
+      "target": "comitente"
+    },
+    {
+      "id": "pay_commission",
+      "type": "simple",
+      "actor": "comitente",
+      "object": "commission_payment",
+      "target": "comisionista"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "comisionista",
+      "object": "confidential_information",
+      "target": "comitente"
+    },
+    {
+      "id": "breach_service",
+      "type": "counter",
+      "actor": "comisionista",
+      "object": "professional_services",
+      "target": "comitente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProfessionalCapacity",
+      "subject": "comisionista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalLicense",
+      "subject": "comisionista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comisionista",
+        "object": "professional_services",
+        "target": "comitente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comitente",
+        "object": "commission_payment",
+        "target": "comisionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comisionista",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comisionista",
+        "object": "prior_notice",
+        "target": "comitente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "commission_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "ref": "provide_services"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "comitente",
+          "object": "commission_payment",
+          "target": "comisionista"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "ref": "breach_service"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ConventionalPenalty",
+        "subject": "comisionista"
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "AccumulatedPenalties",
+          "value": 6
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "ref": "breach_service"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractRescission"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "service_performance",
+      "steps": [
+        {
+          "description": "Receive mandate and instructions"
+        },
+        {
+          "ref": "provide_services"
+        },
+        {
+          "description": "Submit documentation and reports"
+        },
+        {
+          "ref": "pay_commission"
+        }
+      ]
+    },
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "Give five business days notice"
+        },
+        {
+          "description": "Complete pending settlements"
+        },
+        {
+          "description": "Final account rendering"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de servicios profesionales/TMX_2624224_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de servicios profesionales/TMX_2624224_es.txt"
+  }
+}

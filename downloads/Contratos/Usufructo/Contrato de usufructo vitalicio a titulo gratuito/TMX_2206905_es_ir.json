@@ -1,0 +1,222 @@
+{
+  "law": "Contrato de usufructo vitalicio a título gratuito",
+  "authority": "private",
+  "enacted": "2024-02-13",
+  "imports": [
+    "Artículo 896 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "propietario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "usufructuario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "otorgar_usufructo",
+      "type": "simple",
+      "actor": "propietario",
+      "object": "inmueble",
+      "target": "usufructuario"
+    },
+    {
+      "id": "usar_inmueble",
+      "type": "simple",
+      "actor": "usufructuario",
+      "object": "inmueble",
+      "target": null
+    },
+    {
+      "id": "cuidar_inmueble",
+      "type": "simple",
+      "actor": "usufructuario",
+      "object": "inmueble",
+      "target": null
+    },
+    {
+      "id": "no_entorpecer",
+      "type": "simple",
+      "actor": "propietario",
+      "object": null,
+      "target": "usufructuario"
+    },
+    {
+      "id": "destinar_actividad_ilicita",
+      "type": "counter",
+      "actor": "usufructuario",
+      "object": "inmueble",
+      "target": null
+    },
+    {
+      "id": "deteriorar_intencionalmente",
+      "type": "counter",
+      "actor": "usufructuario",
+      "object": "inmueble",
+      "target": null
+    },
+    {
+      "id": "destinar_contra_moral",
+      "type": "counter",
+      "actor": "usufructuario",
+      "object": "inmueble",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "propietario_owns_inmueble",
+      "subject": "propietario",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "inmueble_libre_gravamen",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "usufructo_vitalicio_gratuito",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "usufructuario",
+        "object": "inmueble",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "usufructuario",
+        "object": "inmueble",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietario",
+        "object": null,
+        "target": "usufructuario"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "usufructuario",
+        "object": "inmueble",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_actividad_ilicita",
+      "conditions": [
+        {
+          "ref": "destinar_actividad_ilicita"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    },
+    {
+      "id": "rescision_deterioro_intencional",
+      "conditions": [
+        {
+          "ref": "deteriorar_intencionalmente"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    },
+    {
+      "id": "rescision_contra_moral",
+      "conditions": [
+        {
+          "ref": "destinar_contra_moral"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    },
+    {
+      "id": "rescision_voluntad_propietario",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "voluntad_propietario_rescision"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    },
+    {
+      "id": "terminacion_muerte_propietario",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "muerte_propietario"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "terminacion_contrato"
+      }
+    },
+    {
+      "id": "rescision_renuncia_usufructuario",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "renuncia_usufructuario"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "rescision_contrato"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Usufructo/Contrato de usufructo vitalicio a titulo gratuito/TMX_2206905_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Usufructo/Contrato de usufructo vitalicio a titulo gratuito/TMX_2206905_es.txt"
+  }
+}

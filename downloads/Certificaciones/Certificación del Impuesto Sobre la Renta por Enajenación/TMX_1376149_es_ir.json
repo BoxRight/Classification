@@ -1,0 +1,230 @@
+{
+  "law": "Ley del Impuesto sobre la Renta",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Artículo 93 de la Ley del Impuesto sobre la Renta",
+    "Artículo 154 del Reglamento de la Ley del Impuesto sobre la Renta",
+    "Artículo 155 del Reglamento de la Ley del Impuesto sobre la Renta"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tax_authority",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "primary_residence",
+      "type": "nonmovable"
+    },
+    {
+      "id": "provisional_tax_payment",
+      "type": "money"
+    },
+    {
+      "id": "tax_calculation",
+      "type": "service"
+    },
+    {
+      "id": "supporting_documents",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "calculate_tax",
+      "type": "simple",
+      "actor": "notary",
+      "object": "tax_calculation",
+      "target": "seller"
+    },
+    {
+      "id": "pay_provisional_tax",
+      "type": "simple",
+      "actor": "notary",
+      "object": "provisional_tax_payment",
+      "target": "tax_authority"
+    },
+    {
+      "id": "declare_primary_residence",
+      "type": "simple",
+      "actor": "seller",
+      "object": "primary_residence",
+      "target": "notary"
+    },
+    {
+      "id": "provide_supporting_documents",
+      "type": "simple",
+      "actor": "seller",
+      "object": "supporting_documents",
+      "target": "notary"
+    },
+    {
+      "id": "notify_tax_authority",
+      "type": "simple",
+      "actor": "notary",
+      "object": "supporting_documents",
+      "target": "tax_authority"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "PropertySale",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PrimaryResidence",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "ExemptionLimit",
+      "subject": null,
+      "value": 700000
+    },
+    {
+      "type": "capability",
+      "name": "BusinessActivity",
+      "subject": "seller",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "tax_calculation",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "provisional_tax_payment",
+        "target": "tax_authority"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "supporting_documents",
+        "target": "notary"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "primary_residence_exemption",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PropertySale"
+        },
+        {
+          "type": "certification",
+          "name": "PrimaryResidence",
+          "subject": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "TaxExemption",
+        "subject": "seller"
+      }
+    },
+    {
+      "id": "exemption_limit_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PrimaryResidence",
+          "subject": "seller"
+        },
+        {
+          "type": "numeric",
+          "name": "SalePrice"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "provisional_tax_payment",
+          "target": "tax_authority"
+        }
+      }
+    },
+    {
+      "id": "three_year_restriction",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PrimaryResidence",
+          "subject": "seller"
+        },
+        {
+          "type": "date",
+          "name": "PreviousExemption"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ExemptionProhibition",
+        "subject": "seller"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "tax_certification_process",
+      "steps": [
+        {
+          "ref": "declare_primary_residence"
+        },
+        {
+          "ref": "provide_supporting_documents"
+        },
+        {
+          "ref": "calculate_tax"
+        },
+        {
+          "ref": "pay_provisional_tax"
+        },
+        {
+          "ref": "notify_tax_authority"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación del Impuesto Sobre la Renta por Enajenación/TMX_1376149_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación del Impuesto Sobre la Renta por Enajenación/TMX_1376149_es.txt"
+  }
+}

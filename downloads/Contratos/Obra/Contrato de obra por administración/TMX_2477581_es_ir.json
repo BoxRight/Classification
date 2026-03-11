@@ -1,0 +1,301 @@
+{
+  "law": "Contrato de obra por administración",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "propietario",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "contratista",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "construction_work",
+      "type": "service"
+    },
+    {
+      "id": "payment_percentage",
+      "type": "money"
+    },
+    {
+      "id": "bond_amount",
+      "type": "money"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "supervise_subcontracts",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "construction_work",
+      "target": "propietario"
+    },
+    {
+      "id": "review_estimates",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "construction_work",
+      "target": "propietario"
+    },
+    {
+      "id": "coordinate_supplies",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "construction_work",
+      "target": "propietario"
+    },
+    {
+      "id": "acquire_inputs",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "construction_work",
+      "target": "propietario"
+    },
+    {
+      "id": "construct_components",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "construction_work",
+      "target": "propietario"
+    },
+    {
+      "id": "pay_contractor",
+      "type": "simple",
+      "actor": "propietario",
+      "object": "payment_percentage",
+      "target": "contratista"
+    },
+    {
+      "id": "provide_bond",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "bond_amount",
+      "target": "propietario"
+    },
+    {
+      "id": "maintain_insurance",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "construction_work",
+      "target": "propietario"
+    },
+    {
+      "id": "terminate_contract",
+      "type": "simple",
+      "actor": "propietario",
+      "object": "construction_work",
+      "target": "contratista"
+    },
+    {
+      "id": "suspend_work",
+      "type": "simple",
+      "actor": "propietario",
+      "object": "construction_work",
+      "target": "contratista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ConstructionCapability",
+      "subject": "contratista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CamaraRegistration",
+      "subject": "contratista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CamaraRegistration",
+      "subject": "propietario",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "construction_work",
+        "target": "propietario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietario",
+        "object": "payment_percentage",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "bond_amount",
+        "target": "propietario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_execution_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratista",
+          "object": "construction_work",
+          "target": "propietario"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        },
+        {
+          "ref": "supervise_subcontracts"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "propietario",
+          "object": "payment_percentage",
+          "target": "contratista"
+        }
+      }
+    },
+    {
+      "id": "bond_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratista",
+          "object": "bond_amount",
+          "target": "propietario"
+        }
+      }
+    },
+    {
+      "id": "insurance_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "maintain_insurance"
+        }
+      }
+    },
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "contratista",
+          "object": "construction_work",
+          "target": "propietario"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminate_contract"
+        }
+      }
+    },
+    {
+      "id": "suspension_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "suspend_work"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "construction_process",
+      "steps": [
+        {
+          "ref": "supervise_subcontracts"
+        },
+        {
+          "ref": "review_estimates"
+        },
+        {
+          "ref": "coordinate_supplies"
+        },
+        {
+          "ref": "acquire_inputs"
+        },
+        {
+          "ref": "construct_components"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Obra/Contrato de obra por administración/TMX_2477581_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Obra/Contrato de obra por administración/TMX_2477581_es.txt"
+  }
+}

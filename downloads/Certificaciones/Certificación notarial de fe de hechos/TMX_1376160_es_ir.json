@@ -1,0 +1,175 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "property_owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "possessor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "requester",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "testimony_document",
+      "type": "service"
+    },
+    {
+      "id": "lease_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "identify_notary",
+      "type": "simple",
+      "actor": "notary",
+      "object": "testimony_document",
+      "target": "requester"
+    },
+    {
+      "id": "explain_presence",
+      "type": "simple",
+      "actor": "notary",
+      "object": "testimony_document",
+      "target": "requester"
+    },
+    {
+      "id": "enter_property",
+      "type": "simple",
+      "actor": "notary",
+      "object": "property",
+      "target": "property_owner"
+    },
+    {
+      "id": "authorize_entry",
+      "type": "simple",
+      "actor": "property_owner",
+      "object": "property",
+      "target": "notary"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotarialProcedure",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "property_owner",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "NotarialAuthority",
+      "subject": "notary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "testimony_document",
+        "target": "requester"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "notary_identification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "NotarialProcedure"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "identify_notary"
+        }
+      }
+    },
+    {
+      "id": "notary_explanation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "NotarialProcedure"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "explain_presence"
+        }
+      }
+    },
+    {
+      "id": "property_entry_authorization_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "authorize_entry"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_certification_procedure",
+      "steps": [
+        {
+          "ref": "identify_notary"
+        },
+        {
+          "ref": "explain_presence"
+        },
+        {
+          "ref": "authorize_entry"
+        },
+        {
+          "ref": "enter_property"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación notarial de fe de hechos/TMX_1376160_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación notarial de fe de hechos/TMX_1376160_es.txt"
+  }
+}

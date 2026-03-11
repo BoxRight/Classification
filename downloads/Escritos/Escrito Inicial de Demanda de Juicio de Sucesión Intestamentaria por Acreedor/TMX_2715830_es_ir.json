@@ -1,0 +1,225 @@
+{
+  "law": "Juicio de Sucesión Intestamentaria por Acreedor",
+  "authority": "judicial",
+  "enacted": "2024-08-08",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "creditor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased_family",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "debt",
+      "type": "money"
+    },
+    {
+      "id": "estate",
+      "type": "movable"
+    },
+    {
+      "id": "contract",
+      "type": "service"
+    },
+    {
+      "id": "death_certificate",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_debt",
+      "type": "simple",
+      "actor": "deceased",
+      "object": "debt",
+      "target": "creditor"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "deceased",
+      "object": "debt",
+      "target": "creditor"
+    },
+    {
+      "id": "initiate_succession",
+      "type": "simple",
+      "actor": "deceased_family",
+      "object": "estate",
+      "target": "judge"
+    },
+    {
+      "id": "fail_initiate_succession",
+      "type": "counter",
+      "actor": "deceased_family",
+      "object": "estate",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "date",
+      "name": "death_date",
+      "subject": "deceased",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "outstanding_debt",
+      "subject": "deceased",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "inheritance_estate",
+      "subject": "deceased",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "debt_contract",
+      "subject": "creditor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "deceased",
+        "object": "debt",
+        "target": "creditor"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "creditor",
+        "object": "debt",
+        "target": "estate"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "creditor_succession_right",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "death_date",
+          "subject": "deceased"
+        },
+        {
+          "type": "liability",
+          "name": "outstanding_debt",
+          "subject": "deceased"
+        },
+        {
+          "type": "counter",
+          "actor": "deceased_family",
+          "object": "estate",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "creditor",
+          "object": "estate",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "intestate_succession_by_creditor",
+      "steps": [
+        {
+          "description": "File initial petition with death certificate"
+        },
+        {
+          "description": "Request inquiry to Notarial Archive for testament existence"
+        },
+        {
+          "description": "Request inquiry to Property Registry for deceased assets"
+        },
+        {
+          "description": "Notify Public Ministry"
+        },
+        {
+          "description": "Summon interested parties for testimonial hearing"
+        },
+        {
+          "description": "Issue judgment declaring heirs"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "creditor_initiated_succession",
+      "timeline": [
+        {
+          "event": "debtor_death",
+          "condition": {
+            "type": "date",
+            "name": "death_date",
+            "subject": "deceased"
+          }
+        },
+        {
+          "event": "family_fails_to_initiate",
+          "condition": {
+            "type": "counter",
+            "actor": "deceased_family",
+            "object": "estate",
+            "target": "judge"
+          }
+        },
+        {
+          "event": "creditor_files_petition",
+          "condition": {
+            "type": "liability",
+            "name": "outstanding_debt",
+            "subject": "deceased"
+          }
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Juicio de Sucesión Intestamentaria por Acreedor/TMX_2715830_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Juicio de Sucesión Intestamentaria por Acreedor/TMX_2715830_es.txt"
+  }
+}

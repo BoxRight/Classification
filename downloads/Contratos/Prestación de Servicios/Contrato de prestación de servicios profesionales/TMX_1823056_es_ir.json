@@ -1,0 +1,271 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2023-04-28",
+  "imports": [
+    "Artículos 2606-2615 del Código Civil para el Distrito Federal",
+    "Artículos 13, 15 de la Ley Federal del Trabajo",
+    "Artículo 96 de la Ley del ISR",
+    "Artículo 83 de la Ley Federal del Derecho de Autor"
+  ],
+  "parties": [
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "professional",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "materials_developed",
+      "type": "service"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "documentation",
+      "type": "service"
+    },
+    {
+      "id": "travel_expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "professional",
+      "object": "professional_services",
+      "target": "company"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "company",
+      "object": "professional_fees",
+      "target": "professional"
+    },
+    {
+      "id": "develop_materials",
+      "type": "simple",
+      "actor": "professional",
+      "object": "materials_developed",
+      "target": "company"
+    },
+    {
+      "id": "maintain_confidentiality",
+      "type": "simple",
+      "actor": "professional",
+      "object": "confidential_information",
+      "target": "company"
+    },
+    {
+      "id": "provide_documentation",
+      "type": "simple",
+      "actor": "company",
+      "object": "documentation",
+      "target": "professional"
+    },
+    {
+      "id": "cover_expenses",
+      "type": "simple",
+      "actor": "company",
+      "object": "travel_expenses",
+      "target": "professional"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "professional",
+      "object": "confidential_information",
+      "target": "company"
+    },
+    {
+      "id": "breach_service_obligations",
+      "type": "counter",
+      "actor": "professional",
+      "object": "professional_services",
+      "target": "company"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProfessionalQualifications",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TaxCompliance",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LaborRegistration",
+      "subject": "professional",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "professional_services",
+        "target": "company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "professional_fees",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "documentation",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "travel_expenses",
+        "target": "professional"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "professional_services",
+          "target": "company"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination",
+        "subject": "company"
+      }
+    },
+    {
+      "id": "confidentiality_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "confidential_information",
+          "target": "company"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ConfidentialityPenalty",
+        "subject": "professional"
+      }
+    },
+    {
+      "id": "material_ownership_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "professional",
+          "object": "materials_developed",
+          "target": "company"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "MaterialsOwnership",
+        "subject": "company"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "company",
+            "object": "documentation",
+            "target": "professional"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "professional",
+            "object": "professional_services",
+            "target": "company"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "company",
+            "object": "professional_fees",
+            "target": "professional"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_1823056_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_1823056_es.txt"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "law": "Demanda de juicio de usucapión",
+  "authority": "judicial",
+  "enacted": "2018-05-16",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_title",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "possess_property",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "immovable_property",
+      "target": null
+    },
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "immovable_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "cultivate_land",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "immovable_property",
+      "target": null
+    },
+    {
+      "id": "pay_property_tax",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "immovable_property",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "RegisteredOwnership",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "MaterialPossession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CadastralRegistration",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyTaxPayment",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "property_title",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "adverse_possession_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "MaterialPossession"
+        },
+        {
+          "type": "certification",
+          "name": "ContinuousPossession"
+        },
+        {
+          "type": "certification",
+          "name": "PublicPossession"
+        },
+        {
+          "type": "certification",
+          "name": "PeacefulPossession"
+        },
+        {
+          "type": "certification",
+          "name": "GoodFaithPossession"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "AcquiredOwnership",
+        "subject": "plaintiff"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "usucapion_lawsuit",
+      "steps": [
+        {
+          "description": "File lawsuit with civil court"
+        },
+        {
+          "description": "Admit lawsuit and serve defendant"
+        },
+        {
+          "description": "Publish notice by edict"
+        },
+        {
+          "description": "Obtain judgment declaring ownership acquired"
+        },
+        {
+          "description": "Register new title in property registry"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda de juicio de usucapión. Prescripción positiva./TMX_1396866_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda de juicio de usucapión. Prescripción positiva./TMX_1396866_es.txt"
+  }
+}

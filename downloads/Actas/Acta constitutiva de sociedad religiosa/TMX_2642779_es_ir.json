@@ -1,0 +1,262 @@
+{
+  "law": "Acta constitutiva de sociedad religiosa",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "religious_association",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "administrative_council",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "surveillance_committee",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "honor_justice_committee",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "general_assembly",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "membership_fees",
+      "type": "money"
+    },
+    {
+      "id": "contributions",
+      "type": "money"
+    },
+    {
+      "id": "religious_services",
+      "type": "service"
+    },
+    {
+      "id": "educational_activities",
+      "type": "service"
+    },
+    {
+      "id": "charitable_works",
+      "type": "service"
+    },
+    {
+      "id": "real_estate",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "AssociationConstitution",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "AssociationPatrimony",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ReligiousPractice",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "QuorumFiftyPercent",
+      "subject": null,
+      "value": "50"
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "members",
+        "object": "membership_fees",
+        "target": "religious_association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "members",
+        "object": "religious_services",
+        "target": "religious_association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "administrative_council",
+        "object": "religious_services",
+        "target": "members"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "religious_association",
+        "object": "religious_services",
+        "target": "members"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "membership_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "AssociationMembership",
+          "subject": "members"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "members",
+          "object": "membership_fees",
+          "target": "religious_association"
+        }
+      }
+    },
+    {
+      "id": "exclusion_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "members",
+          "object": "membership_fees",
+          "target": "religious_association"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "MembershipTermination",
+        "subject": "members"
+      }
+    },
+    {
+      "id": "assembly_decision_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "QuorumFiftyPercent"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "DecisionMaking",
+        "subject": "general_assembly"
+      }
+    },
+    {
+      "id": "real_estate_transaction_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "SeventyFivePercent",
+          "value": "75"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "RealEstateTransaction",
+        "subject": "general_assembly"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "association_constitution",
+      "steps": [
+        {
+          "description": "Convocatoria a asamblea constitutiva"
+        },
+        {
+          "description": "Aprobación de estatutos por unanimidad"
+        },
+        {
+          "description": "Elección de consejo de administración"
+        },
+        {
+          "description": "Protocolización ante notario"
+        },
+        {
+          "description": "Registro ante autoridades"
+        }
+      ]
+    },
+    {
+      "name": "member_exclusion",
+      "steps": [
+        {
+          "description": "Evaluación por Comité de Honor y Justicia"
+        },
+        {
+          "description": "Decisión de Asamblea General"
+        },
+        {
+          "description": "Notificación al miembro"
+        }
+      ]
+    },
+    {
+      "name": "election_process",
+      "steps": [
+        {
+          "description": "Convocatoria 60 días antes"
+        },
+        {
+          "description": "Inscripción de candidatos 30 días antes"
+        },
+        {
+          "description": "Votación secreta"
+        },
+        {
+          "description": "Escrutinio público"
+        },
+        {
+          "description": "Comunicación de resultados"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de sociedad religiosa/TMX_2642779_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de sociedad religiosa/TMX_2642779_es.txt"
+  }
+}

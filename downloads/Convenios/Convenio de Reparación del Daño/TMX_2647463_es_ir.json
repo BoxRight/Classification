@@ -1,0 +1,167 @@
+{
+  "law": "Convenio de Reparación del Daño",
+  "authority": "private",
+  "enacted": "2024-02-29",
+  "imports": [
+    "Artículos 1910, 1913, 1915, 1916, 1918, 1927, 1928 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "centro_medico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "paciente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "medical_treatment",
+      "type": "service"
+    },
+    {
+      "id": "compensation_payment",
+      "type": "money"
+    },
+    {
+      "id": "legal_action_waiver",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_medical_treatment",
+      "type": "simple",
+      "actor": "centro_medico",
+      "object": "medical_treatment",
+      "target": "paciente"
+    },
+    {
+      "id": "pay_compensation",
+      "type": "simple",
+      "actor": "centro_medico",
+      "object": "compensation_payment",
+      "target": "paciente"
+    },
+    {
+      "id": "waive_legal_actions",
+      "type": "simple",
+      "actor": "paciente",
+      "object": "legal_action_waiver",
+      "target": "centro_medico"
+    },
+    {
+      "id": "breach_agreement",
+      "type": "counter",
+      "actor": "centro_medico",
+      "object": "medical_treatment",
+      "target": "paciente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "medical_malpractice_liability",
+      "subject": "centro_medico",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "damage_recognition",
+      "subject": "centro_medico",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "centro_medico",
+        "object": "medical_treatment",
+        "target": "paciente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "centro_medico",
+        "object": "compensation_payment",
+        "target": "paciente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "paciente",
+        "object": "legal_action_waiver",
+        "target": "centro_medico"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "medical_treatment_obligation",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "medical_malpractice_liability",
+          "subject": "centro_medico"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "provide_medical_treatment"
+        }
+      }
+    },
+    {
+      "id": "compensation_obligation",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "damage_recognition",
+          "subject": "centro_medico"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_compensation"
+        }
+      }
+    },
+    {
+      "id": "breach_consequence",
+      "conditions": [
+        {
+          "ref": "breach_agreement"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "paciente",
+          "object": "legal_action_waiver",
+          "target": "centro_medico"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio de Reparación del Daño/TMX_2647463_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio de Reparación del Daño/TMX_2647463_es.txt"
+  }
+}

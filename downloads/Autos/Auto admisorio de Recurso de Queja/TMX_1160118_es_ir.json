@@ -1,0 +1,155 @@
+{
+  "law": "Auto admisorio de Recurso de Queja",
+  "authority": "judicial",
+  "enacted": "2024-01-11",
+  "imports": [
+    "Artículos 95, 98, 99 de la Ley de Amparo",
+    "Artículo 103 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículo 107 de la Constitución Política de los Estados Unidos Mexicanos"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tribunal_colegiado",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "ministerio_publico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "magistrado_presidente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "recurso_queja",
+      "type": "service"
+    },
+    {
+      "id": "informe_justificado",
+      "type": "service"
+    },
+    {
+      "id": "expediente",
+      "type": "service"
+    },
+    {
+      "id": "auto_impugnado",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "RecursoQuejaInterpuesto",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ExpedienteFormado",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AutoImpugnado",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "juez_distrito",
+        "object": "informe_justificado",
+        "target": "tribunal_colegiado"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tribunal_colegiado",
+        "object": "recurso_queja",
+        "target": "quejoso"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "admision_recurso_queja",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "RecursoQuejaInterpuesto"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ExpedienteFormado"
+      }
+    },
+    {
+      "id": "requerimiento_informe",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ExpedienteFormado"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "juez_distrito",
+          "object": "informe_justificado",
+          "target": "tribunal_colegiado"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "tramite_recurso_queja",
+      "steps": [
+        {
+          "description": "Formar expediente y registrar"
+        },
+        {
+          "description": "Requerir informe justificado al Juez Federal"
+        },
+        {
+          "description": "Dirigir oficio con copia del acuerdo"
+        },
+        {
+          "description": "Notificar al Ministerio Público"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto admisorio de Recurso de Queja/TMX_1160118_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto admisorio de Recurso de Queja/TMX_1160118_es.txt"
+  }
+}

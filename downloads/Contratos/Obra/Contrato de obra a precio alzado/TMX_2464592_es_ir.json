@@ -1,0 +1,493 @@
+{
+  "law": "Contrato de obra a precio alzado",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "contratante",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "contratista",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "obra",
+      "type": "service"
+    },
+    {
+      "id": "contract_amount",
+      "type": "money"
+    },
+    {
+      "id": "advance_payment",
+      "type": "money"
+    },
+    {
+      "id": "partial_payments",
+      "type": "money"
+    },
+    {
+      "id": "materials",
+      "type": "movable"
+    },
+    {
+      "id": "tools",
+      "type": "movable"
+    },
+    {
+      "id": "labor",
+      "type": "service"
+    },
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "permits",
+      "type": "service"
+    },
+    {
+      "id": "guaranty_bond",
+      "type": "service"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "execute_work",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "obra",
+      "target": "contratante"
+    },
+    {
+      "id": "provide_property",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "property",
+      "target": "contratista"
+    },
+    {
+      "id": "provide_permits",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "permits",
+      "target": "contratista"
+    },
+    {
+      "id": "provide_materials",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "materials",
+      "target": "obra"
+    },
+    {
+      "id": "provide_labor",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "labor",
+      "target": "obra"
+    },
+    {
+      "id": "pay_contract_amount",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "contract_amount",
+      "target": "contratista"
+    },
+    {
+      "id": "pay_advance",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "advance_payment",
+      "target": "contratista"
+    },
+    {
+      "id": "pay_partial_payments",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "partial_payments",
+      "target": "contratista"
+    },
+    {
+      "id": "obtain_guaranty_bond",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "guaranty_bond",
+      "target": "contratante"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "contratante",
+      "object": "obra",
+      "target": "contratista"
+    },
+    {
+      "id": "breach_contract_contractor",
+      "type": "counter",
+      "actor": "contratista",
+      "object": "obra",
+      "target": "contratante"
+    },
+    {
+      "id": "pay_penalty",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "penalty_amount",
+      "target": "contratista"
+    },
+    {
+      "id": "pay_penalty_contractor",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "penalty_amount",
+      "target": "contratante"
+    },
+    {
+      "id": "suspend_work",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "obra",
+      "target": "contratista"
+    },
+    {
+      "id": "terminate_contract",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "obra",
+      "target": "contratista"
+    },
+    {
+      "id": "terminate_contract_contractor",
+      "type": "simple",
+      "actor": "contratista",
+      "object": "obra",
+      "target": "contratante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ConstructionContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "contratante",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ConstructionCapability",
+      "subject": "contratista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TaxCompliance",
+      "subject": "contratante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TaxCompliance",
+      "subject": "contratista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalRepresentation",
+      "subject": "contratante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalRepresentation",
+      "subject": "contratista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "obra",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "property",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "permits",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "materials",
+        "target": "obra"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "labor",
+        "target": "obra"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "advance_payment",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "partial_payments",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "contract_amount",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "guaranty_bond",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "obra",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "obra",
+        "target": "contratante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_execution_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConstructionContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "execute_work"
+        }
+      }
+    },
+    {
+      "id": "property_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConstructionContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "provide_property"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_penalty"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule_contractor",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract_contractor"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_penalty_contractor"
+        }
+      }
+    },
+    {
+      "id": "suspension_rule",
+      "conditions": [
+        {
+          "event": "justified_cause"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "suspend_work"
+        }
+      }
+    },
+    {
+      "id": "termination_rule_contratante",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract_contractor"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminate_contract"
+        }
+      }
+    },
+    {
+      "id": "termination_rule_contratista",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminate_contract_contractor"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "work_execution",
+      "steps": [
+        {
+          "ref": "provide_property"
+        },
+        {
+          "ref": "provide_permits"
+        },
+        {
+          "ref": "pay_advance"
+        },
+        {
+          "ref": "execute_work"
+        },
+        {
+          "ref": "pay_partial_payments"
+        },
+        {
+          "ref": "pay_contract_amount"
+        }
+      ]
+    },
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "notify_breach"
+        },
+        {
+          "description": "provide_response_period"
+        },
+        {
+          "description": "evaluate_response"
+        },
+        {
+          "ref": "terminate_contract"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Obra/Contrato de obra a precio alzado/TMX_2464592_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Obra/Contrato de obra a precio alzado/TMX_2464592_es.txt"
+  }
+}

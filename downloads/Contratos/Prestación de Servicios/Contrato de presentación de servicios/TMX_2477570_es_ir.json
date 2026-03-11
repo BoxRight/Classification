@@ -1,0 +1,200 @@
+{
+  "law": "Contrato de prestación de servicios de estimulación temprana",
+  "authority": "private",
+  "enacted": "2023-04-21",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "prestador",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "servicios_estimulacion",
+      "type": "service"
+    },
+    {
+      "id": "honorarios",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "prestar_servicios",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "servicios_estimulacion",
+      "target": "cliente"
+    },
+    {
+      "id": "pagar_honorarios",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "honorarios",
+      "target": "prestador"
+    },
+    {
+      "id": "terminar_contrato",
+      "type": "simple",
+      "actor": "cliente",
+      "object": "contrato",
+      "target": "prestador"
+    },
+    {
+      "id": "incumplir_obligacion",
+      "type": "counter",
+      "actor": "prestador",
+      "object": "servicios_estimulacion",
+      "target": "cliente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractualRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ServicesCapability",
+      "subject": "prestador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "PaymentCapability",
+      "subject": "cliente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "servicios_estimulacion",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "honorarios",
+        "target": "prestador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "recibo_honorarios",
+        "target": "cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "automatic_renewal",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        },
+        {
+          "type": "date",
+          "name": "ContractExpiry"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractualRelation"
+      }
+    },
+    {
+      "id": "breach_termination",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        },
+        {
+          "ref": "incumplir_obligacion"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminar_contrato"
+        }
+      }
+    },
+    {
+      "id": "notice_termination",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        },
+        {
+          "type": "certification",
+          "name": "WrittenNotice15Days"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminar_contrato"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "ref": "prestar_servicios"
+        },
+        {
+          "ref": "pagar_honorarios"
+        }
+      ]
+    },
+    {
+      "name": "termination_for_breach",
+      "steps": [
+        {
+          "description": "Written notice of breach"
+        },
+        {
+          "description": "14-day cure period"
+        },
+        {
+          "ref": "terminar_contrato"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de presentación de servicios/TMX_2477570_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de presentación de servicios/TMX_2477570_es.txt"
+  }
+}

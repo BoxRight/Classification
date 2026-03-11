@@ -1,0 +1,137 @@
+{
+  "law": "Recurso de apelación contra auto, en juicio de usucapión",
+  "authority": "judicial",
+  "enacted": "2018-05-29",
+  "imports": [],
+  "parties": [
+    {
+      "id": "appellant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "superior_court",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "appeal_motion",
+      "type": "service"
+    },
+    {
+      "id": "judicial_auto",
+      "type": "service"
+    },
+    {
+      "id": "appeal_testimony",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_appeal",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "appeal_motion",
+      "target": "civil_judge"
+    },
+    {
+      "id": "dismiss_incident",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "judicial_auto",
+      "target": "appellant"
+    },
+    {
+      "id": "express_grievances",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "appeal_motion",
+      "target": "superior_court"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PendingUsucapionCase",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DismissedPersonalityIncident",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant",
+        "object": "appeal_motion",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "appeal_admission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DismissedPersonalityIncident"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "appellant",
+          "object": "appeal_motion",
+          "target": "civil_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "appeal_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "appellant",
+            "object": "appeal_motion",
+            "target": "civil_judge"
+          }
+        },
+        {
+          "description": "designate_appeal_testimony_documents"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "appellant",
+            "object": "appeal_motion",
+            "target": "superior_court"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Recurso de apelación contra auto, en juicio de usucapión/TMX_1400598_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Recurso de apelación contra auto, en juicio de usucapión/TMX_1400598_es.txt"
+  }
+}

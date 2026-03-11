@@ -1,0 +1,150 @@
+{
+  "law": "Auto de admisión de demanda en juicio de desocupación",
+  "authority": "judicial",
+  "enacted": "2023-02-07",
+  "imports": [
+    "Artículo 50 de la Ley Orgánica del Poder Judicial",
+    "Artículo 3 del Código de Procedimientos Civiles para el Distrito Federal",
+    "Artículo 255 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "unknown_claimants",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "response",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "JurisdictionalCompetence",
+      "subject": "court",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyClaim",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalStanding",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "response",
+        "target": "court"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "unknown_claimants",
+        "object": "response",
+        "target": "court"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "admission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JurisdictionalCompetence"
+        },
+        {
+          "type": "certification",
+          "name": "LegalStanding"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "LawsuitAdmitted"
+      }
+    },
+    {
+      "id": "default_judgment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "response",
+          "target": "court"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "DefaultJudgment"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lawsuit_admission_procedure",
+      "steps": [
+        {
+          "description": "Register case in court records"
+        },
+        {
+          "description": "Declare jurisdictional competence"
+        },
+        {
+          "description": "Admit lawsuit"
+        },
+        {
+          "description": "Serve defendant at domicile"
+        },
+        {
+          "description": "Publish notice by edict for unknown claimants"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Auto de admisión de demanda en juicio de desocupación/TMX_1552957_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Auto de admisión de demanda en juicio de desocupación/TMX_1552957_es.txt"
+  }
+}

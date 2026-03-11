@@ -1,0 +1,1042 @@
+                                                                             http://www.tirantonline.com.mx
+
+
+Document TMX1,376,664
+
+Formulario
+Title: Contrato de donación de bien inmueble
+Issuer: Notario
+Date: 02/02/2024
+
+
+TEXT:
+
+                        CONTRATO DE DONACIÓN DE BIEN INMUEBLE
+
+                                              TMX1.376.664
+
+
+Normativa: Artículos 2332, 2334, 2342, 2346 del Código Civil para el Distrito Federal.
+
+
+Supuesto:Explicación de los elementos y partes de la escritura pública del contrato de donación con
+diversos supuestos y cláusulas que se pueden incorporar dependiendo de las partes y el tipo de
+donación.Incluye desarrollo de los elementos de las distintas escrituras, explicación del contenido y
+ejemplo para su uso.
+
+
+
+
+El de donación[93] es un contrato por el que una persona transmite a otra, de manera gratuita, parte o la
+totalidad de sus bienes presentes.[94] De la definición anterior podemos desprender cuatro características
+importantes:a) contiene un efecto esencialmente traslativo del dominio; b) se trata de un contrato
+gratuito; c) puede versar sobre parte o la totalidad de los bienes; y d) recae sobre bienes presentes. Cada
+una de las características anteriores han sido analizadas por diversos autores; sin embargo, como hemos
+comentado desde un principio, la presente obra no pretende exponer las diversas posturas que puede
+haber al respecto. No obstante, nuestra opinión es coincidente con lo señalado por Fausto Rico Álvarez y
+Patricio Bandala,[95] en el sentido de que:
+
+1) la trasmisión de los derechos reales se verifica por mero efecto del contrato;
+
+2) el contrato es gratuito aun en el caso de la donación con carga, ya que en este caso existe autonomía
+en relación con los distintos efectos que puede tener el contrato. Adicionalmente, la carga no es una
+obligación y, por lo tanto, no puede decirse que la donación con carga es un contrato bilateral; a
+diferencia de la carga, la fuente de las obligaciones es variadísima y en ésta solamente lo es la
+liberalidad; en las obligaciones se responde con el patrimonio y no hay posibilidad de sustraerse
+unilateralmente de su cumplimiento, en la carga se responde con el bien donado o que fue objeto de la
+liberalidad y existe la posibilidad de abandono; por último, en caso de incumplimiento de una obligación
+se actualiza el pacto comisorio mientras que si se incumpla con la carga se actualiza la revocación;
+
+
+                                                                                                        1 / 19
+3) con base en el principio de la autonomía de la voluntad de las partes, una persona podría donar todos
+sus bienes, contrario a lo que señala el artículo 2347 del Código Civil;[96]
+
+Al igual que el contrato de compraventa, proponemos que el de donación esté compuesto de cuatro
+partes: comparecencia, antecedentes, cláusulas y certificaciones. De este modo, seguiremos el mismo
+orden en el que se desarrolló aquél, en el entendido de que prácticamente todo lo expuesto en relación
+con sus partes y redacciones son aplicables al de donación por lo que únicamente ajustaremos lo relativo
+a la denominación de las partes y algunos comentarios propios de este contrato
+
+1. Comparecencia
+
+La comparecencia, como hemos mencionado con anterioridad, está integrada por los datos de
+identificación de la escritura así como por un resumen de los actos jurídicos que contendrá el
+instrumento que estamos haciendo constar
+
+A continuación, nuestras distintas propuestas de redacción para el contrato de donación:
+
+1.1. Donación (general)
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donatario), en lo sucesivo
+"LA PARTE DONATARIA" y de otra (nombre completo donante), en lo sucesivo "LA PARTE
+DONANTE", al tenor de los siguientes antecedentes y cláusulas..
+
+En el supuesto en que el donante adquirió estando casado bajo el régimen de sociedad conyugal o
+sociedad legal y el cónyuge no es titular registral se sugiere también la siguiente redacción:
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donatario), en lo sucesivo
+"LA PARTE DONATARIA" y de otra (nombre completo donante), en lo sucesivo "LA PARTE
+DONANTE", con el consentimiento de su cónyuge (nombre completo del cónyuge) al tenor de los
+siguientes antecedentes y cláusulas..
+
+1.2. Donación con representantes
+
+Nos referiremos también a distintas maneras de redacción dependiendo de quién está representando y si
+además el representante es o no parte material del contrato
+
+1.2.1. Donatario representado
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donatario), en lo sucesivo
+"LA PARTE DONATARIA" representada por (nombre completo representante) y de otra (nombre
+completo donante), en lo sucesivo "LA PARTE DONANTE", al tenor de los siguientes antecedentes y
+cláusulas..
+
+1.2.2. Donatario representado en donde el representante también es parte material
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donatario), representada
+por (nombre completo representante), quien también concurre por su propio derecho, en lo sucesivo "LA
+PARTE DONATARIA" y de otra(nombre completo donante), en lo sucesivo "LA PARTE DONANTE",
+al tenor de los siguientes antecedentes y cláusulas..
+
+1.2.3. Donante representado
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donatario), en lo sucesivo
+
+                                                                                                      2 / 19
+"LA PARTE DONATARIA" y de otra (nombre completo donante), en lo sucesivo "LA PARTE
+DONANTE", representada por (nombre completo del representante) al tenor de los siguientes
+antecedentes y cláusulas..
+
+1.2.4. Donante representado en donde el representante también es parte material
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donatario), en lo sucesivo
+"LA PARTE DONATARIA" y de otra (nombre completo donante), representada por (NOMBRE
+COMPLETO DEL REPRESENTANTE), quien también concurre por su propio derecho, en lo sucesivo
+"LA PARTE DONANTE", al tenor de los siguientes antecedentes y cláusulas..
+
+En esta parte consideramos importante hacer algunas precisiones en materia de representación, que
+solamente son aplicables al contrato de donación, por tratarse de un contrato gratuito:
+
+- El contrato de donación, es un contrato unilateral lo que significa que solamente genera obligación a
+una de las partes, en este caso para "la parte donante", pero como cualquier otro contrato, consiste en un
+acuerdo de voluntades entre dos o más personas para crear derechos y obligaciones; consecuentemente,
+en su celebración, se requiere la manifestación de la voluntad de "la parte donataria" y de "la parte
+donante", por lo que ambos tienen que comparecer a su otorgamiento. Considerando lo anterior, nuestra
+opinión va en el sentido de que, contrariamente a lo que en nuestra práctica profesional hemos visto, en
+escrituras en las que no comparece "la parte donataria", sino alguien como "gestor oficioso" de ésta, no
+existe contrato de donación, pues son casos en los que de manera unilateral comparece "la parte
+donante" a celebrar el contrato de donación a favor de otra persona, pero sin que ésta haya comparecido
+a otorgar el acto. Encontramos como única excepción a esta regla las donaciones antenupciales, donde
+no es necesario una aceptación expresa del donatario
+
+- La facultad que debe tener el donante para celebrar el contrato de donación debe ser especial, conferida
+expresamente para tales efectos; por ello no es suficiente con que un representante tenga un poder
+general para actos de dominio para que pueda celebrar el contrato de donación a nombre del donante,
+sino que debe estar facultado expresamente para ello en una cláusula especial.[97]
+
+2. Antecedentes
+
+Aplica lo mismo que lo mencionado para el contrato de compraventa para los antecedentes, como
+cualquier otro acto jurídico traslativo de propiedad. Las redacciones propuestas en el contrato de
+donación, son las siguientes:
+
+2.1. Antecedente de propiedad
+
+Como señalamos, el notario debe analizar el título o títulos que sirven como antecedente del donante y
+mencionar los datos de inscripción en el Registro Público de la Propiedad que correspondió a ese
+instrumento.[98]
+
+2.1.1. Instrumento ante notario
+
+...Por escritura número (número instrumento) de fecha (día, mes, año) ante el licenciado (nombre de
+notario) titular de la notaría número (número notaría) de (ciudad o municipio), Estado de (entidad
+federativa) cuyo primer testimonio quedó inscrito en..
+
+Insistimos en señalar el carácter con el que actúa, esto es, como titular, asociado, suplente, adscrito,
+interino, etc
+
+...Por escritura número (número instrumento) de fecha (día, mes, año) ante el licenciado (nombre de
+
+                                                                                                       3 / 19
+notario) titular de la notaría número (número notaría) de (ciudad o municipio), Estado de (entidad
+federativa) actuando como asociado/suplente/adscrito/interino en el protocolo de la notaría número (
+número de notaría en cuyo protocolo se actúa) cuyo titular es (nombre del notario) cuyo primer
+testimonio quedó inscrito..
+
+2.1.2. Contrato privado
+
+...Por contrato privado de fecha (fecha de celebración del contrato privado) cuyas firmas fueron
+ratificadas ante (nombre y datos del notario) o (nombre y datos del juez competente) o (nombre y datos
+del registrador) inscrito en..
+
+2.1.3. Sentencia
+
+...Por sentencia de fecha (fecha de sentencia) dictada por el/la C. Juez (número y materia de juzgado) de
+(lugar de juzgado), (nombre del juez) la cual causó ejecutoria el día (fecha en que causó estado), la cual
+quedó inscrita en..
+
+2.1.4. Instrumento privado del Infonavit
+
+...Por instrumento privado número (número de instrumento) de fecha (fecha de celebración del
+documento) ratificado el mismo día ante el registrador del Registro Público de la Propiedad de (lugar del
+Registro Público de la Propiedad) e inscrito en el mismo Registro en..
+
+2.2. Datos del Registro Público de la Propiedad
+
+Según el supuesto al que nos referíamos al hablar del contrato de compraventa, las redacciones
+propuestas para relacionar los datos de inscripción en el Registro Público de la Propiedad dependiendo
+del supuesto serían:
+
+2.2.1. Antecedente de libros
+
+...quedó inscrito en el Registro Público de la Propiedad de (lugar del Registro) en la Sección (número de
+Sección) de la Serie (número de serie) Libro (número de libro), Volumen (número de volumen), hoja
+(número de hoja) y bajo la partida número (número de partida) el día (fecha de inscripción)..
+
+2.2.2. Antecedente de folio real
+
+...quedó inscrito en el Registro Público de la Propiedad de (lugar del Registro) en el folio real (número
+de folio real)..
+
+2.2.3. Antecedente de libros con folio real digitalizado con posterioridad
+
+... quedó inscrito en el Registro Público de la Propiedad de (lugar del Registro) en la Sección (número de
+Sección) de la Serie (número de serie) Libro (número de libro), Volumen (número de volumen), hoja
+(número de hoja) y bajo la partida número (número de partida) el día (fecha de inscripción) actualmente
+folio real electrónico (número de folio real electrónico)..
+
+2.3. Titular registral y estado civil
+
+En este punto ya no daremos más explicaciones o consideraciones a las referidas en el apartado anterior
+en cuanto a la titularidad registral o el estado civil del donante, sino que iremos de lleno las redacciones
+propuestas:
+
+
+                                                                                                         4 / 19
+2.3.1. Solteros
+
+...el señor (nombre del titular registral)[99] estando soltero y declara que el inmueble que más adelante
+se relaciona, jamás lo aportó a sociedad conyugal alguna, adquirió..
+
+...el señor (nombre del titular registral) quien también acostumbra a usar el nombre de (nombre(s) del
+titular registral que pudieran aparecer en el RPP o algún otro documento oficial), estando soltero y
+declara que el inmueble que más adelante se relaciona, jamás lo aportó a sociedad conyugal alguna,
+adquirió..
+
+2.3.2. Sociedad conyugal y sociedad legal
+
+a) Un solo titular registral
+
+...el señor (nombre del titular registral) estando casado con (nombre del cónyuge) bajo el régimen de
+sociedad conyugal, el matrimonio se celebró en (lugar de celebración) el día (fecha de celebración)
+según consta de la copia certificada del acta de matrimonio marcada con el número ..................... que
+obra en el Juzgado del Registro Civil de aquel lugar, adquirió..
+
+b) Ambos como titulares registrales
+
+...los señores (nombre del cónyuge primer titular registral) y (nombre del cónyuge segundo titular
+registral) estando casados entre sí bajo el régimen de sociedad conyugal, el matrimonio se celebró en (
+lugar de celebración) el día (fecha de celebración) según consta de la copia certificada del acta de
+matrimonio marcada con el número ..................... que obra en el Juzgado del Registro Civil de aquel
+lugar, adquirieron pro indiviso y por partes iguales..
+
+2.3.3. Separación de bienes
+
+a) Un solo titular registral:
+
+...el señor (nombre del titular registral) estando casado con (nombre del cónyuge) bajo el régimen de
+separación de bienes, el matrimonio se celebró en (lugar de celebración) el día (fecha de celebración)
+según consta de la copia certificada del acta de matrimonio marcada con el número ..................... que
+obra en el Juzgado del Registro Civil de aquel lugar, adquirió...
+
+b) Ambos como titulares registrales
+
+...los señores (nombre del cónyuge primer titular registral) y (nombre del cónyuge segundo titular
+registral) estando casados entre sí bajo el régimen de separación de bienes, el matrimonio se celebró en (
+lugar de celebración del matrimonio) el día (fecha de celebración del matrimonio) según consta de la
+copia certificada del acta de matrimonio marcada con el número ..................... que obra en el Juzgado del
+Registro Civil de aquel lugar, adquirieron pro indiviso y por partes iguales..
+
+2.3.4. Extranjeros
+
+Recordemos que aquí nos referimos a matrimonios celebrados en el extranjero o en territorio nacional en
+los que uno o ambos cónyuges son extranjeros, reiterando que nuestra recomendación siempre será
+solicitar la comparecencia de ambos cónyuges
+
+a) Un solo titular registral y el otro cónyuge nacional:
+
+...el señor (nombre del titular registral) estando casado con (nombre del cónyuge) sin poder acreditar el
+
+                                                                                                            5 / 19
+régimen al que se encuentra sometido su matrimonio en cuanto a bienes, el matrimonio se celebró en
+(lugar de celebración) el día (fecha de celebración) según consta de la copia certificada del acta de
+matrimonio marcada con el número ..................... que obra en el Juzgado del Registro Civil de aquel
+lugar, adquirió..
+
+b) Un solo titular registral y el otro cónyuge extranjero:
+
+... el señor (nombre del titular registral) estando casado con (nombre del cónyuge) quien por no ser de
+nacionalidad mexicana y nunca haber celebrado el convenio a que se refiere la fracción I del artículo
+veintisiete de la Constitución Política de los Estados Unidos Mexicanos, no adquirió derecho de
+propiedad alguno sobre el inmueble que más adelante se relaciona sin tampoco poder acreditar el
+régimen al que se encuentra sometido su matrimonio en cuanto a bienes, el matrimonio se celebró en
+(lugar de celebración) el día (fecha de celebración) según consta de la copia certificada del acta de
+matrimonio marcada con el número (número del acta) que obra en el Juzgado del Registro Civil de aquel
+lugar, adquirió..
+
+c) Ambos cónyuges como titulares registrales (nacionales o extranjeros):
+
+...los señores (nombre del cónyuge primer titular registral) y (nombre del cónyuge segundo titular
+registral) estando casados entre sí, sin poder acreditar el régimen al que se encuentra sometido su
+matrimonio en cuanto a bienes, el matrimonio se celebró en (lugar de celebración) el día (fecha de
+celebración) según consta de la copia certificada del acta de matrimonio marcada con el número
+..................... que obra en el Juzgado del Registro Civil de aquel lugar, adquirieron pro indiviso y por
+partes iguales..
+
+2.4. Forma de adquisición y precio o valor
+
+Por tratarse de un contrato gratuito, en la donación no existe contraprestación, por lo que para efectos
+fiscales el costo de adquisición para el donatario será el que pagó el donante cuando adquirió el
+inmueble objeto del contrato.[100] Por lo anterior, es muy importante que el notario tenga cuidado en
+asentar el costo de adquisición que tuvo el donante, ya que de la lectura de los antecedentes se podrá
+saber el monto, y quien tenga en sus manos el instrumento notarial, tendrá una fuente confiable para
+determinar el costo comprado de adquisición del donatario[101]. De este modo, las redacciones
+propuestas son:
+
+...adquirió por compraventa en precio de (precio de adquisición) el (inmueble)..
+
+...adquirió por adjudicación por remate/herencia en un valor de (valor de adquisición) el (inmueble)..
+
+2.5. Descripción del inmueble, superficie y linderos o colindancias
+
+Para dar cumplimiento a la obligación que tenemos los notarios de relacionar la descripción y/o
+denominación del inmueble, su ubicación, colindancias o linderos, superficie y código postal,
+proponemos la siguiente redacción:
+
+...(inmueble) con la superficie y linderos que en el título que se relaciona se describieron como sigue:
+(transcribir)..
+
+2.6. Situación jurídica del inmueble
+
+Independientemente de que estamos frente a un contrato gratuito, para "la parte donataria" es de suma
+importancia conocer la situación jurídica que guarda el inmueble y estar advertido de probables
+gravámenes, limitaciones de dominio o adeudos que pudieran existir
+
+                                                                                                           6 / 19
+2.6.1. Certificado de gravámenes
+
+a) Certificado de libertad de gravámenes:
+
+...II.- Declara "LA PARTE DONANTE" de manera expresa y bajo protesta de decir verdad que el
+inmueble objeto de esta escritura se encuentra libre de gravámenes, lo que justifica con el certificado de
+libertad de gravámenes presentado en el Registro Público de la Propiedad de esta ciudad (o del lugar que
+corresponda) el día (fecha de presentación de la solicitud), que agrego al apéndice de esta escritura con
+la letra "(letra que corresponda)..."
+
+b) Certificado de gravámenes que reporta una hipoteca que ya fue cancelada en instrumento por
+separado:
+
+...II.- Declara "LA PARTE DONANTE" de manera expresa y bajo protesta de decir verdad que el
+inmueble objeto de esta escritura se encuentra libre de gravámenes, lo que justifica con el certificado de
+gravámenes presentado en el Registro Público de la Propiedad de esta ciudad (o del lugar que
+corresponda) el día (fecha de presentación de la solicitud), que agrego al apéndice de esta escritura con
+la letra "(letra que corresponda)".
+
+Es de advertir que la hipoteca que reporta dicho certificado no tiene razón de ser en virtud de haber sido
+cancelada con anterioridad a la celebración de este acto mediante escritura número (número instrumento)
+de fecha (fecha) ante el licenciado (nombre de notario) titular de la notaría número (número notaría) de
+(ciudad o municipio), Estado de (entidad federativa) cuyo primer testimonio está pendiente de ser
+inscrito en el Registro Público de la Propiedad de esta ciudad por lo reciente de su otorgamiento..
+
+c) Certificado de gravámenes que reporta una hipoteca que es cancelada en el mismo instrumento:
+
+...II.- Declara "LA PARTE DONANTE" de manera expresa y bajo protesta de decir verdad que el
+inmueble objeto de esta escritura no reporta más gravamen que la hipoteca relacionada en el antecedente
+(antecedente en el que se relacionó la escritura por la cual se constituyó el gravamen) de esta escritura,
+misma que será cancelada más adelante en este mismo instrumento, lo que justifica con el certificado de
+gravámenes presentado en el Registro Público de la Propiedad de esta ciudad (o del lugar que
+corresponda) el día (fecha de presentación de la solicitud), que agrego al apéndice de esta escritura con
+la letra "(letra que corresponda)".
+
+d) Certificado de gravámenes que reporta hipoteca que subsistirá:
+
+...II.- Declara "LA PARTE DONANTE" de manera expresa y bajo protesta de decir verdad que el
+inmueble objeto de esta escritura no reporta más gravamen que la hipoteca relacionada en el antecedente
+(antecedente en el que se relacionó la escritura por la cual se constituyó el gravamen) de esta escritura,
+lo que justifica con el certificado de gravámenes presentado en el Registro Público de la Propiedad de
+esta ciudad (o del lugar que corresponda) el día (fecha de presentación de la solicitud), que agrego al
+apéndice de esta escritura con la letra "(letra que corresponda)".
+
+Y de dicho certificado transcribo en su parte conducente lo que es del tenor literal siguiente:
+
+(transcribir en su parte conducente el certificado de gravámenes en lo relativo a la hipoteca)
+
+Declara "LA PARTE DONATARIA" de manera expresa y bajo protesta de decir verdad su conformidad
+para celebrar la presente operación con el gravamen antes transcrito, liberando al suscrito notario y a
+"LA PARTE DONANTE" de cualquier responsabilidad que pudiere derivar por dicho concepto después
+de que, yo el notario, le hube explicado los alcances y consecuencias jurídicas por celebrarla en dichas
+condiciones..
+
+                                                                                                       7 / 19
+e) Certificado de gravámenes que reporta un embargo o demanda:
+
+...II.- Declara "LA PARTE DONANTE" de manera expresa y bajo protesta de decir verdad que el
+inmueble objeto de esta escritura se encuentra libre de gravámenes, lo que justifica con el certificado de
+gravámenes presentado en el Registro Público de la Propiedad de esta ciudad (o del lugar que
+corresponda) el día (fecha de presentación de la solicitud), que agrego al apéndice de esta escritura con
+la letra "(letra que corresponda)".
+
+Es de advertir que el embargo (demanda) que reporta dicho certificado no tiene razón de ser en virtud de
+que el negocio que le dio origen ya fue cubierto, según se desprende del oficio expedido por el C. Juez
+(nombre del juez, juzgado, secretaría y número de expediente) que "LA PARTE DONANTE" me exhibe
+y agrego en copia cotejada al apéndice de esta escritura con la letra "(letra que corresponda)" por lo que
+las partes mediante el presente instrumento solicitan al C. Registrador que proceda, con base a lo
+anterior, a realizar la cancelación de dicha anotación preventiva.[102]
+
+f) Certificado de gravámenes que reporta una fianza:
+
+...II.- Declara "LA PARTE DONANTE" de manera expresa y bajo protesta de decir verdad que el
+inmueble objeto de esta escritura se encuentra libre de gravámenes, lo que justifica con el certificado de
+gravámenes presentado en el Registro Público de la Propiedad de esta ciudad (o del lugar que
+corresponda) el día (fecha de presentación de la solicitud), que agrego al apéndice de esta escritura con
+la letra "(letra que corresponda)".
+
+Es de advertir que la fianza que reporta dicho certificado no tiene razón de ser en virtud de que el
+negocio que le dio origen ya fue cubierto, según se desprende del oficio que "LA PARTE DONANTE"
+me exhibe y agrego en copia cotejada al apéndice de esta escritura con la letra " (letra que corresponda)"
+por lo que las partes mediante el presente instrumento solicitan al C. Registrador que proceda, con base
+en lo anterior, a realizar la cancelación de dicha anotación preventiva.[103]
+
+2.6.2. Constancias de no adeudo
+
+En la mayoría de las entidades federativas es requisito indispensable que el notario se cerciore que el
+inmueble que será objeto de la transmisión de propiedad se encuentre al corriente en el pago de sus
+contribuciones, por lo que el contrato de donación no es la excepción y aun y cuando se trate de una
+transmisión a título gratuito, al momento de la inscripción en el Registro Público de la Propiedad del
+primer testimonio que se expida, el registrador debe verificar que el inmueble se encuentra al corriente
+en el pago de las mismas, por lo que también deben insertarse las siguientes redacciones:
+
+...III.- Declara "LA PARTE DONANTE" que el inmueble objeto de esta escritura paga sus
+contribuciones con los siguientes números de cuenta y que además se encuentra al corriente en el pago
+de las mismas, lo que justifica de la siguiente manera:
+
+a.- Predial: (número de cuenta)
+
+b.- Agua: (número de cuenta)
+
+c.- Con el informe de no adeudo de impuesto predial que agrego al apéndice de esta escritura con la letra
+"(letra que corresponda)"
+
+d.- Con el informe de no adeudo de derechos por servicio de agua que agrego al apéndice de esta
+escritura con la letra "(letra que corresponda)"
+
+
+                                                                                                       8 / 19
+e.- Con el informe de no adeudo de aportaciones y contribuciones de mejoras que agrego al apéndice de
+esta escritura con la letra "(letra que corresponda)".[104]
+
+Asimismo, "LA PARTE DONATARIA", declara conocer la situación fiscal y catastral del inmueble
+objeto de este instrumento..
+
+2.7. Valor fiscal del inmueble
+
+Los códigos fiscales de las entidades federativas gravan con el Impuesto Sobre Adquisición de
+Inmuebles o Impuesto sobre Traslado de Dominio, según sea el caso, cualquier acto por el cual se
+transmita la propiedad del terreno, construcción o terreno y construcción. Por ello, al celebrarse el
+contrato de donación también es responsabilidad del notario calcular y enterar dicho impuesto por lo que
+debe obtenerse un avalúo elaborado por perito autorizado en la Tesorería de que se trate y/o una
+constancia de valor catastral con las mismas características y efectos que se mencionaron en el apartado
+del contrato de compraventa. En el caso de las donaciones hay una sola diferencia: al momento de
+calcular el impuesto, la base será el valor más alto entre avalúo y valor catastral, ya que no existe precio
+
+...IV.- El valor catastral del inmueble objeto de esta escritura es la cantidad de (valor catastral)
+conforme al documento que agrego al apéndice de esta escritura con la letra " (letra que corresponda)"
+
+V.- El valor comercial del inmueble objeto de esta escritura es la cantidad de (valor comercial), según el
+avalúo formulado por (persona autorizada para elaborar avalúo), el día (fecha de avalúo) que agrego al
+apéndice de esta escritura con la letra "(letra que corresponda) "(letra que corresponda)"
+
+El contrato de donación sobre bienes inmuebles siempre es formal, debe constar en escritura cuando así
+lo dispone la ley, por lo que con el valor que en nuestros días tienen los inmuebles, en todos los casos la
+donación debe constar en escritura pública; sin embargo, cuando ésta se celebró en contrato privado, el
+avalúo también debe referirse al momento de causación del Impuesto Sobre Adquisición de Inmuebles o
+Traslado de Dominio que es la fecha de la celebración del mismo:
+
+...V.- El valor comercial del inmueble objeto de esta escritura es la cantidad de (valor comercial), cuyo
+valor referido al día (fecha de causación del impuesto) es la cantidad de (valor referido que reporta el
+avalúo) según el avalúo formulado por (persona autorizada para elaborar avalúo), el día (fecha de
+avalúo) que agrego al apéndice de esta escritura con la letra "(letra que corresponda)"
+
+Si es objeto del contrato de donación solamente un porcentaje de los derechos de propiedad sobre el
+inmueble, proponemos:
+
+...IV.- El valor catastral del inmueble objeto de esta escritura es la cantidad de (valor catastral) de los
+que corresponden al (porcentaje que se adquiere) por ciento la cantidad de (valor catastral del
+porcentaje adquirido) conforme al documento que agrego al apéndice de esta escritura con la letra "
+(letra que corresponda)"
+
+V.- El valor comercial del inmueble objeto de esta escritura es la cantidad de (valor comercial), de los
+que corresponden al (porcentaje que se adquiere) por ciento la cantidad de (valor comercial del
+porcentaje adquirido) según el avalúo formulado por (persona autorizada para elaborar avalúo), el día
+(fecha de avalúo) que agrego al apéndice de esta escritura con la letra "(letra que corresponda)"
+
+2.8. Uso de suelo y destino
+
+En este apartado no hay ningún cambio en relación con lo dicho para el contrato de compraventa, toda
+vez que en cualquier acto traslativo de propiedad, el notario debe comprobar previamente al
+otorgamiento de la donación que existan las autorizaciones, constancias o permisos que permitan que el
+
+                                                                                                         9 / 19
+predio objeto del contrato se destine a un uso que no contravenga ninguna disposición legal lo que se
+cumple en cada entidad federativa de manera distinta mediante la obtención del documento
+correspondiente. La redacción sugerida para este caso es la siguiente:
+
+...VI.- Con la letra "(letra que corresponda)", agrego al apéndice de esta escritura el certificado único de
+zonificación de uso del suelo, expedido por (autoridad administrativa competente) de la ciudad de (
+ciudad o municipio de la ubicación del inmueble)..
+
+2.9. Constancia de no adeudos por cuotas de mantenimiento
+
+Como medida de protección para el adquirente, el notario también debe cerciorarse de que el inmueble
+se encuentre al corriente en el pago de cuotas de mantenimiento
+
+...VII.- "LA PARTE DONANTE", me exhibe constancia de no adeudos por concepto de cuotas de
+mantenimiento y administración y de reserva que causa el inmueble objeto de esta escritura, que agrego
+al apéndice de este instrumento con la letra "(letra que corresponda)" y de la cual otro tanto "LA
+PARTE DONANTE" entrega en este acto a "LA PARTE DONATARIA"
+
+Para el caso de que existieren adeudos pendientes y que "LA PARTE DONATARIA", esté de acuerdo
+en adquirir, se sugiere dejarlo asentado de la siguiente manera:
+
+...VII.- "LA PARTE DONATARIA" declara conocer los adeudos por concepto de cuotas de
+mantenimiento, administración y reserva que reporta el inmueble objeto de esta escritura conforme a la
+constancia de adeudos que se agrega al apéndice de este instrumento con la letra "(letra que
+corresponda)". Asimismo, que le advertí que es responsable solidaria del pago de dichos adeudos..
+
+2.10. Adquisición por parte de un extranjero
+
+La fracción I del artículo 27 de la Constitución Política de los Estados Unidos Mexicanos tampoco
+distingue si la adquisición del derecho de propiedad deriva de un título oneroso o gratuito, por lo que
+para que un extranjero adquiera por donación un inmueble en zona restringida, también es necesario que
+el extranjero celebre previamente el convenio a que se refiere dicha disposición, el cual debe ser
+íntegramente transcrito en el cuerpo de la escritura:
+
+...VIII.- El señor (nombre del adquirente) me exhibe constancia expedida por la Secretaría de Relaciones
+Exteriores, de fecha (fecha de la constancia), misma que en unión de su anexo, agrego al apéndice de
+esta escritura con la letra "(letra que corresponda)", en la cual el señor (nombre del adquirente) celebró
+convenio con la Secretaría de Relaciones Exteriores siendo dicha constancia del tenor literal siguiente: "(
+transcripción íntegra de la constancia)"
+
+El anexo no se transcribe por ser una reproducción fiel y exacta de la superficie y linderos que han
+quedado descritas en el antecedente (antecedente que corresponda) de esta escritura..."
+
+3. Cláusulas
+
+La redacción de las cláusulas que, desde de nuestro punto de vista, deben incluirse en cualquier escritura
+en la que conste el contrato de donación son las siguientes:
+
+3.1. Primera
+
+En el contrato de donación la cláusula primera es de gran importancia, aquí es donde se precisará la
+modalidad del contrato y las obligaciones principales que, dependiendo del caso, surjan para las partes.
+
+
+
+                                                                                                        10 / 19
+3.1.1. Terreno
+
+...PRIMERA.- El señor (nombre del donante) dona en forma gratuita, total y sin reserva de ninguna
+especie a (nombre del donatario) quien acepta y adquiere (descripción del inmueble objeto del contrato)
+con la superficie y linderos descritos en el antecedente (antecedente que corresponda) que se tiene aquí
+por reproducidos como si a la letra se insertasen..
+
+3.1.2. Construcciones
+
+...PRIMERA.- El señor (nombre del donante) dona en forma gratuita, total y sin reserva de ninguna
+especie a (nombre del donatario) quien acepta y adquiere (descripción del inmueble objeto del contrato)
+con la superficie y linderos descritos en el antecedente (antecedente que corresponda) que se tiene aquí
+por reproducidos como si a la letra se insertasen, con las características, antigüedad, estado de
+conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble las cuales
+no han sufrido modificaciones desde la fecha de elaboración del mismo según declaran las partes de
+manera expresa y bajo protesta de decir verdad..
+
+En el caso de que el donante adquirió el inmueble que transmite habiendo estado casado bajo el régimen
+de sociedad conyugal y su cónyuge no es titular registral:
+
+...PRIMERA.- El señor (nombre del donante) con el consentimiento de su cónyuge (nombre del
+cónyuge) dona en forma gratuita, total y sin reserva de ninguna especie a (nombre del donatario) quien
+acepta y adquiere (descripción del inmueble objeto del contrato) con la superficie y linderos descritos en
+el antecedente (antecedente que corresponda) que se tiene aquí por reproducidos como si a la letra se
+insertasen, con las características, antigüedad, estado de conservación y superficie de las construcciones
+especificadas en el avalúo de dicho inmueble las cuales no han sufrido modificaciones desde la fecha de
+elaboración del mismo según declaran las partes de manera expresa y bajo protesta de decir verdad..
+
+Por los efectos fiscales, las donaciones se efectúan principalmente entre cónyuges[105] o entre
+ascendientes y descendientes, de tal modo que cuando son varias las personas que reciben el inmueble
+donado, hay que dejar claro los porcentajes en que se adquiere:
+
+...PRIMERA.- El señor (nombre del donante) dona en forma gratuita, total y sin reserva de ninguna
+especie a (nombre de los donatarios) quienes aceptan y adquieren pro-indiviso y por partes iguales
+(descripción del inmueble objeto del contrato) con la superficie y linderos descritos en el antecedente
+(antecedente que corresponda) que se tiene aquí por reproducidos como si a la letra se insertasen, con
+las características, antigüedad, estado de conservación y superficie de las construcciones especificadas
+en el avalúo de dicho inmueble las cuales no han sufrido modificaciones desde la fecha de elaboración
+del mismo según declaran las partes de manera expresa y bajo protesta de decir verdad..
+
+Ó
+
+"...PRIMERA.- El señor (nombre del donante) dona en forma gratuita, total y sin reserva de ninguna
+especie a (nombre de los donatarios) quienes aceptan y adquieren pro-indiviso y en los porcentajes que
+más adelante se indican (descripción del inmueble objeto del contrato) con la superficie y linderos
+descritos en el antecedente (antecedente que corresponda) que se tiene aquí por reproducidos como si a
+la letra se insertasen, con las características, antigüedad, estado de conservación y superficie de las
+construcciones especificadas en el avalúo de dicho inmueble las cuales no han sufrido modificaciones
+desde la fecha de elaboración del mismo según declaran las partes de manera expresa y bajo protesta de
+decir verdad
+
+Dicho inmueble lo adquiere "LA PARTE DONATARIA" en los siguientes porcentajes:
+
+
+                                                                                                      11 / 19
+a) El señor (nombre) en un (indicar porcentaje) por ciento;
+
+b) El señor (nombre) en el (indicar porcentaje) por ciento restante..
+
+3.2. Segunda
+
+La cláusula segunda que en seguida aparece es la proponemos utilizar cuando la donación es llana y
+simple, siendo necesario especificar el valor que servirá para efectos fiscales así como las reglas,
+modalidades o condiciones bajo las cuales se celebra el contrato:
+
+...SEGUNDA.- La donación se rige por lo siguiente:
+
+I. Se fija como valor para los efectos a que haya lugar la cantidad de (valor del inmueble), moneda
+nacional
+
+II.- La propiedad donada pasa a poder de "LA PARTE DONATARIA":
+
+A.- Sin limitación alguna en su dominio
+
+B.- Sin gravamen de ninguna especie
+
+C.- Sin ningún adeudo, incluso de carácter laboral o fiscal, según declara "LA PARTE DONANTE"
+
+Cualquier adeudo de la índole que fuere a la fecha de firma de esta escritura, será por cuenta exclusiva
+de "LA PARTE DONANTE"..
+
+3.3. Tercera
+
+En lo referente a la entrega de la posesión la propuesta es:
+
+...TERCERA.- "LA PARTE DONANTE" entrega en este acto a "LA PARTE DONATARIA" la
+posesión del inmueble objeto de esta escritura, quien la recibe a su entera satisfacción en el estado físico
+que se encuentra[106]..
+
+Como estamos en presencia de un contrato gratuito, aun y cuando existe la posibilidad que las partes
+convengan que la entrega de la posesión se realice con posterioridad a la firma de la escritura, no
+consideramos proporcional fijar una pena convencional para el caso de incumplimiento en la fecha de
+entrega comprometida
+
+...TERCERA.-"LA PARTE DONANTE" se compromete a entregar a "LA PARTE DONATARIA" el
+inmueble objeto de esta escritura completamente desocupado a más tardar el día (fecha de entrega de la
+posesión)
+
+3.4. Cuarta
+
+En lo referente al uso y destino del inmueble no hay ninguna variación en la redacción respecto de
+cualquier otro contrato traslativo de dominio:
+
+"...CUARTA.- "LA PARTE DONATARIA" se obliga a destinar el inmueble objeto de esta escritura, a
+un uso que no contravenga los planes y programas vigentes para dicho inmueble y a respetar el área
+urbanizable contigua al mismo..
+
+3.5. Quinta
+
+                                                                                                        12 / 19
+Si el inmueble objeto de la donación se encuentra sujeto al régimen de propiedad en condominio,
+también sugerimos que el notario agregue al apéndice una copia del reglamento interno del condominio
+incluyendo la siguiente redacción:
+
+...QUINTA. Declara "LA PARTE DONATARIA", conocer en todas y cada una de sus partes el
+Reglamento de Condominio y Administración del condominio ubicado en (ubicación del condominio), y
+se compromete a cumplirlo; reglamento que "LA PARTE DONANTE" declara que entregó a "LA
+PARTE DONATARIA" con anterioridad a este acto quien a su vez manifiesta su conformidad con lo
+anterior mismo que agrego al apéndice de esta escritura con la letra "(letra que corresponda)
+
+Si no se cuenta con el reglamento interno también es importante asentar que la parte donataria lo conoce
+y se compromete a cumplirlo
+
+...QUINTA. Declara "LA PARTE DONATARIA", conocer en todas y cada una de sus partes el
+Reglamento de Condominio y Administración del condominio ubicado en (ubicación del condominio), y
+se compromete a cumplirlo; reglamento que "LA PARTE DONANTE" declara entregó a "LA PARTE
+DONATARIA" con anterioridad a este acto quien a su vez manifiesta su conformidad con lo anterior..
+
+3.6. Sexta
+
+En la definición del contrato de donación el Código Civil para la Ciudad de México se permite que sea
+objeto de la donación una parte o la totalidad de los bienes[107]; sin embargo, el propio ordenamiento
+más adelante establece que es nula la donación que comprende la totalidad de los bienes, cuando el
+donante no se ha reservado en propiedad o usufructo lo necesario para vivir.[108] Como consecuencia de
+lo anterior, a fin de evitar en el futuro discrepancia de opiniones frente a alguna acción de nulidad y un
+conflicto judicial consideramos conveniente incluir en toda donación la siguiente redacción:
+
+...SEXTA. "LA PARTE DONANTE" declara de manera expresa y bajo protesta de decir verdad, que se
+ha reservado bienes suficientes para su subsistencia..
+
+3.7. Séptima
+
+En relación con los gastos, es importante distinguir cuál es la carga fiscal en el contrato de donación. En
+lo que se refiere a los impuestos federales, considerando la naturaleza del Impuesto al Valor Agregado,
+el contrato de donación sobre bienes inmuebles no se considera enajenación para efectos de este
+impuesto.[109] Tratándose de personas físicas, la ley del Impuesto Sobre la Renta distingue diversos
+supuestos: la regla general es considerarla como un ingreso por adquisición de bienes para "la parte
+donataria";[110] sin embargo, cuando la donación se hace entre cónyuges, entre ascendientes y
+descendientes en línea recta, o bien, entre descendientes y ascendientes --siempre y cuando éstos no los
+enajenen a su vez a otra descendiente en línea recta-- no se deberá pagar el ISR por este ingreso.
+Adicionalmente, existe el Impuesto Sobre Adquisición de Inmuebles o de Traslado de Dominio, el cual
+sí se causa para "la parte donataria" cuando un inmueble se adquiere por donación. Considerando lo
+anterior, nuestra opinión es que corresponde a "La parte donataria" pagar las contribuciones y gastos que
+se originan derivado de su otorgamiento, aunque también es materia del acuerdo de voluntades entre las
+partes
+
+Siendo así sugerimos:
+
+...SÉPTIMA.- Todos los gastos, impuestos, derechos y honorarios que se causen con motivo de esta
+escritura, serán cubiertos por "LA PARTE DONATARIA"
+
+3.8. Octava
+
+                                                                                                       13 / 19
+En materia de competencia, la redacción es la misma que la utilizada en el contrato de compraventa
+
+...OCTAVA.- Para la interpretación y cumplimiento de esta escritura, las partes se someten a las leyes y
+tribunales de (lugar del otorgamiento de la escritura)..
+
+4. Modalidades del contrato de donación
+
+4.1. Donación onerosa
+
+Cuando se impone alguna carga al donatario, recordemos que, como quedó estipulado al inicio de este
+capítulo, la donación no se convierte en un contrato bilateral. Existen tantas cargas como las que quiera
+imponer el donante al donatario; sin embargo, el Código Civil establece algunas reglas generales:
+
+a) Las donaciones se reciben a beneficio de inventario, lo que significa que no está obligado
+personalmente con sus bienes.[111]
+
+b) Si la donación se hace con la carga de pagar deudas del donante, solo se comprenderán las que existan
+con fecha auténtica al momento de la donación.[112]
+
+c) Solo se considerará donado el exceso que hubiere en el precio de la cosa, deducidas las cargas. [113]
+
+En seguida propondremos los lineamientos generales que, desde nuestro punto de vista, debe tener el
+contrato de donación onerosa en el entendido que existirán tantas posibilidades como cargas se le
+pudieran ocurrir al donante dentro del marco legal
+
+4.1.1. Comparecencia
+
+...hago constar LA DONACIÓN ONEROSA que celebran de una parte (nombre completo donatario), en
+lo sucesivo "LA PARTE DONATARIA" y de otra (nombre completo donante), en lo sucesivo "LA
+PARTE DONANTE", al tenor de los siguientes antecedentes y cláusulas...
+
+4.2.2. Cláusulas
+
+...PRIMERA.- El señor (nombre del donante) dona en forma gratuita, total y con la carga que más
+adelante se especifica a (nombre del donatario) quien acepta y adquiere (descripción del inmueble
+objeto del contrato) con la superficie y linderos descritos en el antecedente (antecedente que
+corresponda) que se tiene aquí por reproducidos como si a la letra se insertasen..
+
+...SEGUNDA.- La donación se rige por lo siguiente:
+
+I. Se fija como valor para los efectos a que haya lugar la cantidad de (valor del inmueble), moneda
+nacional
+
+II.- La propiedad donada pasa a poder de "LA PARTE DONATARIA":
+
+A.- Sin limitación alguna en su dominio
+
+B.- Sin gravamen de ninguna especie
+
+C.- Con la carga a que se refiere la siguiente cláusula
+
+D.- Sin ningún adeudo, incluso de carácter laboral o fiscal, según declara "LA PARTE DONANTE"
+
+                                                                                                           14 / 19
+Cualquier adeudo de la índole que fuere a la fecha de firma de esta escritura, será por cuenta exclusiva
+de "LA PARTE DONANTE"
+
+TERCERA.- La presente donación se realiza con la carga consistente en que "LA PARTE
+DONATARIA" se obliga a (redactar carga).
+
+La falta de cumplimiento en la carga establecida en la presente cláusula, ocasionará la facultad de
+revocación unilateral por parte del donante de este contrato de lo que se tomará razón en el Registro
+Público de la Propiedad para que surta efectos frente a terceros..
+
+En relación con las variables desarrolladas en el capítulo del contrato de compraventa, las redacciones
+también podrían ser utilizadas para el de donación, haciendo los ajustes necesarios
+
+4.2. Donación de dinero
+
+En lo referente a la forma, el contrato de donación solamente puede ser verbal cuando se trata de bienes
+muebles y el valor de los mismos no exceda de doscientos pesos; debe constar por escrito cuando éstos
+excedan de doscientos pesos pero no de cinco mil; y debe constar en escritura pública cuando exceda de
+cinco mil.[114] Lo anterior origina que prácticamente cualquier donación de dinero debe constar en
+escritura pública; sin embargo, pocas personas están conscientes de lo anterior y difícilmente cumplen el
+requisito de la forma al celebrar el contrato de donación, lo cual también constituye una forma fehaciente
+de acreditar la obtención de los recursos para efectos fiscales
+
+Por otra parte, la transferencia de dinero entre personas tiene consecuencias fiscales y aunque el ingreso
+pudiera estar exento, en términos de lo expresado con anterioridad en este capítulo, es necesario que
+dicho ingreso se incluya en la declaración anual de las personas físicas. Por tal razón es recomendable
+también formalizar el contrato de donación en escritura pública cuando no se hizo así, o bien, celebrarlo
+directamente en escritura pública como marca la Ley a fin de darle certeza, autenticidad y transparencia
+a dicho acto
+
+Con base en lo anterior, proponemos los siguientes textos a los cuales también podrá aplicarse lo
+sugerido con anterioridad:
+
+4.2.1. Contrato de donación de dinero
+
+En este supuesto, las partes acuerdan frente al notario a celebrar el contrato de donación por lo cual
+consideramos que la escritura solo debe constar de tres partes: comparecencia, cláusulas y
+certificaciones
+
+a) Comparecencia
+
+...hago constar LA DONACIÓN que celebran de una parte (nombre completo donataria), en lo sucesivo
+"LA PARTE DONATARIA" y de otra (nombre completo donante), en lo sucesivo "LA PARTE
+DONANTE", al tenor de las siguientes:-----------------------------------
+
+C L Á U S U L A S...------------------------------------------------------------------------------------
+
+b) Cláusulas
+
+...PRIMERA.- El señor (nombre del donante) dona en forma gratuita, total y sin reserva de ninguna
+especie a (nombre del donatario), quien acepta y adquiere la cantidad de monto donado), moneda
+nacional, los cuales son entregados mediante (describir la forma de pago); comprobantes de pago cuya
+copia cotejada en su conjunto agrego al apéndice de esta escritura con la letra "............"
+
+                                                                                                           15 / 19
+SEGUNDA.- "LA PARTE DONANTE" declara de manera expresa y bajo protesta de decir verdad, que
+se ha reservado bienes suficientes para su subsistencia
+
+TERCERA.- Todos los gastos, impuestos, derechos y honorarios que se causen con motivo de esta
+escritura, serán cubiertos por "LA PARTE DONATARIA"
+
+CUARTA.- Para la interpretación y cumplimiento de esta escritura, las partes se someten a las leyes y
+tribunales de (lugar del otorgamiento de la escritura)..
+
+4.2.2. Formalización de contrato de donación de dinero
+
+A diferencia del supuesto anterior, en este caso recomendamos que la escritura conste de cuatro partes:
+comparecencia, antecedentes, cláusulas y certificaciones
+
+a) Comparecencia
+
+...hago constar LA FORMALIZACIÓN DEL CONTRATO DE DONACION que otorgan de una parte
+(nombre completo donatario), en lo sucesivo "LA PARTE DONATARIA" y de otra (nombre completo
+donante), en lo sucesivo "LA PARTE DONANTE", al tenor de los siguientes antecedentes y cláusulas:
+
+b) Antecedentes
+
+Se sugiere relacionar como antecedentes cada una de las entregas de dinero que "la parte donante" hizo a
+"la donataria" con anterioridad a su comparecencia frente al notario:
+
+...(Antecedente que corresponda) con fecha (fecha de celebración de la entrega del dinero), (nombre
+completo del donante) entregó a (nombre completo del donatario) la cantidad de (monto donado),
+moneda nacional, mediante (describir la forma de pago)
+
+Con la letra "............", agrego al apéndice de esta escritura copia cotejada de dicho documento
+
+c) Cláusulas:
+
+...PRIMERA.- (nombre completo del donante) y (nombre completo del donatario) formalizan en este
+acto el contrato de donación a que se hizo referencia en el antecedente (antecedente[s] que
+corresponda[n]) de esta escritura, en virtud del cual este último adquirió en forma gratuita, total y sin
+reserva la cantidad total de (monto total donado) conforme ha quedado relacionado y acreditado con
+anterioridad en los antecedentes de este instrumento
+
+SEGUNDA.- "LA PARTE DONANTE" declara de manera expresa y bajo protesta de decir verdad, que
+se ha reservado bienes suficientes para su subsistencia
+
+TERCERA.- Todos los gastos, impuestos, derechos y honorarios que se causen con motivo de esta
+escritura, serán cubiertos por "LA PARTE DONATARIA"
+
+CUARTA.- Para la interpretación y cumplimiento de esta escritura, las partes se someten a las leyes y
+tribunales de (lugar del otorgamiento de la escritura)..
+
+Notas:
+
+
+
+
+                                                                                                      16 / 19
+[93] Solís Arana, Vicente, "El contrato de donación", en Varios, Homenaje al doctor Jorge Alfredo
+Domínguez Martínez, Adame López, Ángel Gilberto (coord.), México, Colegio de Profesores de
+Derecho Civil, Facultad de Derecho-UNAM, 2016, pp. 395-406
+
+
+
+[94] "Art. 2332 (CC).- Donación es un contrato por el que una persona transfiere a otra, gratuitamente,
+una parte o la totalidad de sus bienes presentes"
+
+
+
+[95] Rico Álvarez y Garza Bandala, op. cit., pp. 89-92
+
+
+
+
+[96] "Art. 2347 (CC). Es nula la donación que comprenda la totalidad de los bienes del donante, si éste
+no se reserva en propiedad o en usufructo lo necesario para vivir según sus circunstancias"
+
+
+
+[97]  DONACIÓN, MANDATARIO, CARECE DE FACULTADES PARA CELEBRAR EL
+CONTRATO DE, CUANDO EN EL PODER GENERAL PARA ACTOS DE DOMINIO SE OMITE
+INSERTAR CLÁUSULA ESPECÍFICA QUE LO FACULTA A REALIZAR TAL ACTO JURÍDICO.
+Si se parte de una interpretación literal de los párrafos tercero y cuarto del artículo 2554 del Código Civil
+para el Distrito Federal, como lo pretenden los peticionarios de garantías al aducir que el poder general
+para actos de dominio sin limitación alguna de que se trata autoriza al mandatario para realizar
+donaciones supuesto que éste tendría todas las facultades de dueño, se arribaría a una conclusión
+contraria a derecho; sin embargo, si se toma en consideración la especial naturaleza del contrato de
+donación que lo caracteriza como un acto jurídico personalísimo, debe concluirse que para tal efecto
+específico de dominio, se requiere necesariamente la autorización expresa del mandante. En efecto, los
+fundamentos por los cuales el mandatario general para actos de dominio, no está en posibilidad jurídica
+de efectuar donaciones sin la autorización expresa de su mandante, son: a) por analogía o mayoría de
+razón, conforme a lo que establece el artículo 2499 del Código Civil, ya que si los tutores, curadores y
+en general todos los administradores de bienes ajenos, están impedidos para conceder el uso gratuito
+(comodato), sin autorización especial, de los bienes confiados a su guarda, tampoco el mandatario
+general para actos de dominio podrá donar sin permiso expreso y especial del mandante; b) es de sobra
+conocido, que el mandato se confiere generalmente para la administración y conservación del patrimonio
+del mandante y no para la desintegración del mismo o para que el mandatario lo dilapide, salvo permiso
+especial, otorgado desde luego en cláusula específica; y, c) por análogas razones, ni los padres ni los
+tutores pueden realizar donaciones de sus representados según lo dispuesto en los artículos 436 y 576 del
+ordenamiento citado. A lo anterior, cabe agregar que la mayoría de los tratadistas en materia de
+contratos, coinciden en clasificar al contrato de donación como de aquellos intuitu personae, esto es, que
+se celebran en consideración a la persona y en los que en su celebración las calidades personales de los
+contratantes son tomadas en cuenta; de ahí el carácter personalísimo del referido contrato, que se
+desprende del contenido de los numerales del 2332 al 2383 del Código en cita. Además si de acuerdo
+con lo que establece el artículo 2548 del ordenamiento en consulta, sólo son susceptibles de mandato o
+pueden ser objeto de él todos los actos lícitos para los que la ley no exige la intervención personal del
+interesado, de ello se sigue, que si en la especie, el mandatario celebró un acto, si bien lícito como lo es
+el de donación, pero respecto del cual la ley requiere o exige la intervención personal del donante o en su
+defecto requiere de la cláusula especial en el mandato, autorizándolo expresamente a realizar
+donaciones, es evidente que el contrato de donación es de estimarse nulo ya que el mandatario se
+extralimitó o traspasó los límites expresados del poder que le fue conferido. QUINTO TRIBUNAL
+
+                                                                                                         17 / 19
+COLEGIADO EN MATERIA CIVIL DEL PRIMER CIRCUITO. Amparo directo 5711/91. Carlos Ruiz
+Ruiz y otra. 27 de febrero de 1992. Unanimidad de votos. Ponente: Ignacio Patán Romero. Secretario
+Sergio D. Maldonado Soto. Semanario judicial. Octava época, tomo IX, abril 1992, Tribunales
+Colegiados, p. 492
+
+
+
+[98] Ver subapartado 2 en el apartado de compraventa
+
+
+
+
+[99] Aquí también aplica la redacción propuesta para el caso que el nombre del titular registral apareciera
+con alguna variante
+
+
+
+[100] La ley del ISR establece que el costo de adquisición para el enajenante es el que pagó al adquirir el
+inmueble y en los casos de herencia, legado o donación, el costo de adquisición es el que pagó el autor
+de la herencia o el donante
+
+
+
+[101] Conforme al artículo ____ de la Ley del Impuesto Sobre la Renta reformado el día ____ a partir de
+esa fecha el costo comprobado de adquisición para efectos del cálculo correspondiente, es el valor que
+conste en el CFDI...._________
+
+
+
+[102] Como se refirió anteriormente, existe otra alternativa consistente en que la cancelación del embargo
+o demanda se realice solicitándolo en escrito por separado exhibiendo el oficio expedido por el juez y
+relacionando en nuestro instrumento lo anterior indicando el número de entrada que le correspondió a
+dicho trámite
+
+
+
+[103] Idem
+
+
+
+
+[104] Este inciso dependerá del tipo de documento o constancia que en su caso requiera la tesorería de
+manera adicional al predial y agua
+
+
+
+[105] Esto solo es posible cuando se encuentren casados bajo el régimen de separación de bienes
+
+
+
+
+[106] Por tratarse de un contrato gratuito no es aplicable para el donante la obligación del saneamiento de
+los vicios ocultos, la cual solamente es exigible en los contratos conmutativos (onerosos)
+
+
+
+                                                                                                       18 / 19
+"Art. 2142 (CCDF).- En los contratos conmutativos, el enajenante está obligado al saneamiento por los
+defectos oculto de la cosa enajenada que la hagan impropia para los usos a que se la destina, o que
+disminuyan de tal modo este uso, al haberlo conocido el adquirente no hubiera hecho la adquisición o
+habría dado menos precio por la cosa"
+
+
+
+[107] Art. 2332 (CCDF)
+
+
+
+
+[108] Art. 2347 (CCDF)
+
+
+
+
+[109] Art. 8 (LIVA)
+
+
+
+
+[110] Art. 130 Fr. I (LISR)
+
+
+
+
+[111] Art. 2355 y 2368 (CC)
+
+
+
+
+[112] Art. 2353 (CC)
+
+
+
+
+[113] Art. 2337 (CC)
+
+
+
+
+[114] Arts. 2342, 2343 y 2344 (CC)
+
+
+
+
+Este documento se ofrece con una finalidad informativa. Velamos por la actualidad, exactitud y
+veracidad de los mismos, si bien se advierte que no son los textos oficiales y se declina toda
+responsabilidad por los daños que puedan causarse debido a las inexactitudes o incorrecciones en los
+mismos.
+
+
+
+
+                                                                                                       19 / 19
+

@@ -1,0 +1,172 @@
+{
+  "law": "Contrato de confidencialidad",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículo 223 de la Ley Federal de Protección a la Propiedad Intelectual"
+  ],
+  "parties": [
+    {
+      "id": "disclosing_company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "recipient",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "damages",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "disclose_information",
+      "type": "simple",
+      "actor": "disclosing_company",
+      "object": "confidential_information",
+      "target": "recipient"
+    },
+    {
+      "id": "maintain_confidentiality",
+      "type": "simple",
+      "actor": "recipient",
+      "object": "confidential_information",
+      "target": "disclosing_company"
+    },
+    {
+      "id": "return_information",
+      "type": "simple",
+      "actor": "recipient",
+      "object": "confidential_information",
+      "target": "disclosing_company"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "recipient",
+      "object": "confidential_information",
+      "target": "disclosing_company"
+    },
+    {
+      "id": "pay_damages",
+      "type": "simple",
+      "actor": "recipient",
+      "object": "damages",
+      "target": "disclosing_company"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ConfidentialityAgreement",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "InformationOwnership",
+      "subject": "disclosing_company",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "recipient",
+        "object": "confidential_information",
+        "target": "disclosing_company"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "recipient",
+        "object": "confidential_information",
+        "target": "disclosing_company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "recipient",
+        "object": "confidential_information",
+        "target": "disclosing_company"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "confidentiality_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConfidentialityAgreement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "maintain_confidentiality"
+        }
+      }
+    },
+    {
+      "id": "return_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConfidentialityAgreement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "return_information"
+        }
+      }
+    },
+    {
+      "id": "damage_payment_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_confidentiality"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_damages"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Confidencialidad/Contrato de confidencialidad/TMX_1381347_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Confidencialidad/Contrato de confidencialidad/TMX_1381347_es.txt"
+  }
+}

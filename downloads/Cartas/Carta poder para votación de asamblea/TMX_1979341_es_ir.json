@@ -1,0 +1,124 @@
+{
+  "law": "Carta poder para votación de asamblea",
+  "authority": "private",
+  "enacted": "2023-06-13",
+  "imports": [
+    "Ley General de Sociedades Mercantiles"
+  ],
+  "parties": [
+    {
+      "id": "grantor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "attorney",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "corporation",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "shares",
+      "type": "movable"
+    },
+    {
+      "id": "voting_power",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vote_shares",
+      "type": "simple",
+      "actor": "attorney",
+      "object": "voting_power",
+      "target": "corporation"
+    },
+    {
+      "id": "represent_in_assembly",
+      "type": "simple",
+      "actor": "attorney",
+      "object": "voting_power",
+      "target": "grantor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "ShareOwnership",
+      "subject": "grantor",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PowerOfAttorney",
+      "subject": "attorney",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "attorney",
+        "object": "voting_power",
+        "target": "corporation"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "voting_authorization_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "ShareOwnership",
+          "subject": "grantor"
+        },
+        {
+          "type": "certification",
+          "name": "PowerOfAttorney",
+          "subject": "attorney"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "attorney",
+          "object": "voting_power",
+          "target": "corporation"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "assembly_voting_procedure",
+      "steps": [
+        {
+          "description": "Attorney presents power of attorney"
+        },
+        {
+          "ref": "vote_shares"
+        },
+        {
+          "description": "Attorney exercises voting rights on behalf of grantor"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Cartas/Carta poder para votación de asamblea/TMX_1979341_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cartas/Carta poder para votación de asamblea/TMX_1979341_es.txt"
+  }
+}

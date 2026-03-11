@@ -1,0 +1,312 @@
+{
+  "law": "Contrato de constitución de sociedad civil",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículos 2693, 2694, 2705, 2706, 2707, 2709, 2712, 2719, 2722, 2726, 2727, 2728, 2729, 2730, 2731, 2732 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "socios",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "sociedad_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "socio_administrador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "consejo_administradores",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "liquidadores",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "capital_social",
+      "type": "money"
+    },
+    {
+      "id": "aportaciones",
+      "type": "money"
+    },
+    {
+      "id": "partes_sociales",
+      "type": "service"
+    },
+    {
+      "id": "servicios_legales",
+      "type": "service"
+    },
+    {
+      "id": "utilidades",
+      "type": "money"
+    },
+    {
+      "id": "patrimonio_social",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SociedadCivil",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PartesSociales",
+      "subject": "socios",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "AdministracionSocial",
+      "subject": "socio_administrador",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "ResponsabilidadSocios",
+      "subject": "socios",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "ResponsabilidadSolidaria",
+      "subject": "socio_administrador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socios",
+        "object": "aportaciones",
+        "target": "sociedad_civil"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socios",
+        "object": "servicios_legales",
+        "target": "sociedad_civil"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socios",
+        "object": "partes_sociales",
+        "target": "terceros"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "socio_administrador",
+        "object": "patrimonio_social",
+        "target": "socios"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cesion_partes_sociales",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "socios",
+          "object": "partes_sociales",
+          "target": "terceros"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "socios",
+          "object": "consentimiento_unanime",
+          "target": "sociedad_civil"
+        }
+      }
+    },
+    {
+      "id": "admision_nuevos_socios",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "terceros",
+          "object": "solicitud_admision",
+          "target": "sociedad_civil"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "socios",
+          "object": "consentimiento_unanime",
+          "target": "sociedad_civil"
+        }
+      }
+    },
+    {
+      "id": "exclusion_socios",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "socios",
+          "object": "actos_desleales",
+          "target": "sociedad_civil"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "sociedad_civil",
+          "object": "exclusion",
+          "target": "socios"
+        }
+      }
+    },
+    {
+      "id": "fallecimiento_socio",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "FallecimientoSocio"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "sociedad_civil",
+          "object": "pago_herederos",
+          "target": "herederos"
+        }
+      }
+    },
+    {
+      "id": "disolucion_sociedad",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "socios",
+          "object": "consentimiento_unanime_disolucion",
+          "target": "sociedad_civil"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "EstadoLiquidacion"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitucion_sociedad",
+      "steps": [
+        {
+          "description": "Redacción de estatutos sociales"
+        },
+        {
+          "description": "Obtención de autorización de denominación social"
+        },
+        {
+          "description": "Otorgamiento de escritura pública ante notario"
+        },
+        {
+          "description": "Inscripción en Registro Público"
+        }
+      ]
+    },
+    {
+      "name": "junta_socios",
+      "steps": [
+        {
+          "description": "Convocatoria con 10 días de anticipación"
+        },
+        {
+          "description": "Verificación de quórum (70% de socios)"
+        },
+        {
+          "description": "Desarrollo de orden del día"
+        },
+        {
+          "description": "Votación según mayoría o unanimidad requerida"
+        },
+        {
+          "description": "Levantamiento y firma de acta"
+        }
+      ]
+    },
+    {
+      "name": "cesion_partes_sociales",
+      "steps": [
+        {
+          "description": "Notificación a socios sobre intención de cesión"
+        },
+        {
+          "description": "Ejercicio de derecho del tanto (8 días)"
+        },
+        {
+          "description": "Obtención de consentimiento unánime"
+        },
+        {
+          "description": "Formalización de la cesión"
+        }
+      ]
+    },
+    {
+      "name": "liquidacion_sociedad",
+      "steps": [
+        {
+          "description": "Nombramiento de liquidadores"
+        },
+        {
+          "description": "Continuación de negocios pendientes"
+        },
+        {
+          "description": "Cobro de créditos y pago de deudas"
+        },
+        {
+          "description": "Formulación de estado financiero de liquidación"
+        },
+        {
+          "description": "Propuesta de proyecto de partición"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Constitución/Contrato de constitución de sociedad civil/TMX_1376730_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Constitución/Contrato de constitución de sociedad civil/TMX_1376730_es.txt"
+  }
+}

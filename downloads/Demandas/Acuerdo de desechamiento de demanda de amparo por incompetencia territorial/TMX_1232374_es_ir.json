@@ -1,0 +1,124 @@
+{
+  "law": "Acuerdo de desechamiento de demanda de amparo por incompetencia territorial",
+  "authority": "judicial",
+  "enacted": "2023-07-28",
+  "imports": [
+    "Artículos 14, 16 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículo 8.1 de la Convención Americana sobre Derechos Humanos",
+    "Artículos 21, 27, 37, 48 de la Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "executing_authorities",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "district_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "competent_district_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "amparo_petition",
+      "type": "service"
+    },
+    {
+      "id": "eviction_order",
+      "type": "service"
+    },
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "territorial_incompetence",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "territorial_jurisdiction",
+      "subject": "competent_district_judge",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "territorial_competence_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "act_execution_location"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "territorial_jurisdiction"
+      }
+    },
+    {
+      "id": "incompetence_dismissal_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "territorial_incompetence"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "district_judge",
+          "object": "amparo_petition",
+          "target": "competent_district_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "territorial_incompetence_procedure",
+      "steps": [
+        {
+          "description": "Review amparo petition and determine territorial competence"
+        },
+        {
+          "description": "Declare territorial incompetence"
+        },
+        {
+          "description": "Transfer petition to competent district judge"
+        },
+        {
+          "description": "Request acknowledgment of receipt and competence determination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Acuerdo de desechamiento de demanda de amparo por incompetencia territorial/TMX_1232374_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Acuerdo de desechamiento de demanda de amparo por incompetencia territorial/TMX_1232374_es.txt"
+  }
+}

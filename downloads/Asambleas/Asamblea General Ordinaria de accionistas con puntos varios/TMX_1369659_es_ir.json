@@ -1,0 +1,263 @@
+{
+  "law": "Asamblea General Ordinaria de accionistas",
+  "authority": "private",
+  "enacted": "2018-02-01",
+  "imports": [
+    "Ley General de Sociedades Mercantiles",
+    "Ley del Impuesto sobre la Renta",
+    "Código Fiscal de la Federación"
+  ],
+  "parties": [
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "shareholders",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "board_president",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "board_secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "commissioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "scrutineer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "financial_statements",
+      "type": "service"
+    },
+    {
+      "id": "dividend",
+      "type": "money"
+    },
+    {
+      "id": "fiscal_report",
+      "type": "service"
+    },
+    {
+      "id": "commissioner_report",
+      "type": "service"
+    },
+    {
+      "id": "board_appointments",
+      "type": "service"
+    },
+    {
+      "id": "remuneration",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ShareholderAssembly",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ShareCapital",
+      "subject": "shareholders",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegallyConstituted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "DividendAmount",
+      "subject": null,
+      "value": 3751924
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "board_president",
+        "object": "financial_statements",
+        "target": "shareholders"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "commissioner",
+        "object": "commissioner_report",
+        "target": "shareholders"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "financial_statements_approval",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ShareholderAssembly"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "shareholders",
+          "object": "financial_statements",
+          "target": "company"
+        }
+      }
+    },
+    {
+      "id": "dividend_distribution",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ShareholderAssembly"
+        },
+        {
+          "type": "numeric",
+          "name": "DividendAmount"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "shareholders",
+          "object": "dividend",
+          "target": "company"
+        }
+      }
+    },
+    {
+      "id": "board_ratification",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ShareholderAssembly"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "shareholders",
+          "object": "board_appointments",
+          "target": "company"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "shareholders_assembly_procedure",
+      "steps": [
+        {
+          "description": "Verification of attendance and share representation"
+        },
+        {
+          "description": "Declaration of legally constituted assembly"
+        },
+        {
+          "description": "Approval of agenda"
+        },
+        {
+          "description": "Reading and approval of financial statements"
+        },
+        {
+          "description": "Reading and approval of fiscal compliance report"
+        },
+        {
+          "description": "Reading and approval of commissioner report"
+        },
+        {
+          "description": "Discussion and approval of dividend distribution"
+        },
+        {
+          "description": "Ratification of board members and commissioner"
+        },
+        {
+          "description": "Discussion of remuneration waiver"
+        },
+        {
+          "description": "Assembly closure"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "annual_shareholders_assembly",
+      "timeline": [
+        {
+          "event": "Assembly installation",
+          "condition": {
+            "type": "ownership",
+            "name": "ShareCapital"
+          }
+        },
+        {
+          "event": "Financial statements approval",
+          "condition": null
+        },
+        {
+          "event": "Fiscal report approval",
+          "condition": null
+        },
+        {
+          "event": "Commissioner report approval",
+          "condition": null
+        },
+        {
+          "event": "Dividend decree",
+          "condition": {
+            "type": "numeric",
+            "name": "DividendAmount"
+          }
+        },
+        {
+          "event": "Board ratification",
+          "condition": null
+        },
+        {
+          "event": "Remuneration waiver",
+          "condition": null
+        },
+        {
+          "event": "Assembly closure",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Asambleas/Asamblea General Ordinaria de accionistas con puntos varios/TMX_1369659_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Asambleas/Asamblea General Ordinaria de accionistas con puntos varios/TMX_1369659_es.txt"
+  }
+}

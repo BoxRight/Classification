@@ -1,0 +1,228 @@
+{
+  "law": "Acta de adjudicación por remate judicial derivada de Juicio Ejecutivo Mercantil",
+  "authority": "judicial",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Código de Comercio Artículos 1391, 1392, 1396, 1404",
+    "Ley de Títulos y Operaciones de Crédito Artículo 167",
+    "Código de Procedimientos Civiles Artículos 427, 428, 541, 588, 589"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "endorsee",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_succession",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "individual_defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "adjudicatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bills_of_exchange",
+      "type": "money"
+    },
+    {
+      "id": "principal_debt",
+      "type": "money"
+    },
+    {
+      "id": "legal_interests",
+      "type": "money"
+    },
+    {
+      "id": "embargoed_properties",
+      "type": "nonmovable"
+    },
+    {
+      "id": "auction_proceeds",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "execute_judgment",
+      "type": "simple",
+      "actor": "judge",
+      "object": "embargoed_properties",
+      "target": "defendant_succession"
+    },
+    {
+      "id": "adjudicate_properties",
+      "type": "simple",
+      "actor": "judge",
+      "object": "embargoed_properties",
+      "target": "adjudicatario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ExecutiveJudgment",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyEmbargo",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "JudicialAuction",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyAdjudication",
+      "subject": "adjudicatario",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_succession",
+        "object": "principal_debt",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_succession",
+        "object": "legal_interests",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "execution_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ExecutiveJudgment"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "defendant_succession",
+            "object": "principal_debt",
+            "target": "plaintiff"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "PropertyEmbargo"
+      }
+    },
+    {
+      "id": "auction_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PropertyEmbargo"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "JudicialAuction"
+      }
+    },
+    {
+      "id": "adjudication_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "JudicialAuction"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyAdjudication",
+        "subject": "adjudicatario"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "judicial_execution_process",
+      "steps": [
+        {
+          "description": "File executive complaint with bills of exchange"
+        },
+        {
+          "description": "Issue admissory order for executive mercantile proceeding"
+        },
+        {
+          "description": "Embargo defendant's properties"
+        },
+        {
+          "description": "Default judgment against defendants"
+        },
+        {
+          "description": "Definitive sentence ordering payment"
+        },
+        {
+          "description": "Expand embargo to additional properties"
+        },
+        {
+          "description": "Property valuation by expert"
+        },
+        {
+          "description": "Public auction with legal notices"
+        },
+        {
+          "description": "Adjudication to creditor"
+        },
+        {
+          "description": "Judicial approval of auction"
+        },
+        {
+          "description": "Notarial execution of property deed"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de adjudicación por remate judicial derivada de Juicio Ejecutivo Mercantil/TMX_1979290_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de adjudicación por remate judicial derivada de Juicio Ejecutivo Mercantil/TMX_1979290_es.txt"
+  }
+}

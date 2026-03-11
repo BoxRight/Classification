@@ -1,0 +1,203 @@
+{
+  "law": "Ley Federal para la Prevención e Identificación de Operaciones con recursos de procedencia ilícita",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Artículo 32 de la Ley Federal para la Prevención e Identificación de Operaciones con recursos de procedencia ilícita",
+    "Artículo 33 de la Ley Federal para la Prevención e Identificación de Operaciones con recursos de procedencia ilícita",
+    "Artículo 45 de la Ley Federal para la Prevención e Identificación de Operaciones con recursos de procedencia ilícita",
+    "Artículo 45 del Reglamento de la Ley Federal para la Prevención e Identificación de Operaciones con recursos de procedencia ilícita"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "creditor",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "debtor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate",
+      "type": "nonmovable"
+    },
+    {
+      "id": "shares",
+      "type": "movable"
+    },
+    {
+      "id": "vehicles",
+      "type": "movable"
+    },
+    {
+      "id": "payment_amount",
+      "type": "money"
+    },
+    {
+      "id": "credit_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "numeric",
+      "name": "transaction_value_real_estate_threshold",
+      "subject": null,
+      "value": "8025_uma"
+    },
+    {
+      "type": "numeric",
+      "name": "transaction_value_shares_threshold",
+      "subject": null,
+      "value": "3210_uma"
+    },
+    {
+      "type": "numeric",
+      "name": "transaction_value_use_rights_threshold",
+      "subject": null,
+      "value": "3210_uma"
+    },
+    {
+      "type": "numeric",
+      "name": "cash_payment_limit",
+      "subject": null,
+      "value": "8025_minimum_salary"
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "payment_certification",
+        "target": "regulatory_authority"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "real_estate_certification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "notary",
+          "object": "real_estate_transaction",
+          "target": "parties"
+        },
+        {
+          "type": "numeric",
+          "name": "transaction_value_exceeds_threshold",
+          "value": "8025_uma"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "payment_identification",
+          "target": "regulatory_authority"
+        }
+      }
+    },
+    {
+      "id": "shares_certification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "notary",
+          "object": "shares_transaction",
+          "target": "parties"
+        },
+        {
+          "type": "numeric",
+          "name": "transaction_value_exceeds_threshold",
+          "value": "3210_uma"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "payment_identification",
+          "target": "regulatory_authority"
+        }
+      }
+    },
+    {
+      "id": "use_rights_certification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "notary",
+          "object": "use_rights_constitution",
+          "target": "parties"
+        },
+        {
+          "type": "numeric",
+          "name": "transaction_value_exceeds_threshold",
+          "value": "3210_uma"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "payment_identification",
+          "target": "regulatory_authority"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_certification_procedure",
+      "steps": [
+        {
+          "description": "identify_payment_amount"
+        },
+        {
+          "description": "identify_payment_date"
+        },
+        {
+          "description": "identify_payment_method"
+        },
+        {
+          "description": "identify_currency"
+        },
+        {
+          "description": "attach_supporting_documents"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación para la prevención e identificación de operaciones con recursos de procedencia/TMX_1376164_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación para la prevención e identificación de operaciones con recursos de procedencia/TMX_1376164_es.txt"
+  }
+}

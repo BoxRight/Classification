@@ -1,0 +1,127 @@
+{
+  "templates": [
+    {
+      "pattern": "? → obligation(→→)",
+      "conditions": [
+        "?"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 9
+    },
+    {
+      "pattern": "asset:LeaseRelation → obligation(→→)",
+      "conditions": [
+        "asset:LeaseRelation"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 7
+    },
+    {
+      "pattern": "asset:LeaseRelation → obligation(tenant→monthly_rent→landlord)",
+      "conditions": [
+        "asset:LeaseRelation"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "tenant→monthly_rent→landlord"
+      },
+      "count": 7
+    },
+    {
+      "pattern": "? → privilege(→→)",
+      "conditions": [
+        "?"
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act_signature": "→→"
+      },
+      "count": 6
+    },
+    {
+      "pattern": "asset:service_contract → obligation(→→)",
+      "conditions": [
+        "asset:service_contract"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 5
+    },
+    {
+      "pattern": "asset:ServiceContract → obligation(→→)",
+      "conditions": [
+        "asset:ServiceContract"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 4
+    },
+    {
+      "pattern": "ref:breach_contract → fact:liability:ContractTermination",
+      "conditions": [
+        "ref:breach_contract"
+      ],
+      "consequence": {
+        "type": "fact",
+        "fact_type": "liability",
+        "fact_name": "ContractTermination"
+      },
+      "count": 3
+    },
+    {
+      "pattern": "asset:cessation_contract_relation → obligation(→→)",
+      "conditions": [
+        "asset:cessation_contract_relation"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 3
+    },
+    {
+      "pattern": "asset:cessation_contract_relation → prohibition(→→)",
+      "conditions": [
+        "asset:cessation_contract_relation"
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act_signature": "→→"
+      },
+      "count": 3
+    },
+    {
+      "pattern": "asset:ComodatoRelation → obligation(→→)",
+      "conditions": [
+        "asset:ComodatoRelation"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 3
+    },
+    {
+      "pattern": "asset:SaleContract → obligation(→→)",
+      "conditions": [
+        "asset:SaleContract"
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act_signature": "→→"
+      },
+      "count": 3
+    }
+  ],
+  "threshold": 3
+}

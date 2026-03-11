@@ -1,0 +1,197 @@
+{
+  "law": "Contrato de obra a precio alzado",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal, Artículos 2616, 2617, 2618"
+  ],
+  "parties": [
+    {
+      "id": "owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "contractor_company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "contractor_representative",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "construction_work",
+      "type": "service"
+    },
+    {
+      "id": "construction_payment",
+      "type": "money"
+    },
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "delay_penalty",
+      "type": "money"
+    },
+    {
+      "id": "contract_expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "property_ownership",
+      "subject": "owner",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "registry_inscription",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contractor_company",
+        "object": "construction_work",
+        "target": "owner"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "owner",
+        "object": "monthly_payment",
+        "target": "contractor_company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contractor_company",
+        "object": "contract_expenses",
+        "target": "contractor_company"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "monthly_payment_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "monthly_work_certification"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "owner",
+          "object": "monthly_payment",
+          "target": "contractor_company"
+        }
+      }
+    },
+    {
+      "id": "delay_penalty_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "construction_deadline_exceeded"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contractor_company",
+          "object": "delay_penalty",
+          "target": "owner"
+        }
+      }
+    },
+    {
+      "id": "owner_withdrawal_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "construction_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "owner",
+          "object": "construction_work",
+          "target": "contractor_company"
+        }
+      }
+    },
+    {
+      "id": "contractor_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "contractor_company",
+          "object": "construction_work",
+          "target": "owner"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "owner",
+          "object": "construction_payment",
+          "target": "contractor_company"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "monthly_payment_process",
+      "steps": [
+        {
+          "description": "Dirección Facultativa issues monthly work certification"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "owner",
+            "object": "monthly_payment",
+            "target": "contractor_company"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Obra/Contrato de obra a precio alzado/TMX_1119599_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Obra/Contrato de obra a precio alzado/TMX_1119599_es.txt"
+  }
+}

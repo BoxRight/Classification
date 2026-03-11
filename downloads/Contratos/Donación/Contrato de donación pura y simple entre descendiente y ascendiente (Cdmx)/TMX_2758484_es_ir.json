@@ -1,0 +1,206 @@
+{
+  "law": "Contrato de donación pura y simple entre descendiente y ascendiente (CDMX)",
+  "authority": "private",
+  "enacted": "2024-12-02",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2332, 2333, 2334, 2335, 2336, 2337, 2338, 2340, 2341, 2346, 2347, 2348",
+    "Ley del Impuesto sobre la Renta artículo 93"
+  ],
+  "parties": [
+    {
+      "id": "donante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "donated_money",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_donation",
+      "type": "simple",
+      "actor": "donante",
+      "object": "donated_money",
+      "target": "donatario"
+    },
+    {
+      "id": "accept_donation",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "donated_money",
+      "target": "donante"
+    },
+    {
+      "id": "receive_donation",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "donated_money",
+      "target": "donante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "descendant_relationship",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ascendant_relationship",
+      "subject": "donatario",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "donation_contract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "exclusive_ownership_donated_funds",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity_to_contract",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity_to_accept",
+      "subject": "donatario",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "donated_money",
+        "target": "donatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donatario",
+        "object": "donated_money",
+        "target": "donante"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donatario",
+        "object": "donation_rights",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donation_transfer_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "donation_contract"
+        },
+        {
+          "type": "certification",
+          "name": "descendant_relationship",
+          "subject": "donante"
+        },
+        {
+          "type": "certification",
+          "name": "ascendant_relationship",
+          "subject": "donatario"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "transfer_donation"
+        }
+      }
+    },
+    {
+      "id": "donation_acceptance_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "donation_contract"
+        },
+        {
+          "type": "capability",
+          "name": "legal_capacity_to_accept",
+          "subject": "donatario"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "accept_donation"
+        }
+      }
+    },
+    {
+      "id": "no_third_party_transfer_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "donation_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "donatario",
+          "object": "donation_rights",
+          "target": "third_parties"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "donation_execution",
+      "steps": [
+        {
+          "ref": "transfer_donation"
+        },
+        {
+          "ref": "accept_donation"
+        },
+        {
+          "ref": "receive_donation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Contrato de donación pura y simple entre descendiente y ascendiente (Cdmx)/TMX_2758484_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Contrato de donación pura y simple entre descendiente y ascendiente (Cdmx)/TMX_2758484_es.txt"
+  }
+}

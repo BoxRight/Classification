@@ -1,0 +1,111 @@
+{
+  "law": "Certificación de protección de datos personales",
+  "authority": "administrative",
+  "enacted": "2024-01-12",
+  "imports": [
+    "Ley Federal de Protección de Datos Personales en Posesión de los Particulares"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "data_subjects",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "personal_data",
+      "type": "service"
+    },
+    {
+      "id": "privacy_notice",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "privacy_notice_displayed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "privacy_notice_explained",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "privacy_notice",
+        "target": "data_subjects"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "personal_data",
+        "target": "data_subjects"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "privacy_compliance_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "notarial_service_provision"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "privacy_notice",
+          "target": "data_subjects"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "privacy_notice_procedure",
+      "steps": [
+        {
+          "description": "display privacy notice in office"
+        },
+        {
+          "description": "explain privacy notice to data subjects"
+        },
+        {
+          "description": "obtain consent from data subjects"
+        },
+        {
+          "description": "certify compliance in notarial instrument"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación de protección de datos personales/TMX_1376154_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación de protección de datos personales/TMX_1376154_es.txt"
+  }
+}

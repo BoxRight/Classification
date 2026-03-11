@@ -1,0 +1,109 @@
+{
+  "law": "Contrato de donación de bien inmueble",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2332, 2334, 2342, 2346"
+  ],
+  "parties": [
+    {
+      "id": "donante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bien_inmueble",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "donar",
+      "type": "simple",
+      "actor": "donante",
+      "object": "bien_inmueble",
+      "target": "donatario"
+    },
+    {
+      "id": "aceptar_donacion",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "bien_inmueble",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "ProprietaryRight",
+      "subject": "donante",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "bien_inmueble",
+        "target": "donatario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donation_transfer_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "ProprietaryRight",
+          "subject": "donante"
+        },
+        {
+          "ref": "aceptar_donacion"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "ProprietaryRight",
+        "subject": "donatario"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "donation_process",
+      "steps": [
+        {
+          "description": "Comparecencia de las partes"
+        },
+        {
+          "description": "Verificación de antecedentes de propiedad"
+        },
+        {
+          "description": "Otorgamiento del contrato"
+        },
+        {
+          "description": "Entrega de posesión"
+        },
+        {
+          "description": "Inscripción en Registro Público"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Contrato de donación de bien inmueble/TMX_1376664_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Contrato de donación de bien inmueble/TMX_1376664_es.txt"
+  }
+}

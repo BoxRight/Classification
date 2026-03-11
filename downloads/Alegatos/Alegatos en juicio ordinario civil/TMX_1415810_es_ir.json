@@ -1,0 +1,123 @@
+{
+  "law": "Alegatos en juicio ordinario civil",
+  "authority": "judicial",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "written_arguments",
+      "type": "service"
+    },
+    {
+      "id": "evidence",
+      "type": "service"
+    },
+    {
+      "id": "case_file",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "civil_proceedings_active",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "legal_representation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "written_arguments",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "written_arguments",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "arguments_submission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "civil_proceedings_active"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "written_arguments",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_arguments_procedure",
+      "steps": [
+        {
+          "description": "Present facts agreed upon by parties"
+        },
+        {
+          "description": "Present facts disputed by parties"
+        },
+        {
+          "description": "Analyze evidence presented"
+        },
+        {
+          "description": "Apply legal framework to proven facts"
+        },
+        {
+          "description": "Request judicial resolution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Alegatos/Alegatos en juicio ordinario civil/TMX_1415810_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Alegatos/Alegatos en juicio ordinario civil/TMX_1415810_es.txt"
+  }
+}

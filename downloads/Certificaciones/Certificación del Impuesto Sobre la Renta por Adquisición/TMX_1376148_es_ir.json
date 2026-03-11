@@ -1,0 +1,228 @@
+{
+  "law": "Certificación del Impuesto Sobre la Renta por Adquisición",
+  "authority": "administrative",
+  "enacted": "2024-01-12",
+  "imports": [
+    "Ley del Impuesto Sobre la Renta"
+  ],
+  "parties": [
+    {
+      "id": "donee",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "movable_property",
+      "type": "movable"
+    },
+    {
+      "id": "income_tax",
+      "type": "money"
+    },
+    {
+      "id": "provisional_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "marriage_certificate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "birth_certificate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "appraisal_value",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "purchase_price",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "donation_amount_600k",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donee",
+        "object": "income_tax",
+        "target": "tax_authority"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donee",
+        "object": "provisional_payment",
+        "target": "tax_authority"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "income_tax_on_acquisition",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "donee",
+          "object": "property",
+          "target": "donor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "donee",
+          "object": "income_tax",
+          "target": "tax_authority"
+        }
+      }
+    },
+    {
+      "id": "spouse_exemption",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "marriage_certificate"
+        }
+      ],
+      "consequence": {
+        "type": "exemption",
+        "name": "spouse_donation_exemption"
+      }
+    },
+    {
+      "id": "ascendant_descendant_exemption",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "birth_certificate"
+        }
+      ],
+      "consequence": {
+        "type": "exemption",
+        "name": "family_donation_exemption"
+      }
+    },
+    {
+      "id": "undervalue_tax_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "price_difference_over_10_percent"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "donee",
+          "object": "income_tax",
+          "target": "tax_authority"
+        }
+      }
+    },
+    {
+      "id": "declaration_obligation_large_donations",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "donation_exceeds_600k"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "donee",
+          "object": "tax_declaration",
+          "target": "tax_authority"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "spouse_donation_certification",
+      "steps": [
+        {
+          "description": "Verify marriage certificate"
+        },
+        {
+          "description": "Apply exemption under Article 93 fraction XXIII(a)"
+        },
+        {
+          "description": "Notify obligation to declare income"
+        }
+      ]
+    },
+    {
+      "name": "family_donation_certification",
+      "steps": [
+        {
+          "description": "Verify birth certificate"
+        },
+        {
+          "description": "Apply exemption under Article 93 fraction XXIII"
+        },
+        {
+          "description": "Notify obligation to declare income"
+        }
+      ]
+    },
+    {
+      "name": "taxable_donation_certification",
+      "steps": [
+        {
+          "description": "Calculate provisional payment"
+        },
+        {
+          "description": "Notify obligation to declare income"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación del Impuesto Sobre la Renta por Adquisición/TMX_1376148_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación del Impuesto Sobre la Renta por Adquisición/TMX_1376148_es.txt"
+  }
+}

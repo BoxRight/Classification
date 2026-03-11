@@ -1,0 +1,193 @@
+{
+  "law": "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 122 de la Ley de Amparo"
+  ],
+  "parties": [
+    {
+      "id": "district_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "responsible_authorities",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "third_party_interested",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "federal_public_prosecutor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "constitutional_hearing",
+      "type": "service"
+    },
+    {
+      "id": "amparo_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "initial_demand_document",
+      "type": "service"
+    },
+    {
+      "id": "justification_reports",
+      "type": "service"
+    },
+    {
+      "id": "signature_authenticity",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "suspend_hearing",
+      "type": "simple",
+      "actor": "district_judge",
+      "object": "constitutional_hearing",
+      "target": null
+    },
+    {
+      "id": "object_signature_falsity",
+      "type": "simple",
+      "actor": "third_party_interested",
+      "object": "signature_authenticity",
+      "target": "district_judge"
+    },
+    {
+      "id": "request_dismissal",
+      "type": "simple",
+      "actor": "federal_public_prosecutor",
+      "object": "amparo_lawsuit",
+      "target": "district_judge"
+    },
+    {
+      "id": "render_reports",
+      "type": "simple",
+      "actor": "responsible_authorities",
+      "object": "justification_reports",
+      "target": "district_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "AmparoProceeding",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DocumentAuthenticity",
+      "subject": "initial_demand_document",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "district_judge",
+        "object": "constitutional_hearing",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "suspension_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "third_party_interested",
+          "object": "signature_authenticity",
+          "target": "district_judge"
+        }
+      ],
+      "consequence": {
+        "type": "simple",
+        "actor": "district_judge",
+        "object": "constitutional_hearing",
+        "target": null
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitutional_hearing_procedure",
+      "steps": [
+        {
+          "description": "Opening of hearing without personal attendance of parties"
+        },
+        {
+          "description": "Secretary relates case files and reads initial demand"
+        },
+        {
+          "description": "Review of justification reports from responsible authorities"
+        },
+        {
+          "description": "Opening and closing of evidence period"
+        },
+        {
+          "description": "Opening and closing of arguments period"
+        },
+        {
+          "description": "Suspension due to signature authenticity objection"
+        },
+        {
+          "description": "Scheduling continuation for document authenticity proofs"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "hearing_suspension_scenario",
+      "timeline": [
+        {
+          "event": "constitutional_hearing_scheduled",
+          "condition": null
+        },
+        {
+          "event": "signature_falsity_objected",
+          "condition": {
+            "type": "certification",
+            "name": "DocumentAuthenticity"
+          }
+        },
+        {
+          "event": "hearing_suspended",
+          "condition": {
+            "type": "certification",
+            "name": "DocumentAuthenticity"
+          }
+        },
+        {
+          "event": "continuation_scheduled",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Actas/Acta que declara la suspensión de Audiencia Constitucional en Juicio de Amparo/TMX_1245126_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta que declara la suspensión de Audiencia Constitucional en Juicio de Amparo/TMX_1245126_es.txt"
+  }
+}

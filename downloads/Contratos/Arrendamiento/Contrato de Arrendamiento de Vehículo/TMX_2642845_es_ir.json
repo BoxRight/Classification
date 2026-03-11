@@ -1,0 +1,103 @@
+{
+  "law": "Contrato de Arrendamiento de Vehículo",
+  "authority": "private",
+  "enacted": "2024-01-30",
+  "imports": [],
+  "parties": [
+    {
+      "id": "arrendador",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "arrendatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "vehiculo",
+      "type": "movable"
+    },
+    {
+      "id": "renta",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoArrendamiento",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendador",
+        "object": "vehiculo",
+        "target": "arrendatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "renta",
+        "target": "arrendador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "arrendamiento_vehiculo_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoArrendamiento"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendador",
+          "object": "vehiculo",
+          "target": "arrendatario"
+        }
+      }
+    },
+    {
+      "id": "pago_renta_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoArrendamiento"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "renta",
+          "target": "arrendador"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de Arrendamiento de Vehículo/TMX_2642845_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de Arrendamiento de Vehículo/TMX_2642845_es.txt"
+  }
+}

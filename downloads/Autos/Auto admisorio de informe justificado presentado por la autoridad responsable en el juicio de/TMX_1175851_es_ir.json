@@ -1,0 +1,103 @@
+{
+  "law": "Auto admisorio de informe justificado presentado por la autoridad responsable en el juicio de amparo indirecto en materia civil",
+  "authority": "judicial",
+  "enacted": "2024-05-07",
+  "imports": [
+    "Artículos 138, 139, 140 de la Ley de Amparo, Reglamentaria del Artículo 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos"
+  ],
+  "parties": [
+    {
+      "id": "judge_civil_district",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "civil_court_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court_secretaries",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "parties",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "prior_report",
+      "type": "service"
+    },
+    {
+      "id": "official_document",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ReportSubmitted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DocumentAttached",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_secretaries",
+        "object": "official_document",
+        "target": "judge_civil_district"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "document_attachment_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ReportSubmitted"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "DocumentAttached"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "report_admission_procedure",
+      "steps": [
+        {
+          "description": "Attach official document to case file"
+        },
+        {
+          "description": "Schedule for incidental hearing"
+        },
+        {
+          "description": "Notify parties"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto admisorio de informe justificado presentado por la autoridad responsable en el juicio de/TMX_1175851_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto admisorio de informe justificado presentado por la autoridad responsable en el juicio de/TMX_1175851_es.txt"
+  }
+}

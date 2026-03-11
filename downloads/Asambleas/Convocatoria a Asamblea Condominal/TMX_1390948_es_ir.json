@@ -1,0 +1,144 @@
+{
+  "law": "Convocatoria a Asamblea Condominal",
+  "authority": "administrative",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Ley de Propiedad en Condominio de Inmuebles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "condominium_administrator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "condominium_owners",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "assembly_secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "assembly_scrutinizer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "assembly_president",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "general_assembly",
+      "type": "service"
+    },
+    {
+      "id": "activity_report",
+      "type": "service"
+    },
+    {
+      "id": "financial_situation_review",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ConvocationAuthority",
+      "subject": "condominium_administrator",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "AssemblyDate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_administrator",
+        "object": "general_assembly",
+        "target": "condominium_owners"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_owners",
+        "object": "assembly_secretary",
+        "target": "general_assembly"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "condominium_administrator",
+        "object": "activity_report",
+        "target": "condominium_owners"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "assembly_convocation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ConvocationAuthority",
+          "subject": "condominium_administrator"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "condominium_administrator",
+          "object": "general_assembly",
+          "target": "condominium_owners"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "assembly_procedure",
+      "steps": [
+        {
+          "description": "Legal installation of assembly by administrator"
+        },
+        {
+          "description": "Appointment of secretary, scrutinizer and assembly president"
+        },
+        {
+          "description": "Presentation and review of administrator's activity report"
+        },
+        {
+          "description": "Review of condominium financial situation"
+        },
+        {
+          "description": "Other matters of general interest"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Asambleas/Convocatoria a Asamblea Condominal/TMX_1390948_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Asambleas/Convocatoria a Asamblea Condominal/TMX_1390948_es.txt"
+  }
+}

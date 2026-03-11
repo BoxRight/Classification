@@ -1,0 +1,184 @@
+{
+  "law": "Carta responsiva para el ingreso de menor de edad a gimnasio",
+  "authority": "private",
+  "enacted": "2024-08-15",
+  "imports": [
+    "Código Civil Federal, artículos 1919, 1920"
+  ],
+  "parties": [
+    {
+      "id": "legal_guardian",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "minor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "gym",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "gym_access",
+      "type": "service"
+    },
+    {
+      "id": "physical_activities",
+      "type": "service"
+    },
+    {
+      "id": "first_aid",
+      "type": "service"
+    },
+    {
+      "id": "medical_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "GuardianshipRelation",
+      "subject": "legal_guardian",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "HealthCertification",
+      "subject": "minor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "minor",
+        "object": "gym_access",
+        "target": "gym"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "legal_guardian",
+        "object": "medical_costs",
+        "target": "gym"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "minor",
+        "object": "gym_rules_compliance",
+        "target": "gym"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "gym_access_authorization",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "GuardianshipRelation",
+          "subject": "legal_guardian"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "minor",
+          "object": "gym_access",
+          "target": "gym"
+        }
+      }
+    },
+    {
+      "id": "emergency_first_aid_authorization",
+      "conditions": [
+        {
+          "event": "medical_emergency"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "gym",
+          "object": "first_aid",
+          "target": "minor"
+        }
+      }
+    },
+    {
+      "id": "liability_exemption",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "gym",
+          "object": "negligence",
+          "target": "minor"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "gym",
+          "object": "liability_exemption",
+          "target": "legal_guardian"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "emergency_response_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "gym",
+            "object": "first_aid",
+            "target": "minor"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "gym",
+            "object": "guardian_notification",
+            "target": "legal_guardian"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "gym",
+            "object": "medical_transport",
+            "target": "minor"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Cartas/Carta responsiva para el ingreso de menor de edad a gimnasio/TMX_2718968_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cartas/Carta responsiva para el ingreso de menor de edad a gimnasio/TMX_2718968_es.txt"
+  }
+}

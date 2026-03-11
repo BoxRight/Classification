@@ -1,0 +1,141 @@
+{
+  "law": "Contestación de demanda de terminación de contrato de arrendamiento de local comercial",
+  "authority": "judicial",
+  "enacted": "2024-01-23",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "local_comercial",
+      "type": "nonmovable"
+    },
+    {
+      "id": "renta",
+      "type": "money"
+    },
+    {
+      "id": "recibo_pago",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "terminar_contrato",
+      "type": "simple",
+      "actor": "actor",
+      "object": "local_comercial",
+      "target": "demandado"
+    },
+    {
+      "id": "pagar_renta",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "renta",
+      "target": "actor"
+    },
+    {
+      "id": "no_pagar_renta",
+      "type": "counter",
+      "actor": "demandado",
+      "object": "renta",
+      "target": "actor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoArrendamiento",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PagoRentaVencida",
+      "subject": "demandado",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "renta",
+        "target": "actor"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "actor",
+        "object": "local_comercial",
+        "target": "demandado"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "incumplimiento_pago",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoArrendamiento"
+        },
+        {
+          "type": "counter",
+          "actor": "demandado",
+          "object": "renta",
+          "target": "actor"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "actor",
+          "object": "local_comercial",
+          "target": "demandado"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contestacion_demanda",
+      "steps": [
+        {
+          "description": "contestar_prestaciones"
+        },
+        {
+          "description": "contestar_hechos"
+        },
+        {
+          "description": "ofrecer_pruebas"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial con/TMX_1360813_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial con/TMX_1360813_es.txt"
+  }
+}

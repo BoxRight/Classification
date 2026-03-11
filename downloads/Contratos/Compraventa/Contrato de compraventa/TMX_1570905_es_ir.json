@@ -1,0 +1,223 @@
+{
+  "law": "Contrato de compraventa",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2251, 2248, 2249, 2269, 2316, 2317"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    },
+    {
+      "id": "down_payment",
+      "type": "money"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "sale_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "breach_contract_buyer",
+      "type": "counter",
+      "actor": "buyer",
+      "object": "sale_price",
+      "target": "seller"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "EconomicCapacity",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "sale_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "penalty_rule_seller",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        },
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "penalty_amount",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule_buyer",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        },
+        {
+          "ref": "breach_contract_buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "penalty_amount",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "possession_delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        },
+        {
+          "ref": "pay_price"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sale_completion",
+      "steps": [
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "deliver_possession"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa/TMX_1570905_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa/TMX_1570905_es.txt"
+  }
+}

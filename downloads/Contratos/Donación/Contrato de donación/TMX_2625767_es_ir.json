@@ -1,0 +1,143 @@
+{
+  "law": "Contrato de donación",
+  "authority": "private",
+  "enacted": "2023-10-09",
+  "imports": [
+    "Artículos 2340, 2347, 2348, 2349 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "donante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "donar",
+      "type": "simple",
+      "actor": "donante",
+      "object": "inmueble",
+      "target": "donatario"
+    },
+    {
+      "id": "aceptar_donacion",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "inmueble",
+      "target": "donante"
+    },
+    {
+      "id": "pagar_gastos",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "gastos_escritura",
+      "target": null
+    },
+    {
+      "id": "responder_eviccion",
+      "type": "simple",
+      "actor": "donante",
+      "object": "eviccion_saneamiento",
+      "target": "donatario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "ProprietarioInmueble",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoValidez",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donatario",
+        "object": "gastos_escritura",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "eviccion_saneamiento",
+        "target": "donatario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donacion_gratuita",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "ProprietarioInmueble",
+          "subject": "donante"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donatario",
+            "object": "inmueble",
+            "target": "donante"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "ProprietarioInmueble",
+        "subject": "donatario"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_donacion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donante",
+            "object": "inmueble",
+            "target": "donatario"
+          }
+        },
+        {
+          "ref": "aceptar_donacion"
+        },
+        {
+          "ref": "pagar_gastos"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Contrato de donación/TMX_2625767_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Contrato de donación/TMX_2625767_es.txt"
+  }
+}

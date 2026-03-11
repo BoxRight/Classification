@@ -1,0 +1,276 @@
+{
+  "law": "Contrato de Arrendamiento Inmobiliario",
+  "authority": "private",
+  "enacted": "2024-02-13",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "residential_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    },
+    {
+      "id": "utility_services",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "residential_property",
+      "target": "tenant"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "residential_property",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "GuaranteeObligation",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "utility_services",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "residential_property",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "residential_property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "breach_rescission",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "penalty_payment",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "early_termination_penalty",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "residential_property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_payment",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "guarantor_liability",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_contract"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "holdover_penalty",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "residential_property",
+          "target": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_payment",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "rent_payment_procedure",
+      "steps": [
+        {
+          "description": "Monthly advance payment"
+        },
+        {
+          "act": {
+            "ref": "pay_rent"
+          }
+        },
+        {
+          "description": "Receipt delivery by landlord"
+        }
+      ]
+    },
+    {
+      "name": "early_termination_procedure",
+      "steps": [
+        {
+          "description": "30-day written notice"
+        },
+        {
+          "description": "Payment of three months penalty"
+        },
+        {
+          "act": {
+            "ref": "return_property"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446402_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446402_es.txt"
+  }
+}

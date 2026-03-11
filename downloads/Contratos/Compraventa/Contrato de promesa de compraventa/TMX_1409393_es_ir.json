@@ -1,0 +1,273 @@
+{
+  "law": "Contrato de promesa de compraventa",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2243, 2244, 2246"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer2",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "construction",
+      "type": "nonmovable"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    },
+    {
+      "id": "late_payment",
+      "type": "money"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer1"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "buyer1",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "complete_construction",
+      "type": "simple",
+      "actor": "seller",
+      "object": "construction",
+      "target": "buyer1"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer1"
+    },
+    {
+      "id": "pay_purchase_price",
+      "type": "simple",
+      "actor": "buyer1",
+      "object": "purchase_price",
+      "target": "seller"
+    },
+    {
+      "id": "execute_deed",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer1"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PromiseContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer1"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer1",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "construction",
+        "target": "buyer1"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PromiseContract"
+        },
+        {
+          "type": "counter",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer1"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "penalty_payment",
+          "target": "buyer1"
+        }
+      }
+    },
+    {
+      "id": "buyer_breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PromiseContract"
+        },
+        {
+          "type": "counter",
+          "actor": "buyer1",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer1",
+          "object": "penalty_payment",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "late_delivery_penalty_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PromiseContract"
+        },
+        {
+          "type": "counter",
+          "actor": "seller",
+          "object": "construction",
+          "target": "buyer1"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "late_payment",
+          "target": "buyer1"
+        }
+      }
+    },
+    {
+      "id": "possession_delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PromiseContract"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer1",
+            "object": "purchase_price",
+            "target": "seller"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer1"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sale_completion_process",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "seller",
+            "object": "construction",
+            "target": "buyer1"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "seller",
+            "object": "property",
+            "target": "buyer1"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer1",
+            "object": "purchase_price",
+            "target": "seller"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de promesa de compraventa/TMX_1409393_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de promesa de compraventa/TMX_1409393_es.txt"
+  }
+}

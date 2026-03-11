@@ -1,0 +1,363 @@
+                                                                           http://www.tirantonline.com.mx
+
+
+Document TMX1,376,663
+
+Formulario
+Title: Contrato de permuta ante notario
+Issuer: Notario
+Date: 05/02/2024
+
+
+TEXT:
+
+                                    CONTRATO DE PERMUTA
+
+                                            TMX1.376.663
+
+
+
+
+Normativa: Artículo 2327, 2328, 2329, 2330 del Código Civil para el Distrito Federal.
+
+
+Supuesto: Escritura notarial para el contrato de permuta. Incluye instrucciones y explicación de cada
+uno de los elementos que integran la escritura, además se explican las diferencias con la escritura de la
+compraventa. Se presenta el desarrollo de los antecedentes, cláusulas, el valor de la operación, destino
+del inmueble, entre otras cláusulas relevantes y el contenido de la certificación notarial.
+
+
+
+
+La permuta es un contrato traslativo de dominio por el cual cada una de las partes se obliga a dar una
+cosa por otra. El Código Civil para la Ciudad de México, al regular la compraventa, determina que
+cuando el precio se ha de pagar una parte en numerario y otra con el valor de otra cosa, se tratará de
+permuta cuando la parte en numerario sea inferior.[115]
+
+Si bien es cierto que al regular este contrato el Código Civil establece algunas diferencias en cuanto a
+sus efectos en relación con el de compraventa, en la redacción del instrumento notarial los principales
+cambios se refieren a la estructura de la escritura, como la diferenciación de los antecedentes para cada
+uno de los inmuebles objeto del instrumento, así como la nomenclatura de las partes. Toda vez que
+ambas partes son "enajenantes" preferimos omitir denominarlos como "partes" y nos referiremos a cada
+uno de los comparecientes directamente por su nombre para evitar confusiones y dejar muy en claro las
+responsabilidades y obligaciones para cada uno de ellos. Es importante tener en cuenta que, si una parte
+del pago es con una cosa y otra con dinero, será compraventa si la parte en dinero es igual o superior al
+valor de la cosa
+
+
+                                                                                                        1/7
+Con base en lo anterior, salvo las precisiones que a continuación detallaremos, es aplicable todo cuanto
+hemos dicho en relación con la compraventa
+
+1. Comparecencia
+
+La redacción general que sugerimos en la comparecencia es la que enseguida exponemos, pudiera ser
+modificada de la misma manera en todas las modalidades a las que nos referimos al hablar del contrato
+de compraventa:
+
+...hago constar LA PERMUTA que celebran de una parte (nombre completo del compareciente 1) y de
+otra (nombre completo del compareciente 2), al tenor de los siguientes antecedentes y cláusulas..
+
+2. Antecedentes
+
+Los antecedentes se deben desarrollar de la misma manera y con las diversas variables que han quedado
+explicadas en el capítulo de la compraventa. Nuestra propuesta para este contrato es simplemente
+distinguir los antecedentes para cada uno de los inmuebles mencionando, en cada caso, a qué predio nos
+estamos refiriendo asignándoles un apartado identificado con una letra capital para cada uno de ellos
+
+...A N T E C E D E N T E S
+
+A.- Por lo que se refiere a (inmueble que transmite el compareciente 1)..
+
+- Antecedente de propiedad
+
+- Situación jurídica del inmueble
+
+- Valor fiscal del inmueble
+
+- Uso de suelo y destino
+
+- Constancia de no adeudos por cuotas de mantenimiento
+
+...B.- Por lo que se refiere a (inmueble que transmite el compareciente 2)..
+
+- Antecedente de propiedad
+
+- Situación jurídica del inmueble
+
+- Valor fiscal del inmueble
+
+- Uso de suelo y destino
+
+- Constancia de no adeudos por cuotas de mantenimiento
+
+3. Cláusulas
+
+En este apartado tenemos que ser sumamente cuidadosos al referirnos a cada uno de los comparecientes
+para evitar confusión en lo referente a las personas así como a los inmuebles objeto del contrato pero, al
+mismo tiempo, debemos evitar repeticiones innecesarias de tal manera que al momento en que el
+registrador o cualquier persona lean el instrumento, les quede claro su contenido
+
+Si bien es cierto que las cláusulas primera y segunda son esenciales, ya que se refieren a los sujetos,
+
+                                                                                                         2/7
+objeto y valor del contrato de permuta, proponemos modificar su estructura y en algunas de las otras
+cláusulas incluso redactarlas de manera personalizada para cada uno de los comparecientes
+
+Enseguida las cláusulas generales del contrato de permuta:
+
+3.1. Primera
+
+...PRIMERA.- Los señores (nombre del compareciente 1) y (nombre del compareciente 2), convienen en
+celebrar el presente contrato de permuta en virtud del cual:
+
+a) El señor (nombre del compareciente 1), transmite al señor (nombre del compareciente 2) quien
+adquiere:
+
+i. En un valor de (valor comercial inmueble A), moneda nacional, (descripción del inmueble A objeto del
+contrato) con la superficie y linderos descritos en el antecedente A (antecedente que corresponda) que
+se tienen aquí por reproducidos como si a la letra se insertasen, con las características, antigüedad,
+estado de conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble
+las cuales no han sufrido modificaciones desde la fecha de elaboración del mismo según declaran las
+partes de manera expresa y bajo protesta de decir verdad..
+
+b) El señor (nombre del compareciente 2), transmite al señor (nombre del compareciente 1) quien
+adquiere:
+
+i. En un valor de (valor comercial inmueble B), moneda nacional, (descripción del inmueble B objeto del
+contrato) con la superficie y linderos descritos en el antecedente B (antecedente que corresponda) que
+se tienen aquí por reproducidos como si a la letra se insertasen, con las características, antigüedad,
+estado de conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble
+las cuales no han sufrido modificaciones desde la fecha de elaboración del mismo según declaran las
+partes de manera expresa y bajo protesta de decir verdad..
+
+Difícilmente los inmuebles tienen valor idéntico, de tal manera que si adicionalmente a la permuta de los
+predios, existe un pago de cierta cantidad de dinero entre las partes, proponemos agregar un segundo
+apartado ("ii"), en el que detallemos no solamente el monto entregado sino también la forma en que se
+realizó el pago, especificando también el valor total de la transmisión:
+
+...ii. La cantidad de (monto pagado), moneda nacional, la cual es pagada mediante (especificar forma de
+pago)
+
+Por lo que el valor total de la transmisión importa la cantidad (cantidad resultante de la suma del valor
+comercial del inmueble más el monto pagado)..
+
+3.1.1. Cuando se causa el IVA
+
+Si bien es cierto que, a diferencia del contrato de compraventa, en el de permuta no existe un precio, sí
+hay un valor conforme al cual se realiza la operación; incluso, en ocasiones se paga dinero para
+compensar alguna diferencia (valor total). Por ello, cuando alguno de los inmuebles objeto del contrato
+de permuta tiene construcciones con uso no habitacional es necesario especificar el valor asignado a
+éstas así como las del terreno y, en su caso, las de las construcciones con uso habitacional.[116]
+
+...PRIMERA.- Los señores (nombre del compareciente 1) y (nombre del compareciente 2), convienen en
+celebrar el presente contrato de permuta en virtud del cual:
+
+a) El señor (nombre del compareciente 1), transmite al señor (nombre del compareciente 2) quien
+
+                                                                                                        3/7
+adquiere:
+
+i. En un valor de (valor comercial inmueble A), moneda nacional, sin incluir el Impuesto al Valor
+Agregado, de los que corresponden la cantidad de "(valor asignado por las partes al terreno)" al terreno
+y la cantidad de "(valor asignado por las partes a las construcciones con uso no habitacional)" a las
+construcciones destinadas a un uso no habitacional, (descripción del inmueble A objeto del contrato) con
+la superficie y linderos descritos en el antecedente A (antecedente que corresponda) que se tienen aquí
+por reproducidos como si a la letra se insertasen, con las características, antigüedad, estado de
+conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble las cuales
+no han sufrido modificaciones desde la fecha de elaboración del mismo según declaran las partes de
+manera expresa y bajo protesta de decir verdad..
+
+3.1.2. Si hubo el pago de alguna cantidad
+
+...PRIMERA.- Los señores (nombre del compareciente 1) y (nombre del compareciente 2), convienen en
+celebrar el presente contrato de permuta en virtud del cual:
+
+a) El señor (nombre del compareciente 1), transmite al señor (nombre del compareciente 2) quien
+adquiere:
+
+i. En un valor de (valor comercial inmueble A), moneda nacional, sin incluir el Impuesto al Valor
+Agregado, (descripción del inmueble A objeto del contrato) con la superficie y linderos descritos en el
+antecedente A (antecedente que corresponda) romano que se tienen aquí por reproducidos como si a la
+letra se insertasen, con las características, antigüedad, estado de conservación y superficie de las
+construcciones especificadas en el avalúo de dicho inmueble, las cuales no han sufrido modificaciones
+desde la fecha de elaboración del mismo según declaran las partes de manera expresa y bajo protesta de
+decir verdad
+
+ii. La cantidad de (monto pagado), moneda nacional, sin incluir el Impuesto al Valor Agregado, la cual
+es pagada mediante (especificar forma de pago)
+
+Por lo que el valor total de la transmisión importa la cantidad (cantidad resultante de la suma del valor
+comercial del inmueble más el monto pagado) sin incluir el Impuesto al Valor Agregado, de los que
+corresponden la cantidad de "(valor asignado por las partes al terreno)" al terreno y la cantidad de "
+(valor asignado por las partes a las construcciones con uso no habitacional)" a las construcciones
+destinadas a un uso no habitacional...
+
+3.2. Segunda
+
+En virtud de que el valor quedó asentado en la cláusula primera, en la cláusula segunda se especifican las
+reglas, modalidades o condiciones bajo las cuales se celebra el contrato:
+
+...SEGUNDA.- La permuta se rige por lo siguiente:
+
+Los derechos de propiedad respecto de los inmuebles permutados pasan a poder de las partes
+contratantes:
+
+A.- Sin limitación alguna en su dominio
+
+B.- Sin gravamen de ninguna especie
+
+C.- Sin ningún adeudo, incluso de carácter laboral o fiscal, según declaran las partes contratantes
+
+
+
+                                                                                                         4/7
+Cualquier adeudo de la índole que fuere a la fecha de firma de esta escritura, será por cuenta exclusiva
+del enajenante respectivo...
+
+3.3. Tercera
+
+En lo que respecta a las reglas sobre la entrega de la posesión:
+
+...TERCERA.- Los señores (nombre del compareciente 1) y (nombre del compareciente 2), se entregan
+en este acto, cada uno y de manera recíproca, la posesión de los inmuebles objeto de esta escritura
+quienes la reciben a su entera satisfacción en el estado físico que se encuentran el cual declaran conocer
+en su totalidad..
+
+Cuando la posesión de alguno de los inmuebles no se entregue al momento de la celebración del contrato
+sino que se convenga hacerla en el futuro, sugerimos asentar en una cláusula la entrega que se realice en
+ese momento y, en otra, la que se hará con posterioridad. Las siguientes son las redacciones que
+recomendamos conforme a lo expuesto en el capítulo de compraventa
+
+...TERCERA.- El señor (nombre del compareciente 1) entrega en este acto al señor (nombre del
+compareciente 2), la posesión del (descripción del inmueble A objeto del contrato), quien la recibe a su
+entera satisfacción en el estado físico que se encuentra el cual declara conocer en su totalidad
+
+3.3.1. Entrega de la posesión del inmueble diferida sin pena convencional
+
+CUARTA.- El señor (nombre del compareciente 2) se compromete a entregar al señor (nombre del
+compareciente 1) el (descripción del inmueble B objeto del contrato) completamente desocupado a más
+tardar el día (fecha de entrega de la posesión)..
+
+3.3.2. Entrega de la posesión del inmueble diferida con pena convencional
+
+...CUARTA.- El señor (nombre del compareciente 2) se compromete a entregar al señor (nombre del
+compareciente 1) el (descripción del inmueble B objeto del contrato) completamente desocupado a más
+tardar el día (fecha de entrega de la posesión) fijándose desde ahora como pena convencional a cargo del
+señor (nombre del compareciente 2) para el caso de incumplimiento de éste, la cantidad de (monto de
+pena convencional) por cada día que transcurra sin haber entregado la posesión del mismo..
+
+3.4. Cuarta[117]
+
+Para una mayor claridad y de manera opcional recomendamos incluir una cláusula[118] aclaratoria que
+indique con toda puntualidad quiénes quedaron como titulares de cada uno de los inmuebles objeto de la
+permuta
+
+...CUARTA.- Como consecuencia de la permuta a que se refieren las cláusulas primera y segunda de
+esta escritura:
+
+a) El señor (nombre del compareciente 2), queda como propietario del (descripción del inmueble A
+objeto del contrato)
+
+b) El señor (nombre del compareciente 1), queda como propietario del (descripción del inmueble B
+objeto del contrato)...
+
+3.5. Quinta
+
+Esta cláusula versa sobre el uso y destino del inmueble:
+
+                                                                                                         5/7
+QUINTA.- Los señores (nombre del compareciente 1) y (nombre del compareciente 2), se obligan a
+destinar los inmuebles objeto de esta escritura, a un uso que no contravenga los planes y programas
+vigentes para dichos inmuebles y a respetar el área urbanizable contigua a los mismos..
+
+3.6. Sexta
+
+En las siguientes dos cláusulas nos referiremos a la forma en que debe quedar asentado el cumplimiento
+de la obligación de entregar a los adquirentes el reglamento de condominio, desde luego, cuando sea el
+caso:
+
+...SEXTA.- Declara el señor (nombre del compareciente 2), conocer en todas y cada una de sus partes el
+Reglamento de Condominio y Administración del condominio ubicado en (ubicación del condominio del
+inmueble A objeto del contrato), y se compromete a cumplirlo; reglamento que (nombre del
+compareciente 1) declara entregó al señor (nombre del compareciente 2) con anterioridad a este acto
+quien a su vez manifiesta su conformidad con lo anterior mismo que agrego al apéndice de esta escritura
+con la letra "............"
+
+SÉPTIMA.- Declara el señor (nombre del compareciente 1), conocer en todas y cada una de sus partes el
+Reglamento de Condominio y Administración del condominio ubicado en (ubicación del condominio del
+inmueble B objeto del contrato), y se compromete a cumplirlo; reglamento que el señor (nombre del
+compareciente 2) declara entregó al señor (nombre del compareciente 1) con anterioridad a este acto
+quien a su vez manifiesta su conformidad con lo anterior mismo que agrego al apéndice de esta escritura
+con la letra "............"
+
+Cuando no se cuenta con el reglamento se sugiere el siguiente ejemplo para cualquiera de las partes:
+
+...SEXTA. Declara el señor (nombre del compareciente 2) conocer en todas y cada una de sus partes el
+Reglamento de Condominio y Administración del condominio ubicado en (ubicación del condominio del
+inmueble A objeto del contrato), y se compromete a cumplirlo; reglamento que el señor (nombre del
+compareciente 1) declara entregó al señor (nombre del compareciente 2), con anterioridad a este acto
+quien a su vez manifiesta su conformidad con lo anterior..
+
+3.7. Séptima
+
+Al momento de establecer las obligaciones que tienen cada una de las partes para el pago de los gastos
+de escrituración también sugerimos separar por cláusulas dicha obligación
+
+...SÉPTIMA.- Por lo que se refiere al inmueble relacionado en la cláusula primera inciso a) numeral i,
+todos los gastos, impuestos, derechos y honorarios que se causen con motivo de esta escritura, serán
+cubiertos por el señor (nombre del compareciente 2), excepto el Impuesto Sobre la Renta, el cual será a
+cargo de (nombre del compareciente 1)
+
+OCTAVA.- Por lo que se refiere al inmueble relacionado en la cláusula primera inciso b) numeral i,
+todos los gastos, impuestos, derechos y honorarios que se causen con motivo de esta escritura, serán
+cubiertos por el señor (nombre del compareciente 1), excepto el Impuesto Sobre la Renta, el cual será a
+cargo de (nombre del compareciente 2)..
+
+3.8. Octava
+
+En la cláusula a que se refieren las reglas de competencia no hay diferencia de lo dicho para el contrato
+de compraventa
+
+...OCTAVA.- Para la interpretación y cumplimiento de esta escritura, las partes se someten a las leyes y
+
+                                                                                                        6/7
+tribunales de (lugar del otorgamiento de la escritura)...
+
+4. Certificaciones
+
+Tal y como hemos expuesto en el presente capítulo, al redactar las certificaciones recomendamos
+asentar, en especial, las correspondientes a materia fiscal y manejarlas de manera individual para cada
+una de las partes
+
+Notas:
+
+
+
+[115] Art. 2250 (CC)
+
+
+
+[116] Al igual que lo manifestado para el contrato de compraventa, nuestra opinión es que en el valor
+asignado por los contratantes comprador al terreno, a las construcciones con uso habitacional y a las
+construcciones con uso no habitacional, debe guardar la misma proporción que para ellos se especifica
+en el avalúo
+
+
+
+[117] La numeración de las cláusulas puede variar
+
+
+
+[118] No hay contenido obligacional
+
+Este documento se ofrece con una finalidad informativa. Velamos por la actualidad, exactitud y
+veracidad de los mismos, si bien se advierte que no son los textos oficiales y se declina toda
+responsabilidad por los daños que puedan causarse debido a las inexactitudes o incorrecciones en los
+mismos.
+
+
+
+
+                                                                                                       7/7
+

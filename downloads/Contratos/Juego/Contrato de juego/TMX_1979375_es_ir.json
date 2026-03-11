@@ -1,0 +1,183 @@
+{
+  "law": "Contrato de juego",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículos 2764, 2765, 2767, 2768 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "player_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "player_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "referee",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "witness_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "witness_2",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "tournament_prize",
+      "type": "money"
+    },
+    {
+      "id": "expenses_allowance",
+      "type": "money"
+    },
+    {
+      "id": "tournament_diploma",
+      "type": "service"
+    },
+    {
+      "id": "game_performance",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "participate_game",
+      "type": "simple",
+      "actor": "player_1",
+      "object": "game_performance",
+      "target": "player_2"
+    },
+    {
+      "id": "arbitrate_game",
+      "type": "simple",
+      "actor": "referee",
+      "object": "game_performance",
+      "target": "player_1"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "GameContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "CivilCapacity",
+      "subject": "player_1",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "CivilCapacity",
+      "subject": "player_2",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "player_1",
+        "object": "game_performance",
+        "target": "player_2"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "player_2",
+        "object": "game_performance",
+        "target": "player_1"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "referee",
+        "object": "game_performance",
+        "target": "player_1"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "winner_prize_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "GameContract"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "player_1",
+          "object": "tournament_prize",
+          "target": "player_2"
+        }
+      }
+    },
+    {
+      "id": "expenses_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "GameContract"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "player_1",
+          "object": "expenses_allowance",
+          "target": "player_2"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "game_tournament",
+      "steps": [
+        {
+          "ref": "participate_game"
+        },
+        {
+          "ref": "arbitrate_game"
+        },
+        {
+          "description": "declare_winner"
+        },
+        {
+          "description": "award_prize"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Juego/Contrato de juego/TMX_1979375_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Juego/Contrato de juego/TMX_1979375_es.txt"
+  }
+}

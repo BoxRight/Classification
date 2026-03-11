@@ -1,0 +1,177 @@
+{
+  "law": "Contrato servidumbre de desagüe",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Artículos 1057, 1058, 1059 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "dominant_owner_husband",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "dominant_owner_wife",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "servient_owner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "dominant_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "servient_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "rainwater",
+      "type": "movable"
+    },
+    {
+      "id": "roof_overhang",
+      "type": "nonmovable"
+    },
+    {
+      "id": "notarial_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "DominantPropertyOwnership",
+      "subject": "servient_owner",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ServientPropertyOwnership",
+      "subject": "dominant_owner_husband",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ServientPropertyOwnership",
+      "subject": "dominant_owner_wife",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "DrainageEasement",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "RoofOverhangExistence",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "OverhangDistance",
+      "subject": null,
+      "value": 20
+    },
+    {
+      "type": "numeric",
+      "name": "EasementDuration",
+      "subject": null,
+      "value": 20
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "servient_owner",
+        "object": "rainwater",
+        "target": "servient_property"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "servient_owner",
+        "object": "notarial_costs",
+        "target": "notary"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "dominant_owner_husband",
+        "object": "notarial_costs",
+        "target": "notary"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "drainage_right_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "DrainageEasement"
+        },
+        {
+          "type": "asset",
+          "name": "RoofOverhangExistence"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "servient_owner",
+          "object": "rainwater",
+          "target": "servient_property"
+        }
+      }
+    },
+    {
+      "id": "cost_sharing_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "DrainageEasement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "servient_owner",
+          "object": "notarial_costs",
+          "target": "notary"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Servidumbre/Contrato servidumbre de desagüe/TMX_1369318_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Servidumbre/Contrato servidumbre de desagüe/TMX_1369318_es.txt"
+  }
+}

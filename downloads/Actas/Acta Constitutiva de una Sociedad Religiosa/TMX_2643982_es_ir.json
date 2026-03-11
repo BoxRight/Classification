@@ -1,0 +1,324 @@
+{
+  "law": "Acta Constitutiva de una Sociedad Religiosa",
+  "authority": "private",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Artículos 2670-2680 del Código Civil para el Distrito Federal",
+    "Artículos 32-34 de la Ley de Inversión Extranjera",
+    "Artículos 42-44 del Reglamento de la Ley de Inversión Extranjera y del Registro Nacional de Inversiones Extranjeras"
+  ],
+  "parties": [
+    {
+      "id": "religious_association",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "founders",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "general_assembly",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "board_of_directors",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "surveillance_committee",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "honor_justice_committee",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "membership_fees",
+      "type": "money"
+    },
+    {
+      "id": "donations",
+      "type": "money"
+    },
+    {
+      "id": "religious_services",
+      "type": "service"
+    },
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "movable_assets",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_membership_fees",
+      "type": "simple",
+      "actor": "members",
+      "object": "membership_fees",
+      "target": "religious_association"
+    },
+    {
+      "id": "provide_religious_services",
+      "type": "simple",
+      "actor": "religious_association",
+      "object": "religious_services",
+      "target": "members"
+    },
+    {
+      "id": "exclude_member",
+      "type": "simple",
+      "actor": "general_assembly",
+      "object": "membership_revocation",
+      "target": "members"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "religious_association_legal_existence",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "mexican_nationality",
+      "subject": "religious_association",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "membership_relation",
+      "subject": "members",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "unpaid_fees",
+      "subject": "members",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "members",
+        "object": "membership_fees",
+        "target": "religious_association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "members",
+        "object": "assembly_attendance",
+        "target": "general_assembly"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "board_of_directors",
+        "object": "periodic_reporting",
+        "target": "general_assembly"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "religious_association",
+        "object": "religious_services",
+        "target": "members"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "general_assembly",
+        "object": "member_exclusion",
+        "target": "members"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "membership_payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "membership_relation",
+          "subject": "members"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "members",
+          "object": "membership_fees",
+          "target": "religious_association"
+        }
+      }
+    },
+    {
+      "id": "member_exclusion_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "unpaid_fees",
+          "subject": "members"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "general_assembly",
+          "object": "member_exclusion",
+          "target": "members"
+        }
+      }
+    },
+    {
+      "id": "criminal_conviction_exclusion_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "criminal_conviction_against_association",
+          "subject": "members"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "general_assembly",
+          "object": "member_exclusion",
+          "target": "members"
+        }
+      }
+    },
+    {
+      "id": "assembly_attendance_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "membership_relation",
+          "subject": "members"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "members",
+          "object": "assembly_attendance",
+          "target": "general_assembly"
+        }
+      }
+    },
+    {
+      "id": "board_reporting_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "religious_association_legal_existence"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "board_of_directors",
+          "object": "periodic_reporting",
+          "target": "general_assembly"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "member_admission_procedure",
+      "steps": [
+        {
+          "description": "Submit membership application"
+        },
+        {
+          "description": "Pay membership fee"
+        },
+        {
+          "description": "Provisional approval by Board of Directors"
+        },
+        {
+          "description": "Final approval by General Assembly"
+        }
+      ]
+    },
+    {
+      "name": "member_exclusion_procedure",
+      "steps": [
+        {
+          "description": "Investigation by Honor and Justice Committee"
+        },
+        {
+          "description": "Decision by General Assembly"
+        },
+        {
+          "description": "Loss of membership rights and contributions"
+        }
+      ]
+    },
+    {
+      "name": "election_procedure",
+      "steps": [
+        {
+          "description": "Convocation 60 days before election"
+        },
+        {
+          "description": "Candidate registration with minimum signatures"
+        },
+        {
+          "description": "Distribution of candidate lists"
+        },
+        {
+          "description": "Secret ballot voting"
+        },
+        {
+          "description": "Vote counting and results announcement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta Constitutiva de una Sociedad Religiosa/TMX_2643982_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta Constitutiva de una Sociedad Religiosa/TMX_2643982_es.txt"
+  }
+}

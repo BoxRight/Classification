@@ -1,0 +1,191 @@
+{
+  "law": "Contestación de demanda en juicio especial hipotecario",
+  "authority": "judicial",
+  "enacted": "2024-01-23",
+  "imports": [
+    "Artículos 112, 468 del código de procedimientos civiles para el Distrito Federal",
+    "Artículos 14, 16 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículo 68 de la Ley de Instituciones de Crédito",
+    "Artículos 1793, 1794, 1797, 1812, 1813, 1816, 2893 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "mortgage_credit",
+      "type": "money"
+    },
+    {
+      "id": "mortgage_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "administration_commission",
+      "type": "money"
+    },
+    {
+      "id": "ordinary_interests",
+      "type": "money"
+    },
+    {
+      "id": "moratory_interests",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "mortgage_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "MortgageContract",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "CreditObligation",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "MortgageGuarantee",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "mortgage_credit",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "administration_commission",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "ordinary_interests",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "moratory_interests",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "legal_costs",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_nullity_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ContractualVices"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ContractNullity"
+      }
+    },
+    {
+      "id": "procedural_impropriety_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LackOfStanding"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "mortgage_credit",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "answer_to_complaint",
+      "steps": [
+        {
+          "description": "deny_plaintiff_rights"
+        },
+        {
+          "description": "answer_factual_allegations"
+        },
+        {
+          "description": "raise_exceptions_and_defenses"
+        },
+        {
+          "description": "offer_evidence"
+        },
+        {
+          "description": "request_judicial_resolution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda en juicio especial hipotecario/TMX_2505246_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda en juicio especial hipotecario/TMX_2505246_es.txt"
+  }
+}

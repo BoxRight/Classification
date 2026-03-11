@@ -1,0 +1,179 @@
+{
+  "law": "Contrato de novación de licencia de uso de marca",
+  "authority": "private",
+  "enacted": "2024-12-04",
+  "imports": [
+    "Código Civil Federal artículos 2213, 2214, 2215"
+  ],
+  "parties": [
+    {
+      "id": "licenciante",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "licenciatario",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "original_trademark",
+      "type": "service"
+    },
+    {
+      "id": "new_trademark",
+      "type": "service"
+    },
+    {
+      "id": "license_fee",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_license_fee",
+      "type": "simple",
+      "actor": "licenciatario",
+      "object": "license_fee",
+      "target": "licenciante"
+    },
+    {
+      "id": "use_trademark",
+      "type": "simple",
+      "actor": "licenciatario",
+      "object": "new_trademark",
+      "target": null
+    },
+    {
+      "id": "transfer_trademark_rights",
+      "type": "simple",
+      "actor": "licenciante",
+      "object": "new_trademark",
+      "target": "licenciatario"
+    },
+    {
+      "id": "register_novation",
+      "type": "simple",
+      "actor": "licenciante",
+      "object": "new_trademark",
+      "target": "impi"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "trademark_ownership",
+      "subject": "licenciante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "impi_registration",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "licenciatario",
+        "object": "license_fee",
+        "target": "licenciante"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "licenciatario",
+        "object": "new_trademark",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "licenciatario",
+        "object": "original_trademark",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "licenciante",
+        "object": "new_trademark",
+        "target": "impi"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_default_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "licenciatario",
+          "object": "license_fee",
+          "target": "licenciante"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "licenciante",
+          "object": "new_trademark",
+          "target": "licenciatario"
+        }
+      }
+    },
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "licenciatario",
+          "object": "license_fee",
+          "target": "licenciante"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_termination",
+        "subject": "licenciatario"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "trademark_substitution_process",
+      "steps": [
+        {
+          "ref": "transfer_trademark_rights"
+        },
+        {
+          "ref": "pay_license_fee"
+        },
+        {
+          "ref": "register_novation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Licencia/Contrato de novación de licencia de uso de marca/TMX_2760402_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Licencia/Contrato de novación de licencia de uso de marca/TMX_2760402_es.txt"
+  }
+}

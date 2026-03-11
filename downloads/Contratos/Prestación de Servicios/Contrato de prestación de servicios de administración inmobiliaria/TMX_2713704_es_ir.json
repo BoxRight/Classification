@@ -1,0 +1,249 @@
+{
+  "law": "Contrato de prestación de servicios de administración inmobiliaria",
+  "authority": "private",
+  "enacted": "2024-07-23",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "administracion",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "honorarios",
+      "type": "money"
+    },
+    {
+      "id": "servicios_administracion",
+      "type": "service"
+    },
+    {
+      "id": "rentas",
+      "type": "money"
+    },
+    {
+      "id": "informacion_confidencial",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "administrar_inmueble",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "servicios_administracion",
+      "target": "administracion"
+    },
+    {
+      "id": "pagar_honorarios",
+      "type": "simple",
+      "actor": "administracion",
+      "object": "honorarios",
+      "target": "profesionista"
+    },
+    {
+      "id": "cobrar_rentas",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "rentas",
+      "target": "administracion"
+    },
+    {
+      "id": "incumplir_obligaciones",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "servicios_administracion",
+      "target": "administracion"
+    },
+    {
+      "id": "divulgar_informacion",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "informacion_confidencial",
+      "target": "administracion"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropiedadInmueble",
+      "subject": "administracion",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CedulaProfesional",
+      "subject": "profesionista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "servicios_administracion",
+        "target": "administracion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "administracion",
+        "object": "honorarios",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "informacion_confidencial",
+        "target": "terceros"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_por_incumplimiento",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        },
+        {
+          "act": {
+            "ref": "incumplir_obligaciones"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "TerminacionContrato"
+      }
+    },
+    {
+      "id": "rescision_por_divulgacion",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        },
+        {
+          "act": {
+            "ref": "divulgar_informacion"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "TerminacionInmediata"
+      }
+    },
+    {
+      "id": "pago_honorarios_mensual",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "administracion",
+          "object": "honorarios",
+          "target": "profesionista"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "procedimiento_rescision",
+      "steps": [
+        {
+          "description": "Notificación por escrito de incumplimiento"
+        },
+        {
+          "description": "Otorgar plazo de 30 días para subsanar"
+        },
+        {
+          "description": "Rescisión del contrato si persiste incumplimiento"
+        }
+      ]
+    },
+    {
+      "name": "prestacion_servicios",
+      "steps": [
+        {
+          "act": {
+            "description": "Administrar áreas comunes"
+          }
+        },
+        {
+          "act": {
+            "description": "Gestionar mantenimiento preventivo y correctivo"
+          }
+        },
+        {
+          "act": {
+            "description": "Coordinar personal de limpieza, seguridad y mantenimiento"
+          }
+        },
+        {
+          "act": {
+            "description": "Supervisar servicios contratados"
+          }
+        },
+        {
+          "act": {
+            "ref": "cobrar_rentas"
+          }
+        },
+        {
+          "act": {
+            "description": "Pagar servicios con rentas recaudadas"
+          }
+        },
+        {
+          "act": {
+            "description": "Elaborar informes financieros y operativos"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración inmobiliaria/TMX_2713704_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración inmobiliaria/TMX_2713704_es.txt"
+  }
+}

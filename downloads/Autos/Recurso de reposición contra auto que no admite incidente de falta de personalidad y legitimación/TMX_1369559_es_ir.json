@@ -1,0 +1,142 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_arrendamiento",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "recurso_reposicion",
+      "type": "service"
+    },
+    {
+      "id": "incidente_personalidad",
+      "type": "service"
+    },
+    {
+      "id": "auto_inadmision",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "interponer_recurso",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "recurso_reposicion",
+      "target": "juez_arrendamiento"
+    },
+    {
+      "id": "no_admitir_incidente",
+      "type": "simple",
+      "actor": "juez_arrendamiento",
+      "object": "auto_inadmision",
+      "target": "demandado"
+    },
+    {
+      "id": "promover_incidente",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "incidente_personalidad",
+      "target": "juez_arrendamiento"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "JuicioArrendamientoInmobiliario",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AutoInadmision",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "recurso_reposicion",
+        "target": "juez_arrendamiento"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "reposicion_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AutoInadmision"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "demandado",
+          "object": "recurso_reposicion",
+          "target": "juez_arrendamiento"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "recurso_reposicion_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "demandado",
+            "object": "incidente_personalidad",
+            "target": "juez_arrendamiento"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "juez_arrendamiento",
+            "object": "auto_inadmision",
+            "target": "demandado"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "demandado",
+            "object": "recurso_reposicion",
+            "target": "juez_arrendamiento"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Recurso de reposición contra auto que no admite incidente de falta de personalidad y legitimación/TMX_1369559_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Recurso de reposición contra auto que no admite incidente de falta de personalidad y legitimación/TMX_1369559_es.txt"
+  }
+}

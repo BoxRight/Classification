@@ -1,0 +1,186 @@
+{
+  "law": "Contrato de donación paterno-filial",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Estado Libre y Soberano de Puebla",
+    "Ley del Impuesto Sobre la Renta"
+  ],
+  "parties": [
+    {
+      "id": "donor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donee",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "donation_money",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_money",
+      "type": "simple",
+      "actor": "donor",
+      "object": "donation_money",
+      "target": "donee"
+    },
+    {
+      "id": "accept_donation",
+      "type": "simple",
+      "actor": "donee",
+      "object": "donation_money",
+      "target": "donor"
+    },
+    {
+      "id": "receive_money",
+      "type": "simple",
+      "actor": "donee",
+      "object": "donation_money",
+      "target": "donor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "legitimate_owner_of_donation_amount",
+      "subject": "donor",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity_to_contract",
+      "subject": "donor",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity_to_accept",
+      "subject": "donee",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "rfc_registration",
+      "subject": "donor",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "rfc_registration",
+      "subject": "donee",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "sufficient_assets_and_income",
+      "subject": "donor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donor",
+        "object": "donation_money",
+        "target": "donee"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donee",
+        "object": "donation_money",
+        "target": "donor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donation_perfection_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "donor",
+          "object": "donation_money",
+          "target": "donee"
+        },
+        {
+          "type": "simple",
+          "actor": "donee",
+          "object": "donation_money",
+          "target": "donor"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "perfect_donation"
+      }
+    },
+    {
+      "id": "tax_exemption_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "parent_child_relationship"
+        },
+        {
+          "type": "asset",
+          "name": "direct_line_descendant"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "income_tax_exempt"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "donation_execution",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donor",
+            "object": "donation_money",
+            "target": "donee"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donee",
+            "object": "donation_money",
+            "target": "donor"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donee",
+            "object": "donation_money",
+            "target": "donor"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Contrato de donación paterno-filial/TMX_1369661_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Contrato de donación paterno-filial/TMX_1369661_es.txt"
+  }
+}

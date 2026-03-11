@@ -1,0 +1,168 @@
+{
+  "law": "Escritura pública de revocación del contrato de donación",
+  "authority": "private",
+  "enacted": "2024-09-03",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículo 2347"
+  ],
+  "parties": [
+    {
+      "id": "donante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "bien_inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "posesion_inmueble",
+      "type": "service"
+    },
+    {
+      "id": "penalizacion",
+      "type": "money"
+    },
+    {
+      "id": "gastos_escritura",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "revocar_donacion",
+      "type": "simple",
+      "actor": "donante",
+      "object": "bien_inmueble",
+      "target": "donatario"
+    },
+    {
+      "id": "entregar_posesion",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "posesion_inmueble",
+      "target": "donante"
+    },
+    {
+      "id": "incumplir_entrega",
+      "type": "counter",
+      "actor": "donatario",
+      "object": "posesion_inmueble",
+      "target": "donante"
+    },
+    {
+      "id": "pagar_penalizacion",
+      "type": "simple",
+      "actor": "donatario",
+      "object": "penalizacion",
+      "target": "donante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "DominioBienInmueble",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "EscrituraRevocacion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoRevocado",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donatario",
+        "object": "posesion_inmueble",
+        "target": "donante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "revocacion_efectiva",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "EscrituraRevocacion"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContratoRevocado"
+      }
+    },
+    {
+      "id": "penalizacion_incumplimiento",
+      "conditions": [
+        {
+          "ref": "incumplir_entrega"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pagar_penalizacion"
+        }
+      }
+    },
+    {
+      "id": "efectos_revocacion",
+      "conditions": [
+        {
+          "ref": "entregar_posesion"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "DominioBienInmueble",
+        "subject": "donante"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_revocacion",
+      "steps": [
+        {
+          "ref": "revocar_donacion"
+        },
+        {
+          "ref": "entregar_posesion"
+        },
+        {
+          "description": "inscripcion_registro_publico"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Escritura pública de revocación del contrato de donación/TMX_2724610_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Escritura pública de revocación del contrato de donación/TMX_2724610_es.txt"
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "law": "Contrato de prestación de servicios",
+  "authority": "private",
+  "enacted": "2023-04-21",
+  "imports": [
+    "Artículos 2606-2615 del Código Civil para el Distrito Federal",
+    "Artículo 13 de la Ley Federal del Trabajo",
+    "Artículo 36 de la Ley Reglamentaria Del Artículo 5o. Constitucional"
+  ],
+  "parties": [
+    {
+      "id": "contratante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "prestador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "nursing_services",
+      "type": "service"
+    },
+    {
+      "id": "honorarios",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "professional_nursing_certification",
+      "subject": "prestador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity_to_contract",
+      "subject": "contratante",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity_to_contract",
+      "subject": "prestador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "nursing_services",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "honorarios",
+        "target": "prestador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "contract_rights",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "prestador",
+          "object": "nursing_services",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "honorarios",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "prestador",
+          "object": "nursing_services",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestador",
+          "object": "penalty_payment",
+          "target": "contratante"
+        }
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "prestador",
+          "object": "contract_obligations",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "contract_rescission",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "prestador",
+          "object": "confidentiality_obligation",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "damages_compensation",
+          "target": "prestador"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_suspension_procedure",
+      "steps": [
+        {
+          "description": "contratante gives written notice to prestador"
+        },
+        {
+          "description": "services are suspended temporarily"
+        },
+        {
+          "description": "contract resumes when causes disappear"
+        }
+      ]
+    },
+    {
+      "name": "early_termination_procedure",
+      "steps": [
+        {
+          "description": "contratante gives 15 days written notice to prestador"
+        },
+        {
+          "description": "contract terminates without judicial declaration"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios/TMX_1654274_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios/TMX_1654274_es.txt"
+  }
+}

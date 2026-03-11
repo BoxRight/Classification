@@ -1,0 +1,137 @@
+{
+  "law": "Entrega de la posesión material de un inmueble mediante convenio",
+  "authority": "private",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    },
+    {
+      "id": "receive_possession",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "property",
+      "target": "tenant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LegalCapacity",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LegalCapacity",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "GoodCondition",
+      "subject": "property",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "possession_delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "deliver_possession"
+        }
+      }
+    },
+    {
+      "id": "finalization_rule",
+      "conditions": [
+        {
+          "ref": "deliver_possession"
+        },
+        {
+          "ref": "receive_possession"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "AgreementFinalized"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "possession_delivery_procedure",
+      "steps": [
+        {
+          "act": {
+            "ref": "deliver_possession"
+          }
+        },
+        {
+          "act": {
+            "ref": "receive_possession"
+          }
+        },
+        {
+          "description": "Mutual release from legal actions"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Entrega de la posesión material de un inmueble mediante convenio/TMX_1364377_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Entrega de la posesión material de un inmueble mediante convenio/TMX_1364377_es.txt"
+  }
+}

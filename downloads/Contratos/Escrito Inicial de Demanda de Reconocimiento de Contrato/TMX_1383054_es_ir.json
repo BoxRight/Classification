@@ -1,0 +1,255 @@
+{
+  "law": "Código Civil para el Estado de Jalisco",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 1264, 1266, 1267, 1269, 1271, 1272 del Código Civil para el Estado de Jalisco",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rented_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "water_bill",
+      "type": "money"
+    },
+    {
+      "id": "property_tax",
+      "type": "money"
+    },
+    {
+      "id": "electricity_bill",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "monthly_rent",
+      "target": "plaintiff"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "rented_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "rented_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_water",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "water_bill",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_property_tax",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "property_tax",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_electricity",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "electricity_bill",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "property_ownership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "verbal_lease_contract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "unpaid_rent",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "unpaid_utilities",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "monthly_rent",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "water_bill",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "property_tax",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "electricity_bill",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "rented_property",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "verbal_lease_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "monthly_rent",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "utility_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "verbal_lease_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "water_bill",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "lease_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "monthly_rent",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "rented_property",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_contract_recognition",
+      "steps": [
+        {
+          "description": "judicial_recognition_of_verbal_contract"
+        },
+        {
+          "description": "declaration_of_lease_termination"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "monthly_rent",
+            "target": "plaintiff"
+          }
+        },
+        {
+          "ref": "vacate_property"
+        },
+        {
+          "ref": "deliver_property"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Escrito Inicial de Demanda de Reconocimiento de Contrato/TMX_1383054_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Escrito Inicial de Demanda de Reconocimiento de Contrato/TMX_1383054_es.txt"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "law": "Acta constitutiva de Asociación Civil",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 2554, 2587, 2670, 2671, 2672, 2673, 2674, 2675, 2676 del Código Civil para el Distrito Federal",
+    "Artículo 27 de la Constitución Política de los Estados Unidos Mexicanos"
+  ],
+  "parties": [
+    {
+      "id": "founding_members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_association",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "active_members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "foreign_members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "honorary_members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "board_members",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "surveillance_council",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "membership_fees",
+      "type": "money"
+    },
+    {
+      "id": "donations",
+      "type": "money"
+    },
+    {
+      "id": "social_assets",
+      "type": "money"
+    },
+    {
+      "id": "membership_credential",
+      "type": "service"
+    },
+    {
+      "id": "reports_and_services",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "MembershipRelation",
+      "subject": "active_members",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "BoardPosition",
+      "subject": "board_members",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SurveillanceRole",
+      "subject": "surveillance_council",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PaymentObligation",
+      "subject": "active_members",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "active_members",
+        "object": "membership_fees",
+        "target": "civil_association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "active_members",
+        "object": "reports_and_services",
+        "target": "civil_association"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "active_members",
+        "object": "membership_credential",
+        "target": "civil_association"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "foreign_members",
+        "object": "reports_and_services",
+        "target": "civil_association"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "honorary_members",
+        "object": "reports_and_services",
+        "target": "civil_association"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "membership_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "MembershipRelation",
+          "subject": "active_members"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "active_members",
+          "object": "membership_fees",
+          "target": "civil_association"
+        }
+      }
+    },
+    {
+      "id": "exclusion_rule_nonpayment",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "active_members",
+          "object": "membership_fees",
+          "target": "civil_association"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ExclusionLiability",
+        "subject": "active_members"
+      }
+    },
+    {
+      "id": "exclusion_rule_misconduct",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "active_members",
+          "object": "reports_and_services",
+          "target": "civil_association"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ExclusionLiability",
+        "subject": "active_members"
+      }
+    },
+    {
+      "id": "dissolution_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "UnanimousConsent"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "DissolutionState"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "admission_procedure",
+      "steps": [
+        {
+          "description": "Submit written application to board"
+        },
+        {
+          "description": "Obtain support from two active members"
+        },
+        {
+          "description": "Assembly resolution on admission"
+        }
+      ]
+    },
+    {
+      "name": "exclusion_procedure",
+      "steps": [
+        {
+          "description": "Identify grounds for exclusion"
+        },
+        {
+          "description": "Assembly deliberation and vote"
+        },
+        {
+          "description": "Loss of social rights"
+        }
+      ]
+    },
+    {
+      "name": "dissolution_procedure",
+      "steps": [
+        {
+          "description": "Dissolution decree"
+        },
+        {
+          "description": "Liquidation period of six months"
+        },
+        {
+          "description": "Appointment of liquidators"
+        },
+        {
+          "description": "Final assembly for liquidation accounts"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de Asociación Civil/TMX_1120574_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de Asociación Civil/TMX_1120574_es.txt"
+  }
+}

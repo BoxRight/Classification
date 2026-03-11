@@ -1,0 +1,246 @@
+{
+  "law": "Contrato de arrendamiento",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 2389, 2399, 2340 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "arrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "arrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "renta",
+      "type": "money"
+    },
+    {
+      "id": "garantia",
+      "type": "money"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pagar_renta",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "renta",
+      "target": "arrendador"
+    },
+    {
+      "id": "entregar_inmueble",
+      "type": "simple",
+      "actor": "arrendador",
+      "object": "inmueble",
+      "target": "arrendatario"
+    },
+    {
+      "id": "devolver_inmueble",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "inmueble",
+      "target": "arrendador"
+    },
+    {
+      "id": "pagar_pena",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "pena_convencional",
+      "target": "arrendador"
+    },
+    {
+      "id": "subarrendar",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "inmueble",
+      "target": "tercero"
+    },
+    {
+      "id": "uso_indebido",
+      "type": "counter",
+      "actor": "arrendatario",
+      "object": "inmueble",
+      "target": null
+    },
+    {
+      "id": "falta_pago",
+      "type": "counter",
+      "actor": "arrendatario",
+      "object": "renta",
+      "target": "arrendador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoArrendamiento",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropiedadInmueble",
+      "subject": "arrendador",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "FianzaGarantia",
+      "subject": "fiador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "renta",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "inmueble",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "inmueble",
+        "target": "tercero"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "servicios",
+        "target": "prestadores_servicios"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "pena_por_falta_pago",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "renta",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "pena_convencional",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "rescision_uso_indebido",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "inmueble",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "rescision_falta_pago",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "renta",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "rescision_subarriendo",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "inmueble",
+          "target": "tercero"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "RescisionContrato"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "terminacion_voluntaria",
+      "steps": [
+        {
+          "description": "notificacion_quince_dias"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "arrendatario",
+            "object": "inmueble",
+            "target": "arrendador"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento/TMX_917672_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento/TMX_917672_es.txt"
+  }
+}

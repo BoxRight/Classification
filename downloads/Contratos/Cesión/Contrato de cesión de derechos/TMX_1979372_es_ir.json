@@ -1,0 +1,209 @@
+{
+  "law": "Contrato de cesión de derechos",
+  "authority": "private",
+  "enacted": "2024-04-29",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionarios",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "inquilino",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "derechos_rentas",
+      "type": "service"
+    },
+    {
+      "id": "rentas",
+      "type": "money"
+    },
+    {
+      "id": "edificio_finca",
+      "type": "nonmovable"
+    },
+    {
+      "id": "impuestos",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ceder_derechos",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_rentas",
+      "target": "cesionarios"
+    },
+    {
+      "id": "cobrar_rentas",
+      "type": "simple",
+      "actor": "cesionarios",
+      "object": "rentas",
+      "target": "inquilino"
+    },
+    {
+      "id": "dar_aviso",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_rentas",
+      "target": "inquilino"
+    },
+    {
+      "id": "pagar_impuestos",
+      "type": "simple",
+      "actor": "cesionarios",
+      "object": "impuestos",
+      "target": "cedente"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "CesionDerechos",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "PlazoVencimiento",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoArrendamiento",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_rentas",
+        "target": "cesionarios"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionarios",
+        "object": "rentas",
+        "target": "inquilino"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_rentas",
+        "target": "inquilino"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionarios",
+        "object": "impuestos",
+        "target": "cedente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cesion_gratuita_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CesionDerechos"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "cesionarios",
+          "object": "rentas",
+          "target": "inquilino"
+        }
+      }
+    },
+    {
+      "id": "terminacion_plazo_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "PlazoVencimiento"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "TerminacionContrato"
+      }
+    },
+    {
+      "id": "terminacion_arrendamiento_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "inquilino",
+          "object": "edificio_finca",
+          "target": "cedente"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "TerminacionContrato"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_cesion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "cedente",
+            "object": "derechos_rentas",
+            "target": "cesionarios"
+          }
+        },
+        {
+          "ref": "dar_aviso"
+        },
+        {
+          "ref": "cobrar_rentas"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Contrato de cesión de derechos/TMX_1979372_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Contrato de cesión de derechos/TMX_1979372_es.txt"
+  }
+}

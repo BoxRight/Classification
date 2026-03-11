@@ -1,0 +1,185 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lease_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "initial_complaint",
+      "type": "service"
+    },
+    {
+      "id": "lease_contract",
+      "type": "service"
+    },
+    {
+      "id": "case_file",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "lease_lawsuit",
+      "target": "court"
+    },
+    {
+      "id": "admit_lawsuit",
+      "type": "simple",
+      "actor": "court",
+      "object": "lease_lawsuit",
+      "target": "plaintiff"
+    },
+    {
+      "id": "answer_lawsuit",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "initial_complaint",
+      "target": "court"
+    },
+    {
+      "id": "fail_to_answer",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "initial_complaint",
+      "target": "court"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LawsuitAdmitted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CaseFileCreated",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DefendantNotified",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "initial_complaint",
+        "target": "court"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lawsuit_admission_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "lease_lawsuit",
+          "target": "court"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "LawsuitAdmitted"
+      }
+    },
+    {
+      "id": "answer_deadline_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DefendantNotified"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "initial_complaint",
+          "target": "court"
+        }
+      }
+    },
+    {
+      "id": "default_judgment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "initial_complaint",
+          "target": "court"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "NegativeAnswer"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_lawsuit_procedure",
+      "steps": [
+        {
+          "ref": "file_lawsuit"
+        },
+        {
+          "ref": "admit_lawsuit"
+        },
+        {
+          "description": "create_case_file"
+        },
+        {
+          "description": "notify_defendant"
+        },
+        {
+          "ref": "answer_lawsuit"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Auto de admisión de la demanda en el juicio de arrendamiento/TMX_1302677_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Auto de admisión de la demanda en el juicio de arrendamiento/TMX_1302677_es.txt"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "law": "Demanda de ejecución de convenio de alimentos celebrado ante el instituto de justicia alternativa",
+  "authority": "judicial",
+  "enacted": "2024-05-20",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "beneficiario_alimentos",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "pension_alimenticia",
+      "type": "money"
+    },
+    {
+      "id": "bienes_aseguramiento",
+      "type": "nonmovable"
+    },
+    {
+      "id": "costas_gastos",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pago_alimentos",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "pension_alimenticia",
+      "target": "beneficiario_alimentos"
+    },
+    {
+      "id": "incumplimiento_convenio",
+      "type": "counter",
+      "actor": "demandado",
+      "object": "pension_alimenticia",
+      "target": "beneficiario_alimentos"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ConvenioIJA",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "ObligacionAlimentaria",
+      "subject": "demandado",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "pension_alimenticia",
+        "target": "beneficiario_alimentos"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "ejecucion_convenio_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ConvenioIJA"
+        },
+        {
+          "type": "counter",
+          "actor": "demandado",
+          "object": "pension_alimenticia",
+          "target": "beneficiario_alimentos"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "actor",
+          "object": "ejecucion_judicial",
+          "target": "tribunal"
+        }
+      }
+    },
+    {
+      "id": "aseguramiento_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ObligacionAlimentaria",
+          "subject": "demandado"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "actor",
+          "object": "bienes_aseguramiento",
+          "target": "tribunal"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "via_apremio",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "actor",
+            "object": "demanda_ejecucion",
+            "target": "tribunal"
+          }
+        },
+        {
+          "description": "Notificación al deudor con término de cinco días para cumplimiento"
+        },
+        {
+          "description": "Aplicación de medidas de apremio en caso de incumplimiento"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda de ejecución de convenio de alimentos celebrado ante el instituto de justicia alternativa/TMX_2687531_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda de ejecución de convenio de alimentos celebrado ante el instituto de justicia alternativa/TMX_2687531_es.txt"
+  }
+}

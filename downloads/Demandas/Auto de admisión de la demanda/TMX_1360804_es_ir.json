@@ -1,0 +1,183 @@
+{
+  "law": "Auto de admisión de la demanda TMX1.360.804",
+  "authority": "judicial",
+  "enacted": "2017-12-20",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal - Artículos 957 y 959"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "housing_rental_judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "civil_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "housing_rental_dispute",
+      "type": "service"
+    },
+    {
+      "id": "legal_notification",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "civil_lawsuit",
+      "target": "housing_rental_judge"
+    },
+    {
+      "id": "admit_lawsuit",
+      "type": "simple",
+      "actor": "housing_rental_judge",
+      "object": "civil_lawsuit",
+      "target": "plaintiff"
+    },
+    {
+      "id": "serve_defendant",
+      "type": "simple",
+      "actor": "court_secretary",
+      "object": "legal_notification",
+      "target": "defendant"
+    },
+    {
+      "id": "answer_lawsuit",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "civil_lawsuit",
+      "target": "housing_rental_judge"
+    },
+    {
+      "id": "fail_to_answer",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "civil_lawsuit",
+      "target": "housing_rental_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LawsuitFiled",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LawsuitAdmitted",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "HousingRentalDispute",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "civil_lawsuit",
+        "target": "housing_rental_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lawsuit_admission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LawsuitFiled",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "LawsuitAdmitted",
+        "subject": "plaintiff"
+      }
+    },
+    {
+      "id": "defendant_response_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LawsuitAdmitted",
+          "subject": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "answer_lawsuit"
+        }
+      }
+    },
+    {
+      "id": "default_judgment_rule",
+      "conditions": [
+        {
+          "ref": "fail_to_answer"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "DefaultJudgment",
+        "subject": "defendant"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "housing_rental_litigation_process",
+      "steps": [
+        {
+          "ref": "file_lawsuit"
+        },
+        {
+          "ref": "admit_lawsuit"
+        },
+        {
+          "ref": "serve_defendant"
+        },
+        {
+          "description": "Defendant must answer within specified days"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Auto de admisión de la demanda/TMX_1360804_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Auto de admisión de la demanda/TMX_1360804_es.txt"
+  }
+}

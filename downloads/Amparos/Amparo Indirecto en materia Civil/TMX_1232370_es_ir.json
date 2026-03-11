@@ -1,0 +1,186 @@
+{
+  "law": "Ley de Amparo",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Código de Comercio"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tercero_interesado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "sala_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "sentencia_impugnada",
+      "type": "service"
+    },
+    {
+      "id": "costas",
+      "type": "money"
+    },
+    {
+      "id": "gastos",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PersonalidadAcreditada",
+      "subject": "quejoso",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SentenciasConformes",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "FaltaFundamentacion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "FaltaMotivacion",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "sala_civil",
+        "object": "costas",
+        "target": "quejoso"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "quejoso",
+        "object": "amparo",
+        "target": "juez_distrito"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "condena_costas_sentencias_conformes",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SentenciasConformes"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "sala_civil",
+          "object": "costas",
+          "target": "quejoso"
+        }
+      }
+    },
+    {
+      "id": "violacion_articulo_14",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "FaltaFundamentacion"
+        },
+        {
+          "type": "liability",
+          "name": "FaltaMotivacion"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "quejoso",
+          "object": "amparo",
+          "target": "juez_distrito"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "procedimiento_amparo",
+      "steps": [
+        {
+          "description": "Presentación de demanda de amparo"
+        },
+        {
+          "description": "Admisión de demanda"
+        },
+        {
+          "description": "Emplazamiento de partes"
+        },
+        {
+          "description": "Resolución de amparo"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "antecedentes_juicio",
+      "timeline": [
+        {
+          "event": "Demanda ejecutiva mercantil",
+          "condition": null
+        },
+        {
+          "event": "Sentencia absolutoria primera instancia",
+          "condition": null
+        },
+        {
+          "event": "Recurso de apelación",
+          "condition": null
+        },
+        {
+          "event": "Confirmación sentencia segunda instancia",
+          "condition": null
+        },
+        {
+          "event": "Omisión condena en costas",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Amparos/Amparo Indirecto en materia Civil/TMX_1232370_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Amparos/Amparo Indirecto en materia Civil/TMX_1232370_es.txt"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "law": "Acuerdo que desecha la prueba de inspección judicial TMX1.232.382",
+  "authority": "judicial",
+  "enacted": "2024-01-03",
+  "imports": [
+    "Artículo 119, 150, 151, 152, 153, 154 y 155 de la Ley de Amparo",
+    "Artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículos 79, 81, 85, 86 del Código Federal de Procedimientos Civiles"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretaria",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "prueba_inspeccion_judicial",
+      "type": "service"
+    },
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "prueba_testimonial",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ofrecer_prueba",
+      "type": "simple",
+      "actor": "quejoso",
+      "object": "prueba_inspeccion_judicial",
+      "target": "juez_distrito"
+    },
+    {
+      "id": "desechar_prueba",
+      "type": "simple",
+      "actor": "juez_distrito",
+      "object": "prueba_inspeccion_judicial",
+      "target": "quejoso"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "posesion_inmueble",
+      "subject": "quejoso",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "falta_idoneidad_inspeccion",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "juez_distrito",
+        "object": "prueba_inspeccion_judicial",
+        "target": "quejoso"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "desecho_inspeccion_judicial",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "falta_idoneidad_inspeccion"
+        },
+        {
+          "type": "simple",
+          "actor": "quejoso",
+          "object": "prueba_inspeccion_judicial",
+          "target": "juez_distrito"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "juez_distrito",
+          "object": "prueba_inspeccion_judicial",
+          "target": "quejoso"
+        }
+      }
+    },
+    {
+      "id": "idoneidad_testimonial",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "posesion_inmueble"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "quejoso",
+          "object": "prueba_testimonial",
+          "target": "juez_distrito"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "desechamiento_prueba",
+      "steps": [
+        {
+          "ref": "ofrecer_prueba"
+        },
+        {
+          "description": "evaluacion_idoneidad"
+        },
+        {
+          "ref": "desechar_prueba"
+        },
+        {
+          "description": "notificacion"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Acuerdos/Acuerdo que desecha la prueba de inspección judicial/TMX_1232382_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Acuerdos/Acuerdo que desecha la prueba de inspección judicial/TMX_1232382_es.txt"
+  }
+}

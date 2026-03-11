@@ -1,0 +1,267 @@
+{
+  "law": "Certificación notarial de contrato de compraventa de bien inmueble",
+  "authority": "administrative",
+  "enacted": "2024-04-24",
+  "imports": [
+    "Artículo 2317 del Código Civil para el Distrito Federal",
+    "Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
+    "Ley del Notariado del Estado"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_estate_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sales_contract",
+      "type": "service"
+    },
+    {
+      "id": "personal_data",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "real_estate_property",
+      "target": "buyer"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "real_estate_property",
+      "target": "seller"
+    },
+    {
+      "id": "certify_contract",
+      "type": "simple",
+      "actor": "notary",
+      "object": "sales_contract",
+      "target": "seller"
+    },
+    {
+      "id": "ratify_contract",
+      "type": "simple",
+      "actor": "seller",
+      "object": "sales_contract",
+      "target": "notary"
+    },
+    {
+      "id": "ratify_contract_buyer",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "sales_contract",
+      "target": "notary"
+    },
+    {
+      "id": "provide_data",
+      "type": "simple",
+      "actor": "seller",
+      "object": "personal_data",
+      "target": "notary"
+    },
+    {
+      "id": "provide_data_buyer",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "personal_data",
+      "target": "notary"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotarialCertification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "IdentityVerification",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "sales_contract",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "sales_contract",
+        "target": "notary"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "sales_contract",
+        "target": "notary"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "personal_data",
+        "target": "notary"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "personal_data",
+        "target": "notary"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "certification_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "seller"
+        },
+        {
+          "type": "capability",
+          "name": "LegalCapacity",
+          "subject": "seller"
+        },
+        {
+          "type": "capability",
+          "name": "LegalCapacity",
+          "subject": "buyer"
+        },
+        {
+          "type": "certification",
+          "name": "IdentityVerification"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "NotarialCertification"
+      }
+    },
+    {
+      "id": "ratification_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "ratify_contract"
+          }
+        },
+        {
+          "act": {
+            "ref": "ratify_contract_buyer"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "NotarialCertification"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_certification_procedure",
+      "steps": [
+        {
+          "description": "Verificación de identidad de las partes"
+        },
+        {
+          "description": "Constatación de capacidad legal"
+        },
+        {
+          "description": "Lectura del contrato a los comparecientes"
+        },
+        {
+          "description": "Explicación de valor y consecuencias legales"
+        },
+        {
+          "act": {
+            "ref": "ratify_contract"
+          }
+        },
+        {
+          "act": {
+            "ref": "ratify_contract_buyer"
+          }
+        },
+        {
+          "act": {
+            "ref": "certify_contract"
+          }
+        },
+        {
+          "description": "Firma del instrumento"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Certificación notarial de contrato de compraventa de bien inmueble/TMX_1440406_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Certificación notarial de contrato de compraventa de bien inmueble/TMX_1440406_es.txt"
+  }
+}

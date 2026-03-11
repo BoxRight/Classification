@@ -1,0 +1,166 @@
+{
+  "law": "Contrato compraventa de automóvil",
+  "authority": "private",
+  "enacted": "2024-01-23",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2248, 2249, 2250"
+  ],
+  "parties": [
+    {
+      "id": "vendedor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "comprador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "auto",
+      "type": "movable"
+    },
+    {
+      "id": "precio_auto",
+      "type": "money"
+    },
+    {
+      "id": "factura",
+      "type": "movable"
+    },
+    {
+      "id": "tarjeta_circulacion",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "entregar_auto",
+      "type": "simple",
+      "actor": "vendedor",
+      "object": "auto",
+      "target": "comprador"
+    },
+    {
+      "id": "pagar_precio",
+      "type": "simple",
+      "actor": "comprador",
+      "object": "precio_auto",
+      "target": "vendedor"
+    },
+    {
+      "id": "entregar_documentos",
+      "type": "simple",
+      "actor": "vendedor",
+      "object": "factura",
+      "target": "comprador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropiedadAuto",
+      "subject": "vendedor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ContratoCompraventa",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedor",
+        "object": "auto",
+        "target": "comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comprador",
+        "object": "precio_auto",
+        "target": "vendedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedor",
+        "object": "factura",
+        "target": "comprador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "entrega_regla",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoCompraventa"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "vendedor",
+          "object": "auto",
+          "target": "comprador"
+        }
+      }
+    },
+    {
+      "id": "pago_regla",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoCompraventa"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "comprador",
+          "object": "precio_auto",
+          "target": "vendedor"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "compraventa_proceso",
+      "steps": [
+        {
+          "ref": "pagar_precio"
+        },
+        {
+          "ref": "entregar_auto"
+        },
+        {
+          "ref": "entregar_documentos"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato compraventa de automóvil/TMX_1380240_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato compraventa de automóvil/TMX_1380240_es.txt"
+  }
+}

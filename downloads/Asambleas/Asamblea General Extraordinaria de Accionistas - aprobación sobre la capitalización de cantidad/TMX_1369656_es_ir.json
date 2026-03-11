@@ -1,0 +1,340 @@
+{
+  "law": "Asamblea General Extraordinaria de Accionistas - capitalización",
+  "authority": "private",
+  "enacted": "2018-02-01",
+  "imports": [
+    "Ley General de Sociedades Mercantiles",
+    "Código Fiscal de la Federación"
+  ],
+  "parties": [
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "shareholders",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "president",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "commissioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "delegate",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "capital_increase",
+      "type": "money"
+    },
+    {
+      "id": "fixed_capital_shares",
+      "type": "movable"
+    },
+    {
+      "id": "variable_capital_shares",
+      "type": "movable"
+    },
+    {
+      "id": "share_certificates",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "convene_assembly",
+      "type": "simple",
+      "actor": "company",
+      "object": "extraordinary_assembly",
+      "target": "shareholders"
+    },
+    {
+      "id": "attend_assembly",
+      "type": "simple",
+      "actor": "shareholders",
+      "object": "extraordinary_assembly",
+      "target": "company"
+    },
+    {
+      "id": "capitalize_contributions",
+      "type": "simple",
+      "actor": "company",
+      "object": "capital_increase",
+      "target": "shareholders"
+    },
+    {
+      "id": "issue_shares",
+      "type": "simple",
+      "actor": "company",
+      "object": "fixed_capital_shares",
+      "target": "shareholders"
+    },
+    {
+      "id": "cancel_certificates",
+      "type": "simple",
+      "actor": "company",
+      "object": "share_certificates",
+      "target": "shareholders"
+    },
+    {
+      "id": "reissue_certificates",
+      "type": "simple",
+      "actor": "company",
+      "object": "share_certificates",
+      "target": "shareholders"
+    },
+    {
+      "id": "notarize_minutes",
+      "type": "simple",
+      "actor": "delegate",
+      "object": "assembly_minutes",
+      "target": "notary"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ShareholderAssembly",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "CurrentFixedCapital",
+      "subject": null,
+      "value": 100000
+    },
+    {
+      "type": "numeric",
+      "name": "CurrentVariableCapital",
+      "subject": null,
+      "value": 1500000
+    },
+    {
+      "type": "numeric",
+      "name": "TotalCurrentCapital",
+      "subject": null,
+      "value": 1600000
+    },
+    {
+      "type": "numeric",
+      "name": "CapitalizationAmount",
+      "subject": null,
+      "value": 8016000
+    },
+    {
+      "type": "asset",
+      "name": "FutureCapitalContributions",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "extraordinary_assembly",
+        "target": "shareholders"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "shareholders",
+        "object": "capital_increase_approval",
+        "target": "company"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "assembly_constitution_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ShareholderAssembly"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "shareholders",
+            "object": "extraordinary_assembly",
+            "target": "company"
+          }
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "LegallyConstitutedAssembly"
+      }
+    },
+    {
+      "id": "capital_increase_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LegallyConstitutedAssembly"
+        },
+        {
+          "type": "asset",
+          "name": "FutureCapitalContributions"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "company",
+          "object": "capital_increase",
+          "target": "shareholders"
+        }
+      }
+    },
+    {
+      "id": "share_issuance_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "capitalize_contributions"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "company",
+          "object": "fixed_capital_shares",
+          "target": "shareholders"
+        }
+      }
+    },
+    {
+      "id": "certificate_reissuance_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "capitalize_contributions"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "cancel_certificates"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "extraordinary_assembly_procedure",
+      "steps": [
+        {
+          "act": {
+            "ref": "convene_assembly"
+          }
+        },
+        {
+          "act": {
+            "ref": "attend_assembly"
+          }
+        },
+        {
+          "description": "verify_quorum"
+        },
+        {
+          "description": "present_agenda"
+        },
+        {
+          "act": {
+            "ref": "capitalize_contributions"
+          }
+        },
+        {
+          "description": "approve_agreements"
+        },
+        {
+          "act": {
+            "ref": "cancel_certificates"
+          }
+        },
+        {
+          "act": {
+            "ref": "reissue_certificates"
+          }
+        },
+        {
+          "description": "appoint_delegate"
+        },
+        {
+          "act": {
+            "ref": "notarize_minutes"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "capital_increase_scenario",
+      "timeline": [
+        {
+          "event": "assembly_convocation",
+          "condition": null
+        },
+        {
+          "event": "shareholder_attendance",
+          "condition": {
+            "type": "asset",
+            "name": "ShareholderAssembly"
+          }
+        },
+        {
+          "event": "quorum_verification",
+          "condition": null
+        },
+        {
+          "event": "capital_increase_approval",
+          "condition": {
+            "type": "asset",
+            "name": "FutureCapitalContributions"
+          }
+        },
+        {
+          "event": "share_reallocation",
+          "condition": null
+        },
+        {
+          "event": "delegate_appointment",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Asambleas/Asamblea General Extraordinaria de Accionistas - aprobación sobre la capitalización de cantidad/TMX_1369656_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Asambleas/Asamblea General Extraordinaria de Accionistas - aprobación sobre la capitalización de cantidad/TMX_1369656_es.txt"
+  }
+}

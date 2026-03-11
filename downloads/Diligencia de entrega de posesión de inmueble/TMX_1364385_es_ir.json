@@ -1,0 +1,165 @@
+{
+  "law": "Diligencia de entrega de posesión de inmueble",
+  "authority": "administrative",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares - Artículo 983"
+  ],
+  "parties": [
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_clerk",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "leased_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "defendants_belongings",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "leased_property",
+      "target": "actor"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "leased_property",
+      "target": "defendant"
+    },
+    {
+      "id": "receive_possession",
+      "type": "simple",
+      "actor": "actor",
+      "object": "leased_property",
+      "target": "actor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyPossession",
+      "subject": "actor",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "JudicialOrder",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "leased_property",
+        "target": "actor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "possession_delivery_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialOrder"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "leased_property",
+          "target": "actor"
+        }
+      }
+    },
+    {
+      "id": "non_compliance_consequence",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "leased_property",
+          "target": "actor"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "BelongingsDisposal",
+        "subject": "defendant"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "possession_delivery_procedure",
+      "steps": [
+        {
+          "description": "Court clerk presents at property location"
+        },
+        {
+          "description": "Verify property identity and serve citation"
+        },
+        {
+          "description": "Notify defendant of court order"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "leased_property",
+            "target": "actor"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "actor",
+            "object": "leased_property",
+            "target": "actor"
+          }
+        },
+        {
+          "description": "Document signatures of all parties"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Diligencia de entrega de posesión de inmueble/TMX_1364385_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Diligencia de entrega de posesión de inmueble/TMX_1364385_es.txt"
+  }
+}

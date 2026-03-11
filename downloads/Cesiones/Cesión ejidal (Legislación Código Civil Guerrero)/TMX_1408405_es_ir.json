@@ -1,0 +1,219 @@
+{
+  "law": "Cesión ejidal (Legislación Código Civil Guerrero)",
+  "authority": "private",
+  "enacted": "2024-01-12",
+  "imports": [
+    "Ley Agraria"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "parcela_ejidal",
+      "type": "nonmovable"
+    },
+    {
+      "id": "derechos_parcelarios",
+      "type": "service"
+    },
+    {
+      "id": "precio_cesion",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ceder_derechos",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_parcelarios",
+      "target": "cesionario"
+    },
+    {
+      "id": "pagar_precio",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "precio_cesion",
+      "target": "cedente"
+    },
+    {
+      "id": "notificar_asamblea",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "aviso_cesion",
+      "target": "asamblea_ejidal"
+    },
+    {
+      "id": "notificar_familia",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "aviso_cesion",
+      "target": "conyuge_hijos"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "EjidatarioCedente",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "EjidatarioCesionario",
+      "subject": "cesionario",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "DerechosParcelarios",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CertificadoParcelario",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_parcelarios",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "precio_cesion",
+        "target": "cedente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "obligaciones_ejidales",
+        "target": "ejido"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cesion_valida",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "EjidatarioCedente",
+          "subject": "cedente"
+        },
+        {
+          "type": "certification",
+          "name": "EjidatarioCesionario",
+          "subject": "cesionario"
+        },
+        {
+          "ref": "notificar_asamblea"
+        },
+        {
+          "ref": "notificar_familia"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "cedente",
+          "object": "derechos_parcelarios",
+          "target": "cesionario"
+        }
+      }
+    },
+    {
+      "id": "pago_obligatorio",
+      "conditions": [
+        {
+          "ref": "ceder_derechos"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "precio_cesion",
+          "target": "cedente"
+        }
+      }
+    },
+    {
+      "id": "herederos_obligados",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "FallecimientoParte"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "herederos",
+          "object": "cumplimiento_contrato",
+          "target": "contraparte"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_cesion",
+      "steps": [
+        {
+          "ref": "notificar_familia"
+        },
+        {
+          "ref": "notificar_asamblea"
+        },
+        {
+          "ref": "ceder_derechos"
+        },
+        {
+          "ref": "pagar_precio"
+        },
+        {
+          "description": "ratificar_notario"
+        },
+        {
+          "description": "avisar_comisariado"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Cesiones/Cesión ejidal (Legislación Código Civil Guerrero)/TMX_1408405_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cesiones/Cesión ejidal (Legislación Código Civil Guerrero)/TMX_1408405_es.txt"
+  }
+}

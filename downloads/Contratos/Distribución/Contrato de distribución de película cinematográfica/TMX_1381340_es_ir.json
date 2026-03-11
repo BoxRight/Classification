@@ -1,0 +1,156 @@
+{
+  "law": "Contrato de distribución de película cinematográfica",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Ley Federal de Derechos de Autor"
+  ],
+  "parties": [
+    {
+      "id": "producer",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "distributor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "film",
+      "type": "service"
+    },
+    {
+      "id": "minimum_guaranteed",
+      "type": "money"
+    },
+    {
+      "id": "distribution_commission",
+      "type": "money"
+    },
+    {
+      "id": "net_income",
+      "type": "money"
+    },
+    {
+      "id": "film_materials",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "film_rights",
+      "subject": "producer",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "distribution_contract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "producer",
+        "object": "film_materials",
+        "target": "distributor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "distributor",
+        "object": "minimum_guaranteed",
+        "target": "producer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "producer",
+        "object": "net_income",
+        "target": "distributor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rights_assignment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "distribution_contract"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "commercial_exploitation_rights",
+        "subject": "distributor"
+      }
+    },
+    {
+      "id": "cinema_commission_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "distribution_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "distributor",
+          "object": "distribution_commission",
+          "target": "producer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "material_delivery",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "producer",
+            "object": "film_materials",
+            "target": "distributor"
+          }
+        }
+      ]
+    },
+    {
+      "name": "payment_process",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "distributor",
+            "object": "minimum_guaranteed",
+            "target": "producer"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Distribución/Contrato de distribución de película cinematográfica/TMX_1381340_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Distribución/Contrato de distribución de película cinematográfica/TMX_1381340_es.txt"
+  }
+}

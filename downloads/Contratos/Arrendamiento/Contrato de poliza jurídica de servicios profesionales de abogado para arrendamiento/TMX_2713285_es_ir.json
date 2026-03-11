@@ -1,0 +1,177 @@
+{
+  "law": "Contrato de poliza jurídica de servicios profesionales de abogado para arrendamiento",
+  "authority": "private",
+  "enacted": "2024-07-18",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2606, 2607, 2608"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "lawyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "lease_contract",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "lawyer_authorization",
+      "subject": "lawyer",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "property_ownership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "lease_relation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "tax_compliance",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "professional_credentials",
+      "subject": "lawyer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "lawyer",
+        "object": "legal_services",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "professional_fees",
+        "target": "lawyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "lawyer",
+        "object": "legal_services",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "lease_contract",
+        "target": "lawyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "policy_activation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "written_notification"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "lawyer",
+          "object": "legal_services",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "written_notice"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "lease_contract",
+          "target": "lawyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "policy_activation_procedure",
+      "steps": [
+        {
+          "description": "landlord_notifies_lawyer_in_writing"
+        },
+        {
+          "description": "landlord_provides_documentation"
+        },
+        {
+          "description": "initial_meeting_coordination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de poliza jurídica de servicios profesionales de abogado para arrendamiento/TMX_2713285_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de poliza jurídica de servicios profesionales de abogado para arrendamiento/TMX_2713285_es.txt"
+  }
+}

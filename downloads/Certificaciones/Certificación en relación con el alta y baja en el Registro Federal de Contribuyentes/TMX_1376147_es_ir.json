@@ -1,0 +1,243 @@
+{
+  "law": "Código Fiscal de la Federación",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [
+    "Artículo 27 del Código Fiscal de la Federación"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "grantors",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tax_authorities",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "society",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "registration_request",
+      "type": "service"
+    },
+    {
+      "id": "liquidation_notice",
+      "type": "service"
+    },
+    {
+      "id": "cancellation_notice",
+      "type": "service"
+    },
+    {
+      "id": "official_notice",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "constitution_deed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "merger_deed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "spin_off_deed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "liquidation_deed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "deed_signature_date",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "one_month_period",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "registration_request",
+        "target": "grantors"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "grantors",
+        "object": "registration_request",
+        "target": "tax_authorities"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "grantors",
+        "object": "liquidation_notice",
+        "target": "tax_authorities"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "grantors",
+        "object": "cancellation_notice",
+        "target": "tax_authorities"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "constitution_certification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "constitution_deed"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "grantors",
+          "object": "registration_request",
+          "target": "tax_authorities"
+        }
+      }
+    },
+    {
+      "id": "liquidation_certification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "liquidation_deed"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "grantors",
+          "object": "liquidation_notice",
+          "target": "tax_authorities"
+        }
+      }
+    },
+    {
+      "id": "cancellation_certification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "liquidation_deed"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "grantors",
+          "object": "cancellation_notice",
+          "target": "tax_authorities"
+        }
+      }
+    },
+    {
+      "id": "notary_notice_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "grantors",
+          "object": "registration_request",
+          "target": "tax_authorities"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "official_notice",
+          "target": "tax_authorities"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "society_constitution_procedure",
+      "steps": [
+        {
+          "description": "Execute constitution deed"
+        },
+        {
+          "description": "Present registration request within one month"
+        },
+        {
+          "description": "Notary verifies compliance or issues notice"
+        }
+      ]
+    },
+    {
+      "name": "society_liquidation_procedure",
+      "steps": [
+        {
+          "description": "Execute liquidation deed"
+        },
+        {
+          "description": "Present liquidation notice within one month"
+        },
+        {
+          "description": "Present cancellation notice within one month"
+        },
+        {
+          "description": "Notary verifies compliance or issues notice"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación en relación con el alta y baja en el Registro Federal de Contribuyentes/TMX_1376147_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación en relación con el alta y baja en el Registro Federal de Contribuyentes/TMX_1376147_es.txt"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "law": "Auto que fija término para contestar la demanda en juicio de usucapión TMX1.396.840",
+  "authority": "judicial",
+  "enacted": "2024-01-11",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_notifier",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "usucapion_lawsuit",
+      "type": "service"
+    },
+    {
+      "id": "answer_to_lawsuit",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_usucapion_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "usucapion_lawsuit",
+      "target": "civil_judge"
+    },
+    {
+      "id": "admit_lawsuit",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "usucapion_lawsuit",
+      "target": "plaintiff"
+    },
+    {
+      "id": "serve_summons",
+      "type": "simple",
+      "actor": "court_notifier",
+      "object": "usucapion_lawsuit",
+      "target": "defendant"
+    },
+    {
+      "id": "answer_lawsuit",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "answer_to_lawsuit",
+      "target": "civil_judge"
+    },
+    {
+      "id": "fail_to_answer",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "answer_to_lawsuit",
+      "target": "civil_judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LawsuitAdmitted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "SummonsServed",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "answer_to_lawsuit",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "admission_rule",
+      "conditions": [
+        {
+          "ref": "file_usucapion_lawsuit"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "LawsuitAdmitted"
+      }
+    },
+    {
+      "id": "service_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LawsuitAdmitted"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "serve_summons"
+        }
+      }
+    },
+    {
+      "id": "presumed_confession_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "SummonsServed"
+        },
+        {
+          "ref": "fail_to_answer"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "PresumedConfession",
+        "subject": "defendant"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "usucapion_procedure",
+      "steps": [
+        {
+          "ref": "file_usucapion_lawsuit"
+        },
+        {
+          "ref": "admit_lawsuit"
+        },
+        {
+          "ref": "serve_summons"
+        },
+        {
+          "ref": "answer_lawsuit"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Auto que fija término para contestar la demanda en juicio de usucapión/TMX_1396840_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Auto que fija término para contestar la demanda en juicio de usucapión/TMX_1396840_es.txt"
+  }
+}

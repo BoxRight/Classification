@@ -1,0 +1,134 @@
+{
+  "law": "Contestación de demanda de terminación de contrato de arrendamiento de local comercial",
+  "authority": "judicial",
+  "enacted": "2024-01-23",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_lease",
+      "type": "service"
+    },
+    {
+      "id": "rent_payments",
+      "type": "money"
+    },
+    {
+      "id": "commercial_property",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CurrentRentPayments",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "commercial_lease",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_current_defense",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CurrentRentPayments",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "commercial_lease",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "embargo_opposition",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CurrentRentPayments",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "commercial_property",
+          "target": "court"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination_defense",
+      "steps": [
+        {
+          "description": "Contest lease termination demand"
+        },
+        {
+          "description": "Oppose embargo on property"
+        },
+        {
+          "description": "Assert payment exception"
+        },
+        {
+          "description": "Assert lack of standing exception"
+        },
+        {
+          "description": "Present evidence of current payments"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial sin/TMX_1360815_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial sin/TMX_1360815_es.txt"
+  }
+}

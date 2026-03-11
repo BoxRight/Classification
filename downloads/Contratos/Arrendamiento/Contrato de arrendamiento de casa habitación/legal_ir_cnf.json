@@ -1,0 +1,420 @@
+[
+  {
+    "metadata": {
+      "contract_type": "Arrendamiento",
+      "file_name": "TMX_1120572_es.txt",
+      "classification": {
+        "obligations": "Bilateral",
+        "economic": "Oneroso",
+        "perfection": "Formal",
+        "execution": "Sucesivo",
+        "dependence": "Principal",
+        "certainty": "Conmutativo"
+      }
+    },
+    "roles": {
+      "role_0": "Person",
+      "role_1": "Person",
+      "role_2": "Person"
+    },
+    "objects": {
+      "inmueble": {
+        "type": "Property",
+        "attributes": {
+          "purpose": "habitación"
+        }
+      },
+      "renta_mensual": {
+        "type": "Money",
+        "attributes": {}
+      },
+      "plazo": {
+        "type": "Duration",
+        "attributes": {}
+      },
+      "deposito": {
+        "type": "Money",
+        "attributes": {
+          "purpose": "garantía"
+        }
+      }
+    },
+    "behaviors": {
+      "b_0": {
+        "category": "fact",
+        "signature": [
+          "role_0"
+        ],
+        "description": "- DECLARA \"EL ARRENDADOR\":  a) Que cuenta con la capacidad jurídica suficiente y suficiente para celebrar el presente contrato.  b) Que es propietario..."
+      },
+      "b_1": {
+        "category": "transfer",
+        "signature": [
+          "role_1",
+          "objeto",
+          "role_0"
+        ],
+        "description": "P: ____________________.  c)Que para efectos de este contrato señala como su domicilio para recibir y oir toda clase de notificaciones el ubicado en _..."
+      },
+      "b_2": {
+        "category": "fact",
+        "signature": [
+          "role_0"
+        ],
+        "description": "- DECLARA \"EL ARRENDATARIO\":  a) Que tiene las facultades suficientes y bastantes para obligarse en términos del presente instrumento...."
+      },
+      "b_3": {
+        "category": "fact",
+        "signature": [
+          "role_0"
+        ],
+        "description": "- DECLARA \"EL FIADOR\":  Ser una persona fisica, mayor de edad y con capacidad económica para fungir en el presente contrato como fiador por \"EL ARREND..."
+      },
+      "b_4": {
+        "category": "fact",
+        "signature": [
+          "role_0"
+        ],
+        "description": "- DECLARAN LAS PARTES  a) Que en el presente contrato no existe dolo, error, mala fe o cualquier otro vicio de la voluntad, por lo que expresamente re..."
+      },
+      "b_5": {
+        "category": "transfer",
+        "signature": [
+          "role_1",
+          "objeto",
+          "role_0"
+        ],
+        "description": "- El arrendatario pagará al arrendador o a quien sus derechos represente, la cantidad de: $____________________ (____________________) por el arrendam..."
+      },
+      "b_6": {
+        "category": "transfer",
+        "signature": [
+          "role_1",
+          "objeto",
+          "role_0"
+        ],
+        "description": "- Convienen expresamente el arrendatario ____________________ que todo mes de arrendamiento le es forzoso y que lo pagará íntegro aun cuando únicament..."
+      },
+      "b_7": {
+        "category": "prohibition",
+        "signature": [
+          "role_1"
+        ],
+        "description": "- Queda expresamente prohibido traspasar o subarrendar todo o parte del inmueble arrendado y en caso de hacerlo será con permiso y por escrito del arr..."
+      },
+      "b_8": {
+        "category": "fact",
+        "signature": [
+          "role_0"
+        ],
+        "description": "- El arrendatario declara haber recibido el inmueble ____________________ en perfecto estado, para servir como ____________________ de conformidad con..."
+      },
+      "b_9": {
+        "category": "use",
+        "signature": [
+          "role_1",
+          "inmueble"
+        ],
+        "description": "- El arrendatario hará uso del inmueble únicamente para habitación y si infringiere esta cláusula se dará por rescindido el contrato...."
+      },
+      "b_10": {
+        "category": "prohibition",
+        "signature": [
+          "role_1"
+        ],
+        "description": "- El inquilino no podrá retener ni descontar de la renta cantidad alguna por concepto de mejoras o reparaciones, aunque las hubiere hecho por orden de..."
+      },
+      "b_11": {
+        "category": "prohibition",
+        "signature": [
+          "role_1"
+        ],
+        "description": "- No podrá tener substancias corrosivas, materias inflamables o peligrosas en ____________________ que arrienda...."
+      },
+      "b_12": {
+        "category": "transfer",
+        "signature": [
+          "role_1",
+          "objeto",
+          "role_0"
+        ],
+        "description": "- El arrendatario recibe el inmueble con todo el servicio sanitario en perfecto estado y se compromete a conservarlo en ese mismo estado siendo por su..."
+      },
+      "b_13": {
+        "category": "transfer",
+        "signature": [
+          "role_1",
+          "objeto",
+          "role_0"
+        ],
+        "description": "- Para garantizar el cumplimiento de este contrato entregará el inquilino la cantidad de $____________________ (____________________) la cual se devol..."
+      },
+      "b_14": {
+        "category": "fact",
+        "signature": [
+          "role_0"
+        ],
+        "description": "- Firma este contrato ____________________ como fiador solidario del inquilino y declara ser propietario de ____________________ acreditándolo con: __..."
+      },
+      "b_15": {
+        "category": "termination",
+        "signature": [
+          "role_0",
+          "role_1"
+        ],
+        "description": "las partes contratantes, establecen que cuando el contrato de arrendamiento se haya celebrado por tiempo determinado, concluya el día prefijado sin ne..."
+      }
+    },
+    "normative_clauses": [
+      {
+        "id": "clause_0",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "behavior",
+            "ref": "b_0"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- DECLARA \"EL ARRENDADOR\":  a) Que cuenta con la capacidad jurídica suficiente y suficiente para cel"
+      },
+      {
+        "id": "clause_1",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_1",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "P: ____________________.  c)Que para efectos de este contrato señala como su domicilio para recibir "
+      },
+      {
+        "id": "clause_2",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "behavior",
+            "ref": "b_2"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- DECLARA \"EL ARRENDATARIO\":  a) Que tiene las facultades suficientes y bastantes para obligarse en "
+      },
+      {
+        "id": "clause_3",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "behavior",
+            "ref": "b_3"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- DECLARA \"EL FIADOR\":  Ser una persona fisica, mayor de edad y con capacidad económica para fungir "
+      },
+      {
+        "id": "clause_4",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "behavior",
+            "ref": "b_4"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- DECLARAN LAS PARTES  a) Que en el presente contrato no existe dolo, error, mala fe o cualquier otr"
+      },
+      {
+        "id": "clause_5",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_5",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- El arrendatario pagará al arrendador o a quien sus derechos represente, la cantidad de: $_________"
+      },
+      {
+        "id": "clause_6",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_6",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- Convienen expresamente el arrendatario ____________________ que todo mes de arrendamiento le es fo"
+      },
+      {
+        "id": "clause_7",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_7",
+            "deontic_type": "forbid"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- Queda expresamente prohibido traspasar o subarrendar todo o parte del inmueble arrendado y en caso"
+      },
+      {
+        "id": "clause_8",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "behavior",
+            "ref": "b_8"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- El arrendatario declara haber recibido el inmueble ____________________ en perfecto estado, para s"
+      },
+      {
+        "id": "clause_9",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_10",
+            "deontic_type": "forbid"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- El inquilino no podrá retener ni descontar de la renta cantidad alguna por concepto de mejoras o r"
+      },
+      {
+        "id": "clause_10",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_11",
+            "deontic_type": "forbid"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- No podrá tener substancias corrosivas, materias inflamables o peligrosas en ____________________ q"
+      },
+      {
+        "id": "clause_11",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_12",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- El arrendatario recibe el inmueble con todo el servicio sanitario en perfecto estado y se comprome"
+      },
+      {
+        "id": "clause_12",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "deontic",
+            "ref": "b_13",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- Para garantizar el cumplimiento de este contrato entregará el inquilino la cantidad de $__________"
+      },
+      {
+        "id": "clause_13",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "behavior",
+            "ref": "b_14"
+          }
+        ],
+        "clause_arity": 1,
+        "source_clause": "- Firma este contrato ____________________ como fiador solidario del inquilino y declara ser propiet"
+      },
+      {
+        "id": "clause_14",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "neg_behavior",
+            "ref": "b_4"
+          },
+          {
+            "kind": "deontic",
+            "ref": "b_5",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 2,
+        "source_clause": "Contrato vigente → - El arrendatario pagará al arrendador o a quien sus derechos represente, la can"
+      },
+      {
+        "id": "clause_15",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "neg_behavior",
+            "ref": "b_4"
+          },
+          {
+            "kind": "deontic",
+            "ref": "b_6",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 2,
+        "source_clause": "Contrato vigente → - Convienen expresamente el arrendatario ____________________ que todo mes de ar"
+      },
+      {
+        "id": "clause_16",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "neg_behavior",
+            "ref": "b_4"
+          },
+          {
+            "kind": "deontic",
+            "ref": "b_9",
+            "deontic_type": "oblig"
+          }
+        ],
+        "clause_arity": 2,
+        "source_clause": "Contrato vigente → - El arrendatario hará uso del inmueble únicamente para habitación y si infringi"
+      },
+      {
+        "id": "clause_17",
+        "form": "CNF",
+        "literals": [
+          {
+            "kind": "neg_behavior",
+            "ref": "b_incumplimiento"
+          },
+          {
+            "kind": "neg_behavior",
+            "ref": "b_4"
+          },
+          {
+            "kind": "behavior",
+            "ref": "b_15"
+          }
+        ],
+        "clause_arity": 3,
+        "source_clause": "las partes contratantes, establecen que cuando el contrato de arrendamiento se haya celebrado por ti"
+      }
+    ],
+    "templates": [],
+    "principles": []
+  }
+]

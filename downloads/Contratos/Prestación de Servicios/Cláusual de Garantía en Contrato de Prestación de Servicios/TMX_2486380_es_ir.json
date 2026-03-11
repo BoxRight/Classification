@@ -1,0 +1,223 @@
+{
+  "law": "Cláusula de Garantía en Contrato de Prestación de Servicios",
+  "authority": "private",
+  "enacted": "2024-01-17",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "products",
+      "type": "movable"
+    },
+    {
+      "id": "technical_support_services",
+      "type": "service"
+    },
+    {
+      "id": "training_services",
+      "type": "service"
+    },
+    {
+      "id": "technological_infrastructure",
+      "type": "service"
+    },
+    {
+      "id": "product_price",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "guarantee_products",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "products",
+      "target": "client"
+    },
+    {
+      "id": "repair_product",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "products",
+      "target": "client"
+    },
+    {
+      "id": "replace_product",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "products",
+      "target": "client"
+    },
+    {
+      "id": "return_price",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "product_price",
+      "target": "client"
+    },
+    {
+      "id": "provide_technical_support",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "technical_support_services",
+      "target": "client"
+    },
+    {
+      "id": "provide_infrastructure",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "technological_infrastructure",
+      "target": "client"
+    },
+    {
+      "id": "provide_training",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "training_services",
+      "target": "client"
+    },
+    {
+      "id": "notify_defects",
+      "type": "simple",
+      "actor": "client",
+      "object": "products",
+      "target": "service_provider"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "ContractSignature",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "ProductDelivery",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "products",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "technical_support_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "technological_infrastructure",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "training_services",
+        "target": "client"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "defect_remedy_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "products",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "support_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "type": "date",
+          "name": "ContractSignature"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "service_provider",
+          "object": "technical_support_services",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "acceptance_by_silence_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "ProductDelivery"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ProductAcceptance"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Cláusual de Garantía en Contrato de Prestación de Servicios/TMX_2486380_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Cláusual de Garantía en Contrato de Prestación de Servicios/TMX_2486380_es.txt"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "law": "Demanda Oral de Filiación",
+  "authority": "judicial",
+  "enacted": "2024-01-24",
+  "imports": [
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Convención sobre los Derechos del Niño",
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff_father",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_mother",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "minor_child",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "paternity_recognition",
+      "type": "service"
+    },
+    {
+      "id": "birth_certificate_registration",
+      "type": "service"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "recognize_paternity",
+      "type": "simple",
+      "actor": "plaintiff_father",
+      "object": "paternity_recognition",
+      "target": "minor_child"
+    },
+    {
+      "id": "register_birth_certificate",
+      "type": "simple",
+      "actor": "defendant_mother",
+      "object": "birth_certificate_registration",
+      "target": "minor_child"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant_mother",
+      "object": "legal_costs",
+      "target": "plaintiff_father"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "paternity_established",
+      "subject": "plaintiff_father",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "parental_rights",
+      "subject": "plaintiff_father",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff_father",
+        "object": "paternity_recognition",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_mother",
+        "object": "birth_certificate_registration",
+        "target": "minor_child"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_mother",
+        "object": "legal_costs",
+        "target": "plaintiff_father"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "paternity_recognition_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "biological_relationship_proven"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "paternity_established",
+        "subject": "plaintiff_father"
+      }
+    },
+    {
+      "id": "birth_certificate_update_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "paternity_established",
+          "subject": "plaintiff_father"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant_mother",
+          "object": "birth_certificate_registration",
+          "target": "minor_child"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "paternity_recognition_process",
+      "steps": [
+        {
+          "description": "File initial demand"
+        },
+        {
+          "description": "Present evidence including DNA test"
+        },
+        {
+          "description": "Summon defendant"
+        },
+        {
+          "description": "Court hearing"
+        },
+        {
+          "description": "Sentence ordering paternity recognition"
+        },
+        {
+          "description": "Civil registry annotation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda Oral de Filiación/TMX_2641995_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda Oral de Filiación/TMX_2641995_es.txt"
+  }
+}

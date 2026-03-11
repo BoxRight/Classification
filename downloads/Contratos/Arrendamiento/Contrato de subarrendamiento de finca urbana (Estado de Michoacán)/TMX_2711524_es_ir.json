@@ -1,0 +1,310 @@
+{
+  "law": "Contrato de subarrendamiento de finca urbana (Estado de Michoacán)",
+  "authority": "private",
+  "enacted": "2024-07-12",
+  "imports": [
+    "Artículos 1641, 1642, 1643 del Código Civil para el Estado de Michoacán de Ocampo"
+  ],
+  "parties": [
+    {
+      "id": "sublandlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "subtenant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "urban_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    },
+    {
+      "id": "utility_services",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "subtenant",
+      "object": "monthly_rent",
+      "target": "sublandlord"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "sublandlord",
+      "object": "urban_property",
+      "target": "subtenant"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "subtenant",
+      "object": "urban_property",
+      "target": "sublandlord"
+    },
+    {
+      "id": "pay_utilities",
+      "type": "simple",
+      "actor": "subtenant",
+      "object": "utility_services",
+      "target": null
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "subtenant",
+      "object": null,
+      "target": "sublandlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SubleaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyPossession",
+      "subject": "sublandlord",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalCapacity",
+      "subject": "sublandlord",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalCapacity",
+      "subject": "subtenant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "OwnerAuthorization",
+      "subject": "sublandlord",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "GuarantorProperty",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subtenant",
+        "object": "monthly_rent",
+        "target": "sublandlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subtenant",
+        "object": "urban_property",
+        "target": "sublandlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subtenant",
+        "object": "utility_services",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "subtenant",
+        "object": "urban_property",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "guarantor",
+        "object": "monthly_rent",
+        "target": "sublandlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SubleaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subtenant",
+          "object": "monthly_rent",
+          "target": "sublandlord"
+        }
+      }
+    },
+    {
+      "id": "late_payment_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "subtenant",
+          "object": "monthly_rent",
+          "target": "sublandlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "subtenant",
+          "object": "penalty_payment",
+          "target": "sublandlord"
+        }
+      }
+    },
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "subtenant",
+          "object": null,
+          "target": "sublandlord"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "guarantor_liability_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SubleaseRelation"
+        },
+        {
+          "type": "counter",
+          "actor": "subtenant",
+          "object": "monthly_rent",
+          "target": "sublandlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "sublandlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "sublandlord",
+            "object": "urban_property",
+            "target": "subtenant"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "subtenant",
+            "object": "deposit",
+            "target": "sublandlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "subtenant",
+            "object": "monthly_rent",
+            "target": "sublandlord"
+          }
+        }
+      ]
+    },
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "subtenant",
+            "object": "urban_property",
+            "target": "sublandlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "sublandlord",
+            "object": "deposit",
+            "target": "subtenant"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de subarrendamiento de finca urbana (Estado de Michoacán)/TMX_2711524_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de subarrendamiento de finca urbana (Estado de Michoacán)/TMX_2711524_es.txt"
+  }
+}

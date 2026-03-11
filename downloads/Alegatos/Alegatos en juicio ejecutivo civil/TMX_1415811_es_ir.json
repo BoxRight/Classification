@@ -1,0 +1,115 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "alegatos",
+      "type": "service"
+    },
+    {
+      "id": "prestaciones_reclamadas",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "producir_alegatos",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "alegatos",
+      "target": "judge"
+    },
+    {
+      "id": "pago_prestaciones",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "prestaciones_reclamadas",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PersonalidadAcreditada",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "JuicioEjecutivoCivil",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "alegatos",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "alegatos_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JuicioEjecutivoCivil"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "alegatos",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "presentacion_alegatos",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "alegatos",
+            "target": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Alegatos/Alegatos en juicio ejecutivo civil/TMX_1415811_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Alegatos/Alegatos en juicio ejecutivo civil/TMX_1415811_es.txt"
+  }
+}

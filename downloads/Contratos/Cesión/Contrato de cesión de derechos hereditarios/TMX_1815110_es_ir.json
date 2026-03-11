@@ -1,0 +1,168 @@
+{
+  "law": "Contrato de cesión de derechos hereditarios",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículo 1292 del Código Civil de la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "derechos_hereditarios",
+      "type": "service"
+    },
+    {
+      "id": "precio_cesion",
+      "type": "money"
+    },
+    {
+      "id": "gastos_herencia",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transmitir_derechos",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_hereditarios",
+      "target": "cesionario"
+    },
+    {
+      "id": "pagar_precio",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "precio_cesion",
+      "target": "cedente"
+    },
+    {
+      "id": "responder_calidad_heredero",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_hereditarios",
+      "target": "cesionario"
+    },
+    {
+      "id": "pagar_gastos",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "gastos_herencia",
+      "target": "cedente"
+    },
+    {
+      "id": "devolver_cantidad",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "precio_cesion",
+      "target": "cesionario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "CalidadHeredero",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DerechoTantoConcedido",
+      "subject": "cedente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_hereditarios",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "precio_cesion",
+        "target": "cedente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_hereditarios",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "gastos_herencia",
+        "target": "cedente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "devolucion_nulidad",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ContratoDeclaradoNulo"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cedente",
+          "object": "precio_cesion",
+          "target": "cesionario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "ratificacion_judicial",
+      "steps": [
+        {
+          "description": "Acudir ante juez de sucesión"
+        },
+        {
+          "description": "Presentar contrato"
+        },
+        {
+          "description": "Ratificar contrato"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Contrato de cesión de derechos hereditarios/TMX_1815110_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Contrato de cesión de derechos hereditarios/TMX_1815110_es.txt"
+  }
+}

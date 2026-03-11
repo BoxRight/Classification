@@ -1,0 +1,191 @@
+{
+  "law": "Escrito Incidental de Nulidad de Cómputo para Desocupación de Inmueble",
+  "authority": "judicial",
+  "enacted": "2024-04-16",
+  "imports": [
+    "Artículo 166 del Código Nacional de Procedimientos Civiles y Familiares",
+    "Código Civil para el estado"
+  ],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "rental_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "computation_period",
+      "type": "service"
+    },
+    {
+      "id": "execution_order",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "property",
+      "target": null
+    },
+    {
+      "id": "personal_notification",
+      "type": "simple",
+      "actor": "court_secretary",
+      "object": "execution_order",
+      "target": "defendant"
+    },
+    {
+      "id": "compute_period",
+      "type": "simple",
+      "actor": "court_secretary",
+      "object": "computation_period",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "date",
+      "name": "sentence_final_date",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "definitive_sentence_res_judicata",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "property_vacation_obligation",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_secretary",
+        "object": "execution_order",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "property",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "computation_validity_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "court_secretary",
+          "object": "execution_order",
+          "target": "defendant"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "valid_computation_period"
+      }
+    },
+    {
+      "id": "nullity_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "court_secretary",
+          "object": "execution_order",
+          "target": "defendant"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "null_computation"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullity_incident_procedure",
+      "steps": [
+        {
+          "description": "Challenge computation calculation"
+        },
+        {
+          "description": "Prove lack of personal notification"
+        },
+        {
+          "description": "Request nullity declaration"
+        },
+        {
+          "description": "Request computation reposition"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "computation_nullity_scenario",
+      "timeline": [
+        {
+          "event": "definitive_sentence_res_judicata",
+          "condition": {
+            "type": "certification",
+            "name": "definitive_sentence_res_judicata"
+          }
+        },
+        {
+          "event": "secretary_computes_vacation_period",
+          "condition": null
+        },
+        {
+          "event": "lack_of_personal_notification",
+          "condition": {
+            "type": "counter",
+            "actor": "court_secretary",
+            "object": "execution_order",
+            "target": "defendant"
+          }
+        },
+        {
+          "event": "nullity_incident_filing",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Nulidad de Cómputo para Desocupación de Inmueble/TMX_1150336_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Nulidad de Cómputo para Desocupación de Inmueble/TMX_1150336_es.txt"
+  }
+}

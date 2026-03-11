@@ -1,0 +1,338 @@
+{
+  "law": "Acta constitutiva de asociación civil wellness",
+  "authority": "private",
+  "enacted": "2024-09-07",
+  "imports": [
+    "Código Civil para el Distrito Federal, artículos 2554, 2587, 2670-2676"
+  ],
+  "parties": [
+    {
+      "id": "association",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "associates",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "general_assembly",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "board_of_directors",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "director",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "liquidators",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "wellness_programs",
+      "type": "service"
+    },
+    {
+      "id": "sports_activities",
+      "type": "service"
+    },
+    {
+      "id": "nutrition_services",
+      "type": "service"
+    },
+    {
+      "id": "training_programs",
+      "type": "service"
+    },
+    {
+      "id": "environmental_care",
+      "type": "service"
+    },
+    {
+      "id": "real_estate_assets",
+      "type": "nonmovable"
+    },
+    {
+      "id": "movable_assets",
+      "type": "movable"
+    },
+    {
+      "id": "contributions",
+      "type": "money"
+    },
+    {
+      "id": "donations",
+      "type": "money"
+    },
+    {
+      "id": "fees",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "promote_wellness",
+      "type": "simple",
+      "actor": "association",
+      "object": "wellness_programs",
+      "target": "associates"
+    },
+    {
+      "id": "provide_sports",
+      "type": "simple",
+      "actor": "association",
+      "object": "sports_activities",
+      "target": "associates"
+    },
+    {
+      "id": "offer_nutrition",
+      "type": "simple",
+      "actor": "association",
+      "object": "nutrition_services",
+      "target": "associates"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "associates",
+      "object": "fees",
+      "target": "association"
+    },
+    {
+      "id": "attend_assemblies",
+      "type": "simple",
+      "actor": "associates",
+      "object": "attendance",
+      "target": "general_assembly"
+    },
+    {
+      "id": "fraud_act",
+      "type": "counter",
+      "actor": "associates",
+      "object": "fraud",
+      "target": "association"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "AssociationStatus",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "AssociationPatrimony",
+      "subject": "association",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "association",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "IndefiniteDuration",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "association",
+        "object": "wellness_programs",
+        "target": "associates"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "fees",
+        "target": "association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "attendance",
+        "target": "general_assembly"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "patrimony_distribution",
+        "target": "associates"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "contribution_recovery",
+        "target": "associates"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "exclusion_for_fraud",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "associates",
+          "object": "fraud",
+          "target": "association"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ExclusionFromAssociation",
+        "subject": "associates"
+      }
+    },
+    {
+      "id": "exclusion_for_incapacity",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialIncapacity",
+          "subject": "associates"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ExclusionFromAssociation",
+        "subject": "associates"
+      }
+    },
+    {
+      "id": "dissolution_by_assembly",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "general_assembly",
+          "object": "dissolution_agreement",
+          "target": "association"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "AssociationDissolution"
+      }
+    },
+    {
+      "id": "liquidation_process",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "AssociationDissolution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "liquidators",
+          "object": "liquidation_process",
+          "target": "association"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "assembly_convocation",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "director",
+            "object": "convocation_notice",
+            "target": "associates"
+          }
+        },
+        {
+          "description": "Ten days advance notice required"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "associates",
+            "object": "attendance",
+            "target": "general_assembly"
+          }
+        }
+      ]
+    },
+    {
+      "name": "liquidation_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "general_assembly",
+            "object": "liquidator_appointment",
+            "target": "liquidators"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "liquidators",
+            "object": "debt_payment",
+            "target": "creditors"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "liquidators",
+            "object": "asset_distribution",
+            "target": "similar_organizations"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "liquidators",
+            "object": "final_report",
+            "target": "general_assembly"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de asociación civil wellness/TMX_2725998_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de asociación civil wellness/TMX_2725998_es.txt"
+  }
+}

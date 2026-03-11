@@ -1,0 +1,107 @@
+{
+  "law": "Demanda de Disolución de Copropiedad",
+  "authority": "judicial",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Artículos 938, 976, 977, 978 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiffs",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased_owner",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "plaintiff_portion",
+      "type": "nonmovable"
+    },
+    {
+      "id": "defendant_portion",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "copropiedad",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "inheritance_rights",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiffs",
+        "object": "property",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "copropiedad_dissolution_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "copropiedad"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiffs",
+          "object": "property",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "dissolution_procedure",
+      "steps": [
+        {
+          "description": "judicial declaration of dissolution"
+        },
+        {
+          "description": "division of common property"
+        },
+        {
+          "description": "material and legal delivery of portions"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Disolución de Copropiedad/TMX_942520_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Disolución de Copropiedad/TMX_942520_es.txt"
+  }
+}

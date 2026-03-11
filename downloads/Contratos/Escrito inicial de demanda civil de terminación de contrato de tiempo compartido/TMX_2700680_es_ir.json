@@ -1,0 +1,244 @@
+{
+  "law": "Escrito inicial de demanda civil de terminación de contrato de tiempo compartido",
+  "authority": "judicial",
+  "enacted": "2024-06-12",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "timeshare_contract",
+      "type": "service"
+    },
+    {
+      "id": "hosting_services",
+      "type": "service"
+    },
+    {
+      "id": "facility_use",
+      "type": "service"
+    },
+    {
+      "id": "initial_fee",
+      "type": "money"
+    },
+    {
+      "id": "monthly_payments",
+      "type": "money"
+    },
+    {
+      "id": "damages_compensation",
+      "type": "money"
+    },
+    {
+      "id": "costs_and_expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "celebrate_contract",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "timeshare_contract",
+      "target": "defendant"
+    },
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "hosting_services",
+      "target": "plaintiff"
+    },
+    {
+      "id": "unilateral_price_change",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "timeshare_contract",
+      "target": "plaintiff"
+    },
+    {
+      "id": "breach_offers",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "timeshare_contract",
+      "target": "plaintiff"
+    },
+    {
+      "id": "deficient_service",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "hosting_services",
+      "target": "plaintiff"
+    },
+    {
+      "id": "request_termination",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "timeshare_contract",
+      "target": "defendant"
+    },
+    {
+      "id": "deny_solution",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "timeshare_contract",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "TimeshareContractRelation",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "ContractualBreach",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "hosting_services",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "facility_use",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "timeshare_contract",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_breach_termination",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "TimeshareContractRelation"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "timeshare_contract",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "timeshare_contract",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "breach_compensation_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ContractualBreach",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "damages_compensation",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "restitution_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ContractualBreach",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "initial_fee",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_lawsuit",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "timeshare_contract",
+            "target": "defendant"
+          }
+        },
+        {
+          "description": "judicial_declaration_of_termination"
+        },
+        {
+          "description": "restitution_of_payments"
+        },
+        {
+          "description": "damages_compensation"
+        },
+        {
+          "description": "costs_and_expenses_payment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Escrito inicial de demanda civil de terminación de contrato de tiempo compartido/TMX_2700680_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Escrito inicial de demanda civil de terminación de contrato de tiempo compartido/TMX_2700680_es.txt"
+  }
+}

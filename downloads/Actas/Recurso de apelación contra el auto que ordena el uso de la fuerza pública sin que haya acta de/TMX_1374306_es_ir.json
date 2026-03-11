@@ -1,0 +1,135 @@
+{
+  "law": "Código de Procedimientos Civiles para la Ciudad de México",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "appellant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "rental_judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "first_instance_court",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "appeal_resource",
+      "type": "service"
+    },
+    {
+      "id": "public_force_order",
+      "type": "service"
+    },
+    {
+      "id": "definitive_sentence",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_appeal",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "appeal_resource",
+      "target": "rental_judge"
+    },
+    {
+      "id": "order_public_force",
+      "type": "simple",
+      "actor": "first_instance_court",
+      "object": "public_force_order",
+      "target": null
+    },
+    {
+      "id": "execute_sentence",
+      "type": "simple",
+      "actor": "first_instance_court",
+      "object": "definitive_sentence",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "absence_of_opposition_record",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "judicial_proceedings",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant",
+        "object": "appeal_resource",
+        "target": "rental_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "appeal_grounds_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "absence_of_opposition_record"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "first_instance_court",
+            "object": "public_force_order",
+            "target": null
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "appellant",
+          "object": "appeal_resource",
+          "target": "rental_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "appeal_procedure",
+      "steps": [
+        {
+          "ref": "file_appeal"
+        },
+        {
+          "description": "integrate_appeal_testimony_with_appealed_order"
+        },
+        {
+          "description": "secretary_certification_of_absence_of_opposition_record"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Recurso de apelación contra el auto que ordena el uso de la fuerza pública sin que haya acta de/TMX_1374306_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Recurso de apelación contra el auto que ordena el uso de la fuerza pública sin que haya acta de/TMX_1374306_es.txt"
+  }
+}

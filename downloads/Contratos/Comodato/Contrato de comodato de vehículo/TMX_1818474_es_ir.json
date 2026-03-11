@@ -1,0 +1,219 @@
+{
+  "law": "Contrato de comodato de vehículo",
+  "authority": "private",
+  "enacted": "2024-01-30",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "comodante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "comodatario",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "vehicle",
+      "type": "movable"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_vehicle",
+      "type": "simple",
+      "actor": "comodante",
+      "object": "vehicle",
+      "target": "comodatario"
+    },
+    {
+      "id": "receive_vehicle",
+      "type": "simple",
+      "actor": "comodatario",
+      "object": "vehicle",
+      "target": "comodante"
+    },
+    {
+      "id": "return_vehicle",
+      "type": "simple",
+      "actor": "comodatario",
+      "object": "vehicle",
+      "target": "comodante"
+    },
+    {
+      "id": "maintain_vehicle",
+      "type": "simple",
+      "actor": "comodatario",
+      "object": "vehicle",
+      "target": null
+    },
+    {
+      "id": "transfer_vehicle",
+      "type": "simple",
+      "actor": "comodatario",
+      "object": "vehicle",
+      "target": null
+    },
+    {
+      "id": "pay_penalty",
+      "type": "simple",
+      "actor": "comodatario",
+      "object": "penalty_amount",
+      "target": "comodante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ComodatoRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "VehicleOwnership",
+      "subject": "comodante",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodatario",
+        "object": "vehicle",
+        "target": "comodante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodatario",
+        "object": "vehicle",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comodatario",
+        "object": "vehicle",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ComodatoRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "deliver_vehicle"
+        }
+      }
+    },
+    {
+      "id": "return_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ComodatoRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "return_vehicle"
+        }
+      }
+    },
+    {
+      "id": "maintenance_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ComodatoRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "maintain_vehicle"
+        }
+      }
+    },
+    {
+      "id": "transfer_prohibition_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ComodatoRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "ref": "transfer_vehicle"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "comodatario",
+          "object": "vehicle",
+          "target": "comodante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_penalty"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "Written notice one day in advance"
+        },
+        {
+          "act": {
+            "ref": "return_vehicle"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Comodato/Contrato de comodato de vehículo/TMX_1818474_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Comodato/Contrato de comodato de vehículo/TMX_1818474_es.txt"
+  }
+}

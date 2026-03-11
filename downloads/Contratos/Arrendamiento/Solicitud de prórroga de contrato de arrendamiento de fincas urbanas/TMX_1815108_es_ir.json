@@ -1,0 +1,133 @@
+{
+  "law": "Solicitud de prórroga de contrato de arrendamiento de fincas urbanas",
+  "authority": "judicial",
+  "enacted": "2021-04-26",
+  "imports": [
+    "Código Civil para la Ciudad de México",
+    "Código de Procedimientos Civiles de la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "lease_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "LeaseRelation",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CurrentRentPayments",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalRequirementsCompliance",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "lease_contract",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_extension_right",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "LeaseRelation"
+        },
+        {
+          "type": "asset",
+          "name": "CurrentRentPayments"
+        },
+        {
+          "type": "certification",
+          "name": "LegalRequirementsCompliance"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "lease_contract",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_extension_procedure",
+      "steps": [
+        {
+          "description": "file_petition_for_lease_extension"
+        },
+        {
+          "description": "notify_landlord"
+        },
+        {
+          "description": "present_evidence_of_rent_payments"
+        },
+        {
+          "description": "attend_legal_hearing"
+        },
+        {
+          "description": "obtain_judicial_sentence"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Solicitud de prórroga de contrato de arrendamiento de fincas urbanas/TMX_1815108_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Solicitud de prórroga de contrato de arrendamiento de fincas urbanas/TMX_1815108_es.txt"
+  }
+}

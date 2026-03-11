@@ -1,0 +1,116 @@
+{
+  "law": "Memorándum General de la demanda para Autoridad Judicial",
+  "authority": "judicial",
+  "enacted": "2024-04-24",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "damages_compensation",
+      "type": "money"
+    },
+    {
+      "id": "judicial_declaration",
+      "type": "service"
+    },
+    {
+      "id": "precautionary_measures",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "legal_representation",
+      "subject": "legal_representative",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "litigation_case",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "damages_compensation",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "judicial_declaration",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "precautionary_measures",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [],
+  "procedures": [
+    {
+      "name": "judicial_memorandum_procedure",
+      "steps": [
+        {
+          "description": "Present claims summary"
+        },
+        {
+          "description": "Detail case facts"
+        },
+        {
+          "description": "Present evidence"
+        },
+        {
+          "description": "Highlight considerations for authority"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Memorándum General de la demanda para Autoridad Judicial/TMX_2675294_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Memorándum General de la demanda para Autoridad Judicial/TMX_2675294_es.txt"
+  }
+}

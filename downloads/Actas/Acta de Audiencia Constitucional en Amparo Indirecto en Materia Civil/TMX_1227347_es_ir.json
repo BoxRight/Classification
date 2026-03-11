@@ -1,0 +1,275 @@
+{
+  "law": "Acta de Audiencia Constitucional en Amparo Indirecto en Materia Civil",
+  "authority": "judicial",
+  "enacted": "2023-07-28",
+  "imports": [
+    "Artículos 66, 89 del Código de Procedimientos Civiles para el Distrito Federal",
+    "Artículo 27 de la Ley de Amparo",
+    "Artículos 103, 107 de la Constitución Política de los Estados Unidos Mexicanos"
+  ],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "complainant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "third_party_affected",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "complainant_attorney",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "third_party_attorney",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tribunal_superior_president",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "constitutional_hearing",
+      "type": "service"
+    },
+    {
+      "id": "documentary_evidence",
+      "type": "movable"
+    },
+    {
+      "id": "certified_copy",
+      "type": "movable"
+    },
+    {
+      "id": "judicial_file",
+      "type": "movable"
+    },
+    {
+      "id": "professional_license",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "open_hearing",
+      "type": "simple",
+      "actor": "judge",
+      "object": "constitutional_hearing",
+      "target": "complainant"
+    },
+    {
+      "id": "render_justified_report",
+      "type": "simple",
+      "actor": "tribunal_superior_president",
+      "object": "judicial_file",
+      "target": "judge"
+    },
+    {
+      "id": "offer_evidence",
+      "type": "simple",
+      "actor": "complainant_attorney",
+      "object": "documentary_evidence",
+      "target": "judge"
+    },
+    {
+      "id": "defer_hearing",
+      "type": "simple",
+      "actor": "complainant_attorney",
+      "object": "constitutional_hearing",
+      "target": "judge"
+    },
+    {
+      "id": "deny_deferment",
+      "type": "counter",
+      "actor": "judge",
+      "object": "constitutional_hearing",
+      "target": "complainant_attorney"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "professional_license_validity",
+      "subject": "complainant_attorney",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "professional_license_validity",
+      "subject": "third_party_attorney",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "amparo_proceeding",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "evidence_presentation_obligation",
+      "subject": "complainant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "complainant",
+        "object": "documentary_evidence",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "constitutional_hearing",
+        "target": "complainant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "evidence_admission_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "amparo_proceeding"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "complainant",
+          "object": "documentary_evidence",
+          "target": "judge"
+        }
+      }
+    },
+    {
+      "id": "deferment_denial_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "complainant_attorney",
+          "object": "certified_copy",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "constitutional_hearing",
+          "target": "complainant_attorney"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitutional_hearing_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "constitutional_hearing",
+            "target": "complainant"
+          }
+        },
+        {
+          "description": "secretary_reads_initial_brief"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tribunal_superior_president",
+            "object": "judicial_file",
+            "target": "judge"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "complainant_attorney",
+            "object": "documentary_evidence",
+            "target": "judge"
+          }
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "judge",
+            "object": "constitutional_hearing",
+            "target": "complainant_attorney"
+          }
+        },
+        {
+          "description": "conclude_hearing"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "amparo_hearing_scenario",
+      "timeline": [
+        {
+          "event": "hearing_opened",
+          "condition": null
+        },
+        {
+          "event": "evidence_offered",
+          "condition": {
+            "type": "asset",
+            "name": "amparo_proceeding"
+          }
+        },
+        {
+          "event": "deferment_requested",
+          "condition": {
+            "type": "liability",
+            "name": "missing_certified_copy",
+            "subject": "complainant_attorney"
+          }
+        },
+        {
+          "event": "deferment_denied",
+          "condition": {
+            "type": "certification",
+            "name": "untimely_request"
+          }
+        },
+        {
+          "event": "hearing_concluded",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Actas/Acta de Audiencia Constitucional en Amparo Indirecto en Materia Civil/TMX_1227347_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de Audiencia Constitucional en Amparo Indirecto en Materia Civil/TMX_1227347_es.txt"
+  }
+}

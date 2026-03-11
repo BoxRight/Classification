@@ -1,0 +1,97 @@
+{
+  "law": "Código Civil para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "coproperty_property",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "coproperty_relation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "coproperty_division_right",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "coproperty_relation"
+        },
+        {
+          "type": "capability",
+          "name": "comfortable_division"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "property_division",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "judicial_sale_alternative",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "coproperty_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "judicial_sale_request",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "coproperty_division_process",
+      "steps": [
+        {
+          "description": "judicial_declaration_dissolution"
+        },
+        {
+          "description": "property_division_determination"
+        },
+        {
+          "description": "material_juridical_delivery"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Contestación de la Demanda y Reconvención en Juicio Ordinario Civil. División/TMX_2689907_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Contestación de la Demanda y Reconvención en Juicio Ordinario Civil. División/TMX_2689907_es.txt"
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "law": "Contrato de prestación de servicios de administración de plaza comercial",
+  "authority": "private",
+  "enacted": "2024-07-23",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "administration",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "professional",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "commercial_plaza",
+      "type": "nonmovable"
+    },
+    {
+      "id": "administration_services",
+      "type": "service"
+    },
+    {
+      "id": "maintenance_fees",
+      "type": "money"
+    },
+    {
+      "id": "rental_income",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PlazaOwnership",
+      "subject": "administration",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalLicense",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "administration_services",
+        "target": "administration"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "administration",
+        "object": "professional_fees",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "maintenance_fees",
+        "target": "administration"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "rental_income",
+        "target": "administration"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "administration_services",
+          "target": "administration"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "administration",
+          "object": "professional_fees",
+          "target": "professional"
+        }
+      }
+    },
+    {
+      "id": "termination_for_breach_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "professional",
+          "object": "contractual_obligations",
+          "target": "administration",
+          "breach": true
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "administration",
+          "object": "contract_termination",
+          "target": "professional"
+        }
+      }
+    },
+    {
+      "id": "termination_for_nonpayment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "administration",
+          "object": "professional_fees",
+          "target": "professional"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "contract_termination",
+          "target": "administration"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "professional",
+          "object": "confidential_information",
+          "target": "third_parties"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "indemnification",
+          "target": "administration"
+        }
+      }
+    },
+    {
+      "id": "liability_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "professional",
+          "object": "damage",
+          "target": "administration",
+          "negligent": true
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "full_indemnification",
+          "target": "administration"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_procedure",
+      "steps": [
+        {
+          "description": "Written notification to breaching party"
+        },
+        {
+          "description": "30-day cure period"
+        },
+        {
+          "description": "Contract termination if breach persists"
+        }
+      ]
+    },
+    {
+      "name": "administration_service_procedure",
+      "steps": [
+        {
+          "description": "Manage common areas"
+        },
+        {
+          "description": "Coordinate maintenance"
+        },
+        {
+          "description": "Supervise personnel"
+        },
+        {
+          "description": "Collect rents"
+        },
+        {
+          "description": "Prepare financial reports"
+        },
+        {
+          "description": "Ensure regulatory compliance"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de plaza comercial/TMX_2713703_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de plaza comercial/TMX_2713703_es.txt"
+  }
+}

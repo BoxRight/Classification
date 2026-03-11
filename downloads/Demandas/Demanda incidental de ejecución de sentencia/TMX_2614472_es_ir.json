@@ -1,0 +1,176 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "monetary_payment",
+      "type": "money"
+    },
+    {
+      "id": "moratory_interests",
+      "type": "money"
+    },
+    {
+      "id": "court_costs",
+      "type": "money"
+    },
+    {
+      "id": "defendant_assets",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_judgment_amount",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "monetary_payment",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_interests",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "moratory_interests",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "court_costs",
+      "target": "plaintiff"
+    },
+    {
+      "id": "breach_agreement",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "monetary_payment",
+      "target": "plaintiff"
+    },
+    {
+      "id": "embargo_assets",
+      "type": "simple",
+      "actor": "judge",
+      "object": "defendant_assets",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "JudicialAgreement",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DefinitiveSentence",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PaymentObligation",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "monetary_payment",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "moratory_interests",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "court_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "execution_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialAgreement"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "defendant",
+            "object": "monetary_payment",
+            "target": "plaintiff"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "defendant_assets",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sentence_execution",
+      "steps": [
+        {
+          "description": "Require defendant compliance with judicial agreement"
+        },
+        {
+          "description": "If non-compliance, embargo necessary assets to ensure compliance"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda incidental de ejecución de sentencia/TMX_2614472_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda incidental de ejecución de sentencia/TMX_2614472_es.txt"
+  }
+}

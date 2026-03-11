@@ -1,0 +1,279 @@
+{
+  "law": "Contrato de arrendamiento de departamento amueblado (Jalisco)",
+  "authority": "private",
+  "enacted": "2024-10-31",
+  "imports": [
+    "Código Civil del Estado de Jalisco (Artículos 1980-2037)"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "furnished_apartment",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "furniture_inventory",
+      "type": "movable"
+    },
+    {
+      "id": "condominium_fees",
+      "type": "money"
+    },
+    {
+      "id": "public_services",
+      "type": "service"
+    },
+    {
+      "id": "liability_insurance",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "pay_condominium_fees",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "condominium_fees",
+      "target": null
+    },
+    {
+      "id": "deliver_apartment",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "furnished_apartment",
+      "target": "tenant"
+    },
+    {
+      "id": "maintain_furniture",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "furniture_inventory",
+      "target": null
+    },
+    {
+      "id": "inspect_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "furnished_apartment",
+      "target": null
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ApartmentOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "GuarantorLiability",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "condominium_fees",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "furniture_inventory",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "furnished_apartment",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "furnished_apartment",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "termination_for_breach",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination",
+        "subject": "tenant"
+      }
+    },
+    {
+      "id": "guarantor_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "inspection_right_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "furnished_apartment",
+          "target": null
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "Two consecutive months of non-payment"
+        },
+        {
+          "description": "Notice to tenant"
+        },
+        {
+          "description": "Contract rescission"
+        },
+        {
+          "description": "Property recovery"
+        }
+      ]
+    },
+    {
+      "name": "property_inspection",
+      "steps": [
+        {
+          "description": "24-hour advance notice to tenant"
+        },
+        {
+          "ref": "inspect_property"
+        },
+        {
+          "description": "Verification of property condition"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de departamento amueblado (Jalisco)/TMX_2747504_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de departamento amueblado (Jalisco)/TMX_2747504_es.txt"
+  }
+}

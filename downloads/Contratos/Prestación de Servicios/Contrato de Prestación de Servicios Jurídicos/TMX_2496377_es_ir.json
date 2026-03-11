@@ -1,0 +1,185 @@
+{
+  "law": "Contrato de Prestación de Servicios Jurídicos",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "service_provider",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_legal_services",
+      "type": "simple",
+      "actor": "service_provider",
+      "object": "legal_services",
+      "target": "client"
+    },
+    {
+      "id": "pay_monthly_fee",
+      "type": "simple",
+      "actor": "client",
+      "object": "monthly_payment",
+      "target": "service_provider"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "service_provider",
+      "object": "confidential_information",
+      "target": "client"
+    },
+    {
+      "id": "terminate_contract",
+      "type": "simple",
+      "actor": "client",
+      "object": "legal_services",
+      "target": "service_provider"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalConstitution",
+      "subject": "client",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalConstitution",
+      "subject": "service_provider",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "service_provider",
+        "object": "legal_services",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "monthly_payment",
+        "target": "service_provider"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "service_provider",
+        "object": "confidential_information",
+        "target": "client"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "provide_legal_services"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_monthly_fee"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_confidentiality"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "terminate_contract"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_procedure",
+      "steps": [
+        {
+          "description": "Written notice of breach"
+        },
+        {
+          "description": "Ten business day response period"
+        },
+        {
+          "description": "Written determination of termination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de Prestación de Servicios Jurídicos/TMX_2496377_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de Prestación de Servicios Jurídicos/TMX_2496377_es.txt"
+  }
+}

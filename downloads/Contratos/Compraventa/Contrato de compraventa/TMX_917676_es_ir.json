@@ -1,0 +1,191 @@
+{
+  "law": "Contrato de compraventa",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "purchase_price",
+      "target": "seller"
+    },
+    {
+      "id": "transfer_possession",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "sale_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "sell_property"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_price"
+        }
+      }
+    },
+    {
+      "id": "immediate_possession",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "transfer_possession"
+        }
+      }
+    },
+    {
+      "id": "warranty_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SaleContract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "warranty",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "property_sale_procedure",
+      "steps": [
+        {
+          "act": {
+            "ref": "pay_price"
+          }
+        },
+        {
+          "act": {
+            "ref": "sell_property"
+          }
+        },
+        {
+          "act": {
+            "ref": "transfer_possession"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa/TMX_917676_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa/TMX_917676_es.txt"
+  }
+}

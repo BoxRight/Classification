@@ -1,0 +1,93 @@
+{
+  "law": "Acta de audiencia previa y de conciliación en Juicio de Arrendamiento Inmobiliario",
+  "authority": "judicial",
+  "enacted": "2024-01-04",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lease_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LeaseContract",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DefendantSignedContract",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "personality_exception_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DefendantSignedContract",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "PersonalityExceptionUnfounded"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "preliminary_conciliation_hearing",
+      "steps": [
+        {
+          "description": "parties_identification"
+        },
+        {
+          "description": "legitimacy_study"
+        },
+        {
+          "description": "personality_exception_resolution"
+        },
+        {
+          "description": "conciliation_attempt"
+        },
+        {
+          "description": "procedure_depuration"
+        },
+        {
+          "description": "evidence_period_opening"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de audiencia previa y de conciliación en Juicio de Arrendamiento Inmobiliario/TMX_1302678_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de audiencia previa y de conciliación en Juicio de Arrendamiento Inmobiliario/TMX_1302678_es.txt"
+  }
+}

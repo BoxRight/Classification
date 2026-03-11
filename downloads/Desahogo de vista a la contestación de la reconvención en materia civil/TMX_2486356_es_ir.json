@@ -1,0 +1,131 @@
+{
+  "law": "Desahogo de vista a la contestación de la reconvención en materia civil",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff_in_counterclaim",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_in_counterclaim",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "expenses_and_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "defendant_in_counterclaim",
+      "object": "property",
+      "target": "plaintiff_in_counterclaim"
+    },
+    {
+      "id": "fraudulent_occupation",
+      "type": "counter",
+      "actor": "defendant_in_counterclaim",
+      "object": "property",
+      "target": "plaintiff_in_counterclaim"
+    },
+    {
+      "id": "pay_expenses",
+      "type": "simple",
+      "actor": "plaintiff_in_counterclaim",
+      "object": "expenses_and_costs",
+      "target": "defendant_in_counterclaim"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff_in_counterclaim",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyTitle",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant_in_counterclaim",
+        "object": "property",
+        "target": "plaintiff_in_counterclaim"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "fraudulent_occupation_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff_in_counterclaim"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "defendant_in_counterclaim",
+            "object": "property",
+            "target": "plaintiff_in_counterclaim"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "id": "vacate_property"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "response_to_counterclaim_contestation",
+      "steps": [
+        {
+          "description": "respond_to_exceptions_and_defenses"
+        },
+        {
+          "description": "contest_facts_in_counterclaim"
+        },
+        {
+          "description": "object_to_evidence"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Desahogo de vista a la contestación de la reconvención en materia civil/TMX_2486356_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Desahogo de vista a la contestación de la reconvención en materia civil/TMX_2486356_es.txt"
+  }
+}

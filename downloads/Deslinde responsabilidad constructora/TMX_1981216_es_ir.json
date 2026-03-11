@@ -1,0 +1,133 @@
+{
+  "law": "Deslinde responsabilidad constructora",
+  "authority": "private",
+  "enacted": "2024-02-13",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "constructora",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "material_construction",
+      "type": "movable"
+    },
+    {
+      "id": "construction_project",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "MaterialChange",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ClientNotification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ClientAcceptance",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "constructora",
+        "object": "liability_exemption",
+        "target": "cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "liability_exemption_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "MaterialChange"
+        },
+        {
+          "type": "certification",
+          "name": "ClientNotification"
+        },
+        {
+          "type": "certification",
+          "name": "ClientAcceptance"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "constructora",
+          "object": "civil_liability_exemption",
+          "target": "cliente"
+        }
+      }
+    },
+    {
+      "id": "waiver_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ClientAcceptance"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "cliente",
+          "object": "legal_claim",
+          "target": "constructora"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "liability_waiver_process",
+      "steps": [
+        {
+          "description": "Material change occurs"
+        },
+        {
+          "description": "Client notification of material change"
+        },
+        {
+          "description": "Client acknowledgment and acceptance"
+        },
+        {
+          "description": "Formal liability waiver execution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Deslinde responsabilidad constructora/TMX_1981216_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Deslinde responsabilidad constructora/TMX_1981216_es.txt"
+  }
+}

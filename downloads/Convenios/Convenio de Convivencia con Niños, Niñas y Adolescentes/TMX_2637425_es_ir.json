@@ -1,0 +1,328 @@
+{
+  "law": "Convenio de Convivencia con Niños, Niñas y Adolescentes",
+  "authority": "private",
+  "enacted": "2023-12-27",
+  "imports": [
+    "Artículo 4 de la Constitución Política de los Estados Unidos Mexicanos"
+  ],
+  "parties": [
+    {
+      "id": "mother",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "father",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "children",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "monthly_support",
+      "type": "money"
+    },
+    {
+      "id": "educational_expenses",
+      "type": "money"
+    },
+    {
+      "id": "medical_expenses",
+      "type": "money"
+    },
+    {
+      "id": "household_goods",
+      "type": "movable"
+    },
+    {
+      "id": "childcare_services",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "custody_rights",
+      "subject": "mother",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "parental_authority",
+      "subject": "father",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "parental_authority",
+      "subject": "mother",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "divorce_proceeding",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mother",
+        "object": "address_notification",
+        "target": "father"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "father",
+        "object": "address_notification",
+        "target": "mother"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "father",
+        "object": "monthly_support",
+        "target": "mother"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "father",
+        "object": "educational_expenses",
+        "target": "children"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "father",
+        "object": "medical_expenses",
+        "target": "children"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "father",
+        "object": "visitation_rights",
+        "target": "children"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mother",
+        "object": "travel_permission",
+        "target": "father"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "father",
+        "object": "travel_permission",
+        "target": "mother"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "address_change_notification",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "mother",
+          "object": "address_change",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "mother",
+          "object": "written_notification",
+          "target": "father"
+        }
+      }
+    },
+    {
+      "id": "custody_arrangement",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "divorce_proceeding"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "custody_rights",
+        "subject": "mother"
+      }
+    },
+    {
+      "id": "support_payment",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "monthly_due_date"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "father",
+          "object": "monthly_support",
+          "target": "mother"
+        }
+      }
+    },
+    {
+      "id": "joint_decision_making",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "children",
+          "object": "important_decision",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "mother",
+          "object": "consultation",
+          "target": "father"
+        }
+      }
+    },
+    {
+      "id": "travel_authorization",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "father",
+          "object": "international_travel",
+          "target": "children"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "mother",
+          "object": "travel_permission",
+          "target": "father"
+        }
+      }
+    },
+    {
+      "id": "modification_requirement",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "mother",
+          "object": "agreement_modification",
+          "target": "father"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "mother",
+          "object": "written_consent",
+          "target": "father"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "visitation_procedure",
+      "steps": [
+        {
+          "description": "Father coordinates convenient schedule"
+        },
+        {
+          "description": "Both parties agree on location outside mother's domicile"
+        },
+        {
+          "description": "Father picks up children at agreed location"
+        },
+        {
+          "description": "Father supervises homework and extracurricular activities"
+        },
+        {
+          "description": "Father returns children to agreed location"
+        }
+      ]
+    },
+    {
+      "name": "support_payment_procedure",
+      "steps": [
+        {
+          "description": "Payment due before fifth day of each month"
+        },
+        {
+          "description": "Father makes bank deposit to specified account"
+        },
+        {
+          "description": "Deposit slip serves as payment proof"
+        }
+      ]
+    },
+    {
+      "name": "annual_review_procedure",
+      "steps": [
+        {
+          "description": "Both parties meet annually on agreed date"
+        },
+        {
+          "description": "Review agreement compliance"
+        },
+        {
+          "description": "Consider necessary adjustments"
+        },
+        {
+          "description": "Submit modifications to Family Judge for approval"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio de Convivencia con Niños, Niñas y Adolescentes/TMX_2637425_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio de Convivencia con Niños, Niñas y Adolescentes/TMX_2637425_es.txt"
+  }
+}

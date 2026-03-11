@@ -1,0 +1,151 @@
+{
+  "law": "Contrato de promesa de fideicomiso",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "promitente_fideicomitente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "promitente_fiduciario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "fideicomiso_permit",
+      "type": "service"
+    },
+    {
+      "id": "escritura_publica",
+      "type": "service"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "inmueble_ownership",
+      "subject": "promitente_fideicomitente",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "promise_contract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_fideicomitente",
+        "object": "inmueble",
+        "target": "promitente_fiduciario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_fiduciario",
+        "object": "fideicomiso_permit",
+        "target": "promitente_fideicomitente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "promitente_fiduciario",
+        "object": "escritura_publica",
+        "target": "promitente_fideicomitente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "delay_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "promitente_fideicomitente",
+          "object": "inmueble",
+          "target": "promitente_fiduciario"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "promitente_fiduciario",
+          "object": "pena_convencional",
+          "target": "promitente_fideicomitente"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "fideicomiso_establishment",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "promitente_fiduciario",
+            "object": "fideicomiso_permit",
+            "target": "promitente_fideicomitente"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "promitente_fideicomitente",
+            "object": "inmueble",
+            "target": "promitente_fiduciario"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "promitente_fiduciario",
+            "object": "escritura_publica",
+            "target": "promitente_fideicomitente"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dispute_resolution",
+      "steps": [
+        {
+          "description": "arbitration_procedure"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Promesa/Contrato de promesa de fideicomiso/TMX_1819091_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Promesa/Contrato de promesa de fideicomiso/TMX_1819091_es.txt"
+  }
+}

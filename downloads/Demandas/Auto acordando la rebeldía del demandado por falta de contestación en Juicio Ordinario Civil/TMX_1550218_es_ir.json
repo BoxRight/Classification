@@ -1,0 +1,158 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lawsuit_answer",
+      "type": "service"
+    },
+    {
+      "id": "evidence_presentation",
+      "type": "service"
+    },
+    {
+      "id": "court_notice",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "answer_lawsuit",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "lawsuit_answer",
+      "target": "judge"
+    },
+    {
+      "id": "fail_to_answer",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "lawsuit_answer",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "date",
+      "name": "lawsuit_answer_deadline",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "non_answer_certification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "civil_lawsuit_proceeding",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "default_judgment_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "lawsuit_answer",
+          "target": "judge"
+        },
+        {
+          "type": "certification",
+          "name": "non_answer_certification"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "negative_answer_presumption"
+      }
+    },
+    {
+      "id": "evidence_phase_opening_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "negative_answer_presumption"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "evidence_phase_opened"
+      }
+    },
+    {
+      "id": "notice_by_bulletin_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "negative_answer_presumption"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court_secretary",
+          "object": "court_notice",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "default_judgment_procedure",
+      "steps": [
+        {
+          "description": "Verify expiration of answer deadline"
+        },
+        {
+          "description": "Issue certification of non-answer"
+        },
+        {
+          "description": "Declare negative answer presumption"
+        },
+        {
+          "description": "Open evidence phase"
+        },
+        {
+          "description": "Order future notifications by bulletin"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Auto acordando la rebeldía del demandado por falta de contestación en Juicio Ordinario Civil/TMX_1550218_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Auto acordando la rebeldía del demandado por falta de contestación en Juicio Ordinario Civil/TMX_1550218_es.txt"
+  }
+}

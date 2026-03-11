@@ -1,0 +1,217 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2024-02-21",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Ley del ISR",
+    "Ley Federal del Derecho de Autor"
+  ],
+  "parties": [
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "professional",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "service"
+    },
+    {
+      "id": "documentation",
+      "type": "service"
+    },
+    {
+      "id": "expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalCredentials",
+      "subject": "professional",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "CopyrightOwnership",
+      "subject": "professional",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "professional_services",
+        "target": "company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "professional_fees",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "professional",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "documentation",
+        "target": "professional"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "company",
+        "object": "expenses",
+        "target": "professional"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "type": "counter",
+          "actor": "professional",
+          "object": "professional_services",
+          "target": "company"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "confidentiality_penalty_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "type": "simple",
+          "actor": "professional",
+          "object": "confidential_information",
+          "target": "third_parties"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ConfidentialityPenalty"
+      }
+    },
+    {
+      "id": "copyright_guarantee_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ServiceContract"
+        },
+        {
+          "type": "ownership",
+          "name": "CopyrightOwnership",
+          "subject": "professional"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "professional",
+          "object": "copyright_defense",
+          "target": "company"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "service_delivery_procedure",
+      "steps": [
+        {
+          "description": "Company provides documentation"
+        },
+        {
+          "description": "Professional delivers museography services"
+        },
+        {
+          "description": "Professional delivers curation services"
+        },
+        {
+          "description": "Professional delivers graphic design services"
+        },
+        {
+          "description": "Company pays professional fees"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_2646138_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_2646138_es.txt"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "law": "Código de Procedimientos Civiles Para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "heirs",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inventory_appraisal",
+      "type": "service"
+    },
+    {
+      "id": "estate_assets",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "approve_inventory",
+      "type": "simple",
+      "actor": "judge",
+      "object": "inventory_appraisal",
+      "target": "executor"
+    },
+    {
+      "id": "notify_heirs",
+      "type": "simple",
+      "actor": "judge",
+      "object": "inventory_appraisal",
+      "target": "heirs"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "succession_proceeding",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "estate_inventory",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "inventory_appraisal",
+        "target": "executor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "inventory_appraisal",
+        "target": "heirs"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "inventory_approval_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "succession_proceeding"
+        },
+        {
+          "type": "asset",
+          "name": "estate_inventory"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "approve_inventory"
+        }
+      }
+    },
+    {
+      "id": "notification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "inventory_approved"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "notify_heirs"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "inventory_approval_process",
+      "steps": [
+        {
+          "ref": "approve_inventory"
+        },
+        {
+          "ref": "notify_heirs"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto admisorio de inventario y avalúo en juicio sucesorio/TMX_1420707_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto admisorio de inventario y avalúo en juicio sucesorio/TMX_1420707_es.txt"
+  }
+}

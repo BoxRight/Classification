@@ -1,0 +1,166 @@
+{
+  "law": "Código Civil para el Estado de México",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 8.62 del Código Civil para el Estado de México",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "public_registry",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "real_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_taxes",
+      "type": "money"
+    },
+    {
+      "id": "property_improvements",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "possess_property",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "real_property",
+      "target": null
+    },
+    {
+      "id": "pay_taxes",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "property_taxes",
+      "target": "public_registry"
+    },
+    {
+      "id": "make_improvements",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "property_improvements",
+      "target": "real_property"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyPossession",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "PossessionStartDate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "PossessionDuration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RegistryInscription",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AdministrativeInmatriculation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "real_property",
+        "target": "civil_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "adverse_possession_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyPossession",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "numeric",
+          "name": "PossessionDuration"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "real_property",
+            "target": null
+          }
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyTitle",
+        "subject": "plaintiff"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "usucapion_procedure",
+      "steps": [
+        {
+          "description": "Present initial claim"
+        },
+        {
+          "description": "Notify interested parties"
+        },
+        {
+          "description": "Present documentary evidence"
+        },
+        {
+          "description": "Conduct judicial inspection"
+        },
+        {
+          "description": "Issue judicial declaration"
+        },
+        {
+          "description": "Register property title"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Prescripción Positiva/TMX_2550984_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Prescripción Positiva/TMX_2550984_es.txt"
+  }
+}

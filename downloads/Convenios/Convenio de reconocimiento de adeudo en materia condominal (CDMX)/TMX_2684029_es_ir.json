@@ -1,0 +1,198 @@
+{
+  "law": "Convenio de reconocimiento de adeudo en materia condominal (CDMX)",
+  "authority": "private",
+  "enacted": "2024-05-15",
+  "imports": [
+    "Ley de Propiedad en Condominio de Inmuebles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "creditor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "debtor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "debt_amount",
+      "type": "money"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "maintenance_fees",
+      "type": "money"
+    },
+    {
+      "id": "payment_receipt",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "recognize_debt",
+      "type": "simple",
+      "actor": "debtor",
+      "object": "debt_amount",
+      "target": "creditor"
+    },
+    {
+      "id": "pay_installment",
+      "type": "simple",
+      "actor": "debtor",
+      "object": "monthly_payment",
+      "target": "creditor"
+    },
+    {
+      "id": "issue_receipt",
+      "type": "simple",
+      "actor": "creditor",
+      "object": "payment_receipt",
+      "target": "debtor"
+    },
+    {
+      "id": "late_payment",
+      "type": "counter",
+      "actor": "debtor",
+      "object": "monthly_payment",
+      "target": "creditor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "DebtRecognition",
+      "subject": "debtor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CondominiumUnit",
+      "subject": "debtor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "debtor",
+        "object": "debt_amount",
+        "target": "creditor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "debtor",
+        "object": "monthly_payment",
+        "target": "creditor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "creditor",
+        "object": "payment_receipt",
+        "target": "debtor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "late_payment_interest_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "debtor",
+          "object": "monthly_payment",
+          "target": "creditor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "debtor",
+          "object": "moratory_interest",
+          "target": "creditor"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "debtor",
+          "object": "monthly_payment",
+          "target": "creditor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "debtor",
+          "object": "penalty_fee",
+          "target": "creditor"
+        }
+      }
+    },
+    {
+      "id": "unit_sale_transfer_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "UnitSale"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "DebtTransfer",
+        "subject": "new_owner"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "debtor",
+            "object": "monthly_payment",
+            "target": "creditor"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "creditor",
+            "object": "payment_receipt",
+            "target": "debtor"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio de reconocimiento de adeudo en materia condominal (CDMX)/TMX_2684029_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio de reconocimiento de adeudo en materia condominal (CDMX)/TMX_2684029_es.txt"
+  }
+}

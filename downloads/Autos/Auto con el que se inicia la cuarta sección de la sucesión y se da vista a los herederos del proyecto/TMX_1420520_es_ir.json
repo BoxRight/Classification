@@ -1,0 +1,133 @@
+{
+  "law": "Auto con el que se inicia la cuarta sección de la sucesión y se da vista a los herederos del proyecto de partición",
+  "authority": "judicial",
+  "enacted": "2023-05-17",
+  "imports": [
+    "Código de Procedimientos Civiles Para el Distrito Federal, Artículo 855"
+  ],
+  "parties": [
+    {
+      "id": "albacea",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "herederos",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "proyecto_particion",
+      "type": "service"
+    },
+    {
+      "id": "bienes_hereditarios",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "exhibir_proyecto",
+      "type": "simple",
+      "actor": "albacea",
+      "object": "proyecto_particion",
+      "target": "juez"
+    },
+    {
+      "id": "dar_vista",
+      "type": "simple",
+      "actor": "juez",
+      "object": "proyecto_particion",
+      "target": "herederos"
+    },
+    {
+      "id": "manifestar_derechos",
+      "type": "simple",
+      "actor": "herederos",
+      "object": "proyecto_particion",
+      "target": "juez"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "SucesionIntestamentaria",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CuartaSeccion",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "herederos",
+        "object": "proyecto_particion",
+        "target": "juez"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "vista_herederos_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CuartaSeccion"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "albacea",
+            "object": "proyecto_particion",
+            "target": "juez"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "juez",
+          "object": "proyecto_particion",
+          "target": "herederos"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "inicio_cuarta_seccion",
+      "steps": [
+        {
+          "ref": "exhibir_proyecto"
+        },
+        {
+          "ref": "dar_vista"
+        },
+        {
+          "description": "notificar a los interesados"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto con el que se inicia la cuarta sección de la sucesión y se da vista a los herederos del proyecto/TMX_1420520_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto con el que se inicia la cuarta sección de la sucesión y se da vista a los herederos del proyecto/TMX_1420520_es.txt"
+  }
+}

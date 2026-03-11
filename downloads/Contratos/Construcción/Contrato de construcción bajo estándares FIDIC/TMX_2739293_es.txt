@@ -1,0 +1,594 @@
+                                                                         http://www.tirantonline.com.mx
+
+
+Document TMX2,739,293
+
+Formulario
+Title: Contrato de construcción bajo estándares FIDIC
+Issuer: Parte interesada
+Date: 09/10/2024
+
+
+TEXT:
+
+                 CONTRATO DE CONSTRUCCIÓN BAJO ESTÁNDARES FIDIC
+
+                                             TMX 2.739.293
+
+
+Normativa: Estándares Internacionales generales de Contratación en materia de construcción.
+
+
+Supuesto: El presente contrato establece los términos y condiciones para la ejecución de una obra de
+construcción conforme a los planos, especificaciones técnicas y estándares aplicables bajo el marco de
+los estándares FIDIC. El documento detalla las responsabilidades de las partes, las etapas del
+proyecto, el plazo de ejecución, el cronograma de pagos, así como las disposiciones relativas a las
+garantías, seguridad y supervisión técnica. Además, se incluyen las condiciones bajo las cuales pueden
+realizarse ajustes de precios y modificaciones a la obra, con el fin de asegurar el cumplimiento de las
+obligaciones contractuales.
+
+
+
+
+En virtud de la necesidad de desarrollar el proyecto de ____________________ el Contratante ha
+decidido contratar los servicios de ____________________ empresa especializada en obras de
+construcción, para llevar a cabo la ejecución de los trabajos necesarios conforme a los planos y
+especificaciones técnicas previamente acordadas. El proyecto tiene como finalidad
+____________________. Las partes han acordado que los trabajos serán realizados conforme a los
+términos, condiciones y estándares establecidos por FIDIC ____________________y bajo la supervisión
+de ____________________ designado para asegurar el cumplimiento de las obligaciones contractuales.
+
+
+
+Sección I: Definiciones y Términos Generales
+
+El presente contrato es celebrado entre las siguientes partes:
+
+   I. El Contratante:
+
+
+                                                                                                     1 / 11
+Razón                            Social:                             ____________________
+Representado en este acto por: ____________________, en su calidad de ____________________,
+conforme a (especificar documento, por ejemplo, Poder Notarial No. _______), como se hace constar en
+____________________.
+Domicilio: ____________________, con código postal ____________________, en la ciudad de
+____________________, país de ____________________.
+
+   I. El Contratista:
+
+Razón                            Social:                             ____________________
+Representado en este acto por: ____________________, en su calidad de ____________________,
+conforme a (especificar documento, por ejemplo, Acta Constitutiva No. _______), como se hace constar
+en                                                             ____________________.
+Domicilio: ____________________, con código postal ____________________, en la ciudad de
+____________________, país de ____________________.
+
+Ambas partes celebran este contrato para la construcción de ___________________ , bajo los términos
+establecidos por FIDIC (___________________Libro Rojo/Amarillo/Plata), y conforme a las
+condiciones descritas en este documento.
+
+2. Objeto del Contrato
+
+El objeto del presente contrato es la ejecución de la obra de construcción correspondiente a
+____________________. La obra se llevará a cabo conforme a los planos y especificaciones técnicas
+previamente acordadas entre el Contratante y el Contratista, los cuales están debidamente establecidos
+en el Anexo No. ____________________ que forma parte integral del contrato.
+
+ La obra será supervisada por el Ingeniero Supervisor, ____________________, quien ha sido designado
+de común acuerdo entre ambas partes. El Ingeniero Supervisor podrá ser contactado
+____________________ y su responsabilidad será asegurar que los trabajos se realicen conforme a las
+especificaciones acordadas en el presente contrato.
+
+Los trabajos se ejecutarán en la ubicación proporcionada por el Contratante, ubicada en
+____________________con acceso otorgado al Contratista para llevar a cabo las actividades
+correspondientes. El proyecto contempla la realización de ____________________.
+
+Todas las notificaciones o comunicaciones entre las partes deberán realizarse por escrito y enviarse a los
+domicilios o direcciones electrónicas proporcionadas en este contrato.
+
+Los planos, especificaciones técnicas y cualquier otro documento relevante para la ejecución de la obra
+estarán anexados a este contrato y disponibles para ambas partes en las oficinas del Ingeniero
+Supervisor.
+
+   1. Partes de la Obra:
+         I. Movimiento de Tierra: ____________________ Excavación, nivelación y compactación del
+            terreno según lo detallado en los planos topográficos.
+        II. Cimentación y Estructura: ____________________ Construcción de las cimentaciones,
+            columnas y demás elementos estructurales en hormigón armado, conforme a las
+            especificaciones técnicas de resistencia y durabilidad exigidas.
+       III. Instalaciones Eléctricas y Sanitarias: ____________________ Colocación y conexión de
+            redes de electricidad, suministro de agua potable, drenaje y sistema sanitario, de acuerdo
+            con las normativas locales y los planos eléctricos y sanitarios aprobados.
+       IV. Acabados: Aplicación de revestimientos, pinturas, carpintería, instalación de puertas,
+
+                                                                                                       2 / 11
+        IV.
+           ventanas y otros acabados necesarios para la finalización de la obra, conforme a los
+           estándares de calidad especificados.
+        V. Otras Especificaciones: ____________________ (Incluir cualquier otro detalle relevante
+           para la obra, como jardinería, instalaciones especiales, etc.)
+
+La obra ____________________ se ejecutará conforme a las normativas nacionales e internacionales
+vigentes aplicables a este tipo de construcción. Asimismo, deberá respetar los lineamientos en materia de
+seguridad, medio ambiente y salud laboral establecidos en ____________________. Los trabajos se
+realizarán de acuerdo con los planos arquitectónicos, estructurales, mecánicos, eléctricos y sanitarios
+entregados por el Contratante, así como con las especificaciones técnicas detalladas que forman parte
+integrante del presente contrato.
+
+Todos los materiales utilizados en la ejecución de la obra deberán cumplir con las especificaciones
+técnicas y con los estándares de calidad exigidos por el Contratante y las normativas aplicables. El
+Contratista deberá emplear procedimientos constructivos que garanticen la calidad, durabilidad y
+seguridad de la obra. El Contratista proporcionará toda la mano de obra especializada, equipos,
+maquinaria y herramientas necesarias para la ejecución de los trabajos dentro del plazo pactado,
+respetando los estándares de calidad y seguridad estipulados en el contrato.
+
+Sección II: Plazos y Cronograma de Ejecución
+
+1. Plazo de Ejecución
+
+El plazo de ejecución es el período durante el cual el Contratista se compromete a llevar a cabo y
+finalizar la totalidad de los trabajos objeto del contrato. Este plazo será de ____________________
+contado a partir de la Fecha de Inicio ____________________.
+
+El Contratista deberá cumplir con este plazo bajo las siguientes condiciones:
+
+      Inicio de los trabajos: La obra deberá comenzar en la fecha acordada y señalada en el aviso de
+      inicio ____________________. Cualquier retraso en el inicio debido a causas atribuibles al
+      Contratista estará sujeto a penalizaciones por demora.
+      Cumplimiento del plazo: Durante la ejecución, el Contratista debe organizar sus recursos de
+      manera tal que todos los trabajos se concluyan dentro del plazo estipulado. Si se presentaran
+      circunstancias excepcionales que requieran una extensión del plazo, el Contratista deberá presentar
+      una solicitud por escrito al Contratante, explicando las razones de la demora. Esta solicitud debe
+      estar debidamente fundamentada y acompañada por la evidencia que justifique la necesidad de la
+      prórroga.
+      Penalizaciones por retraso: En caso de que el Contratista no complete los trabajos dentro del
+      plazo estipulado sin una justificación válida aprobada por el Contratante, se aplicará una
+      penalización diaria o semanal, cuyo monto será de ____________________ por cada semana de
+      retraso. Este monto será deducido del pago final al Contratista o de cualquier otra cantidad
+      adeudada. La penalización acumulada no deberá exceder el porcentaje máximo indicado en las
+      Condiciones Especiales del contrato. Esta cláusula no exime al Contratista de sus
+      responsabilidades contractuales ni limita el derecho del Contratante a reclamar por daños
+      adicionales en caso de que el retraso cause perjuicios mayores.
+
+El Contratista podrá solicitar una extensión del plazo en casos de:
+
+         a. Fuerza mayor, como desastres naturales, conflictos armados, disturbios o cualquier otro
+            evento fuera del control de las partes.
+         b. Modificaciones sustanciales en el proyecto solicitadas por el Contratante que afecten el
+            cronograma original.
+         c.
+                                                                                                      3 / 11
+         c. Retrasos en la entrega de planos, materiales o autorizaciones por parte del Contratante.
+
+2. Cronograma de Trabajo
+
+El Cronograma de Trabajo es un documento clave para la gestión y supervisión de la obra. Este
+cronograma es responsabilidad del Contratista, quien deberá elaborarlo y presentarlo dentro de los
+____________________ posteriores a la firma del contrato, para su revisión y aprobación por parte del
+Ingeniero Supervisor____________________.
+
+Este cronograma deberá contener los siguientes elementos:
+
+   a. Desglose de las actividades: El Contratista debe detallar cada una de las actividades de la obra,
+      desde la preparación del terreno hasta los acabados finales. Las actividades se organizarán de
+      manera secuencial, con indicación de la duración estimada de cada fase.
+   b. Fechas clave y hitos: El cronograma debe incluir fechas clave como el inicio y finalización de las
+      fases críticas del proyecto, tales como la cimentación, la estructura, la instalación de redes y
+      servicios, así como los plazos de entrega de materiales. Además, se deben establecer hitos que
+      permitan verificar el avance del proyecto en momentos determinados.
+   c. Recursos y asignación de personal: El cronograma deberá incluir la cantidad de mano de obra,
+      materiales y equipos que se asignarán a cada etapa de la obra, asegurando una distribución
+      eficiente de los recursos.
+   d. Plazos de revisión y aprobación: Una vez presentado, el Ingeniero Supervisor revisará el
+      cronograma para asegurar que cumple con los plazos contractuales y con los estándares técnicos
+      del proyecto. Una vez aprobado, el cronograma será vinculante para ambas partes.
+   e. Actualización y seguimiento: El Contratista deberá actualizar el cronograma a medida que
+      avance la obra. Cualquier desviación o retraso en el cumplimiento de los plazos deberá ser
+      informada inmediatamente al Contratante, justificando las razones del cambio. Las modificaciones
+      en el cronograma sólo podrán implementarse si son aprobadas por el Contratante y el Ingeniero
+      Supervisor. Estas modificaciones deberán reflejarse en un nuevo cronograma actualizado que será
+      formalmente aceptado por ambas partes.
+   f. Medidas correctivas en caso de retrasos: En caso de que se identifique un retraso en el
+      cronograma durante la ejecución de la obra, el Contratista deberá proponer un plan de acción para
+      mitigar el impacto del retraso y asegurar la finalización de los trabajos dentro del plazo
+      contractual, o solicitar una extensión del plazo si corresponde.
+
+Sección III: Lista de Cantidades
+
+La Lista de Cantidades adjunta forma parte integral del presente contrato y detalla las actividades y
+trabajos a realizar, junto con las cantidades estimadas para cada uno de ellos. Las cantidades
+mencionadas son aproximadas y pueden estar sujetas a ajustes conforme avance la obra. Cada elemento
+de la lista está valorado a precios unitarios, que incluyen todos los costos necesarios para la correcta
+ejecución de los trabajos, tales como:
+
+   a. Mano de obra: ____________________ Todos los salarios y beneficios sociales aplicables para
+      los trabajadores involucrados en el proyecto.
+   b. Materiales: ____________________ El costo de los materiales especificados, incluyendo su
+      transporte hasta el sitio de la obra.
+   c. Equipos y herramientas: ____________________El uso y mantenimiento de la maquinaria,
+      equipos y herramientas requeridos para cada actividad.
+   d. Seguros: ____________________ Cobertura de todos los seguros exigidos por el contrato,
+      incluyendo seguros de responsabilidad civil y de daños a terceros.
+   e. Impuestos: ____________________ Cualquier tributo o gravamen que deba ser pagado de
+      acuerdo con la legislación vigente, relacionado con la compra de materiales, la mano de obra o la
+
+                                                                                                     4 / 11
+    e.
+
+         ejecución del proyecto.
+
+Los precios unitarios incluidos en la lista se mantendrán fijos durante la vigencia del contrato, salvo
+modificaciones acordadas por ambas partes. Dichos precios cubren cualquier riesgo o imprevisto
+relacionado con la naturaleza del trabajo, excepto en los casos contemplados en las Cantidades
+Provisionales.
+
+La medición de los trabajos se realizará conforme a los planos, especificaciones y guías técnicas
+proporcionadas al Contratista. Cada actividad será evaluada y medida por el Ingeniero Supervisor, quien
+verificará que los trabajos se ajusten a las condiciones acordadas.
+
+Las cantidades se medirán en función del trabajo efectivamente ejecutado, utilizando los métodos de
+medición especificados en el contrato, salvo que el Ingeniero Supervisor indique lo contrario.
+
+            I. Volúmenes: Medición del volumen de excavación, relleno u otros trabajos de movimiento
+               de tierra.
+           II. Superficies: Cálculo de áreas de superficies pavimentadas, pintadas, o revestidas.
+          III. Unidades: Cantidades contadas en unidades específicas, como puertas, ventanas, postes o
+               luminarias.
+
+El Contratista deberá colaborar con el Ingeniero Supervisor para llevar a cabo las mediciones en el
+momento en que los trabajos estén listos para ser verificados. El Ingeniero Supervisor certificará las
+cantidades medidas, que serán la base para los pagos correspondientes. Los pagos se efectuarán en
+función de los trabajos efectivamente realizados y aprobados por el Ingeniero Supervisor, conforme a las
+tarifas y precios unitarios acordados en la lista de cantidades. Si hay discrepancias entre las cantidades
+ejecutadas y las previstas, se ajustarán los montos a pagar.
+
+En el caso de que sea necesario realizar trabajos imprevistos o adicionales que no estuvieran
+inicialmente previstos en la lista de cantidades, se hará uso de las Cantidades Provisionales incluidas en
+el resumen de la lista.
+
+         Uso de las cantidades provisionales: Las partidas provisionales están destinadas a cubrir
+         situaciones en las que, por razones técnicas, sea imprescindible ejecutar trabajos adicionales o
+         imprevistos. Estos trabajos deben ser autorizados previamente por el Contratante y el Ingeniero
+         Supervisor, y se pagarán conforme a las tarifas estipuladas o acordadas en el contrato.
+         Justificación y medición: El Contratista deberá justificar los motivos por los cuales solicita el uso
+         de cantidades provisionales, detallando el tipo de trabajo adicional requerido. Las cantidades serán
+         medidas y certificadas por el Ingeniero Supervisor, siguiendo los mismos principios establecidos
+         para los demás ítems de la lista de cantidades.
+         Revisión de precios: Para los trabajos que no estén contemplados en la lista de cantidades original,
+         se podrá negociar un nuevo precio unitario antes de iniciar la ejecución de dichos trabajos. Este
+         precio deberá ser acordado entre el Contratante y el Contratista, tomando en cuenta las
+         condiciones actuales del mercado.
+
+RESUMEN DE LISTA DE CANTIDADES
+
+
+N° de                                   Unidad      de Cantidad        Precio Unitario Monto    Total
+      Descripción del Trabajo
+Ítem                                    Medida         Estimada        (Moneda)        (Moneda)
+
+
+1           Movimiento de tierra        m³              (cantidad)     (precio unitario)   (monto total)
+
+
+                                                                                                           5 / 11
+            Cimentación de concreto
+2                                   m³                    (cantidad)   (precio unitario)   (monto total)
+            armado
+
+
+3           Estructura de acero            T              (cantidad)   (precio unitario)   (monto total)
+
+
+4           Instalaciones eléctricas       m              (cantidad)   (precio unitario)   (monto total)
+
+
+            Acabados (pintura          y
+5                                          m²             (cantidad)   (precio unitario)   (monto total)
+            revestimientos)
+
+
+                                           (unidad   de
+...         (Otras actividades)                           (cantidad)   (precio unitario)   (monto total)
+                                           medida)
+
+
+         | Total General ____________________|
+
+
+
+
+Sección IV: Ejecución de las Obras
+
+El Contratista será plenamente responsable de la ejecución integral de la obra, de acuerdo con los planos,
+especificaciones técnicas y términos del presente contrato. Las responsabilidades incluyen, pero no se
+limitan a:
+
+      a. Cumplimiento del diseño y especificaciones: El Contratista deberá ejecutar la obra conforme a los
+         planos arquitectónicos, estructurales, eléctricos y mecánicos proporcionados por el Contratante.
+         Cualquier modificación o ajuste que se requiera durante la ejecución deberá ser aprobado
+         previamente por el Ingeniero Supervisor y el Contratante.
+      b. Calidad de los trabajos: El Contratista garantizará que la calidad de los trabajos sea conforme a los
+         estándares especificados en los documentos contractuales, cumpliendo con las normativas técnicas
+         locales e internacionales. El Ingeniero Supervisor realizará verificaciones periódicas para
+         asegurarse de que los trabajos cumplen con los requisitos de calidad.
+      c. Cumplimiento de los plazos: El Contratista es responsable de organizar los recursos, personal y
+         maquinaria de manera que se cumplan los plazos establecidos en el Cronograma de Trabajo. Si el
+         Contratista se retrasa sin causa justificada aprobada por el Contratante, será sujeto a
+         penalizaciones conforme a lo dispuesto en el contrato.
+      d. Coordinación de subcontratistas: Si se contratan terceros o subcontratistas para realizar ciertas
+         partes del proyecto, el Contratista será responsable de su coordinación y supervisión, asegurando
+         que estos cumplan con las obligaciones de calidad, seguridad y plazo establecidas en el contrato.
+      e. Garantías: Al finalizar la obra, el Contratista deberá proporcionar una garantía de calidad para los
+         trabajos ejecutados, por un período no menor a [especificar plazo de garantía], durante el cual
+         cualquier defecto será reparado sin costo adicional para el Contratante.
+
+El Contratista proporcionará y se encargará de la adquisición de todos los materiales, herramientas y
+
+
+                                                                                                           6 / 11
+equipos necesarios para la correcta ejecución de los trabajos, cumpliendo con las siguientes condiciones:
+
+      Calidad de los materiales: Todos los materiales que se utilicen en la obra deberán cumplir con los
+      estándares de calidad internacionalmente reconocidos y con las especificaciones técnicas
+      acordadas en los documentos contractuales. El Ingeniero Supervisor podrá rechazar cualquier
+      material que no cumpla con estos requisitos y solicitar su reemplazo sin que ello implique costos
+      adicionales para el Contratante.
+      Uso de equipos adecuados: El Contratista garantizará que todo el equipo utilizado en la obra esté
+      en buen estado de funcionamiento, con el mantenimiento adecuado y cumpliendo con los
+      requisitos técnicos de seguridad. El equipo y maquinaria deben ser suficientes para asegurar la
+      ejecución eficiente de los trabajos en los tiempos establecidos.
+      Almacenamiento y protección: El Contratista será responsable del adecuado almacenamiento y
+      protección de los materiales en el sitio de la obra, para evitar daños, deterioros o pérdidas que
+      afecten la calidad o disponibilidad de los insumos necesarios.
+      Suministro continuo: El Contratista debe garantizar que los suministros de materiales y equipos
+      sean continuos y suficientes para evitar retrasos en la ejecución de la obra. Cualquier interrupción
+      en el suministro será considerada responsabilidad del Contratista, salvo en casos de fuerza mayor
+      justificados.
+
+
+
+Seguridad y Protección del Sitio
+
+El Contratista se compromete a tomar todas las medidas necesarias para garantizar la seguridad en el
+sitio de la obra y proteger tanto a su personal como a terceros. Estas medidas incluirán, pero no se
+limitarán a:
+
+      Cumplimiento de normativas: El Contratista deberá cumplir con todas las normativas vigentes en
+      materia de seguridad laboral, salud ocupacional y medio ambiente. Esto incluye la
+      implementación de medidas preventivas para evitar accidentes laborales, asegurar un entorno de
+      trabajo seguro, y minimizar los impactos negativos sobre el medio ambiente.
+      Plan de seguridad: El Contratista deberá presentar y aplicar un plan de seguridad específico para la
+      obra, que contemple la identificación de riesgos, los procedimientos de emergencia, la
+      capacitación del personal en medidas de seguridad, y el uso obligatorio de equipos de protección
+      personal (EPP) adecuado para cada tipo de tarea.
+      Protección de terceros: El Contratista será responsable de garantizar la seguridad de los residentes,
+      peatones, vehículos y cualquier otro tercero que pueda verse afectado por las actividades de la
+      obra. Esto incluye la señalización adecuada, la implementación de barreras de protección, y el
+      control de accesos no autorizados al sitio de la obra.
+      Gestión de residuos y protección ambiental: El Contratista deberá gestionar adecuadamente los
+      residuos generados durante la ejecución de la obra, cumpliendo con las normativas ambientales
+      locales y tomando medidas para prevenir la contaminación del suelo, el agua o el aire.
+      Seguros y responsabilidad: El Contratista será responsable de contratar los seguros necesarios para
+      cubrir cualquier riesgo asociado a la ejecución de la obra, incluyendo daños a terceros, accidentes
+      laborales, y daños a la propiedad.
+
+
+
+Sección V: Subcontratación y Personal
+
+1. Subcontratistas
+
+El Contratista tendrá la facultad de subcontratar ciertas partes de la obra, previa aprobación por escrito
+
+                                                                                                        7 / 11
+del Contratante. Sin embargo, esta subcontratación no implicará de ninguna manera la creación de una
+relación jurídica entre el Contratante y los Subcontratistas, ni una sociedad, asociación o joint venture
+entre el Contratante y el Contratista.
+
+      Responsabilidad del Contratista: Aun cuando se utilicen subcontratistas, el Contratista será
+      plenamente responsable de la ejecución completa y adecuada de todas las obras, conforme a los
+      términos de este contrato. Esto incluye la supervisión directa de los subcontratistas, garantizando
+      que cumplan con los estándares de calidad, seguridad y plazos establecidos.
+      Aprobación previa: Antes de contratar a cualquier subcontratista, el Contratista deberá presentar al
+      Contratante una solicitud que incluya el perfil técnico del subcontratista, su experiencia, capacidad
+      financiera, y su cumplimiento de las normativas laborales y ambientales vigentes. El Contratante
+      se reserva el derecho de rechazar cualquier subcontratista que, a su juicio, no cumpla con los
+      requisitos necesarios para la correcta ejecución del proyecto.
+      Obligaciones del subcontratista: El Contratista se asegurará de que los subcontratistas cumplan
+      con las obligaciones contractuales, incluidas aquellas relacionadas con la calidad de los trabajos, la
+      seguridad del personal, y el cumplimiento de las normativas locales e internacionales. Cualquier
+      incumplimiento por parte del subcontratista será tratado como un incumplimiento del Contratista
+      ante el Contratante.
+      No creación de sociedad o relación contractual con el Contratante: Este contrato no constituye ni
+      se considerará en ningún momento como una sociedad, asociación o relación de empresa conjunta
+      entre el Contratante y el Contratista. Cada parte actuará en su propio nombre y por su propia
+      cuenta en la ejecución de sus respectivas obligaciones contractuales.
+
+2. Personal de Obra
+
+El Contratista será responsable de contar con personal calificado y adecuado para la correcta ejecución
+de las obras. El personal involucrado deberá ser competente en las labores asignadas y cumplir con las
+exigencias técnicas y de seguridad requeridas para el proyecto.
+
+   I. Calificación y entrenamiento: El Contratista deberá asegurarse de que todo el personal, tanto
+      propio como de subcontratistas, cuente con la capacitación adecuada y la experiencia necesaria
+      para llevar a cabo sus funciones de manera segura y eficiente. Además, deberá proveer
+      entrenamiento específico en medidas de seguridad aplicables a las particularidades del sitio y de
+      las actividades realizadas.
+  II. Cumplimiento de normativas de seguridad y salud ocupacional: El Contratista está obligado a
+      cumplir con todas las normativas vigentes en materia de seguridad y salud ocupacional,
+      implementando procedimientos que garanticen la integridad física y salud de todos los
+      trabajadores. Deberá garantizar el uso adecuado de equipos de protección personal (EPP) y la
+      existencia de procedimientos de respuesta ante emergencias.
+ III. Prohibición de trabajo infantil: Queda terminantemente prohibido que el Contratista emplee a
+      niñas, niños o adolescentes en cualquier actividad laboral que sea peligrosa o que pueda
+      comprometer su salud física o mental. El Contratista será responsable de garantizar el
+      cumplimiento de todas las disposiciones legales en relación con la protección de los derechos de
+      los menores y su exclusión de cualquier actividad riesgosa.
+ IV. Remuneración justa y condiciones laborales: El Contratista deberá asegurar que su personal y el
+      de los subcontratistas reciban una remuneración justa conforme a la ley aplicable, así como
+      condiciones laborales dignas que respeten los derechos laborales de cada trabajador.
+
+
+
+Sección VI: Ajustes y Modificaciones
+
+En el caso de que se produzcan modificaciones en las cantidades de obra ejecutada, o sea necesario
+
+                                                                                                         8 / 11
+realizar trabajos adicionales aprobados por el Ingeniero Supervisor, los precios serán ajustados de
+acuerdo con las siguientes condiciones:
+
+      Base de los ajustes: Los precios unitarios establecidos en el presente contrato serán la base para
+      calcular los ajustes. Si los trabajos adicionales o modificados no están cubiertos por los precios
+      unitarios previamente acordados, el Contratista y el Contratante deberán negociar y acordar
+      nuevos precios unitarios, basados en los costos reales del mercado y en las tarifas usuales para
+      trabajos de similar naturaleza.
+      Procedimiento de solicitud de ajuste:
+          I. El Contratista deberá notificar por escrito al Contratante y al Ingeniero Supervisor sobre
+             cualquier circunstancia que justifique un ajuste de precios, como el cambio en las cantidades
+             ejecutadas o la necesidad de realizar trabajos no contemplados en la lista de cantidades.
+         II. Esta notificación deberá presentarse en un plazo no mayor a ____________________ a
+             partir del momento en que el Contratista detecte la situación que requiere un ajuste.
+        III. El Ingeniero Supervisor revisará la solicitud y, en caso de que la misma esté debidamente
+             justificada, aprobará el ajuste dentro de un plazo de ____________________.
+        IV. Una vez aprobado el ajuste, el Contratante emitirá una modificación al contrato, que refleje
+             los nuevos precios unitarios y cantidades ajustadas.
+
+Si los trabajos adicionales no tienen un precio unitario en el contrato, el Contratista presentará una
+propuesta de precio que incluya el desglose de costos de mano de obra, materiales y equipos. El
+Ingeniero Supervisor evaluará dicha propuesta y emitirá su recomendación al Contratante para su
+aprobación.
+
+2. Modificaciones a las Obras
+
+Cualquier modificación al alcance de la obra o a las especificaciones técnicas deberá seguir un
+procedimiento formal que asegure que las partes están debidamente informadas y de acuerdo con los
+cambios. Los costos y plazos se ajustarán en función del impacto de las modificaciones.
+
+ El Contratante o el Ingeniero Supervisor pueden solicitar modificaciones a la obra cuando sea necesario
+cambiar el alcance, diseño o especificaciones técnicas. Esta solicitud debe realizarse por escrito,
+explicando claramente la razón del cambio y su impacto estimado en el costo y tiempo de ejecución.
+
+      Aprobación del Contratista:
+         I. Una vez recibida la solicitud de modificación, el Contratista dispondrá de un plazo de
+            ____________________para evaluar el impacto de la modificación en el proyecto.
+        II. El Contratista deberá presentar un informe detallado al Contratante, que incluya el costo
+            adicional estimado, la necesidad de ajuste en los precios unitarios y los posibles efectos
+            sobre el cronograma de ejecución.
+       III. Si la modificación implica un cambio significativo en el tiempo de ejecución, el Contratista
+            deberá proponer un nuevo Cronograma de Trabajo, que será revisado por el Ingeniero
+            Supervisor y aprobado por el Contratante.
+      Ajustes en costos y plazos:
+         I. Si la modificación solicitada genera costos adicionales, estos deberán ser aprobados por el
+            Contratante antes de que el Contratista proceda con la ejecución del cambio.
+        II. Los plazos de ejecución también deberán ser ajustados de acuerdo con el impacto de la
+            modificación. El Contratista tendrá derecho a una extensión del plazo cuando la naturaleza
+            del cambio así lo requiera, siempre que la solicitud de extensión se presente de acuerdo con
+            los plazos y procedimientos establecidos en el contrato.
+       III. El Ingeniero Supervisor revisará y aprobará los ajustes propuestos, tanto en términos de
+            costos como de tiempo, dentro de un plazo de ____________________.
+
+
+
+                                                                                                       9 / 11
+ Una vez que los costos y plazos revisados sean aprobados por el Contratante, el Contratista procederá
+con la ejecución de las modificaciones, respetando los términos acordados.
+
+Sección VII: Pagos y Garantías
+
+Los pagos al Contratista se realizarán de manera progresiva y de acuerdo con el avance de la obra,
+basados en las mediciones aprobadas por el Ingeniero Supervisor. El proceso de pagos seguirá las
+siguientes pautas:
+
+   I. Pagos por avance de obra: A intervalos regulares (mensuales, quincenales u otro período pactado
+      en el contrato), el Contratista presentará una solicitud de pago que refleje el progreso de los
+      trabajos realizados hasta ese momento. Esta solicitud deberá incluir las mediciones de las
+      actividades completadas y cualquier otra documentación de respaldo necesaria para validar el
+      avance.
+  II. Verificación del ingeniero: El Ingeniero Supervisor será responsable de revisar y verificar las
+      cantidades y la calidad de los trabajos ejecutados. Tras la verificación, el ingeniero aprobará las
+      mediciones y el monto correspondiente a pagar. En caso de que se detecten discrepancias o
+      trabajos deficientes, el ingeniero podrá solicitar correcciones o ajustes antes de aprobar el pago.
+ III. Certificado de pago: Una vez aprobadas las mediciones, el Ingeniero Supervisor emitirá un
+      Certificado de Pago, que será entregado al Contratante. Este certificado especificará el monto a
+      pagar y las partidas correspondientes, conforme al avance de los trabajos.
+ IV. Moneda de pago: Los pagos se realizarán en la moneda acordada en el contrato
+      ____________________ y se efectuarán dentro del plazo de [especificar plazo, por ejemplo, 30
+      días] contados desde la recepción del Certificado de Pago por parte del Contratante.
+  V. Retenciones: En cada pago, el Contratante podrá retener un porcentaje del monto total a pagar
+      como garantía de calidad y cumplimiento de los trabajos ____________________ (normalmente
+      entre el 5% y el 10%). Este monto será acumulado y liberado al Contratista una vez que la obra
+      esté finalizada y se haya verificado el cumplimiento satisfactorio de todas las obligaciones
+      contractuales.
+ VI. Pago final: Una vez que se haya completado la obra en su totalidad, el Contratista presentará la
+      solicitud de pago final, que incluirá el saldo restante de las cantidades no pagadas previamente y
+      las retenciones acumuladas. Este pago final será efectuado tras la emisión del Certificado de
+      Finalización por parte del Ingeniero Supervisor, confirmando que los trabajos han sido concluidos
+      de acuerdo con las especificaciones del contrato.
+
+
+
+2. Garantías
+
+El Contratista deberá proporcionar una garantía de cumplimiento, cuyo propósito es asegurar que se
+ejecuten las obras en conformidad con los términos contractuales. Esta garantía será equivalente al
+____________________ del valor total del contrato, y se aplicarán las siguientes condiciones:
+
+   a. Naturaleza de la garantía: La garantía puede ser entregada en forma de fianza bancaria, póliza de
+      seguro, o carta de crédito, según lo acordado entre las partes, y debe cubrir el período de ejecución
+      de las obras hasta la recepción provisional de las mismas.
+   b. Plazo de la garantía: La garantía deberá estar vigente desde la firma del contrato hasta la emisión
+      del Certificado de Finalización o, en su caso, el Certificado de Recepción Provisional emitido por
+      el Ingeniero Supervisor, momento en el cual se liberará la garantía.
+   c. Liberación de la garantía: La liberación de la garantía de cumplimiento se llevará a cabo una vez
+      que el Ingeniero Supervisor certifique que la obra ha sido completada conforme a los términos del
+
+
+
+
+                                                                                                       10 / 11
+      contrato y que no existen defectos pendientes por subsanar. Si la obra se recibe con observaciones
+      menores, el Contratante podrá retener una parte proporcional de la garantía hasta que las
+      observaciones sean corregidas.
+   d. Garantía de vicios ocultos: Además de la garantía de cumplimiento, el Contratista deberá otorgar
+      una garantía por vicios ocultos o defectos en la obra por un período de [especificar, por ejemplo,
+      12 meses] a partir de la recepción final de las obras. Durante este período, el Contratista estará
+      obligado a reparar cualquier defecto o daño que se presente como resultado de deficiencias en la
+      calidad de los materiales o en la ejecución de los trabajos.
+   e. Ejecución de la garantía: En caso de incumplimiento de las obligaciones del Contratista o de la
+      aparición de defectos graves en la obra, el Contratante tendrá derecho a ejecutar la garantía de
+      cumplimiento para cubrir los costos de reparación o completar las obras conforme a lo acordado.
+
+
+
+Sección VIII: Resolución de Conflictos
+
+Cualquier controversia que surja en la interpretación o ejecución de este contrato será resuelta de
+acuerdo con las disposiciones establecidas en los documentos FIDIC, mediante conciliación, arbitraje o
+tribunal de justicia competente, según lo acordado por las partes.
+
+Sección IX: Condiciones Especiales
+
+Las siguientes condiciones complementan y prevalecen sobre las condiciones generales descritas
+anteriormente:
+
+         a. Condición Especial 1: ____________________
+         b. Condición Especial 2: ____________________
+
+
+
+
+ Nombre del representante legal Nombre del representante legal
+
+                                                                    Este documento se ofrece con una
+finalidad informativa. Velamos por la actualidad, exactitud y veracidad de los mismos, si bien se
+advierte que no son los textos oficiales y se declina toda responsabilidad por los daños que puedan
+causarse debido a las inexactitudes o incorrecciones en los mismos.
+
+
+
+
+                                                                                                       11 / 11
+

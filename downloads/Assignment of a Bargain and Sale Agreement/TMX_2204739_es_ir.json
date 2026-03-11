@@ -1,0 +1,165 @@
+{
+  "law": "Assignment of a Bargain and Sale Agreement",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal, Artículos 2029, 2030, 2031"
+  ],
+  "parties": [
+    {
+      "id": "assignor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "assignee",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "original_vendor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "assignment_price",
+      "type": "money"
+    },
+    {
+      "id": "property_title",
+      "type": "nonmovable"
+    },
+    {
+      "id": "bargain_sale_agreement",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_assignment_price",
+      "type": "simple",
+      "actor": "assignee",
+      "object": "assignment_price",
+      "target": "assignor"
+    },
+    {
+      "id": "execute_title_deed",
+      "type": "simple",
+      "actor": "original_vendor",
+      "object": "property_title",
+      "target": "assignee"
+    },
+    {
+      "id": "assign_rights",
+      "type": "simple",
+      "actor": "assignor",
+      "object": "bargain_sale_agreement",
+      "target": "assignee"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "AssignmentRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "RightsAndDuties",
+      "subject": "assignee",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "assignee",
+        "object": "assignment_price",
+        "target": "assignor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "original_vendor",
+        "object": "property_title",
+        "target": "assignee"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "assignor",
+        "object": "bargain_sale_agreement",
+        "target": "assignee"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "assignment_execution_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "assignee",
+          "object": "assignment_price",
+          "target": "assignor"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "RightsAndDuties",
+        "subject": "assignee"
+      }
+    },
+    {
+      "id": "vendor_consent_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "AssignmentRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "original_vendor",
+          "object": "property_title",
+          "target": "assignee"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "assignment_process",
+      "steps": [
+        {
+          "ref": "pay_assignment_price"
+        },
+        {
+          "ref": "assign_rights"
+        },
+        {
+          "ref": "execute_title_deed"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Assignment of a Bargain and Sale Agreement/TMX_2204739_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Assignment of a Bargain and Sale Agreement/TMX_2204739_es.txt"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "law": "Notificación de rescisión de contrato de arrendamiento en jurisdicción voluntaria",
+  "authority": "judicial",
+  "enacted": "2024-04-05",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rental_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "lease_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "abandon_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "rental_property",
+      "target": null
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "lease_contract",
+      "target": "landlord"
+    },
+    {
+      "id": "terminate_lease",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "lease_contract",
+      "target": "tenant"
+    },
+    {
+      "id": "notify_termination",
+      "type": "simple",
+      "actor": "judge",
+      "object": "lease_contract",
+      "target": "tenant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "RentPaymentObligation",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "lease_contract",
+        "target": "tenant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "termination_for_breach",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "ref": "terminate_lease"
+        }
+      }
+    },
+    {
+      "id": "abandonment_breach",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "ref": "abandon_property"
+        }
+      ],
+      "consequence": {
+        "ref": "breach_contract"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "voluntary_jurisdiction_notification",
+      "steps": [
+        {
+          "description": "Present petition to judge"
+        },
+        {
+          "description": "Provide evidence of breach"
+        },
+        {
+          "act": {
+            "ref": "notify_termination"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "lease_termination_scenario",
+      "timeline": [
+        {
+          "event": "lease_contract_signed",
+          "condition": null
+        },
+        {
+          "event": "tenant_abandons_property",
+          "condition": {
+            "type": "asset",
+            "name": "LeaseRelation"
+          }
+        },
+        {
+          "event": "failed_communication_attempts",
+          "condition": {
+            "ref": "abandon_property"
+          }
+        },
+        {
+          "event": "judicial_notification_request",
+          "condition": {
+            "ref": "breach_contract"
+          }
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Notificación de rescisión de contrato de arrendamiento en jurisdicción voluntaria/TMX_2656660_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Notificación de rescisión de contrato de arrendamiento en jurisdicción voluntaria/TMX_2656660_es.txt"
+  }
+}

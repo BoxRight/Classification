@@ -1,0 +1,125 @@
+{
+  "law": "Auto por el que se ordena la tramitación del intestado por notario público",
+  "authority": "judicial",
+  "enacted": "2024-01-11",
+  "imports": [
+    "Código Civil Para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "case_file",
+      "type": "service"
+    },
+    {
+      "id": "succession_proceeding",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "succession_case_active",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "executor_petition_filed",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "case_file",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "judicial_separation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "executor_petition_filed"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "judge_separates_from_proceeding"
+      }
+    },
+    {
+      "id": "notary_receipt_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "case_transferred_to_notary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "case_file",
+          "target": "judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "succession_transfer_procedure",
+      "steps": [
+        {
+          "description": "executor files petition"
+        },
+        {
+          "description": "judge separates from case"
+        },
+        {
+          "description": "case transferred to notary"
+        },
+        {
+          "description": "notary provides receipt to court"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto por el que se ordena la tramitación del intestado por notario público/TMX_1425026_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto por el que se ordena la tramitación del intestado por notario público/TMX_1425026_es.txt"
+  }
+}

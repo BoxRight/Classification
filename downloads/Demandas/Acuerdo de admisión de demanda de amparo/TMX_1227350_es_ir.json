@@ -1,0 +1,286 @@
+{
+  "law": "Acuerdo de admisión de demanda de amparo",
+  "authority": "judicial",
+  "enacted": "2023-07-28",
+  "imports": [
+    "Ley de Amparo, Reglamentaria de los artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Ley Federal de Transparencia y Acceso a la Información Pública"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court_clerk",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "registry_director",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "district_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "federal_prosecutor",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "interested_third_parties",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "exhorted_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "amparo_complaint",
+      "type": "service"
+    },
+    {
+      "id": "justified_report",
+      "type": "service"
+    },
+    {
+      "id": "certified_copies",
+      "type": "service"
+    },
+    {
+      "id": "fine_amount",
+      "type": "money"
+    },
+    {
+      "id": "constitutional_hearing",
+      "type": "service"
+    },
+    {
+      "id": "notification",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "AmparoCase",
+      "subject": "district_judge",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "ConstitutionalHearingScheduled",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_judge",
+        "object": "justified_report",
+        "target": "district_judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_clerk",
+        "object": "justified_report",
+        "target": "district_judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "registry_director",
+        "object": "justified_report",
+        "target": "district_judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_judge",
+        "object": "certified_copies",
+        "target": "district_judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "interested_third_parties",
+        "object": "notification",
+        "target": "district_judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "report_deadline_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AmparoCase"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "civil_judge",
+          "object": "justified_report",
+          "target": "district_judge"
+        }
+      }
+    },
+    {
+      "id": "fine_imposition_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "civil_judge",
+            "object": "justified_report",
+            "target": "district_judge"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "district_judge",
+          "object": "fine_amount",
+          "target": "civil_judge"
+        }
+      }
+    },
+    {
+      "id": "address_designation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AmparoCase"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "interested_third_parties",
+          "object": "notification",
+          "target": "district_judge"
+        }
+      }
+    },
+    {
+      "id": "cessation_notification_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AmparoCase"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "notification",
+          "target": "district_judge"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "amparo_admission_procedure",
+      "steps": [
+        {
+          "description": "Form corresponding case file"
+        },
+        {
+          "description": "Register in SISE system"
+        },
+        {
+          "description": "Admit complaint for processing"
+        },
+        {
+          "description": "Require justified report from responsible authorities"
+        },
+        {
+          "description": "Notify federal prosecutor"
+        },
+        {
+          "description": "Form suspension incident file"
+        },
+        {
+          "description": "Issue exhortation to notify interested third parties"
+        },
+        {
+          "description": "Schedule constitutional hearing"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "amparo_case_timeline",
+      "timeline": [
+        {
+          "event": "Complaint filed",
+          "condition": null
+        },
+        {
+          "event": "Case admitted",
+          "condition": null
+        },
+        {
+          "event": "Reports due from authorities",
+          "condition": {
+            "type": "date",
+            "name": "FifteenDayDeadline"
+          }
+        },
+        {
+          "event": "Constitutional hearing scheduled",
+          "condition": {
+            "type": "date",
+            "name": "ConstitutionalHearingScheduled"
+          }
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Demandas/Acuerdo de admisión de demanda de amparo/TMX_1227350_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Acuerdo de admisión de demanda de amparo/TMX_1227350_es.txt"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "law": "Demanda de Embargo por Incumplimiento de Contrato de Arrendamiento",
+  "authority": "judicial",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    },
+    {
+      "id": "increased_rent",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "commercial_property",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "UnpaidRent",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "PenaltyPayment",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "commercial_property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_rescission_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractRescission"
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_fee",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "increased_rent_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "increased_rent",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "embargo_procedure",
+      "steps": [
+        {
+          "description": "payment_demand"
+        },
+        {
+          "description": "asset_seizure"
+        },
+        {
+          "description": "asset_deposit"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Embargo/TMX_1361014_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Embargo/TMX_1361014_es.txt"
+  }
+}

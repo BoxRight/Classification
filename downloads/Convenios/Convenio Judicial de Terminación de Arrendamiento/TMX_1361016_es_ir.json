@@ -1,0 +1,153 @@
+{
+  "law": "Convenio Judicial de Terminación de Arrendamiento",
+  "authority": "judicial",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 1793, 1824, 1832, 1834, 1839, 1840, 1851, 1853",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rental_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_keys",
+      "type": "movable"
+    },
+    {
+      "id": "overdue_rent",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_keys",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property_keys",
+      "target": "landlord"
+    },
+    {
+      "id": "deliver_possession",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "rental_property",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseAgreement",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "OverdueRent",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "overdue_rent",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property_keys",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "rental_property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_waiver_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseTerminationAgreement"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "OverdueRent",
+        "subject": "tenant",
+        "status": "extinguished"
+      }
+    },
+    {
+      "id": "property_delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseTerminationAgreement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "rental_property",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_termination_process",
+      "steps": [
+        {
+          "ref": "deliver_keys"
+        },
+        {
+          "ref": "deliver_possession"
+        },
+        {
+          "description": "Property must be delivered clean and without structural damage"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio Judicial de Terminación de Arrendamiento/TMX_1361016_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio Judicial de Terminación de Arrendamiento/TMX_1361016_es.txt"
+  }
+}

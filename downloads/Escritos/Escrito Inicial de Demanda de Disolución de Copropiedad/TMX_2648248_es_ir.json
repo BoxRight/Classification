@@ -1,0 +1,69 @@
+{
+  "law": "Escrito Inicial de Demanda de Disolución de Copropiedad",
+  "authority": "judicial",
+  "enacted": "2024-03-05",
+  "imports": [],
+  "parties": [
+    {
+      "id": "interested_party",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "copropiedad",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "dissolution_demand",
+      "type": "simple",
+      "actor": "interested_party",
+      "object": "copropiedad",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "copropiedad_status",
+      "subject": "interested_party",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "interested_party",
+        "object": "copropiedad",
+        "target": null
+      }
+    }
+  ],
+  "rules": [],
+  "procedures": [
+    {
+      "name": "dissolution_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "interested_party",
+            "object": "copropiedad",
+            "target": null
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Disolución de Copropiedad/TMX_2648248_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Disolución de Copropiedad/TMX_2648248_es.txt"
+  }
+}

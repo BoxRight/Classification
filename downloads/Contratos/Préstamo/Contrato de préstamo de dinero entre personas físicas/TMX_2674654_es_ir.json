@@ -1,0 +1,315 @@
+{
+  "law": "Contrato de préstamo de dinero entre personas físicas",
+  "authority": "private",
+  "enacted": "2024-04-22",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "prestamista",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "prestatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "loan_amount",
+      "type": "money"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "interest_payment",
+      "type": "money"
+    },
+    {
+      "id": "penalty_payment",
+      "type": "money"
+    },
+    {
+      "id": "early_termination_penalty",
+      "type": "money"
+    },
+    {
+      "id": "guarantee",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_loan",
+      "type": "simple",
+      "actor": "prestamista",
+      "object": "loan_amount",
+      "target": "prestatario"
+    },
+    {
+      "id": "repay_loan",
+      "type": "simple",
+      "actor": "prestatario",
+      "object": "loan_amount",
+      "target": "prestamista"
+    },
+    {
+      "id": "pay_monthly",
+      "type": "simple",
+      "actor": "prestatario",
+      "object": "monthly_payment",
+      "target": "prestamista"
+    },
+    {
+      "id": "pay_interest",
+      "type": "simple",
+      "actor": "prestatario",
+      "object": "interest_payment",
+      "target": "prestamista"
+    },
+    {
+      "id": "provide_guarantee",
+      "type": "simple",
+      "actor": "prestatario",
+      "object": "guarantee",
+      "target": "prestamista"
+    },
+    {
+      "id": "default_payment",
+      "type": "counter",
+      "actor": "prestatario",
+      "object": "monthly_payment",
+      "target": "prestamista"
+    },
+    {
+      "id": "early_termination",
+      "type": "simple",
+      "actor": "prestatario",
+      "object": "early_termination_penalty",
+      "target": "prestamista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LoanRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "EconomicCapacity",
+      "subject": "prestamista",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "RepaymentCapacity",
+      "subject": "prestatario",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "GuaranteeProvided",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestamista",
+        "object": "loan_amount",
+        "target": "prestatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestatario",
+        "object": "loan_amount",
+        "target": "prestamista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestatario",
+        "object": "monthly_payment",
+        "target": "prestamista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestatario",
+        "object": "interest_payment",
+        "target": "prestamista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestatario",
+        "object": "guarantee",
+        "target": "prestamista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "loan_delivery_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LoanRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestamista",
+          "object": "loan_amount",
+          "target": "prestatario"
+        }
+      }
+    },
+    {
+      "id": "repayment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LoanRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestatario",
+          "object": "loan_amount",
+          "target": "prestamista"
+        }
+      }
+    },
+    {
+      "id": "monthly_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LoanRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestatario",
+          "object": "monthly_payment",
+          "target": "prestamista"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "ref": "default_payment"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestatario",
+          "object": "penalty_payment",
+          "target": "prestamista"
+        }
+      }
+    },
+    {
+      "id": "early_termination_rule",
+      "conditions": [
+        {
+          "ref": "early_termination"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestatario",
+          "object": "early_termination_penalty",
+          "target": "prestamista"
+        }
+      }
+    },
+    {
+      "id": "guarantee_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LoanRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestatario",
+          "object": "guarantee",
+          "target": "prestamista"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "loan_process",
+      "steps": [
+        {
+          "ref": "deliver_loan"
+        },
+        {
+          "ref": "pay_monthly"
+        },
+        {
+          "ref": "repay_loan"
+        }
+      ]
+    },
+    {
+      "name": "early_termination_process",
+      "steps": [
+        {
+          "description": "Written notice with minimum days advance"
+        },
+        {
+          "ref": "early_termination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Préstamo/Contrato de préstamo de dinero entre personas físicas/TMX_2674654_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Préstamo/Contrato de préstamo de dinero entre personas físicas/TMX_2674654_es.txt"
+  }
+}

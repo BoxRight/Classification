@@ -1,0 +1,208 @@
+{
+  "law": "Código de Procedimientos Civiles para la Ciudad de México",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 112, 256, 260, 940, 942, 947, 973, 974 del Código de Procedimientos Civiles",
+    "Código Civil para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "defendants",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiffs",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "property_registry_director",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "coproperty_properties",
+      "type": "nonmovable"
+    },
+    {
+      "id": "sale_proceeds",
+      "type": "money"
+    },
+    {
+      "id": "property_appraisal",
+      "type": "service"
+    },
+    {
+      "id": "partition_plan",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "dissolve_coproperty",
+      "type": "simple",
+      "actor": "plaintiffs",
+      "object": "coproperty_properties",
+      "target": "defendants"
+    },
+    {
+      "id": "sell_properties",
+      "type": "simple",
+      "actor": "defendants",
+      "object": "coproperty_properties",
+      "target": "third_party"
+    },
+    {
+      "id": "exercise_right_of_first_refusal",
+      "type": "simple",
+      "actor": "defendants",
+      "object": "coproperty_properties",
+      "target": "plaintiffs"
+    },
+    {
+      "id": "distribute_proceeds",
+      "type": "simple",
+      "actor": "court",
+      "object": "sale_proceeds",
+      "target": "defendants"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "CopropertyRelation",
+      "subject": "defendants",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "CopropertyRelation",
+      "subject": "plaintiffs",
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "MajorityOfCopropietors",
+      "subject": "defendants",
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "MajorityOfInterests",
+      "subject": "defendants",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "majority_decision_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "MajorityOfCopropietors"
+        },
+        {
+          "type": "numeric",
+          "name": "MajorityOfInterests"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "defendants",
+          "object": "coproperty_properties",
+          "target": "court"
+        }
+      }
+    },
+    {
+      "id": "indivisible_property_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "IndivisibleProperty"
+        },
+        {
+          "type": "asset",
+          "name": "NoAgreementOnAdjudication"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court",
+          "object": "coproperty_properties",
+          "target": "third_party"
+        }
+      }
+    },
+    {
+      "id": "right_of_first_refusal_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "CopropertyRelation"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "defendants",
+            "object": "coproperty_properties",
+            "target": "third_party"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiffs",
+          "object": "coproperty_properties",
+          "target": "defendants"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_answer_procedure",
+      "steps": [
+        {
+          "description": "Present civil answer within legal timeframe"
+        },
+        {
+          "description": "Designate common representative"
+        },
+        {
+          "description": "Object to plaintiff's appraisal and partition plan"
+        },
+        {
+          "description": "Request appointment of property administrator"
+        },
+        {
+          "description": "Exercise right of first refusal"
+        },
+        {
+          "description": "Request conciliation hearing"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda civil/TMX_2469473_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda civil/TMX_2469473_es.txt"
+  }
+}

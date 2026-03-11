@@ -1,0 +1,193 @@
+{
+  "law": "Contrato de cesión de derechos",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deudor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "derecho_credito",
+      "type": "service"
+    },
+    {
+      "id": "precio_cesion",
+      "type": "money"
+    },
+    {
+      "id": "garantia_hipoteca",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transmitir_credito",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derecho_credito",
+      "target": "cesionario"
+    },
+    {
+      "id": "pagar_precio",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "precio_cesion",
+      "target": "cedente"
+    },
+    {
+      "id": "notificar_deudor",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "derecho_credito",
+      "target": "deudor"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoCesion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "DerechoCredito",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "GarantiaHipoteca",
+      "subject": "deudor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derecho_credito",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "precio_cesion",
+        "target": "cedente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "derecho_credito",
+        "target": "deudor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cesion_onerosa_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoCesion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "precio_cesion",
+          "target": "cedente"
+        }
+      }
+    },
+    {
+      "id": "notificacion_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoCesion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "derecho_credito",
+          "target": "deudor"
+        }
+      }
+    },
+    {
+      "id": "saneamiento_eviccion_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cesionario",
+          "object": "derecho_credito",
+          "target": "deudor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cedente",
+          "object": "precio_cesion",
+          "target": "cesionario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_cesion",
+      "steps": [
+        {
+          "ref": "transmitir_credito"
+        },
+        {
+          "ref": "pagar_precio"
+        },
+        {
+          "ref": "notificar_deudor"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Contrato de cesión de derechos/TMX_1815109_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Contrato de cesión de derechos/TMX_1815109_es.txt"
+  }
+}

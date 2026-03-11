@@ -1,0 +1,182 @@
+{
+  "law": "Auto de incompetencia por falta de agotamiento de recursos ordinarios",
+  "authority": "judicial",
+  "enacted": "2023-09-05",
+  "imports": [
+    "Artículo 107 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Artículos 47, 170 de la Ley de Amparo",
+    "Artículo 47 de la Ley Orgánica del Poder Judicial de la Federación"
+  ],
+  "parties": [
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "autoridad_responsable",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tribunal_colegiado",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tribunal_superior_justicia",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "demanda_amparo",
+      "type": "service"
+    },
+    {
+      "id": "sentencia_definitiva",
+      "type": "service"
+    },
+    {
+      "id": "competencia_jurisdiccional",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "presentar_demanda_amparo",
+      "type": "simple",
+      "actor": "quejoso",
+      "object": "demanda_amparo",
+      "target": "juez_distrito"
+    },
+    {
+      "id": "dictar_sentencia_definitiva",
+      "type": "simple",
+      "actor": "autoridad_responsable",
+      "object": "sentencia_definitiva",
+      "target": "quejoso"
+    },
+    {
+      "id": "declinar_competencia",
+      "type": "simple",
+      "actor": "juez_distrito",
+      "object": "competencia_jurisdiccional",
+      "target": "tribunal_colegiado"
+    },
+    {
+      "id": "remitir_expediente",
+      "type": "simple",
+      "actor": "juez_distrito",
+      "object": "demanda_amparo",
+      "target": "tribunal_colegiado"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "SentenciaDefinitiva",
+      "subject": "autoridad_responsable",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "IncompetenciaJuzgado",
+      "subject": "juez_distrito",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CompetenciaTribunalColegiado",
+      "subject": "tribunal_colegiado",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "quejoso",
+        "object": "demanda_amparo",
+        "target": "tribunal_colegiado"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "incompetencia_por_amparo_directo",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "SentenciaDefinitiva"
+        },
+        {
+          "type": "simple",
+          "actor": "quejoso",
+          "object": "demanda_amparo",
+          "target": "juez_distrito"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "IncompetenciaJuzgado",
+        "subject": "juez_distrito"
+      }
+    },
+    {
+      "id": "competencia_tribunal_colegiado",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "SentenciaDefinitiva"
+        },
+        {
+          "type": "certification",
+          "name": "IncompetenciaJuzgado"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "CompetenciaTribunalColegiado",
+        "subject": "tribunal_colegiado"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "declaracion_incompetencia",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "juez_distrito",
+            "object": "competencia_jurisdiccional",
+            "target": "tribunal_colegiado"
+          }
+        },
+        {
+          "ref": "remitir_expediente"
+        },
+        {
+          "description": "comunicar a autoridad responsable"
+        },
+        {
+          "description": "notificar personalmente a las partes"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto de incompetencia por falta de agotamiendo de recursos ordinarios/TMX_1279199_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto de incompetencia por falta de agotamiendo de recursos ordinarios/TMX_1279199_es.txt"
+  }
+}

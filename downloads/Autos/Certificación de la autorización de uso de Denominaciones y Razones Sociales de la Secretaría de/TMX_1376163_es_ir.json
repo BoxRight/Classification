@@ -1,0 +1,99 @@
+{
+  "law": "Reglamento para la Autorización de Uso de Denominaciones y Razones Sociales",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "sociedades_asociaciones",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "secretaria_economia",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "comparecientes",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "denominacion_razon_social",
+      "type": "service"
+    },
+    {
+      "id": "informacion_documentacion",
+      "type": "service"
+    },
+    {
+      "id": "danos_perjuicios",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "uso_denominacion_autorizado",
+      "subject": "sociedades_asociaciones",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "uso_denominacion_razon_social",
+      "subject": "sociedades_asociaciones",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "obligacion_responder_danos",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "uso_denominacion_razon_social",
+          "subject": "sociedades_asociaciones"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "sociedades_asociaciones",
+          "object": "danos_perjuicios",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "obligacion_proporcionar_informacion",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "uso_denominacion_razon_social",
+          "subject": "sociedades_asociaciones"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "sociedades_asociaciones",
+          "object": "informacion_documentacion",
+          "target": "secretaria_economia"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Certificación de la autorización de uso de Denominaciones y Razones Sociales de la Secretaría de/TMX_1376163_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Certificación de la autorización de uso de Denominaciones y Razones Sociales de la Secretaría de/TMX_1376163_es.txt"
+  }
+}

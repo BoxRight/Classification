@@ -1,0 +1,202 @@
+{
+  "law": "Demanda de amparo directo de guarda y custodia",
+  "authority": "judicial",
+  "enacted": "2023-03-15",
+  "imports": [
+    "Ley de Amparo Reglamentaria de los Artículos 103 y 107 de la Constitución Política de los Estados Unidos Mexicanos",
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Convención de Derechos del Niño"
+  ],
+  "parties": [
+    {
+      "id": "appellant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "third_party_injured",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "responsible_authority",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "minor_child",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "child_custody",
+      "type": "service"
+    },
+    {
+      "id": "definitive_sentence",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "grant_custody",
+      "type": "simple",
+      "actor": "responsible_authority",
+      "object": "child_custody",
+      "target": "third_party_injured"
+    },
+    {
+      "id": "challenge_sentence",
+      "type": "simple",
+      "actor": "appellant",
+      "object": "definitive_sentence",
+      "target": "responsible_authority"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ParentalRelation",
+      "subject": "appellant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ParentalRelation",
+      "subject": "third_party_injured",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "ConstitutionalViolation",
+      "subject": "responsible_authority",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "responsible_authority",
+        "object": "constitutional_analysis",
+        "target": "appellant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "minor_child",
+        "object": "participation_in_proceedings",
+        "target": "responsible_authority"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appellant",
+        "object": "shared_custody_consideration",
+        "target": "responsible_authority"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "constitutional_protection_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConstitutionalViolation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "federal_court",
+          "object": "constitutional_protection",
+          "target": "appellant"
+        }
+      }
+    },
+    {
+      "id": "superior_interest_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CustodyDecision"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "responsible_authority",
+          "object": "superior_interest_analysis",
+          "target": "minor_child"
+        }
+      }
+    },
+    {
+      "id": "shared_custody_evaluation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ParentalConflict"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "responsible_authority",
+          "object": "shared_custody_evaluation",
+          "target": "minor_child"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "amparo_directo_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "appellant",
+            "object": "amparo_filing",
+            "target": "federal_court"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "federal_court",
+            "object": "case_substantiation",
+            "target": "appellant"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "federal_court",
+            "object": "constitutional_protection_decision",
+            "target": "appellant"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda de amparo directo de guarda y custodia/TMX_2533003_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda de amparo directo de guarda y custodia/TMX_2533003_es.txt"
+  }
+}

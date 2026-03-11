@@ -1,0 +1,140 @@
+{
+  "law": "Certificación de la personalidad",
+  "authority": "administrative",
+  "enacted": "2024-01-12",
+  "imports": [
+    "Artículo 10 de la Ley General de Sociedades Mercantiles"
+  ],
+  "parties": [
+    {
+      "id": "notario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "representante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "representado",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "personalidad_juridica",
+      "type": "service"
+    },
+    {
+      "id": "documento_acreditativo",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "capacidad_legal",
+      "subject": "representado",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "personalidad_acreditada",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "representacion_vigente",
+      "subject": "representante",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notario",
+        "object": "personalidad_juridica",
+        "target": "representante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "representante",
+        "object": "documento_acreditativo",
+        "target": "notario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "certificacion_personalidad",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "representante",
+          "object": "documento_acreditativo",
+          "target": "notario"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notario",
+          "object": "personalidad_juridica",
+          "target": "representante"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "certificacion_por_apendice",
+      "steps": [
+        {
+          "description": "agregar documento al apéndice del instrumento"
+        },
+        {
+          "description": "certificar la personalidad"
+        }
+      ]
+    },
+    {
+      "name": "certificacion_por_relacion",
+      "steps": [
+        {
+          "description": "relacionar todos los documentos"
+        },
+        {
+          "description": "copiar lo relevante para acreditar personalidad"
+        }
+      ]
+    },
+    {
+      "name": "certificacion_por_transcripcion",
+      "steps": [
+        {
+          "description": "agregar certificación al apéndice"
+        },
+        {
+          "description": "transcribir documentos necesarios"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación de la personalidad/TMX_1376155_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación de la personalidad/TMX_1376155_es.txt"
+  }
+}

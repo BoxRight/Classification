@@ -1,0 +1,360 @@
+{
+  "law": "Certificación en testamentos",
+  "authority": "administrative",
+  "enacted": "2024-01-12",
+  "imports": [
+    "Artículo 1517 del Código Civil para la Ciudad de México",
+    "Artículo 106 de la Ley del Notariado para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "notario",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "testador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "testigo_instrumental",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "interprete",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "testamento",
+      "type": "service"
+    },
+    {
+      "id": "certificacion_notarial",
+      "type": "service"
+    },
+    {
+      "id": "huella_digital",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "otorgar_testamento",
+      "type": "simple",
+      "actor": "testador",
+      "object": "testamento",
+      "target": "notario"
+    },
+    {
+      "id": "certificar_capacidad",
+      "type": "simple",
+      "actor": "notario",
+      "object": "certificacion_notarial",
+      "target": "testador"
+    },
+    {
+      "id": "verificar_identidad",
+      "type": "simple",
+      "actor": "notario",
+      "object": "certificacion_notarial",
+      "target": "testador"
+    },
+    {
+      "id": "dar_fe_formalidades",
+      "type": "simple",
+      "actor": "notario",
+      "object": "certificacion_notarial",
+      "target": "testamento"
+    },
+    {
+      "id": "firmar_a_ruego",
+      "type": "simple",
+      "actor": "testigo_instrumental",
+      "object": "testamento",
+      "target": "testador"
+    },
+    {
+      "id": "imprimir_huella",
+      "type": "simple",
+      "actor": "testador",
+      "object": "huella_digital",
+      "target": "testamento"
+    },
+    {
+      "id": "interpretar",
+      "type": "simple",
+      "actor": "interprete",
+      "object": "testamento",
+      "target": "testador"
+    },
+    {
+      "id": "leer_testamento",
+      "type": "simple",
+      "actor": "testigo_instrumental",
+      "object": "testamento",
+      "target": "testador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "capacidad_legal",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "libre_coaccion",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "no_sabe_firmar",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "mudo",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "sordomudo",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "sordo_sabe_leer",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ciego",
+      "subject": "testador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "no_sabe_leer",
+      "subject": "testador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notario",
+        "object": "certificacion_notarial",
+        "target": "testador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notario",
+        "object": "certificacion_notarial",
+        "target": "testamento"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "certificacion_capacidad_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "testador",
+          "object": "testamento",
+          "target": "notario"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notario",
+          "object": "certificacion_notarial",
+          "target": "testador"
+        }
+      }
+    },
+    {
+      "id": "testigo_no_firma_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "no_sabe_firmar",
+          "subject": "testador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "testigo_instrumental",
+          "object": "testamento",
+          "target": "testador"
+        }
+      }
+    },
+    {
+      "id": "huella_digital_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "no_sabe_firmar",
+          "subject": "testador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "testador",
+          "object": "huella_digital",
+          "target": "testamento"
+        }
+      }
+    },
+    {
+      "id": "interprete_sordo_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "sordo_sabe_leer",
+          "subject": "testador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "interprete",
+          "object": "testamento",
+          "target": "testador"
+        }
+      }
+    },
+    {
+      "id": "lectura_ciego_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "ciego",
+          "subject": "testador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "testigo_instrumental",
+          "object": "testamento",
+          "target": "testador"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "certificacion_testamento_normal",
+      "steps": [
+        {
+          "ref": "verificar_identidad"
+        },
+        {
+          "ref": "certificar_capacidad"
+        },
+        {
+          "ref": "dar_fe_formalidades"
+        },
+        {
+          "ref": "otorgar_testamento"
+        }
+      ]
+    },
+    {
+      "name": "testamento_no_firma",
+      "steps": [
+        {
+          "ref": "verificar_identidad"
+        },
+        {
+          "ref": "certificar_capacidad"
+        },
+        {
+          "ref": "imprimir_huella"
+        },
+        {
+          "ref": "firmar_a_ruego"
+        },
+        {
+          "ref": "dar_fe_formalidades"
+        }
+      ]
+    },
+    {
+      "name": "testamento_sordo",
+      "steps": [
+        {
+          "ref": "verificar_identidad"
+        },
+        {
+          "ref": "certificar_capacidad"
+        },
+        {
+          "ref": "interpretar"
+        },
+        {
+          "ref": "dar_fe_formalidades"
+        },
+        {
+          "ref": "otorgar_testamento"
+        }
+      ]
+    },
+    {
+      "name": "testamento_ciego",
+      "steps": [
+        {
+          "ref": "verificar_identidad"
+        },
+        {
+          "ref": "certificar_capacidad"
+        },
+        {
+          "ref": "leer_testamento"
+        },
+        {
+          "ref": "imprimir_huella"
+        },
+        {
+          "ref": "firmar_a_ruego"
+        },
+        {
+          "ref": "dar_fe_formalidades"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación en testamentos/TMX_1376259_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación en testamentos/TMX_1376259_es.txt"
+  }
+}

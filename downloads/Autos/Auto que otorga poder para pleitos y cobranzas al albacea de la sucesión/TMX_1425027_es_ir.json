@@ -1,0 +1,179 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "succession_estate",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "succession_assets",
+      "type": "movable"
+    },
+    {
+      "id": "succession_rights",
+      "type": "service"
+    },
+    {
+      "id": "legal_power",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "collect_assets",
+      "type": "simple",
+      "actor": "executor",
+      "object": "succession_assets",
+      "target": "succession_estate"
+    },
+    {
+      "id": "enforce_rights",
+      "type": "simple",
+      "actor": "executor",
+      "object": "succession_rights",
+      "target": "succession_estate"
+    },
+    {
+      "id": "file_lawsuits",
+      "type": "simple",
+      "actor": "executor",
+      "object": "legal_power",
+      "target": "succession_estate"
+    },
+    {
+      "id": "respond_lawsuits",
+      "type": "simple",
+      "actor": "executor",
+      "object": "legal_power",
+      "target": "succession_estate"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ExecutorAuthorization",
+      "subject": "executor",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalRepresentationPower",
+      "subject": "executor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SuccessionEstate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "executor",
+        "object": "succession_assets",
+        "target": "succession_estate"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "executor",
+        "object": "succession_rights",
+        "target": "succession_estate"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "executor",
+        "object": "legal_power",
+        "target": "succession_estate"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "executor_authorization_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SuccessionEstate"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ExecutorAuthorization",
+        "subject": "executor"
+      }
+    },
+    {
+      "id": "legal_power_grant_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ExecutorAuthorization",
+          "subject": "executor"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "LegalRepresentationPower",
+        "subject": "executor"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "succession_legal_representation",
+      "steps": [
+        {
+          "ref": "collect_assets"
+        },
+        {
+          "ref": "enforce_rights"
+        },
+        {
+          "ref": "file_lawsuits"
+        },
+        {
+          "ref": "respond_lawsuits"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que otorga poder para pleitos y cobranzas al albacea de la sucesión/TMX_1425027_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que otorga poder para pleitos y cobranzas al albacea de la sucesión/TMX_1425027_es.txt"
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "law": "Acta constitutiva de Asociación Civil",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 2554, 2587, 2670, 2671, 2672, 2673, 2674, 2675, 2676 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "association",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "associates",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "board_of_directors",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "director",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "president",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "assembly",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "membership_fees",
+      "type": "money"
+    },
+    {
+      "id": "donations",
+      "type": "money"
+    },
+    {
+      "id": "association_patrimony",
+      "type": "money"
+    },
+    {
+      "id": "social_object_activities",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "AssociationConstitution",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "VariablePatrimony",
+      "subject": "association",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "NonProfitStatus",
+      "subject": "association",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "IndefiniteDuration",
+      "subject": "association",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "membership_fees",
+        "target": "association"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "assembly_attendance",
+        "target": "assembly"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "association",
+        "object": "political_propaganda",
+        "target": "public"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "associates",
+        "object": "voting_rights",
+        "target": "assembly"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "exclusion_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "associates",
+          "object": "fraudulent_acts",
+          "target": "association"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ExclusionFromAssociation",
+        "subject": "associates"
+      }
+    },
+    {
+      "id": "assembly_quorum_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ProperConvocation"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "ValidAssembly",
+        "subject": "assembly"
+      }
+    },
+    {
+      "id": "dissolution_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "assembly",
+          "object": "dissolution_agreement",
+          "target": "association"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "AssociationDissolution",
+        "subject": "association"
+      }
+    },
+    {
+      "id": "liquidation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "AssociationDissolution"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "assembly",
+          "object": "liquidator_appointment",
+          "target": "association"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "assembly_convocation_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "director",
+            "object": "convocation_notice",
+            "target": "associates"
+          }
+        },
+        {
+          "description": "Send notice at least 10 days before assembly"
+        },
+        {
+          "description": "Include agenda in convocation"
+        }
+      ]
+    },
+    {
+      "name": "voting_procedure",
+      "steps": [
+        {
+          "description": "Each associate has one vote"
+        },
+        {
+          "description": "Decisions by majority of present votes"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta constitutiva de Asociación Civil/TMX_1815089_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta constitutiva de Asociación Civil/TMX_1815089_es.txt"
+  }
+}

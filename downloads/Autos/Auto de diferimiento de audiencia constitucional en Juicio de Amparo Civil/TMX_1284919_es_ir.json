@@ -1,0 +1,167 @@
+{
+  "law": "Auto de diferimiento de audiencia constitucional en Juicio de Amparo Civil",
+  "authority": "judicial",
+  "enacted": "2024-02-15",
+  "imports": [
+    "Ley de Amparo",
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "autoridad_responsable",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "quejoso",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "testigos",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_distrito",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "informe_justificado",
+      "type": "service"
+    },
+    {
+      "id": "multa",
+      "type": "money"
+    },
+    {
+      "id": "audiencia_constitucional",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "rendir_informe",
+      "type": "simple",
+      "actor": "autoridad_responsable",
+      "object": "informe_justificado",
+      "target": "juez_distrito"
+    },
+    {
+      "id": "asistir_audiencia",
+      "type": "simple",
+      "actor": "testigos",
+      "object": "audiencia_constitucional",
+      "target": "juez_distrito"
+    },
+    {
+      "id": "no_asistir_audiencia",
+      "type": "counter",
+      "actor": "testigos",
+      "object": "audiencia_constitucional",
+      "target": "juez_distrito"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "InformeRendido",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "FechaAudienciaOriginal",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "NuevaFechaAudiencia",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "testigos",
+        "object": "audiencia_constitucional",
+        "target": "juez_distrito"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "diferimiento_audiencia",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "InformeRendido"
+        }
+      ],
+      "consequence": {
+        "type": "date",
+        "name": "NuevaFechaAudiencia"
+      }
+    },
+    {
+      "id": "sancion_inasistencia",
+      "conditions": [
+        {
+          "act": {
+            "type": "counter",
+            "actor": "testigos",
+            "object": "audiencia_constitucional",
+            "target": "juez_distrito"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "testigos",
+          "object": "multa",
+          "target": "juez_distrito"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "diferimiento_audiencia_constitucional",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "autoridad_responsable",
+            "object": "informe_justificado",
+            "target": "juez_distrito"
+          }
+        },
+        {
+          "description": "dar vista a las partes por tres días"
+        },
+        {
+          "description": "diferir audiencia constitucional"
+        },
+        {
+          "description": "notificar nueva fecha a testigos"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto de diferimiento de audiencia constitucional en Juicio de Amparo Civil/TMX_1284919_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto de diferimiento de audiencia constitucional en Juicio de Amparo Civil/TMX_1284919_es.txt"
+  }
+}

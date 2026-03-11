@@ -1,0 +1,176 @@
+{
+  "law": "Demanda de Cancelación de Hipoteca",
+  "authority": "judicial",
+  "enacted": "2024-02-06",
+  "imports": [
+    "Artículo 21 de la Convención Americana sobre Derechos Humanos",
+    "Artículos 2893, 2940, 2941 del Código Civil para el Distrito Federal",
+    "Artículos 468, 469, 470, 471 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "banking_institution",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "property_registry_director",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "mortgaged_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    },
+    {
+      "id": "excessive_interest",
+      "type": "money"
+    },
+    {
+      "id": "mortgage_guarantee",
+      "type": "service"
+    },
+    {
+      "id": "mortgage_cancellation",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff_1",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "MortgageObligation",
+      "subject": "plaintiff_1",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PaymentCompletion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "ExcessiveInterest",
+      "subject": "banking_institution",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "banking_institution",
+        "object": "excessive_interest",
+        "target": "plaintiff_1"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "banking_institution",
+        "object": "mortgage_cancellation",
+        "target": "plaintiff_1"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff_1",
+        "object": "mortgage_cancellation",
+        "target": "banking_institution"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "usury_prohibition_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "ExcessiveInterest"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "banking_institution",
+          "object": "excessive_interest",
+          "target": "plaintiff_1"
+        }
+      }
+    },
+    {
+      "id": "mortgage_cancellation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PaymentCompletion"
+        },
+        {
+          "type": "liability",
+          "name": "ExcessiveInterest"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "banking_institution",
+          "object": "mortgage_cancellation",
+          "target": "plaintiff_1"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "mortgage_cancellation_procedure",
+      "steps": [
+        {
+          "description": "Judicial declaration of mortgage cancellation"
+        },
+        {
+          "description": "Official notice to Property Registry Director"
+        },
+        {
+          "description": "Registry cancellation of mortgage inscription"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Cancelación de Hipoteca/TMX_2459417_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Cancelación de Hipoteca/TMX_2459417_es.txt"
+  }
+}

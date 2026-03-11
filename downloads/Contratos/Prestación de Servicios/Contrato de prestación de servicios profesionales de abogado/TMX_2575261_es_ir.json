@@ -1,0 +1,217 @@
+{
+  "law": "Contrato de prestación de servicios profesionales de abogado",
+  "authority": "private",
+  "enacted": "2023-06-28",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2606-2615",
+    "Ley de Profesiones",
+    "Código Fiscal Federal",
+    "Ley de Transparencia, Acceso a la Información Pública y Rendición de Cuentas de la Ciudad de México",
+    "Ley de Protección de Datos Personales para el Distrito Federal",
+    "Ley de Archivos del Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "contratante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "prestador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "percentage_fee",
+      "type": "money"
+    },
+    {
+      "id": "fixed_compensation",
+      "type": "money"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_legal_services",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "legal_services",
+      "target": "contratante"
+    },
+    {
+      "id": "pay_percentage_fee",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "percentage_fee",
+      "target": "prestador"
+    },
+    {
+      "id": "pay_fixed_compensation",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "fixed_compensation",
+      "target": "prestador"
+    },
+    {
+      "id": "breach_service_provision",
+      "type": "counter",
+      "actor": "prestador",
+      "object": "legal_services",
+      "target": "contratante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "professional_license",
+      "subject": "prestador",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "service_contract_relation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "legal_services",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "confidentiality",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "assignment_of_rights",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "successful_outcome_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "favorable_result"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "percentage_fee",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "unsuccessful_outcome_payment_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "unfavorable_result"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "fixed_compensation",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_service_provision"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestador",
+          "object": "penalty_amount",
+          "target": "contratante"
+        }
+      }
+    },
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "penalty_count",
+          "value": 6
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_rescission"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "service_provision_procedure",
+      "steps": [
+        {
+          "description": "Provide comprehensive legal advice"
+        },
+        {
+          "description": "Legal representation during judicial process"
+        },
+        {
+          "description": "Prepare legal documents"
+        },
+        {
+          "description": "Present appeals and resources"
+        },
+        {
+          "description": "Explain legal aspects to client"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de abogado/TMX_2575261_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de abogado/TMX_2575261_es.txt"
+  }
+}

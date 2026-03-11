@@ -1,0 +1,171 @@
+{
+  "law": "Escrito inicial de demanda de Aclaración de Acta de Nacimiento",
+  "authority": "administrative",
+  "enacted": "2017-10-27",
+  "imports": [],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_registry_officer",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "birth_certificate",
+      "type": "service"
+    },
+    {
+      "id": "correction_service",
+      "type": "service"
+    },
+    {
+      "id": "supporting_documents",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "request_correction",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "correction_service",
+      "target": "civil_registry_officer"
+    },
+    {
+      "id": "process_correction",
+      "type": "simple",
+      "actor": "civil_registry_officer",
+      "object": "birth_certificate",
+      "target": "petitioner"
+    },
+    {
+      "id": "authorize_representation",
+      "type": "simple",
+      "actor": "civil_registry_officer",
+      "object": "correction_service",
+      "target": "legal_representative"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "IncorrectBirthRecord",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RequiredDocumentationSubmitted",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalRepresentationAuthorization",
+      "subject": "legal_representative",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_registry_officer",
+        "object": "correction_service",
+        "target": "petitioner"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "correction_service",
+        "target": "civil_registry_officer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "correction_processing_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "IncorrectBirthRecord"
+        },
+        {
+          "type": "certification",
+          "name": "RequiredDocumentationSubmitted"
+        },
+        {
+          "ref": "request_correction"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "civil_registry_officer",
+          "object": "correction_service",
+          "target": "petitioner"
+        }
+      }
+    },
+    {
+      "id": "representation_authorization_rule",
+      "conditions": [
+        {
+          "ref": "request_correction"
+        }
+      ],
+      "consequence": {
+        "type": "capability",
+        "name": "LegalRepresentationAuthorization",
+        "subject": "legal_representative"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "birth_certificate_correction_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "petitioner",
+            "object": "supporting_documents",
+            "target": "civil_registry_officer"
+          }
+        },
+        {
+          "ref": "request_correction"
+        },
+        {
+          "ref": "authorize_representation"
+        },
+        {
+          "ref": "process_correction"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Escrito inicial de demanda de Aclaración de Acta de Nacimiento/TMX_1299207_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Escrito inicial de demanda de Aclaración de Acta de Nacimiento/TMX_1299207_es.txt"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "law": "Contrato de arrendamiento de quirófano",
+  "authority": "private",
+  "enacted": "2024-11-21",
+  "imports": [
+    "Código Civil para el Distrito Federal Art. 13, 2398, 2399, 2400, 2404, 2408, 2412, 2413, 2414, 2415, 2416, 2419",
+    "Norma Oficial Mexicana NOM-016-SSA3-2012"
+  ],
+  "parties": [
+    {
+      "id": "arrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "arrendatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "quirofano",
+      "type": "nonmovable"
+    },
+    {
+      "id": "rental_payment",
+      "type": "money"
+    },
+    {
+      "id": "additional_equipment",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "rental_payment",
+      "target": "arrendador"
+    },
+    {
+      "id": "provide_quirofano",
+      "type": "simple",
+      "actor": "arrendador",
+      "object": "quirofano",
+      "target": "arrendatario"
+    },
+    {
+      "id": "maintain_quirofano",
+      "type": "simple",
+      "actor": "arrendador",
+      "object": "quirofano",
+      "target": "arrendatario"
+    },
+    {
+      "id": "use_quirofano_properly",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "quirofano",
+      "target": "arrendador"
+    },
+    {
+      "id": "cease_rights",
+      "type": "counter",
+      "actor": "arrendatario",
+      "object": "quirofano",
+      "target": "arrendador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "quirofano_ownership",
+      "subject": "arrendador",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "medical_license",
+      "subject": "arrendatario",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "nom_016_compliance",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "rental_payment",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendador",
+        "object": "quirofano",
+        "target": "arrendatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendador",
+        "object": "quirofano",
+        "target": "arrendatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "quirofano",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "arrendatario",
+        "object": "quirofano",
+        "target": "arrendador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "quirofano_rental_agreement"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "rental_payment",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "breach_rescission",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "quirofano",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_rescission",
+        "subject": "arrendatario"
+      }
+    },
+    {
+      "id": "damage_liability",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "quirofano",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "rental_payment",
+          "target": "arrendador"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de quirófano/TMX_2755855_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de quirófano/TMX_2755855_es.txt"
+  }
+}

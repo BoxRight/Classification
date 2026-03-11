@@ -1,0 +1,193 @@
+{
+  "law": "Acta de audiencia en rebeldía",
+  "authority": "judicial",
+  "enacted": "2024-01-04",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [],
+  "acts": [
+    {
+      "id": "appear_hearing",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "attendance",
+      "target": "court"
+    },
+    {
+      "id": "fail_appear",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "attendance",
+      "target": "court"
+    },
+    {
+      "id": "declare_default",
+      "type": "simple",
+      "actor": "judge",
+      "object": "default_declaration",
+      "target": "defendant"
+    },
+    {
+      "id": "present_evidence",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "evidence",
+      "target": "court"
+    },
+    {
+      "id": "make_allegations",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "allegations",
+      "target": "court"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ScheduledHearing",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DefendantDefault",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "EvidencePresented",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "default_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ScheduledHearing"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "attendance",
+          "target": "court"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "DefendantDefault"
+      }
+    },
+    {
+      "id": "proceed_without_defendant",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DefendantDefault"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ProceedWithPlaintiffEvidence"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "default_hearing_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "hearing_opening",
+            "target": "court"
+          }
+        },
+        {
+          "ref": "declare_default"
+        },
+        {
+          "ref": "present_evidence"
+        },
+        {
+          "ref": "make_allegations"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "case_submission",
+            "target": "final_judgment"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "default_hearing_timeline",
+      "timeline": [
+        {
+          "event": "hearing_scheduled",
+          "condition": {
+            "type": "certification",
+            "name": "ScheduledHearing"
+          }
+        },
+        {
+          "event": "plaintiff_appears",
+          "condition": null
+        },
+        {
+          "event": "defendant_fails_to_appear",
+          "condition": null
+        },
+        {
+          "event": "default_declared",
+          "condition": null
+        },
+        {
+          "event": "evidence_presented",
+          "condition": null
+        },
+        {
+          "event": "case_submitted_for_judgment",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Actas/Acta de audiencia en rebeldía/TMX_1302633_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de audiencia en rebeldía/TMX_1302633_es.txt"
+  }
+}

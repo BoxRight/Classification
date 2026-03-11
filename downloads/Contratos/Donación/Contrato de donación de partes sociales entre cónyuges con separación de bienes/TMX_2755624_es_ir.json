@@ -1,0 +1,214 @@
+{
+  "law": "Contrato de donación de partes sociales entre cónyuges con separación de bienes",
+  "authority": "private",
+  "enacted": "2024-11-20",
+  "imports": [
+    "Artículos 232, 233, 234 del Código Civil para la Ciudad de México",
+    "Ley General de Sociedades Mercantiles"
+  ],
+  "parties": [
+    {
+      "id": "donante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "sociedad",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "partes_sociales",
+      "type": "movable"
+    },
+    {
+      "id": "documentos_transmision",
+      "type": "movable"
+    },
+    {
+      "id": "gastos_registro",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "TitularidadPartesSociales",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MatrimonioSeparacionBienes",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AprobacionAsambleaSocios",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LibreDisposicionPartesSociales",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "documentos_transmision",
+        "target": "donatario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donatario",
+        "object": "partes_sociales",
+        "target": "sociedad"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "gastos_registro",
+        "target": "registro_publico"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "partes_sociales",
+        "target": "donatario"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "derechos_partes_sociales",
+        "target": "terceros"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donacion_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "TitularidadPartesSociales",
+          "subject": "donante"
+        },
+        {
+          "type": "certification",
+          "name": "AprobacionAsambleaSocios"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "TitularidadPartesSociales",
+        "subject": "donatario"
+      }
+    },
+    {
+      "id": "inscripcion_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "TitularidadPartesSociales",
+          "subject": "donatario"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "sociedad",
+          "object": "registro_socios",
+          "target": "donatario"
+        }
+      }
+    },
+    {
+      "id": "no_interferencia_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "TitularidadPartesSociales",
+          "subject": "donatario"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "donante",
+          "object": "derechos_partes_sociales",
+          "target": "donatario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "formalizacion_donacion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donante",
+            "object": "documentos_transmision",
+            "target": "donatario"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "sociedad",
+            "object": "registro_socios",
+            "target": "donatario"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "donante",
+            "object": "gastos_registro",
+            "target": "registro_publico"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Contrato de donación de partes sociales entre cónyuges con separación de bienes/TMX_2755624_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Contrato de donación de partes sociales entre cónyuges con separación de bienes/TMX_2755624_es.txt"
+  }
+}

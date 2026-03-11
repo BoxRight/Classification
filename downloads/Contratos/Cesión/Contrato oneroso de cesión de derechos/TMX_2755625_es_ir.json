@@ -1,0 +1,286 @@
+{
+  "law": "Contrato oneroso de cesión de derechos",
+  "authority": "private",
+  "enacted": "2024-11-20",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2029, 2030, 2032, 2033, 2034 y 2042"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "assigned_right",
+      "type": "service"
+    },
+    {
+      "id": "cessation_price",
+      "type": "money"
+    },
+    {
+      "id": "accessory_rights",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transfer_right",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "assigned_right",
+      "target": "cesionario"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "cessation_price",
+      "target": "cedente"
+    },
+    {
+      "id": "guarantee_right",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "assigned_right",
+      "target": "cesionario"
+    },
+    {
+      "id": "interfere_with_right",
+      "type": "counter",
+      "actor": "cedente",
+      "object": "assigned_right",
+      "target": "cesionario"
+    },
+    {
+      "id": "cede_to_third_party",
+      "type": "counter",
+      "actor": "cedente",
+      "object": "assigned_right",
+      "target": null
+    },
+    {
+      "id": "cede_to_third_party_cesionario",
+      "type": "counter",
+      "actor": "cesionario",
+      "object": "assigned_right",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "legitimate_ownership_right",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "cessation_contract_relation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "legal_capacity",
+      "subject": "cesionario",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "right_not_encumbered",
+      "subject": "cedente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "assigned_right",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "cessation_price",
+        "target": "cedente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "assigned_right",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "cedente",
+        "object": "assigned_right",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "cedente",
+        "object": "assigned_right",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "cesionario",
+        "object": "assigned_right",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "transfer_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "cessation_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "transfer_right"
+        }
+      }
+    },
+    {
+      "id": "payment_obligation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "cessation_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_price"
+        }
+      }
+    },
+    {
+      "id": "guarantee_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "cessation_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "guarantee_right"
+        }
+      }
+    },
+    {
+      "id": "non_interference_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "cessation_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "ref": "interfere_with_right"
+        }
+      }
+    },
+    {
+      "id": "non_cessation_rule_cedente",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "cessation_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "ref": "cede_to_third_party"
+        }
+      }
+    },
+    {
+      "id": "non_cessation_rule_cesionario",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "cessation_contract_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "ref": "cede_to_third_party_cesionario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "cessation_process",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "cedente",
+            "object": "assigned_right",
+            "target": "cesionario"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "cesionario",
+            "object": "cessation_price",
+            "target": "cedente"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Contrato oneroso de cesión de derechos/TMX_2755625_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Contrato oneroso de cesión de derechos/TMX_2755625_es.txt"
+  }
+}

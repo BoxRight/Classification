@@ -1,0 +1,194 @@
+{
+  "law": "Escrito Inicial de Demanda con Requerimiento de Pago",
+  "authority": "judicial",
+  "enacted": "2024-12-02",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "court_clerk",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "loan_amount",
+      "type": "money"
+    },
+    {
+      "id": "monthly_interests",
+      "type": "money"
+    },
+    {
+      "id": "court_costs",
+      "type": "money"
+    },
+    {
+      "id": "public_deed",
+      "type": "service"
+    },
+    {
+      "id": "defendant_assets",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "lend_money",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "loan_amount",
+      "target": "defendant"
+    },
+    {
+      "id": "repay_loan",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "loan_amount",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_interests",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "monthly_interests",
+      "target": "plaintiff"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "loan_amount",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "LoanDebt",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LoanClaim",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PublicDeed",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "loan_amount",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "monthly_interests",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_requirement_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "LoanDebt",
+          "subject": "defendant"
+        },
+        {
+          "type": "certification",
+          "name": "PublicDeed"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "loan_amount",
+          "target": "plaintiff"
+        }
+      }
+    },
+    {
+      "id": "asset_seizure_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "loan_amount",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "court_clerk",
+          "object": "defendant_assets",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "ejecutivo_civil_procedure",
+      "steps": [
+        {
+          "description": "Requerimiento de pago al deudor"
+        },
+        {
+          "description": "Embargo de bienes suficientes"
+        },
+        {
+          "description": "Emplazamiento para comparecer"
+        },
+        {
+          "description": "Trance y remate de bienes embargados"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda con Requerimiento de Pago/TMX_1415805_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda con Requerimiento de Pago/TMX_1415805_es.txt"
+  }
+}

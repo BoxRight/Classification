@@ -1,0 +1,222 @@
+{
+  "law": "Demanda de Arrendamiento - Acción Reivindicatoria",
+  "authority": "judicial",
+  "enacted": "2024-02-08",
+  "imports": [
+    "Código Civil para el Distrito Federal - Arts. 806, 830, 831",
+    "Código de Nacional de Procedimientos Civiles y Familiares - Arts. 125, 128, 235, 236, 258"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "fruits_and_accessions",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "occupy_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "legal_costs",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PublicDeed",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "property",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "fruits_and_accessions",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "revindicatory_action_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "vacate_property"
+        }
+      }
+    },
+    {
+      "id": "unlawful_possession_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_costs"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "civil_ordinary_procedure",
+      "steps": [
+        {
+          "description": "file_initial_complaint"
+        },
+        {
+          "description": "admit_complaint"
+        },
+        {
+          "description": "summon_defendant"
+        },
+        {
+          "description": "defendant_response"
+        },
+        {
+          "description": "render_judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "property_occupation_timeline",
+      "timeline": [
+        {
+          "event": "plaintiff_acquired_property",
+          "condition": {
+            "type": "certification",
+            "name": "PublicDeed"
+          }
+        },
+        {
+          "event": "defendant_occupied_property_unlawfully",
+          "condition": null
+        },
+        {
+          "event": "plaintiff_discovered_occupation",
+          "condition": null
+        },
+        {
+          "event": "extrajudicial_requirements_made",
+          "condition": null
+        },
+        {
+          "event": "defendant_refused_to_vacate",
+          "condition": null
+        },
+        {
+          "event": "legal_action_filed",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Arrendamiento/TMX_1361018_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Arrendamiento/TMX_1361018_es.txt"
+  }
+}

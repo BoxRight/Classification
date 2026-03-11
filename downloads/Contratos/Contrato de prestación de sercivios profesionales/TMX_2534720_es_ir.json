@@ -1,0 +1,163 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal, Artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "propietario",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "prestador_servicios",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "servicios_especializados",
+      "type": "service"
+    },
+    {
+      "id": "honorarios",
+      "type": "money"
+    },
+    {
+      "id": "pena_convencional",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "prestar_servicios",
+      "type": "simple",
+      "actor": "prestador_servicios",
+      "object": "servicios_especializados",
+      "target": "propietario"
+    },
+    {
+      "id": "pagar_honorarios",
+      "type": "simple",
+      "actor": "propietario",
+      "object": "honorarios",
+      "target": "prestador_servicios"
+    },
+    {
+      "id": "incumplir_obligaciones",
+      "type": "counter",
+      "actor": "prestador_servicios",
+      "object": "servicios_especializados",
+      "target": "propietario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ProfessionalCapacity",
+      "subject": "prestador_servicios",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CedulaProfesional",
+      "subject": "prestador_servicios",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "servicios_especializados",
+        "target": "propietario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietario",
+        "object": "honorarios",
+        "target": "prestador_servicios"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador_servicios",
+        "object": "informacion_confidencial",
+        "target": "terceros"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "prestador_servicios",
+          "object": "servicios_especializados",
+          "target": "propietario"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "PenaConvencional",
+        "subject": "prestador_servicios"
+      }
+    },
+    {
+      "id": "suspension_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "propietario",
+          "object": "suspension_notice",
+          "target": "prestador_servicios"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "Aviso por escrito con 30 días de anticipación"
+        },
+        {
+          "description": "Otorgamiento de finiquito en 60 días"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Contrato de prestación de sercivios profesionales/TMX_2534720_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Contrato de prestación de sercivios profesionales/TMX_2534720_es.txt"
+  }
+}

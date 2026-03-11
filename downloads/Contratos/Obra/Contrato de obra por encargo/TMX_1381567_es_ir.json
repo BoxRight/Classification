@@ -1,0 +1,268 @@
+{
+  "law": "Contrato de obra por encargo",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículos 33, 83 de la Ley Federal del Derecho de Autor"
+  ],
+  "parties": [
+    {
+      "id": "collaborator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "producer_company",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "graphic_work",
+      "type": "service"
+    },
+    {
+      "id": "payment",
+      "type": "money"
+    },
+    {
+      "id": "modifications",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "create_work",
+      "type": "simple",
+      "actor": "collaborator",
+      "object": "graphic_work",
+      "target": "producer_company"
+    },
+    {
+      "id": "deliver_work",
+      "type": "simple",
+      "actor": "collaborator",
+      "object": "graphic_work",
+      "target": "producer_company"
+    },
+    {
+      "id": "pay_compensation",
+      "type": "simple",
+      "actor": "producer_company",
+      "object": "payment",
+      "target": "collaborator"
+    },
+    {
+      "id": "make_modifications",
+      "type": "simple",
+      "actor": "collaborator",
+      "object": "modifications",
+      "target": "producer_company"
+    },
+    {
+      "id": "breach_contract",
+      "type": "counter",
+      "actor": "collaborator",
+      "object": "graphic_work",
+      "target": "producer_company"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PatrimonialRights",
+      "subject": "producer_company",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "GraphicDesignServices",
+      "subject": "collaborator",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "graphic_work",
+        "target": "producer_company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "modifications",
+        "target": "producer_company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "producer_company",
+        "object": "payment",
+        "target": "collaborator"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "collaborator",
+        "object": "graphic_work",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "producer_company",
+        "object": "graphic_work",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "work_creation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "collaborator",
+          "object": "graphic_work",
+          "target": "producer_company"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "ref": "deliver_work"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "producer_company",
+          "object": "payment",
+          "target": "collaborator"
+        }
+      }
+    },
+    {
+      "id": "modification_rule",
+      "conditions": [
+        {
+          "ref": "deliver_work"
+        },
+        {
+          "type": "date",
+          "name": "within_30_days"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "collaborator",
+          "object": "modifications",
+          "target": "producer_company"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "collaborator",
+          "object": "payment",
+          "target": "producer_company"
+        }
+      }
+    },
+    {
+      "id": "rescission_rule",
+      "conditions": [
+        {
+          "ref": "breach_contract"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "work_delivery_process",
+      "steps": [
+        {
+          "ref": "create_work"
+        },
+        {
+          "ref": "deliver_work"
+        },
+        {
+          "description": "30_day_modification_period"
+        },
+        {
+          "ref": "pay_compensation"
+        }
+      ]
+    },
+    {
+      "name": "breach_remedy_process",
+      "steps": [
+        {
+          "description": "notification_of_breach"
+        },
+        {
+          "description": "15_day_cure_period"
+        },
+        {
+          "description": "penalty_payment_or_rescission"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Obra/Contrato de obra por encargo/TMX_1381567_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Obra/Contrato de obra por encargo/TMX_1381567_es.txt"
+  }
+}

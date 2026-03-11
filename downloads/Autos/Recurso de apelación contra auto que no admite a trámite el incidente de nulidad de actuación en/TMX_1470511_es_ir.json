@@ -1,0 +1,154 @@
+{
+  "law": "Recurso de apelación contra auto que no admite a trámite el incidente de nulidad de actuación en juicio de usucapión",
+  "authority": "judicial",
+  "enacted": "2024-04-26",
+  "imports": [
+    "Código de Procedimientos Civiles para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_civil",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "contraria",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "recurso_apelacion",
+      "type": "service"
+    },
+    {
+      "id": "incidente_nulidad",
+      "type": "service"
+    },
+    {
+      "id": "testimonio_apelacion",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "promover_recurso",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "recurso_apelacion",
+      "target": "juez_civil"
+    },
+    {
+      "id": "admitir_recurso",
+      "type": "simple",
+      "actor": "juez_civil",
+      "object": "recurso_apelacion",
+      "target": "demandado"
+    },
+    {
+      "id": "correr_traslado",
+      "type": "simple",
+      "actor": "juez_civil",
+      "object": "recurso_apelacion",
+      "target": "contraria"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "AutoNoAdmisionIncidente",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "JuicioUsucapion",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "recurso_apelacion",
+        "target": "juez_civil"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "juez_civil",
+        "object": "recurso_apelacion",
+        "target": "demandado"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "admision_recurso_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AutoNoAdmisionIncidente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "juez_civil",
+          "object": "recurso_apelacion",
+          "target": "demandado"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "procedimiento_apelacion",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "demandado",
+            "object": "recurso_apelacion",
+            "target": "juez_civil"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "juez_civil",
+            "object": "recurso_apelacion",
+            "target": "demandado"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "juez_civil",
+            "object": "recurso_apelacion",
+            "target": "contraria"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Recurso de apelación contra auto que no admite a trámite el incidente de nulidad de actuación en/TMX_1470511_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Recurso de apelación contra auto que no admite a trámite el incidente de nulidad de actuación en/TMX_1470511_es.txt"
+  }
+}

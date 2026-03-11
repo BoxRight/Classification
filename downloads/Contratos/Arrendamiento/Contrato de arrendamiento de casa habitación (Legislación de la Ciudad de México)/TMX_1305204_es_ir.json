@@ -1,0 +1,271 @@
+{
+  "law": "Contrato de arrendamiento de casa habitación",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 1949, 1950, 2846, 2847 y 2848 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "vat",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "utilities",
+      "type": "service"
+    },
+    {
+      "id": "insurance_bond",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "vat",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "security_deposit",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "third_party"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "commercial_use"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "utilities",
+        "target": "service_providers"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "insurance_bond",
+        "target": "insurance_company"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "lease_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "non_residential_use_breach",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "property",
+          "target": "commercial_use"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "subletting_breach",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "property",
+          "target": "third_party"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "dangerous_substances_breach",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "dangerous_substances",
+          "target": "property"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "contract_breach_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "contractual_obligations",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_payment",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_renewal_procedure",
+      "steps": [
+        {
+          "description": "Tenant notifies landlord 30 days before expiration"
+        },
+        {
+          "description": "Landlord grants consent"
+        },
+        {
+          "description": "Rent increase applied"
+        }
+      ]
+    },
+    {
+      "name": "property_modification_procedure",
+      "steps": [
+        {
+          "description": "Tenant requests written authorization"
+        },
+        {
+          "description": "Landlord provides written authorization"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de casa habitación (Legislación de la Ciudad de México)/TMX_1305204_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de casa habitación (Legislación de la Ciudad de México)/TMX_1305204_es.txt"
+  }
+}

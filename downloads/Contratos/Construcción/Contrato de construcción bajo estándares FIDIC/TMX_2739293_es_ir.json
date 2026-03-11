@@ -1,0 +1,342 @@
+{
+  "law": "Contrato de construcción bajo estándares FIDIC",
+  "authority": "private",
+  "enacted": null,
+  "imports": [
+    "FIDIC Standards"
+  ],
+  "parties": [
+    {
+      "id": "contractor",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "client",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "supervising_engineer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "construction_work",
+      "type": "service"
+    },
+    {
+      "id": "construction_plans",
+      "type": "service"
+    },
+    {
+      "id": "technical_specifications",
+      "type": "service"
+    },
+    {
+      "id": "materials",
+      "type": "movable"
+    },
+    {
+      "id": "equipment",
+      "type": "movable"
+    },
+    {
+      "id": "payment",
+      "type": "money"
+    },
+    {
+      "id": "performance_guarantee",
+      "type": "money"
+    },
+    {
+      "id": "retention_amount",
+      "type": "money"
+    },
+    {
+      "id": "penalty_amount",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "execute_construction",
+      "type": "simple",
+      "actor": "contractor",
+      "object": "construction_work",
+      "target": "client"
+    },
+    {
+      "id": "provide_materials",
+      "type": "simple",
+      "actor": "contractor",
+      "object": "materials",
+      "target": "construction_work"
+    },
+    {
+      "id": "supervise_work",
+      "type": "simple",
+      "actor": "supervising_engineer",
+      "object": "construction_work",
+      "target": "client"
+    },
+    {
+      "id": "make_payment",
+      "type": "simple",
+      "actor": "client",
+      "object": "payment",
+      "target": "contractor"
+    },
+    {
+      "id": "delay_completion",
+      "type": "counter",
+      "actor": "contractor",
+      "object": "construction_work",
+      "target": "client"
+    },
+    {
+      "id": "breach_quality_standards",
+      "type": "counter",
+      "actor": "contractor",
+      "object": "construction_work",
+      "target": "client"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractualRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "WorkCompletion",
+      "subject": "supervising_engineer",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PaymentApproval",
+      "subject": "supervising_engineer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contractor",
+        "object": "construction_work",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contractor",
+        "object": "materials",
+        "target": "construction_work"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contractor",
+        "object": "performance_guarantee",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "client",
+        "object": "payment",
+        "target": "contractor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "supervising_engineer",
+        "object": "construction_work",
+        "target": "client"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contractor",
+        "object": "construction_work",
+        "target": "client"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PaymentApproval",
+          "subject": "supervising_engineer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "payment",
+          "target": "contractor"
+        }
+      }
+    },
+    {
+      "id": "penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "delay_completion"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contractor",
+          "object": "penalty_amount",
+          "target": "client"
+        }
+      }
+    },
+    {
+      "id": "retention_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "retention_amount",
+          "target": "contractor"
+        }
+      }
+    },
+    {
+      "id": "guarantee_execution_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_quality_standards"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "client",
+          "object": "performance_guarantee",
+          "target": "contractor"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "construction_execution",
+      "steps": [
+        {
+          "description": "Provide construction plans and technical specifications"
+        },
+        {
+          "description": "Submit work schedule for approval"
+        },
+        {
+          "ref": "execute_construction"
+        },
+        {
+          "ref": "supervise_work"
+        },
+        {
+          "description": "Submit payment requests with progress measurements"
+        },
+        {
+          "ref": "make_payment"
+        },
+        {
+          "description": "Issue completion certificate"
+        }
+      ]
+    },
+    {
+      "name": "payment_process",
+      "steps": [
+        {
+          "description": "Submit payment request with work measurements"
+        },
+        {
+          "ref": "supervise_work"
+        },
+        {
+          "description": "Issue payment certificate"
+        },
+        {
+          "ref": "make_payment"
+        },
+        {
+          "description": "Apply retention percentage"
+        }
+      ]
+    },
+    {
+      "name": "modification_process",
+      "steps": [
+        {
+          "description": "Request modification in writing"
+        },
+        {
+          "description": "Evaluate cost and time impact"
+        },
+        {
+          "description": "Submit detailed impact report"
+        },
+        {
+          "description": "Approve modification and cost adjustments"
+        },
+        {
+          "description": "Update work schedule"
+        },
+        {
+          "description": "Execute approved modifications"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Construcción/Contrato de construcción bajo estándares FIDIC/TMX_2739293_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Construcción/Contrato de construcción bajo estándares FIDIC/TMX_2739293_es.txt"
+  }
+}

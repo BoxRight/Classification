@@ -1,0 +1,161 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rental_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "case_file",
+      "type": "service"
+    },
+    {
+      "id": "initial_complaint",
+      "type": "service"
+    },
+    {
+      "id": "answer_to_complaint",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "CaseFileLoss",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "RentalProcess",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegalPersonality",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "case_file",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "court_secretary",
+        "object": "case_file",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "file_replacement_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "CaseFileLoss"
+        },
+        {
+          "type": "asset",
+          "name": "RentalProcess"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "case_file",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "file_replacement_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "initial_complaint",
+            "target": "judge"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "case_file",
+            "target": "defendant"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "answer_to_complaint",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "preliminary_hearing_and_conciliation"
+        },
+        {
+          "description": "evidence_offering"
+        },
+        {
+          "description": "evidence_period_conclusion"
+        },
+        {
+          "description": "judicial_inspection_of_archives"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Incidente de reposición de autos por pérdida del expediente en materia de arrendamiento/TMX_1373541_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Incidente de reposición de autos por pérdida del expediente en materia de arrendamiento/TMX_1373541_es.txt"
+  }
+}

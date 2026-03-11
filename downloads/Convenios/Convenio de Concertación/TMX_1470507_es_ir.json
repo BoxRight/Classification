@@ -1,0 +1,165 @@
+{
+  "law": "Convenio de Concertación TMX1.470.507",
+  "authority": "administrative",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Artículos 15, 18 de la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público",
+    "Constitución Política de los Estados Unidos Mexicanos",
+    "Ley Orgánica de la Administración Pública"
+  ],
+  "parties": [
+    {
+      "id": "el_estado",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "el_productor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "titulo_propiedad",
+      "type": "service"
+    },
+    {
+      "id": "constancias_posesion",
+      "type": "service"
+    },
+    {
+      "id": "pruebas_necesarias",
+      "type": "service"
+    },
+    {
+      "id": "tierras_particulares",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "usufructuario_tierras",
+      "subject": "el_productor",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "titulo_fundatorio",
+      "subject": "el_productor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "convenio_vigente",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "el_estado",
+        "object": "titulo_propiedad",
+        "target": "el_productor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "el_productor",
+        "object": "constancias_posesion",
+        "target": "el_estado"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "el_productor",
+        "object": "pruebas_necesarias",
+        "target": "el_estado"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "usucapion_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "usufructuario_tierras",
+          "subject": "el_productor"
+        },
+        {
+          "type": "certification",
+          "name": "titulo_fundatorio",
+          "subject": "el_productor"
+        },
+        {
+          "type": "asset",
+          "name": "convenio_vigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "el_estado",
+          "object": "titulo_propiedad",
+          "target": "el_productor"
+        }
+      }
+    },
+    {
+      "id": "collaboration_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "convenio_vigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "el_productor",
+          "object": "constancias_posesion",
+          "target": "el_estado"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "usucapion_process",
+      "steps": [
+        {
+          "description": "Inicio de juicio de usucapión por Institución de Asistencia Jurídica Social"
+        },
+        {
+          "description": "Aportación de constancias de posesión por el productor"
+        },
+        {
+          "description": "Tramitación ante autoridad municipal correspondiente"
+        },
+        {
+          "description": "Obtención de título de propiedad legalmente requisitado"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio de Concertación/TMX_1470507_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio de Concertación/TMX_1470507_es.txt"
+  }
+}

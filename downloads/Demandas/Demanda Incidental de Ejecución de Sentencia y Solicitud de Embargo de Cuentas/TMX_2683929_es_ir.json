@@ -1,0 +1,131 @@
+{
+  "law": "Demanda Incidental de Ejecución de Sentencia y Solicitud de Embargo de Cuentas",
+  "authority": "judicial",
+  "enacted": "2024-05-15",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "banking_institution",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "monetary_judgment",
+      "type": "money"
+    },
+    {
+      "id": "bank_account",
+      "type": "movable"
+    },
+    {
+      "id": "bank_account_information",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "definitive_sentence",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "monetary_debt",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "bank_account_ownership",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "monetary_judgment",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "embargo_execution_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "definitive_sentence"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "monetary_judgment",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "civil_judge",
+          "object": "bank_account",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "bank_account_embargo_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "civil_judge",
+            "object": "bank_account_information",
+            "target": "banking_institution"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "civil_judge",
+            "object": "bank_account",
+            "target": "defendant"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda Incidental de Ejecución de Sentencia y Solicitud de Embargo de Cuentas/TMX_2683929_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda Incidental de Ejecución de Sentencia y Solicitud de Embargo de Cuentas/TMX_2683929_es.txt"
+  }
+}

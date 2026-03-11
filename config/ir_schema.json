@@ -1,0 +1,325 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Legal Contract Normative IR",
+    "description": "Layered normative representation with fact/norm separation and deontic logic",
+    "type": "object",
+    "required": [
+        "source",
+        "metadata",
+        "roles",
+        "objects",
+        "behaviors",
+        "facts",
+        "principal_contract"
+    ],
+    "properties": {
+        "source": {
+            "$ref": "#/$defs/Source"
+        },
+        "metadata": {
+            "$ref": "#/$defs/Metadata"
+        },
+        "roles": {
+            "$ref": "#/$defs/Roles"
+        },
+        "objects": {
+            "$ref": "#/$defs/Objects"
+        },
+        "behaviors": {
+            "$ref": "#/$defs/Behaviors"
+        },
+        "facts": {
+            "$ref": "#/$defs/Facts"
+        },
+        "principal_contract": {
+            "$ref": "#/$defs/PrincipalContract"
+        },
+        "accessory_contracts": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/AccessoryContract"
+            }
+        }
+    },
+    "$defs": {
+        "Source": {
+            "type": "object",
+            "required": [
+                "file_name"
+            ],
+            "properties": {
+                "file_name": {
+                    "type": "string"
+                },
+                "document_id": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                }
+            }
+        },
+        "Metadata": {
+            "type": "object",
+            "required": [
+                "contract_type"
+            ],
+            "properties": {
+                "contract_type": {
+                    "type": "string"
+                },
+                "classification": {
+                    "type": "object",
+                    "properties": {
+                        "obligations": {
+                            "type": "string"
+                        },
+                        "economic": {
+                            "type": "string"
+                        },
+                        "perfection": {
+                            "type": "string"
+                        },
+                        "execution": {
+                            "type": "string"
+                        },
+                        "dependence": {
+                            "type": "string"
+                        },
+                        "certainty": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "Roles": {
+            "type": "object",
+            "description": "Semantic role names mapped to types",
+            "additionalProperties": {
+                "type": "string",
+                "enum": [
+                    "Person",
+                    "Property",
+                    "Service",
+                    "Money",
+                    "Date",
+                    "Duration"
+                ]
+            }
+        },
+        "Objects": {
+            "type": "object",
+            "description": "Typed domain entities",
+            "additionalProperties": {
+                "type": "object",
+                "required": [
+                    "type"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Money",
+                            "Property",
+                            "Service",
+                            "Date",
+                            "Duration",
+                            "Document"
+                        ]
+                    },
+                    "attributes": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Behaviors": {
+            "type": "object",
+            "description": "Predicate atom templates",
+            "additionalProperties": {
+                "type": "object",
+                "required": [
+                    "category",
+                    "signature"
+                ],
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "enum": [
+                            "transfer",
+                            "use",
+                            "prohibition",
+                            "maintenance",
+                            "termination"
+                        ]
+                    },
+                    "signature": {
+                        "type": "array",
+                        "description": "Explicit references to roles/objects",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "Facts": {
+            "type": "array",
+            "description": "Ontological layer - declarations, representations, warranties",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "category",
+                    "behavior_ref"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string",
+                        "enum": [
+                            "representation",
+                            "warranty",
+                            "declaration",
+                            "state"
+                        ]
+                    },
+                    "behavior_ref": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "PrincipalContract": {
+            "type": "object",
+            "properties": {
+                "normative_clauses": {
+                    "$ref": "#/$defs/NormativeClauses"
+                },
+                "templates": {
+                    "$ref": "#/$defs/Templates"
+                }
+            }
+        },
+        "AccessoryContract": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Fianza",
+                        "Prenda",
+                        "Hipoteca"
+                    ]
+                },
+                "normative_clauses": {
+                    "$ref": "#/$defs/NormativeClauses"
+                },
+                "parameters": {
+                    "type": "object"
+                }
+            }
+        },
+        "NormativeClauses": {
+            "type": "array",
+            "description": "CNF/DNF clauses - only norms, not facts",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "form",
+                    "literals"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "form": {
+                        "type": "string",
+                        "enum": [
+                            "CNF",
+                            "DNF"
+                        ]
+                    },
+                    "literals": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/$defs/Literal"
+                        },
+                        "minItems": 2,
+                        "description": "Min 2 literals - no unconditional deontics"
+                    },
+                    "clause_arity": {
+                        "type": "integer"
+                    },
+                    "source_clause": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "Literal": {
+            "type": "object",
+            "required": [
+                "kind"
+            ],
+            "properties": {
+                "kind": {
+                    "type": "string",
+                    "enum": [
+                        "fact",
+                        "neg_fact",
+                        "behavior",
+                        "neg_behavior",
+                        "deontic"
+                    ]
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "Reference to fact ID or behavior ID"
+                },
+                "deontic_type": {
+                    "type": "string",
+                    "enum": [
+                        "oblig",
+                        "forbid",
+                        "claim",
+                        "power"
+                    ]
+                }
+            }
+        },
+        "Templates": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "attach_to_clause": {
+                        "type": "string"
+                    },
+                    "parameters": {
+                        "type": "object"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,185 @@
+{
+  "law": "Escrito Incidental de Liquidación de Intereses Moratorios",
+  "authority": "judicial",
+  "enacted": "2024-04-10",
+  "imports": [
+    "Código Nacional de Procedimientos Civiles y Familiares",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "ordinary_interest",
+      "type": "money"
+    },
+    {
+      "id": "moratory_interest",
+      "type": "money"
+    },
+    {
+      "id": "principal_amount",
+      "type": "money"
+    },
+    {
+      "id": "debt_certificate",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "initiate_liquidation_incident",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "liquidation_proceeding",
+      "target": "judge"
+    },
+    {
+      "id": "pay_ordinary_interest",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "ordinary_interest",
+      "target": "petitioner"
+    },
+    {
+      "id": "pay_moratory_interest",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "moratory_interest",
+      "target": "petitioner"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "DebtObligation",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "CreditRight",
+      "subject": "petitioner",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DebtCertificate",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "DefaultDate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "ordinary_interest",
+        "target": "petitioner"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "moratory_interest",
+        "target": "petitioner"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "ordinary_interest_calculation",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "DebtObligation",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "ordinary_interest",
+          "target": "petitioner"
+        }
+      }
+    },
+    {
+      "id": "moratory_interest_calculation",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "DefaultDate"
+        },
+        {
+          "type": "liability",
+          "name": "DebtObligation",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "moratory_interest",
+          "target": "petitioner"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "interest_liquidation_incident",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "petitioner",
+            "object": "liquidation_request",
+            "target": "judge"
+          }
+        },
+        {
+          "description": "Dar vista a la parte demandada por tres días"
+        },
+        {
+          "description": "Dictar resolución liquidando los intereses"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Liquidación de Intereses Moratorios/TMX_1150328_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Liquidación de Intereses Moratorios/TMX_1150328_es.txt"
+  }
+}

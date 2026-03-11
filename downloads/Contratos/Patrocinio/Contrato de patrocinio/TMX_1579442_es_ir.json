@@ -1,0 +1,226 @@
+{
+  "law": "Contrato de patrocinio",
+  "authority": "private",
+  "enacted": null,
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "patrocinado",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "patrocinador",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "contraprestacion",
+      "type": "money"
+    },
+    {
+      "id": "propiedad_industrial",
+      "type": "service"
+    },
+    {
+      "id": "beneficios_patrocinador",
+      "type": "service"
+    },
+    {
+      "id": "banner_1",
+      "type": "service"
+    },
+    {
+      "id": "banner_2",
+      "type": "service"
+    },
+    {
+      "id": "presencia_materiales",
+      "type": "service"
+    },
+    {
+      "id": "boletos_obsequio",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pagar_contraprestacion",
+      "type": "simple",
+      "actor": "patrocinador",
+      "object": "contraprestacion",
+      "target": "patrocinado"
+    },
+    {
+      "id": "otorgar_beneficios",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "beneficios_patrocinador",
+      "target": "patrocinador"
+    },
+    {
+      "id": "instalar_banner_1",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "banner_1",
+      "target": "patrocinador"
+    },
+    {
+      "id": "instalar_banner_2",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "banner_2",
+      "target": "patrocinador"
+    },
+    {
+      "id": "proveer_presencia_materiales",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "presencia_materiales",
+      "target": "patrocinador"
+    },
+    {
+      "id": "entregar_boletos",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "boletos_obsequio",
+      "target": "patrocinador"
+    },
+    {
+      "id": "resguardar_propiedad_industrial",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "propiedad_industrial",
+      "target": "patrocinador"
+    },
+    {
+      "id": "devolver_contraprestacion",
+      "type": "simple",
+      "actor": "patrocinado",
+      "object": "contraprestacion",
+      "target": "patrocinador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoPatrocinio",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropiedadIndustrial",
+      "subject": "patrocinador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "patrocinador",
+        "object": "contraprestacion",
+        "target": "patrocinado"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "patrocinado",
+        "object": "beneficios_patrocinador",
+        "target": "patrocinador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "patrocinado",
+        "object": "propiedad_industrial",
+        "target": "patrocinador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "patrocinado",
+        "object": "propiedad_industrial",
+        "target": "patrocinador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "pago_beneficios_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoPatrocinio"
+        },
+        {
+          "ref": "pagar_contraprestacion"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "otorgar_beneficios"
+        }
+      }
+    },
+    {
+      "id": "cancelacion_fuerza_mayor_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoPatrocinio"
+        },
+        {
+          "description": "cancelacion_por_fuerza_mayor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "devolver_contraprestacion"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "beneficios_patrocinio",
+      "steps": [
+        {
+          "ref": "instalar_banner_1"
+        },
+        {
+          "ref": "instalar_banner_2"
+        },
+        {
+          "ref": "proveer_presencia_materiales"
+        },
+        {
+          "ref": "entregar_boletos"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Patrocinio/Contrato de patrocinio/TMX_1579442_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Patrocinio/Contrato de patrocinio/TMX_1579442_es.txt"
+  }
+}

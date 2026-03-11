@@ -1,0 +1,143 @@
+{
+  "law": "Convenio de novación de mutuo",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "mutuante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "mutuario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "loan_amount",
+      "type": "money"
+    },
+    {
+      "id": "monthly_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "lend_money",
+      "type": "simple",
+      "actor": "mutuante",
+      "object": "loan_amount",
+      "target": "mutuario"
+    },
+    {
+      "id": "repay_loan",
+      "type": "simple",
+      "actor": "mutuario",
+      "object": "loan_amount",
+      "target": "mutuante"
+    },
+    {
+      "id": "make_payment",
+      "type": "simple",
+      "actor": "mutuario",
+      "object": "monthly_payment",
+      "target": "mutuante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "loan_obligation",
+      "subject": "mutuario",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "loan_claim",
+      "subject": "mutuante",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mutuario",
+        "object": "loan_amount",
+        "target": "mutuante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "mutuario",
+        "object": "monthly_payment",
+        "target": "mutuante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "early_termination_by_lender",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "mutuario",
+          "object": "monthly_payment",
+          "target": "mutuante"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "termination_right",
+        "subject": "mutuante"
+      }
+    },
+    {
+      "id": "early_termination_by_borrower",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "mutuario",
+          "object": "loan_amount",
+          "target": "mutuante"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "termination_right",
+        "subject": "mutuario"
+      }
+    },
+    {
+      "id": "loan_discharge",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "dissolution_event"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "discharge",
+        "subject": "mutuario"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio de novación de mutuo/TMX_2443260_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio de novación de mutuo/TMX_2443260_es.txt"
+  }
+}

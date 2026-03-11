@@ -1,0 +1,163 @@
+{
+  "law": "Contrato de donación de acciones",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículos 1961, 1940, 1945, 1988 del Código Civil para el Estado Libre y Soberano de Tlaxcala",
+    "Artículo 93 de la Ley del Impuesto Sobre la Renta"
+  ],
+  "parties": [
+    {
+      "id": "donante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "donatario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "shares",
+      "type": "movable"
+    },
+    {
+      "id": "bare_ownership",
+      "type": "movable"
+    },
+    {
+      "id": "usufruct_rights",
+      "type": "movable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "ShareOwnership",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "UsufructReserved",
+      "subject": "donante",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "DonanteDeath",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "bare_ownership",
+        "target": "donatario"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donante",
+        "object": "usufruct_rights",
+        "target": "donante"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "donatario",
+        "object": "usufruct_rights",
+        "target": "donatario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "donation_transfer_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "ShareOwnership",
+          "subject": "donante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "donante",
+          "object": "bare_ownership",
+          "target": "donatario"
+        }
+      }
+    },
+    {
+      "id": "usufruct_consolidation_rule",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "DonanteDeath"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "FullShareOwnership",
+        "subject": "donatario"
+      }
+    },
+    {
+      "id": "usufruct_restriction_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "UsufructReserved",
+          "subject": "donante"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "donatario",
+          "object": "usufruct_rights",
+          "target": "donatario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "donation_formalization",
+      "steps": [
+        {
+          "description": "Shareholder assembly approval"
+        },
+        {
+          "description": "Notarial protocol"
+        },
+        {
+          "description": "Registry inscription"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Donación/Contrato de donación de acciones/TMX_1390062_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Donación/Contrato de donación de acciones/TMX_1390062_es.txt"
+  }
+}

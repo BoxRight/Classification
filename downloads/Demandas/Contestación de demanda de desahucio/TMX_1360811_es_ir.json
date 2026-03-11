@@ -1,0 +1,186 @@
+{
+  "law": "Contestación de demanda de desahucio",
+  "authority": "judicial",
+  "enacted": "2024-01-23",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_advisor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rental_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "property_improvements",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_eviction_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "rental_property",
+      "target": "defendant"
+    },
+    {
+      "id": "contest_lawsuit",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "rental_property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "make_improvements",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "property_improvements",
+      "target": "rental_property"
+    },
+    {
+      "id": "compensate_rent",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "monthly_rent",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "RentDebt",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "LeaseAgreement",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyImprovements",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "VerbalCompensationAgreement",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "rental_property",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "rental_property",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "compensation_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PropertyImprovements",
+          "subject": "defendant"
+        },
+        {
+          "type": "asset",
+          "name": "VerbalCompensationAgreement"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RentDebt",
+        "subject": "defendant"
+      }
+    },
+    {
+      "id": "lack_of_standing_defense",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "VerbalCompensationAgreement"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "rental_property",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "eviction_defense_procedure",
+      "steps": [
+        {
+          "ref": "contest_lawsuit"
+        },
+        {
+          "description": "Assert compensation defense"
+        },
+        {
+          "description": "Raise lack of standing exception"
+        },
+        {
+          "description": "Request dismissal"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda de desahucio/TMX_1360811_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda de desahucio/TMX_1360811_es.txt"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "law": "Contrato de permuta",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Artículo 2327, 2328, 2329, 2330 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "compareciente_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "compareciente_2",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble_a",
+      "type": "nonmovable"
+    },
+    {
+      "id": "inmueble_b",
+      "type": "nonmovable"
+    },
+    {
+      "id": "compensation_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "transmit_inmueble_a",
+      "type": "simple",
+      "actor": "compareciente_1",
+      "object": "inmueble_a",
+      "target": "compareciente_2"
+    },
+    {
+      "id": "transmit_inmueble_b",
+      "type": "simple",
+      "actor": "compareciente_2",
+      "object": "inmueble_b",
+      "target": "compareciente_1"
+    },
+    {
+      "id": "deliver_possession_a",
+      "type": "simple",
+      "actor": "compareciente_1",
+      "object": "inmueble_a",
+      "target": "compareciente_2"
+    },
+    {
+      "id": "deliver_possession_b",
+      "type": "simple",
+      "actor": "compareciente_2",
+      "object": "inmueble_b",
+      "target": "compareciente_1"
+    },
+    {
+      "id": "comply_zoning",
+      "type": "simple",
+      "actor": "compareciente_1",
+      "object": "inmueble_b",
+      "target": null
+    },
+    {
+      "id": "comply_zoning_2",
+      "type": "simple",
+      "actor": "compareciente_2",
+      "object": "inmueble_a",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "OwnershipInmuebleA",
+      "subject": "compareciente_1",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "OwnershipInmuebleB",
+      "subject": "compareciente_2",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente_1",
+        "object": "inmueble_a",
+        "target": "compareciente_2"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente_2",
+        "object": "inmueble_b",
+        "target": "compareciente_1"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente_1",
+        "object": "inmueble_a",
+        "target": "compareciente_2"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente_2",
+        "object": "inmueble_b",
+        "target": "compareciente_1"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente_1",
+        "object": "inmueble_b",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "compareciente_2",
+        "object": "inmueble_a",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "permuta_execution",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "OwnershipInmuebleA",
+          "subject": "compareciente_1"
+        },
+        {
+          "type": "ownership",
+          "name": "OwnershipInmuebleB",
+          "subject": "compareciente_2"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "transmit_inmueble_a"
+        }
+      }
+    },
+    {
+      "id": "possession_delivery",
+      "conditions": [
+        {
+          "act": {
+            "ref": "transmit_inmueble_a"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "deliver_possession_a"
+        }
+      }
+    },
+    {
+      "id": "zoning_compliance",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "OwnershipInmuebleB",
+          "subject": "compareciente_1"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "comply_zoning"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Permuta/Contrato de permuta ante notario/TMX_1376663_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Permuta/Contrato de permuta ante notario/TMX_1376663_es.txt"
+  }
+}

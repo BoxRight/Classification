@@ -1,0 +1,244 @@
+{
+  "law": "Demanda de Rescisión del Contrato de Arrendamiento y Pago de Daños por Vicios Ocultos",
+  "authority": "judicial",
+  "enacted": "2023-11-20",
+  "imports": [
+    "Código de Comercio artículos 1049, 1168, 1176, 1194, 1198, 177, 1378",
+    "Código Civil para el Distrito Federal artículos 2412, 2421, 2489"
+  ],
+  "parties": [
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_representative",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "commercial_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "damages_amount",
+      "type": "money"
+    },
+    {
+      "id": "repair_costs",
+      "type": "money"
+    },
+    {
+      "id": "rent_reimbursement",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "lease_agreement",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "commercial_property",
+      "target": "tenant"
+    },
+    {
+      "id": "concealment_of_defects",
+      "type": "counter",
+      "actor": "landlord",
+      "object": "property_information",
+      "target": "tenant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "HiddenDefects",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "PropertyDamages",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "property_disclosure",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "damages_amount",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "repair_costs",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "rent_reimbursement",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "hidden_defects_liability",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "type": "liability",
+          "name": "HiddenDefects",
+          "subject": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "damages_amount",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "contract_rescission_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "type": "liability",
+          "name": "HiddenDefects",
+          "subject": "landlord"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "landlord",
+            "object": "property_disclosure",
+            "target": "tenant"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "contract_rescission",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lawsuit_procedure",
+      "steps": [
+        {
+          "description": "Filing initial complaint"
+        },
+        {
+          "description": "Service of process to defendant"
+        },
+        {
+          "description": "Defendant response within legal term"
+        },
+        {
+          "description": "Evidence presentation and examination"
+        },
+        {
+          "description": "Precautionary embargo of defendant assets"
+        },
+        {
+          "description": "Final judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "lease_and_hidden_defects_timeline",
+      "timeline": [
+        {
+          "event": "lease_contract_signing",
+          "condition": null
+        },
+        {
+          "event": "discovery_of_hidden_defects",
+          "condition": {
+            "type": "asset",
+            "name": "PropertyOccupation"
+          }
+        },
+        {
+          "event": "notification_to_landlord",
+          "condition": {
+            "type": "liability",
+            "name": "HiddenDefects"
+          }
+        },
+        {
+          "event": "landlord_non_response",
+          "condition": null
+        },
+        {
+          "event": "filing_lawsuit",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Escrito Inicial de Demanda de Rescisión del Contrato de Arrendamiento y Pago de Daños por/TMX_2631571_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Escrito Inicial de Demanda de Rescisión del Contrato de Arrendamiento y Pago de Daños por/TMX_2631571_es.txt"
+  }
+}

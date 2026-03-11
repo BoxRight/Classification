@@ -1,0 +1,140 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "attorney",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "legal_expenses",
+      "type": "money"
+    },
+    {
+      "id": "attorney_fees",
+      "type": "money"
+    },
+    {
+      "id": "cost_breakdown_schedule",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "eviction_judgment_favorable_to_plaintiff",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "defendant_ordered_to_pay_costs",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "right_to_cost_recovery",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "legal_costs",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "legal_expenses",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "cost_breakdown_schedule",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cost_recovery_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "eviction_judgment_favorable_to_plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "legal_costs",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "cost_liquidation_incident",
+      "steps": [
+        {
+          "description": "file_cost_breakdown_schedule"
+        },
+        {
+          "description": "notify_defendant"
+        },
+        {
+          "description": "judicial_review_and_decision"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Gastos y Costas/TMX_1515530_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Gastos y Costas/TMX_1515530_es.txt"
+  }
+}

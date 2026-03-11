@@ -1,0 +1,138 @@
+{
+  "law": "Demanda en juicio oral civil",
+  "authority": "judicial",
+  "enacted": "2021-10-11",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal",
+    "Código Civil para el Distrito Federal",
+    "Ley Orgánica del Tribunal Superior de Justicia del Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "contract_performance",
+      "type": "service"
+    },
+    {
+      "id": "conventional_penalty",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "private_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "date",
+      "name": "contract_date",
+      "subject": null,
+      "value": "2014-10-04"
+    },
+    {
+      "type": "certification",
+      "name": "promise_sale_contract",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "contract_performance",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "conventional_penalty",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "contract_performance",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "conventional_penalty",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "oral_civil_procedure",
+      "steps": [
+        {
+          "description": "filing_complaint"
+        },
+        {
+          "description": "defendant_summons"
+        },
+        {
+          "description": "evidence_presentation"
+        },
+        {
+          "description": "judgment_issuance"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Demanda en juicio oral civil/TMX_1980625_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Demanda en juicio oral civil/TMX_1980625_es.txt"
+  }
+}

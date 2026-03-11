@@ -1,0 +1,248 @@
+{
+  "templates": [
+    {
+      "name": "Payment",
+      "signature": "Payer→Amount→Receiver",
+      "slots": [
+        "payer",
+        "amount",
+        "receiver"
+      ],
+      "instances": [
+        {
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord",
+          "count": 64
+        },
+        {
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller",
+          "count": 19
+        },
+        {
+          "actor": "buyer",
+          "object": "sale_price",
+          "target": "seller",
+          "count": 12
+        },
+        {
+          "actor": "defendant",
+          "object": "legal_costs",
+          "target": "plaintiff",
+          "count": 11
+        },
+        {
+          "actor": "cesionario",
+          "object": "precio_cesion",
+          "target": "cedente",
+          "count": 10
+        },
+        {
+          "actor": "subarrendatario",
+          "object": "monthly_rent",
+          "target": "subarrendador",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "name": "Transfer",
+      "signature": "Owner→Property→Recipient",
+      "slots": [
+        "owner",
+        "property",
+        "recipient"
+      ],
+      "instances": [
+        {
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer",
+          "count": 34
+        },
+        {
+          "actor": "tenant",
+          "object": "property",
+          "target": "landlord",
+          "count": 12
+        },
+        {
+          "actor": "defendant",
+          "object": "property",
+          "target": "plaintiff",
+          "count": 11
+        },
+        {
+          "actor": "borrower",
+          "object": "property",
+          "target": "lender",
+          "count": 9
+        },
+        {
+          "actor": "seller",
+          "object": "vehicle",
+          "target": "buyer",
+          "count": 8
+        },
+        {
+          "actor": "usufructuario",
+          "object": "inmueble",
+          "target": "",
+          "count": 8
+        },
+        {
+          "actor": "buyer",
+          "object": "property",
+          "target": "seller",
+          "count": 7
+        },
+        {
+          "actor": "tenant",
+          "object": "commercial_property",
+          "target": "landlord",
+          "count": 6
+        },
+        {
+          "actor": "landlord",
+          "object": "property",
+          "target": "tenant",
+          "count": 6
+        },
+        {
+          "actor": "vendedor",
+          "object": "inmueble",
+          "target": "comprador",
+          "count": 6
+        },
+        {
+          "actor": "tenant",
+          "object": "rental_property",
+          "target": "landlord",
+          "count": 6
+        },
+        {
+          "actor": "subarrendatario",
+          "object": "finca_urbana",
+          "target": "subarrendador",
+          "count": 5
+        },
+        {
+          "actor": "tenant",
+          "object": "leased_property",
+          "target": "landlord",
+          "count": 5
+        },
+        {
+          "actor": "plaintiff",
+          "object": "immovable_property",
+          "target": "",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "signature": "Provider→Service→Client",
+      "slots": [
+        "provider",
+        "service",
+        "client"
+      ],
+      "instances": [
+        {
+          "actor": "tenant",
+          "object": "personal_data",
+          "target": "landlord",
+          "count": 8
+        },
+        {
+          "actor": "landlord",
+          "object": "lease_contract",
+          "target": "tenant",
+          "count": 7
+        },
+        {
+          "actor": "contratista",
+          "object": "construction_work",
+          "target": "propietario",
+          "count": 7
+        },
+        {
+          "actor": "profesionista",
+          "object": "servicios_administracion",
+          "target": "administracion",
+          "count": 7
+        },
+        {
+          "actor": "cedente",
+          "object": "assigned_right",
+          "target": "cesionario",
+          "count": 6
+        },
+        {
+          "actor": "recipient",
+          "object": "confidential_information",
+          "target": "disclosing_company",
+          "count": 6
+        },
+        {
+          "actor": "service_provider",
+          "object": "confidential_information",
+          "target": "client",
+          "count": 6
+        },
+        {
+          "actor": "profesionista",
+          "object": "confidential_information",
+          "target": "empresa",
+          "count": 6
+        },
+        {
+          "actor": "condominium_administrators",
+          "object": "assembly_minutes",
+          "target": "plaintiff",
+          "count": 5
+        },
+        {
+          "actor": "contractor",
+          "object": "construction_work",
+          "target": "client",
+          "count": 5
+        },
+        {
+          "actor": "contratista",
+          "object": "obra",
+          "target": "contratante",
+          "count": 5
+        },
+        {
+          "actor": "service_provider",
+          "object": "legal_services",
+          "target": "client",
+          "count": 5
+        },
+        {
+          "actor": "professional",
+          "object": "professional_services",
+          "target": "company",
+          "count": 5
+        },
+        {
+          "actor": "professional",
+          "object": "confidential_information",
+          "target": "third_parties",
+          "count": 5
+        },
+        {
+          "actor": "profesionista",
+          "object": "informacion_confidencial",
+          "target": "administracion",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "threshold": 5
+}

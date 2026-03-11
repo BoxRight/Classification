@@ -1,0 +1,208 @@
+{
+  "law": "Acción de retracto - Formulario legal",
+  "authority": "judicial",
+  "enacted": "2021-07-06",
+  "imports": [],
+  "parties": [
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "leased_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "damages",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "leased_property",
+      "target": "buyer"
+    },
+    {
+      "id": "notify_sale",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "sale_notification",
+      "target": "tenant"
+    },
+    {
+      "id": "exercise_retracto",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "retracto_action",
+      "target": "buyer"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "TenantCompliance",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "retracto_action",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "sale_notification",
+        "target": "tenant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "retracto_right_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation",
+          "subject": "tenant"
+        },
+        {
+          "type": "capability",
+          "name": "TenantCompliance",
+          "subject": "tenant"
+        },
+        {
+          "type": "counter",
+          "actor": "landlord",
+          "object": "sale_notification",
+          "target": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "retracto_action",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "nullity_rule",
+      "conditions": [
+        {
+          "ref": "exercise_retracto"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractNullity",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "damages_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "landlord",
+          "object": "sale_notification",
+          "target": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "damages",
+          "target": "tenant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "retracto_lawsuit",
+      "steps": [
+        {
+          "description": "File lawsuit for retracto action"
+        },
+        {
+          "description": "Summon defendants"
+        },
+        {
+          "description": "Declare nullity of sale contract"
+        },
+        {
+          "description": "Order payment of damages"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Acciones/Acción de retracto/TMX_1883997_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Acciones/Acción de retracto/TMX_1883997_es.txt"
+  }
+}

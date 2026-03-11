@@ -1,0 +1,322 @@
+{
+  "law": "Convenio sobre formación, inventario y partición de bienes hereditarios, en juicio sucesorio testamentario",
+  "authority": "judicial",
+  "enacted": "2019-04-01",
+  "imports": [
+    "Código Civil de Tamaulipas",
+    "Código de Procedimientos Civiles de Tamaulipas"
+  ],
+  "parties": [
+    {
+      "id": "deceased",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "surviving_spouse",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "heir_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "heir_2",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "heir_3",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "hereditary_estate",
+      "type": "nonmovable"
+    },
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "movable_property",
+      "type": "movable"
+    },
+    {
+      "id": "inheritance_share",
+      "type": "money"
+    },
+    {
+      "id": "succession_expenses",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "denounce_succession",
+      "type": "simple",
+      "actor": "surviving_spouse",
+      "object": "hereditary_estate",
+      "target": "court"
+    },
+    {
+      "id": "designate_executor",
+      "type": "simple",
+      "actor": "heir_1",
+      "object": "executor_role",
+      "target": "surviving_spouse"
+    },
+    {
+      "id": "approve_inventory",
+      "type": "simple",
+      "actor": "parties",
+      "object": "inventory",
+      "target": "succession"
+    },
+    {
+      "id": "partition_estate",
+      "type": "simple",
+      "actor": "parties",
+      "object": "hereditary_estate",
+      "target": "heirs"
+    },
+    {
+      "id": "transfer_possession",
+      "type": "simple",
+      "actor": "heir",
+      "object": "adjudicated_property",
+      "target": "heir"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "IntestateSuccession",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "ConjugalProperty",
+      "subject": "deceased",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "HeirRecognition",
+      "subject": "heirs",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "ExecutorAuthority",
+      "subject": "surviving_spouse",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "heir",
+        "object": "succession_expenses",
+        "target": "proportional_share"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "surviving_spouse",
+        "object": "estate_administration",
+        "target": "hereditary_estate"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "depositary",
+        "object": "movable_property",
+        "target": "new_owner"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "inventory_approval_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "IntestateSuccession"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parties",
+          "object": "inventory",
+          "target": "court"
+        }
+      }
+    },
+    {
+      "id": "partition_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "HeirRecognition"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "heir",
+          "object": "inheritance_share",
+          "target": "hereditary_estate"
+        }
+      }
+    },
+    {
+      "id": "expense_sharing_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "IntestateSuccession"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "heir",
+          "object": "succession_expenses",
+          "target": "proportional_payment"
+        }
+      }
+    },
+    {
+      "id": "possession_transfer_rule",
+      "conditions": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "parties",
+            "object": "partition_agreement",
+            "target": "court"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "heir",
+          "object": "adjudicated_property",
+          "target": "possession"
+        }
+      }
+    },
+    {
+      "id": "supplementary_division_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "NewPropertyDiscovered"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "parties",
+          "object": "supplementary_division",
+          "target": "equal_shares"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "succession_agreement",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "surviving_spouse",
+            "object": "succession_denouncement",
+            "target": "court"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "heirs",
+            "object": "executor_designation",
+            "target": "surviving_spouse"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "parties",
+            "object": "inventory_approval",
+            "target": "court"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "parties",
+            "object": "partition_project",
+            "target": "court"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "deed_execution",
+            "target": "parties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "property_delivery",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "depositary",
+            "object": "movable_property",
+            "target": "new_owner"
+          }
+        },
+        {
+          "description": "Transfer within 30 days"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Convenios/Convenio sobre formación, inventario y partición de bienes hereditarios, en juicio sucesorio/TMX_1470506_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Convenios/Convenio sobre formación, inventario y partición de bienes hereditarios, en juicio sucesorio/TMX_1470506_es.txt"
+  }
+}

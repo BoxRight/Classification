@@ -1,0 +1,1 @@
+obligation Tenant must pay MonthlyRent to Landlord.

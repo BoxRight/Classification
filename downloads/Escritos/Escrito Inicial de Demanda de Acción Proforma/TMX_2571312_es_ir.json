@@ -1,0 +1,202 @@
+{
+  "law": "Escrito Inicial de Demanda de Acción Proforma",
+  "authority": "judicial",
+  "enacted": "2023-06-22",
+  "imports": [
+    "Código Civil Para el Distrito Federal",
+    "Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "executor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "deceased_seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "succession",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "purchase_contract",
+      "type": "service"
+    },
+    {
+      "id": "notarial_deed",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "purchase_price",
+      "target": "deceased_seller"
+    },
+    {
+      "id": "transfer_property",
+      "type": "simple",
+      "actor": "deceased_seller",
+      "object": "property",
+      "target": "plaintiff"
+    },
+    {
+      "id": "execute_deed",
+      "type": "simple",
+      "actor": "executor",
+      "object": "notarial_deed",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ValidPurchaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "DeathOfSeller",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "FormalizeContract",
+      "subject": "executor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "executor",
+        "object": "notarial_deed",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "notarial_deed",
+        "target": "executor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "proforma_action_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ValidPurchaseContract"
+        },
+        {
+          "type": "ownership",
+          "name": "PropertyOwnership",
+          "subject": "plaintiff"
+        },
+        {
+          "type": "date",
+          "name": "DeathOfSeller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "executor",
+          "object": "notarial_deed",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proforma_action_procedure",
+      "steps": [
+        {
+          "description": "File initial complaint"
+        },
+        {
+          "description": "Present evidence of purchase contract"
+        },
+        {
+          "description": "Prove payment of purchase price"
+        },
+        {
+          "description": "Demonstrate continuous possession"
+        },
+        {
+          "description": "Obtain judgment ordering deed execution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "proforma_action_timeline",
+      "timeline": [
+        {
+          "event": "Purchase contract signed",
+          "condition": null
+        },
+        {
+          "event": "Purchase price paid",
+          "condition": null
+        },
+        {
+          "event": "Property possession transferred",
+          "condition": null
+        },
+        {
+          "event": "Seller died before deed execution",
+          "condition": null
+        },
+        {
+          "event": "Proforma action filed",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Acción Proforma/TMX_2571312_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Acción Proforma/TMX_2571312_es.txt"
+  }
+}

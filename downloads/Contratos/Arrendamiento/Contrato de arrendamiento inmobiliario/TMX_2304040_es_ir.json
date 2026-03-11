@@ -1,0 +1,287 @@
+{
+  "law": "Contrato de arrendamiento inmobiliario",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 1949, 1950, 2846, 2847, 2848"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "utility_payments",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "property",
+      "target": "tenant"
+    },
+    {
+      "id": "pay_utilities",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "utility_payments",
+      "target": "landlord"
+    },
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "RentDebt",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "GuarantorProperty",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "utility_payments",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "property",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "tenant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_fee",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "property",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "guarantor_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "landlord",
+            "object": "property",
+            "target": "tenant"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "security_deposit",
+            "target": "landlord"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "monthly_rent",
+            "target": "landlord"
+          }
+        }
+      ]
+    },
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "30-day written notice"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "tenant",
+            "object": "property",
+            "target": "landlord"
+          }
+        },
+        {
+          "description": "Security deposit return"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento inmobiliario/TMX_2304040_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento inmobiliario/TMX_2304040_es.txt"
+  }
+}

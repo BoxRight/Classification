@@ -1,0 +1,258 @@
+{
+  "law": "Contrato de compraventa",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2814, 2815, 2856, 2873, 2858, 2859, 2884, 288, 1158, 1161",
+    "Código Nacional de Procedimientos Civiles y Familiares artículos 980, 981"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "goods",
+      "type": "movable"
+    },
+    {
+      "id": "sale_price",
+      "type": "money"
+    },
+    {
+      "id": "down_payment",
+      "type": "money"
+    },
+    {
+      "id": "remaining_balance",
+      "type": "money"
+    },
+    {
+      "id": "monthly_installment",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "legitimate_ownership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "pledge_collateral",
+      "subject": "buyer",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "solidary_guarantee",
+      "subject": "guarantor",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "goods",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "down_payment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "monthly_installment",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "goods",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "ownership_transfer_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "seller",
+          "object": "goods",
+          "target": "buyer"
+        },
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "down_payment",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "goods_ownership",
+        "subject": "buyer"
+      }
+    },
+    {
+      "id": "default_acceleration_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "monthly_installment",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "remaining_balance",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "extrajudicial_sale_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "monthly_installment",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "goods",
+          "target": "third_party"
+        }
+      }
+    },
+    {
+      "id": "guarantor_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "monthly_installment",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "remaining_balance",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "address_change_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "address_notification",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "penalty_fee",
+          "target": "seller"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "payment_schedule",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "buyer",
+            "object": "down_payment",
+            "target": "seller"
+          }
+        },
+        {
+          "description": "Ten monthly installments on last day of each month"
+        }
+      ]
+    },
+    {
+      "name": "extrajudicial_enforcement",
+      "steps": [
+        {
+          "description": "Sale through licensed merchant or broker"
+        },
+        {
+          "description": "Judicial requirement for delivery of pledged goods"
+        },
+        {
+          "description": "Application of enforcement measures if non-compliance"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa/TMX_2204742_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa/TMX_2204742_es.txt"
+  }
+}

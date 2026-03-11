@@ -1,0 +1,165 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": "2024-04-25",
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "plaintiff_attorney",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant_attorney",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "lease_contract",
+      "type": "service"
+    },
+    {
+      "id": "termination_agreement",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ratify_agreement",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "termination_agreement",
+      "target": "judge"
+    },
+    {
+      "id": "ratify_agreement_defendant",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "termination_agreement",
+      "target": "judge"
+    },
+    {
+      "id": "validate_agreement",
+      "type": "simple",
+      "actor": "judge",
+      "object": "termination_agreement",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LeaseTermination",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "JudicialRatification",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ExecutableJudgment",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "termination_agreement",
+        "target": "defendant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "termination_agreement",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "judicial_ratification_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "termination_agreement",
+          "target": "judge"
+        },
+        {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "termination_agreement",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "JudicialRatification"
+      }
+    },
+    {
+      "id": "executable_judgment_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "JudicialRatification"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ExecutableJudgment"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "agreement_ratification",
+      "steps": [
+        {
+          "ref": "ratify_agreement"
+        },
+        {
+          "ref": "ratify_agreement_defendant"
+        },
+        {
+          "ref": "validate_agreement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que recae sobre la ratificación del convenio de terminación. Juicio de Arrendamiento/TMX_1369450_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que recae sobre la ratificación del convenio de terminación. Juicio de Arrendamiento/TMX_1369450_es.txt"
+  }
+}

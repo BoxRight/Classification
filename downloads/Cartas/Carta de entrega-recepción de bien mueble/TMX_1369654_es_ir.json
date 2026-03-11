@@ -1,0 +1,152 @@
+{
+  "law": "Carta de entrega-recepción de bien mueble",
+  "authority": "private",
+  "enacted": "2024-01-11",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "movable_good",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_good",
+      "type": "simple",
+      "actor": "seller",
+      "object": "movable_good",
+      "target": "buyer"
+    },
+    {
+      "id": "receive_good",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "movable_good",
+      "target": "seller"
+    },
+    {
+      "id": "verify_condition",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "movable_good",
+      "target": "buyer"
+    },
+    {
+      "id": "waive_claims",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "movable_good",
+      "target": "seller"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "PurchaseContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "GoodCondition",
+      "subject": "movable_good",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "GoodOwnership",
+      "subject": "buyer",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "movable_good",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "delivery_acceptance_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "PurchaseContract"
+        },
+        {
+          "ref": "verify_condition"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "GoodCondition",
+        "subject": "movable_good"
+      }
+    },
+    {
+      "id": "waiver_rule",
+      "conditions": [
+        {
+          "ref": "receive_good"
+        },
+        {
+          "type": "certification",
+          "name": "GoodCondition",
+          "subject": "movable_good"
+        }
+      ],
+      "consequence": {
+        "modality": "prohibition",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "movable_good",
+          "target": "seller"
+        }
+      }
+    },
+    {
+      "id": "responsibility_transfer_rule",
+      "conditions": [
+        {
+          "ref": "receive_good"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "movable_good",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Cartas/Carta de entrega-recepción de bien mueble/TMX_1369654_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Cartas/Carta de entrega-recepción de bien mueble/TMX_1369654_es.txt"
+  }
+}

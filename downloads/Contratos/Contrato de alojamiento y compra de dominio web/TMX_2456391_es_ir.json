@@ -1,0 +1,241 @@
+{
+  "law": "Contrato de alojamiento y compra de dominio web",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Código Civil del Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "proveedor",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "hosting_services",
+      "type": "service"
+    },
+    {
+      "id": "domain_registration",
+      "type": "service"
+    },
+    {
+      "id": "internet_connection",
+      "type": "service"
+    },
+    {
+      "id": "technical_support",
+      "type": "service"
+    },
+    {
+      "id": "contract_payment",
+      "type": "money"
+    },
+    {
+      "id": "penalty_fee",
+      "type": "money"
+    },
+    {
+      "id": "website_content",
+      "type": "service"
+    },
+    {
+      "id": "backup_copies",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ServiceContract",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "TechnicalExpertise",
+      "subject": "proveedor",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "WebsiteContent",
+      "subject": "cliente",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "proveedor",
+        "object": "hosting_services",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "proveedor",
+        "object": "internet_connection",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "proveedor",
+        "object": "domain_registration",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "proveedor",
+        "object": "technical_support",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "contract_payment",
+        "target": "proveedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "proveedor",
+        "object": "backup_copies",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "proveedor",
+        "object": "website_content",
+        "target": "cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "cliente",
+          "object": "contract_payment",
+          "target": "proveedor"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "proveedor",
+          "object": "hosting_services",
+          "target": "cliente"
+        }
+      }
+    },
+    {
+      "id": "confidentiality_breach_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "proveedor",
+          "object": "website_content",
+          "target": "cliente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "proveedor",
+          "object": "penalty_fee",
+          "target": "cliente"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "installation_procedure",
+      "steps": [
+        {
+          "description": "Request installation via email or phone"
+        },
+        {
+          "description": "Provide access credentials within 2 business days"
+        },
+        {
+          "description": "Technical team reviews server remotely"
+        },
+        {
+          "description": "Sign service acceptance certificate"
+        }
+      ]
+    },
+    {
+      "name": "training_procedure",
+      "steps": [
+        {
+          "description": "Define users for training"
+        },
+        {
+          "description": "Provide training hours as specified"
+        },
+        {
+          "description": "Complete training at client facilities"
+        }
+      ]
+    },
+    {
+      "name": "dispute_resolution_procedure",
+      "steps": [
+        {
+          "description": "Direct negotiation between parties"
+        },
+        {
+          "description": "Mandatory conciliation if negotiation fails"
+        },
+        {
+          "description": "Arbitration in designated city"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Contrato de alojamiento y compra de dominio web/TMX_2456391_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Contrato de alojamiento y compra de dominio web/TMX_2456391_es.txt"
+  }
+}

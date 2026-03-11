@@ -1,0 +1,147 @@
+{
+  "law": "Contrato de cesión de derechos",
+  "authority": "private",
+  "enacted": "2024-02-15",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "cedente",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "cesionario",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "departamento",
+      "type": "nonmovable"
+    },
+    {
+      "id": "precio_cesion",
+      "type": "money"
+    },
+    {
+      "id": "derechos_departamento",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "ceder_derechos",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "derechos_departamento",
+      "target": "cesionario"
+    },
+    {
+      "id": "pagar_precio",
+      "type": "simple",
+      "actor": "cesionario",
+      "object": "precio_cesion",
+      "target": "cedente"
+    },
+    {
+      "id": "entregar_posesion",
+      "type": "simple",
+      "actor": "cedente",
+      "object": "departamento",
+      "target": "cesionario"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "departamento_ownership",
+      "subject": "cedente",
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "credito_departamento",
+      "subject": "departamento",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "derechos_departamento",
+        "target": "cesionario"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cesionario",
+        "object": "precio_cesion",
+        "target": "cedente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cedente",
+        "object": "departamento",
+        "target": "cesionario"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "cesion_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "departamento_ownership",
+          "subject": "cedente"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "derechos_departamento",
+          "target": "cedente"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "ref": "ceder_derechos"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cesionario",
+          "object": "precio_cesion",
+          "target": "cedente"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Contrato de cesión de derechos/TMX_1979368_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Contrato de cesión de derechos/TMX_1979368_es.txt"
+  }
+}

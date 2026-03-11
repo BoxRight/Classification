@@ -1,0 +1,198 @@
+{
+  "law": "Contrato de anticresis",
+  "authority": "private",
+  "enacted": "2022-02-16",
+  "imports": [],
+  "parties": [
+    {
+      "id": "debtor_anticresista",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "creditor_anticresista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "immovable_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "debt_amount",
+      "type": "money"
+    },
+    {
+      "id": "property_fruits",
+      "type": "money"
+    },
+    {
+      "id": "usufruct_right",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "debt_obligation",
+      "subject": "debtor_anticresista",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "bare_ownership",
+      "subject": "debtor_anticresista",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "usufruct_possession",
+      "subject": "creditor_anticresista",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "contract_duration_five_years",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "numeric",
+      "name": "restitution_period_thirty_days",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "debtor_anticresista",
+        "object": "usufruct_right",
+        "target": "creditor_anticresista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "creditor_anticresista",
+        "object": "property_fruits",
+        "target": "debtor_anticresista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "creditor_anticresista",
+        "object": "immovable_property",
+        "target": "creditor_anticresista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "creditor_anticresista",
+        "object": "immovable_property",
+        "target": "debtor_anticresista"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "debt_payment_with_fruits",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "usufruct_possession",
+          "subject": "creditor_anticresista"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "property_fruits",
+          "target": "debt_amount"
+        }
+      }
+    },
+    {
+      "id": "early_debt_payment_restitution",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "debt_fully_paid"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "usufruct_right",
+          "target": "debtor_anticresista"
+        }
+      }
+    },
+    {
+      "id": "contract_expiration_restitution",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "five_year_term_expired"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "immovable_property",
+          "target": "debtor_anticresista"
+        }
+      }
+    },
+    {
+      "id": "delayed_restitution_penalty",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "creditor_anticresista",
+          "object": "usufruct_right",
+          "target": "debtor_anticresista"
+        },
+        {
+          "type": "numeric",
+          "name": "thirty_day_period_exceeded"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "penalty_payment",
+          "target": "debtor_anticresista"
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Anticresis/Contrato de anticresis/TMX_2204737_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Anticresis/Contrato de anticresis/TMX_2204737_es.txt"
+  }
+}

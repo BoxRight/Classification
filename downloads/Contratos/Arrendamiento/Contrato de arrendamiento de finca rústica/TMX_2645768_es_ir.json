@@ -1,0 +1,298 @@
+{
+  "law": "Contrato de arrendamiento de finca rústica",
+  "authority": "private",
+  "enacted": "2024-02-19",
+  "imports": [
+    "Artículos 2456, 2454, 2455, 2458 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "arrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "arrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "finca_rustica",
+      "type": "nonmovable"
+    },
+    {
+      "id": "renta_semestral",
+      "type": "money"
+    },
+    {
+      "id": "frutos_agricolas",
+      "type": "movable"
+    },
+    {
+      "id": "seguro_responsabilidad",
+      "type": "service"
+    },
+    {
+      "id": "penalizacion",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "arrendar_finca",
+      "type": "simple",
+      "actor": "arrendador",
+      "object": "finca_rustica",
+      "target": "arrendatario"
+    },
+    {
+      "id": "pagar_renta",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "renta_semestral",
+      "target": "arrendador"
+    },
+    {
+      "id": "mantener_finca",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "finca_rustica",
+      "target": null
+    },
+    {
+      "id": "inspeccionar_finca",
+      "type": "simple",
+      "actor": "arrendador",
+      "object": "finca_rustica",
+      "target": null
+    },
+    {
+      "id": "subarrendar",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "finca_rustica",
+      "target": null
+    },
+    {
+      "id": "contratar_seguro",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "seguro_responsabilidad",
+      "target": null
+    },
+    {
+      "id": "entregar_finca",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "finca_rustica",
+      "target": "arrendador"
+    },
+    {
+      "id": "incumplir_entrega",
+      "type": "counter",
+      "actor": "arrendatario",
+      "object": "finca_rustica",
+      "target": "arrendador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "propiedad_finca",
+      "subject": "arrendador",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "contrato_arrendamiento",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "garantia_fiador",
+      "subject": "fiador",
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "termino_contrato",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "capacidad_juridica",
+      "subject": "arrendador",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "capacidad_juridica",
+      "subject": "arrendatario",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "renta_semestral",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "finca_rustica",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "seguro_responsabilidad",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "finca_rustica",
+        "target": null
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendador",
+        "object": "finca_rustica",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "finca_rustica",
+        "target": "arrendador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rebaja_renta_perdida_frutos",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contrato_arrendamiento"
+        },
+        {
+          "description": "pérdida de más de la mitad de los frutos por casos fortuitos"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "renta_semestral",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "penalizacion_incumplimiento_entrega",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "termino_contrato"
+        },
+        {
+          "act": {
+            "type": "counter",
+            "actor": "arrendatario",
+            "object": "finca_rustica",
+            "target": "arrendador"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "penalizacion",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "permiso_barbecho_ultimo_año",
+      "conditions": [
+        {
+          "description": "último año del contrato"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "arrendador",
+          "object": "finca_rustica",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "derecho_uso_posterior_arrendatario",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "termino_contrato"
+        },
+        {
+          "description": "frutos pendientes de recolección"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "finca_rustica",
+          "target": null
+        }
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de finca rústica/TMX_2645768_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de finca rústica/TMX_2645768_es.txt"
+  }
+}

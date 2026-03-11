@@ -1,0 +1,309 @@
+{
+  "law": "Contrato de prestación de servicios de administración de condominio",
+  "authority": "private",
+  "enacted": "2024-07-23",
+  "imports": [
+    "Código Civil para el Distrito Federal, artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "administracion",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "honorarios_profesionales",
+      "type": "money"
+    },
+    {
+      "id": "servicios_administracion",
+      "type": "service"
+    },
+    {
+      "id": "areas_comunes",
+      "type": "nonmovable"
+    },
+    {
+      "id": "cuotas_mantenimiento",
+      "type": "money"
+    },
+    {
+      "id": "informes_financieros",
+      "type": "service"
+    },
+    {
+      "id": "informacion_confidencial",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "prestar_servicios_administracion",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "servicios_administracion",
+      "target": "administracion"
+    },
+    {
+      "id": "pagar_honorarios",
+      "type": "simple",
+      "actor": "administracion",
+      "object": "honorarios_profesionales",
+      "target": "profesionista"
+    },
+    {
+      "id": "administrar_areas_comunes",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "areas_comunes",
+      "target": "administracion"
+    },
+    {
+      "id": "gestionar_mantenimiento",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "servicios_administracion",
+      "target": "administracion"
+    },
+    {
+      "id": "administrar_cuotas",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "cuotas_mantenimiento",
+      "target": "administracion"
+    },
+    {
+      "id": "elaborar_informes",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "informes_financieros",
+      "target": "administracion"
+    },
+    {
+      "id": "mantener_confidencialidad",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "informacion_confidencial",
+      "target": "administracion"
+    },
+    {
+      "id": "proporcionar_informacion",
+      "type": "simple",
+      "actor": "administracion",
+      "object": "informacion_confidencial",
+      "target": "profesionista"
+    },
+    {
+      "id": "divulgar_informacion",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "informacion_confidencial",
+      "target": "administracion"
+    },
+    {
+      "id": "incumplir_obligaciones",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "servicios_administracion",
+      "target": "administracion"
+    },
+    {
+      "id": "no_pagar_honorarios",
+      "type": "counter",
+      "actor": "administracion",
+      "object": "honorarios_profesionales",
+      "target": "profesionista"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoAdministracion",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "VigenciaContrato",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "servicios_administracion",
+        "target": "administracion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "administracion",
+        "object": "honorarios_profesionales",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "areas_comunes",
+        "target": "administracion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "cuotas_mantenimiento",
+        "target": "administracion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "informes_financieros",
+        "target": "administracion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "informacion_confidencial",
+        "target": "administracion"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "administracion",
+        "object": "informacion_confidencial",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "counter",
+        "actor": "profesionista",
+        "object": "informacion_confidencial",
+        "target": "administracion"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_por_incumplimiento",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoAdministracion"
+        },
+        {
+          "ref": "incumplir_obligaciones"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "rescision_por_falta_pago",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoAdministracion"
+        },
+        {
+          "ref": "no_pagar_honorarios"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContrato"
+      }
+    },
+    {
+      "id": "rescision_por_confidencialidad",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoAdministracion"
+        },
+        {
+          "ref": "divulgar_informacion"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "RescisionContrato"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "administracion_condominio",
+      "steps": [
+        {
+          "ref": "administrar_areas_comunes"
+        },
+        {
+          "ref": "gestionar_mantenimiento"
+        },
+        {
+          "ref": "administrar_cuotas"
+        },
+        {
+          "ref": "elaborar_informes"
+        }
+      ]
+    },
+    {
+      "name": "rescision_contrato",
+      "steps": [
+        {
+          "description": "notificar incumplimiento por escrito"
+        },
+        {
+          "description": "otorgar plazo de 30 dias para subsanar"
+        },
+        {
+          "description": "dar por rescindido si persiste incumplimiento"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de condominio/TMX_2713702_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios de administración de condominio/TMX_2713702_es.txt"
+  }
+}

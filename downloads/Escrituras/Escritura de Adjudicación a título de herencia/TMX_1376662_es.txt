@@ -1,0 +1,942 @@
+                                                                           http://www.tirantonline.com.mx
+
+
+Document TMX1,376,662
+
+Formulario
+Title: Escritura de Adjudicación a título de herencia
+Issuer: Notario
+Date: 23/01/2024
+
+
+TEXT:
+
+                 ESCRITURA DE ADJUDICACION A TITULO DE HERENCIA
+
+                                             TMX1.376.662
+
+
+Normativa: Artículo 1750 del Código Civil para la Ciudad de México.
+
+
+Supuesto: Escrituras de adjudicación de título de herencia para sucesión testamentaria con
+teoría y ejemplos para desarrollar conforme al caso en concreto. Se incluyen diversas
+ variantes que pueden presentarse en una adjudicación a título de herencia, considerados los
+aspectos más importantes que debe contener una escritura de adjudicación en las distintas
+clases de sucesiones.
+
+
+
+
+En materia de sucesiones, la adjudicación es formalmente la última parte de este proceso. Es el acto
+jurídico en virtud del cual los bienes, derechos y obligaciones que conforman la masa hereditaria se
+aplican a cada heredero en pago de su cuota hereditaria, por lo que pasan al patrimonio de cada uno. Con
+la escritura de adjudicación se da por liquidada la masa hereditaria con lo que termina el proceso
+sucesorio.
+
+En los ordenamientos civiles se habla indistintamente de partición y de adjudicación; aun y cuando el
+presente trabajo no pretende exponer la historia y naturaleza de esta y otras instituciones jurídicas,
+consideramos conveniente señalar cuál es, desde nuestro punto de vista, la principal diferencia entre una
+y otra.
+
+La naturaleza de la partición se considera como un acto declarativo o traslativo de dominio,
+planteamiento que es expuesto de una manera muy clara por Antonio de Ibarrola. Para este autor, y
+siguiendo a Rojina Villegas, nuestro legislador reconoce a la partición una función declarativa de
+propiedad y a la adjudicación una función atributiva de propiedad:
+
+...Pero hay que ver, como hace notar Rojina Villegas, con cuya opinión concordamos, que "al fijar la
+porción de cada heredero, terminando con la copropiedad viene a atribuir una propiedad exclusiva. No
+origina propiedad, sino simplemente cambia el objeto de ese derecho: antes se ejercía sobre una parte
+
+                                                                                                      1 / 18
+alícuota, luego recae sobre bienes determinados. Por lo mismo, durante la vigencia del código anterior
+como en la del actual, la partición tiene un doble efecto: declarativa de propiedad, reconoce una
+propiedad que ya se realizó; pero atributiva de propiedad, porque transforma a veces el objeto de esta...".
+De este modo, como consecuencia de la partición se "declara" la asignación del derecho hereditario a
+cada uno de los herederos y en la adjudicación se "atribuye" a ese heredero su derecho para que sea
+incorporado a su patrimonio de manera individual. Lo anterior queda muy claro cuando existe sólo un
+heredero, en este supuesto no hay partición, pero sí existe adjudicación.
+
+Como hemos señalado en el caso de otras escrituras, las variantes que pueden presentarse en una
+adjudicación a título de herencia son ilimitadas. En este apartado propondremos las redacciones para los
+supuestos que, con base en nuestra experiencia, se presentan con mayor frecuencia. Asimismo, lo
+dividiremos en tres partes: redacciones aplicables en ambos tipos de sucesiones, adjudicaciones en
+sucesiones testamentarias y adjudicaciones en sucesiones intestamentarias.
+
+1. Redacciones comunes en las sucesiones testamentarias e intestamentarias.
+
+Las disposiciones legales en materia de sucesiones establecen que la adjudicación de bienes se debe
+hacer con la misma formalidad que la ley exija, dependiendo del bien del que se trate para ese acto;
+asimismo, la partición debe constar en escritura pública, siempre que en la herencia haya bienes cuya
+enajenación deba hacerse con esa formalidad. Ahora bien, si entendiéramos exclusivamente lo anterior,
+únicamente sería necesario hacer escrituras de adjudicación a título de herencia tratándose de inmuebles.
+Sin embargo, consideramos conveniente que en dichas adjudicaciones se mencionen aquellos bienes
+muebles que, para acreditar su propiedad, por costumbre, no es suficiente la posesión como es el caso de
+acciones, vehículos, maquinaria, obras de arte, bienes preciosos, etc. Incluso actualmente es conveniente
+incluir también el dinero como un instrumento de prueba del origen de los recursos para cumplir con las
+obligaciones fiscales o para justificarlos en materia de prevención de lavado de dinero.
+
+En este apartado también es necesario hacer una precisión: cuando realiza el supuesto de que la escritura
+contenga la división o separación de los bienes que corresponden al cónyuge supérstite, atendiendo al
+régimen patrimonial de la sociedad conyugal o legal en el matrimonio, expresamente debe incluirse en
+nuestro instrumento la aplicación de bienes por la disolución de la sociedad conyugal; para aquellos
+casos en que la sociedad conyugal o legal no esté inscrita en el Registro Público de la Propiedad, debe
+solicitarse, en primer lugar al registrador, la inscripción de ésta a fin de cumplir con el principio registral
+de "tracto sucesivo".
+
+En lo referente a la redacción de la escritura, comenzaremos señalando que el instrumento notarial que
+contenga adjudicaciones a título de herencia podrá estar compuesto por: comparecencia, antecedentes,
+capítulos, cláusulas y certificaciones; apartados que deben destacarse para una mejor identificación de
+quien tenga en sus manos nuestro documento.
+
+...A N T E C E D E N T E S..
+
+...C A P Í T U L O S
+
+...C L Á U S U L A S..
+
+...YO EL NOTARIO CERTIFICO..
+
+Para una mejor estructura y claridad del instrumento, en las adjudicaciones sugerimos dividir el
+documento en capítulos, dependiendo del número de actos jurídicos que hagamos constar en nuestro
+protocolo. De esa manera, podemos hacer constar la solicitud de inscripción de la sociedad conyugal,
+aplicación de bienes por disolución de sociedad conyugal, protocolización de inventario y avalúos,
+proyecto de partición, adjudicación a título de herencia, etc.
+
+                                                                                                            2 / 18
+1.1. Comparecencia
+
+La comparecencia también tendrá los datos de identificación del instrumento, y cuando el de cujus haya
+adquirido el bien materia de la adjudicación estando casado bajo el régimen de sociedad conyugal o
+legal, se sugieren las siguientes redacciones:
+
+1.1.1. Con solicitud de inscripción de la sociedad conyugal o legal
+
+En aquellos casos en los cuales el cónyuge supérstite del matrimonio celebrado bajo el régimen de
+sociedad conyugal o legal no sea titular registral, es necesario solicitar la inscripción de ésta en el
+Registro Público de la Propiedad, lo anterior con la intención de dar un tracto sucesivo, lo cual es
+obligatorio en la Ciudad de México y optativo en las demás entidades federativas:
+
+...hago constar:
+
+A.- LA SOLICITUD DE INSCRIPCIÓN DEL RÉGIMEN PATRIMONIAL DE SOCIEDAD
+CONYUGAL que realizan (nombre completo del cónyuge supérstite), en su carácter de cónyuge
+supérstite en la SUCESIÓN TESTAMENTARIA (intestamentaria) de (nombre del de cujus) y (nombre
+completo del albacea) en su carácter de albacea en dicha sucesión;
+
+B.- LA APLICACIÓN DE BIEN POR DISOLUCIÓN DE SOCIEDAD CONYUGAL, que otorgan (
+nombre completo del cónyuge supérstite), en su carácter de cónyuge supérstite en la SUCESIÓN
+TESTAMENTARIA (intestamentaria) de (nombre del de cujus) y (nombre completo del albacea) en su
+carácter de albacea en dicha sucesión.
+
+1.1.2. Sin solicitud de inscripción de la sociedad conyugal o legal
+
+En el supuesto en que el cónyuge supérstite sea el titular registral, no es necesario inscribir el régimen de
+sociedad conyugal:
+
+hago constar:
+
+A.- LA APLICACIÓN DE BIEN POR DISOLUCIÓN DE SOCIEDAD CONYUGAL, que otorgan (
+nombre completo del cónyuge supérstite), en su carácter de cónyuge supérstite en la SUCESIÓN
+TESTAMENTARIA (intestamentaria) de (nombre del de cujus) y (nombre completo del albacea) en su
+carácter de albacea en dicha sucesión.
+
+Desde nuestro punto de vista, no es necesario en estos actos jurídicos que, además de intervenir el
+albacea, tengan que dar su consentimiento los herederos, ya que no se trata de ninguno de los actos
+jurídicos en los que el Código Civil establece limitaciones al albacea y, por otra parte, esta situación ha
+quedado reconocida por los herederos al momento de haber aprobado el inventario formulado por aquél.
+
+1.2. Antecedentes
+
+Al igual con lo expresado en el capítulo de permuta, proponemos que cuando en la masa hereditaria
+existan varios inmuebles separemos los antecedentes para cada uno de ellos, asignándoles un apartado
+identificado con una letra capital, conforme a un orden cronológico.
+
+... A N T E C E D E N T E S
+
+A.- Por lo que se refiere a (inmueble adquirido por el de cujus en fecha más antigua)..
+
+- Antecedente de propiedad
+
+                                                                                                          3 / 18
+- Situación jurídica del inmueble
+
+- Valor fiscal del inmueble
+
+- Uso de suelo y destino
+
+- Constancia de no adeudos por cuotas de mantenimiento
+
+...B.- Por lo que se refiere a (inmueble adquirido por el de cujus en fecha más antigua)..
+
+- Antecedente de propiedad
+
+- Situación jurídica del inmueble
+
+- Valor fiscal del inmueble
+
+- Uso de suelo y destino
+
+- Constancia de no adeudos por cuotas de mantenimiento
+
+La manera de relacionar cada uno de los antecedentes será la misma que la que expusimos en el capítulo
+de compraventa.
+
+Al referirnos al valor fiscal del inmueble es importante destacar que en materia sucesoria tiene
+relevancia particular la fecha del fallecimiento del autor de la herencia. Si bien es cierto que, por regla
+general, la obligación fiscal nace cuando se realizan las situaciones jurídicas o de hecho previstas en las
+disposiciones fiscales --misma que se determina y liquida conforme a las disposiciones vigentes en el
+momento de su nacimiento (la muerte)-- existen, dependiendo de la fecha de fallecimiento del autor de la
+sucesión y de la ubicación del inmueble, distintas reglas que pueden ser aplicables para el cálculo y
+entero de los impuestos. Por ello, en toda sucesión, cuando analicemos el aspecto fiscal debemos
+distinguir entre fechas de causación y del entero del impuesto Sobre Adquisición de Inmuebles o de
+Traslado de Dominio, ya que dependiendo de lo anterior, será necesario o no verificar que el avalúo
+correspondiente incluya el valor referido.
+
+Cuando derivado del análisis fiscal sea viable y conveniente para nuestro cliente calcular el impuesto
+tomando como base el valor referido reportado en un avalúo, el antecedente que corresponda a éste se
+puede redactar de la siguiente manera:
+
+...V.- El valor comercial del inmueble objeto de esta escritura es la cantidad de (valor comercial), cuyo
+valor referido al día (fecha de causación del impuesto) es la cantidad de (valor referido que reporta el
+avalúo), según el avalúo formulado por (persona autorizada para elaborar avalúo), el día (fecha de
+avalúo) que agrego al apéndice de esta escritura con la letra "____________________".
+
+En el mismo sentido, cuando se adjudique un porcentaje del derecho de propiedad sobre el inmueble
+--como comentamos al analizar la compraventa-- y la base gravable sea el resultado de aplicar al valor
+total del inmueble el porcentaje adjudicado, sugerimos la siguiente redacción:
+
+...IV.- El valor catastral del inmueble objeto de esta escritura es la cantidad de (valor catastral) de los
+que corresponden al (porcentaje que se adquiere) por ciento la cantidad de (valor catastral del
+porcentaje adquirido) conforme al documento que agrego al apéndice de esta escritura con la letra
+"____________________".
+
+V.- El valor comercial del inmueble objeto de esta escritura es la cantidad de (valor comercial), de los
+
+                                                                                                        4 / 18
+que corresponden al (porcentaje que se adquiere) por ciento la cantidad de (valor comercial del
+porcentaje adquirido) según el avalúo formulado por (persona autorizada para elaborar avalúo), el día
+(fecha de avalúo) que agrego al apéndice de esta escritura con la letra "____________________".
+
+En relación con las cuotas de mantenimiento, en una adjudicación también es necesario que se cumpla
+con la obligación de pago de probables créditos que no hayan sido cubiertos por el condómino fallecido,
+ya que al transmitirse la propiedad de la unidad privativa, "la parte adjudicataria" la adquiere con dicha
+carga; de ahí que es necesario que esta situación quede especificada en la escritura, ya sea con la
+constancia de no adeudos de cuotas ordinarias o extraordinarias de mantenimiento expedida por el
+administrador, o bien, con los adeudos respectivos en el supuesto en que el adjudicatario decida
+adquirirlo sin haberlos liquidado previamente. Según sea el caso, proponemos las siguientes redacciones:
+
+...VII.- "LA PARTE ADJUDICATARIA", me exhibe constancia de no adeudos por concepto de cuotas
+de mantenimiento, administración y de reserva que causa el inmueble objeto de esta escritura, que
+agrego al apéndice de este instrumento con la letra "____________________".
+
+...VII.- "LA PARTE ADJUDICATARIA" declara conocer los adeudos por concepto de cuotas de
+mantenimiento, administración y reserva que reporta el inmueble objeto de esta escritura conforme a la
+constancia de adeudos que se agrega al apéndice de este instrumento con la letra
+"____________________". Asimismo, le advertí que es responsable solidaria del pago de dichos
+adeudos.
+
+Una vez que ha quedado acreditada la situación jurídica y fiscal del inmueble objeto de la escritura, en
+los siguientes antecedentes se relacionarán lo referente al trámite sucesorio, ya sea testamentario o
+intestamentario, judicial o notarial con la propuesta que más adelante se desarrolla.
+
+1.3. Capítulos
+
+Como expusimos previamente, es recomendable que la escritura de adjudicación esté estructurada en
+capítulos cuando sean varios los actos jurídicos que estamos consignando en el mismo instrumento,
+sugiriendo que se destaque el numeral del capítulo, así como el encabezado relativo a lo consignado en
+dicho capítulo, por ejemplo:
+
+...C A P Í TULO PRIMERO
+
+SOLICITUD DE INSCRIPCIÓN DEL RÉGIMEN PATRIMONIAL DE SOCIEDAD CONYUGAL
+
+C L Á U S U L A "____________________"
+
+...C A P Í TULO SEGUNDO
+
+APLICACIÓN DE BIEN POR DISOLUCIÓN DE SOCIEDAD CONYUGAL
+
+C L Á U S U L A "____________________"
+
+...C A P Í TULO TERCERO
+
+PROTOCOLIZACIÓN DE INVENTARIO Y AVALÚOS
+
+C L Á U S U L A S "____________________"
+
+...C A P Í TULO CUATRO
+
+
+                                                                                                       5 / 18
+CONVENIO DE PARTICIÓN
+
+C L Á U S U L A S "____________________"
+
+...C A P Í T U L O Q U I N T O
+
+APLICACIÓN DE BIEN A TÍTULO DE LEGADO
+
+C L Á U S U L A S "____________________"
+
+...C A P Í T U L O S E X T O
+
+ADJUDICACIÓN DE BIEN A TÍTULO DE HERENCIA
+
+C L Á U S U L A S "____________________"
+
+...C A P Í T U L O S É P T I M O
+
+GASTOS Y HONORARIOS
+
+C L Á U S U L A "____________________"
+
+...C A P Í TULO OCTAVO
+
+LEYES Y TRIBUNALES
+
+C L Á U S U L A S "____________________"
+
+A su vez, cada capítulo tendrá una o más cláusulas referentes al acto jurídico ahí consignado.
+
+1.4. Cláusulas
+
+Conforme a lo mencionado previamente, en este apartado desarrollamos lo que consideramos común a
+cualquier tipo de sucesión y que será aplicable o no según el supuesto del que se trate.
+
+1.4.1. Solicitud de inscripción del régimen patrimonial de sociedad conyugal
+
+...ÚNICA.- (Nombre del cónyuge supérstite), en su carácter de cónyuge supérstite en la sucesión
+testamentaria (intestamentaria) de (nombre del de cujus) y (nombre completo del albacea) en su carácter
+de albacea en dicha sucesión, solicitan al registrador del Registro Público de la Propiedad de (lugar de
+registro público de la propiedad), que proceda a inscribir en el folio real electrónico número (número de
+folio real electrónico), el régimen patrimonial de sociedad conyugal al que estaba sujeto su matrimonio
+con (nombre del de cujus) el cual se celebró en (lugar de celebración) el día (fecha de celebración)
+según consta de la copia certificada del acta de matrimonio marcada con el número
+____________________ que obra en el Juzgado del Registro Civil de aquel lugar, que en copia
+certificada agrego al apéndice de esta escritura con la letra "____________________".
+
+Lo anterior, con la finalidad de acreditar debidamente el tracto sucesivo, puesto que el inmueble objeto
+de esta escritura fue adquirido por (nombre del de cujus), conforme ha quedado acreditado en el
+antecedente "____________________" de esta escritura.
+
+1.4.2. Aplicación de bien por disolución de sociedad conyugal
+
+
+                                                                                                      6 / 18
+...ÚNICA.- (Nombre del cónyuge supérstite), en su carácter de cónyuge supérstite de (nombre del de
+cujus) y con la intervención de (nombre completo del albacea) en su carácter de albacea en la sucesión
+testamentaria (intestamentaria) de (nombre del de cujus), se aplica en pago de su cuota de liquidación
+que por razón de la sociedad conyugal tenía celebrada en virtud de su matrimonio con (nombre del de
+cujus) y como consecuencia de la disolución de dicho vínculo matrimonial por la muerte de este último,
+el (porcentaje que se aplica) por ciento de los derechos de propiedad que le corresponden respecto de
+(descripción del inmueble objeto del contrato) con la superficie, medidas y linderos descritos en el
+antecedente (antecedente que corresponda) que se tienen aquí por reproducidos como si a la letra se
+insertase, con las características, antigüedad, estado de conservación y superficie de las construcciones
+especificadas en el avalúo de dicho inmueble las cuales no han sufrido modificaciones desde la fecha de
+elaboración del mismo según declaran, en un valor de (valor de aplicación conforme al avalúo y
+porcentaje).
+
+1.4.3. Gastos y honorarios
+
+...ÚNICA. - Todos los gastos, derechos, impuestos y honorarios que se causen con motivo de la presente
+escritura, serán cubiertos por "LA PARTE ADJUDICATARIA..."
+
+1.4.4. Leyes y tribunales
+
+ÚNICA.- Para la interpretación y cumplimiento de esta escritura, los comparecientes se someten a las
+leyes y tribunales del (lugar del otorgamiento de la escritura)..
+
+2. Adjudicación en sucesiones tramitadas ante notario
+
+Tal y como exponemos en esta obra, cuando existe un testamento, el trámite sucesorio se puede llevar
+ante juez, ante notario o de manera mixta cuando así lo determina la ley según corresponda. Desde
+nuestro punto de vista, en virtud de que la ley establece reglas especiales para cada uno de dichos
+supuestos, deben analizarse por separado ya que estamos frente a dos procesos que, si bien es cierto que
+en gran medida se complementan, la realidad es que se encuentran claramente diferenciados por los
+códigos civiles y de procedimientos civiles, así como por la ley del notariado aplicable. En este sentido,
+la terminología, las etapas o secciones son diferentes por lo que desarrollaremos por separado nuestras
+propuestas de redacción según se trate de un trámite sucesorio ante notario, ante juez o mixto.
+
+2.1. Sucesión testamentaria tramitada ante notario
+
+Cuando el trámite se realiza ante notario puede haber otros actos. Desde nuestro punto de vista, cuando
+el trámite sucesorio se realiza de principio a fin ante notario, éstos son cuatro: aceptación de herencia y
+cargo de albacea, protocolización de inventario y avalúos, partición y adjudicación. Lo referente a la
+primera se analiza en esta misma obra en el capítulo V, por lo que a continuación propondremos la
+estructura de los instrumentos que contengan las otras tres etapas. Es importante añadir que éstas pueden
+desahogarse en instrumento por separado o en uno solo, dependiendo del supuesto frente al cual nos
+encontremos una vez que han sido hechas las publicaciones en las que el notario da a conocer
+precisamente la aceptación, repudio o renuncia de derechos hereditarios, legados, nombramiento y
+aceptación del cargo de albacea y demás declaraciones que deban estar incluidas conforme a lo dispuesto
+por la ley.
+
+A continuación, presentaremos nuestra propuesta como si se tratare de un solo instrumento.
+
+2.1.1. Comparecencia
+
+Como sucede en todos los actos jurídicos, existen numerosas posibilidades de redacciones según el
+supuesto frente al cual nos encontremos, pero trataremos de presentar los más comunes:
+
+                                                                                                        7 / 18
+a) Albacea distinto a los herederos:
+
+...hago constar:
+
+A.- LA PROTOCOLIZACIÓN DE INVENTARIO Y AVALÚO(S) que otorga (nombre completo del
+albacea) en su carácter de albacea en la SUCESIÓN TESTAMENTARIA DE (nombre del de cujus) con
+el consentimiento de los herederos en dicha sucesión (nombre completo de los herederos);
+
+B.- EL CONVENIO DE PARTICIÓN que otorgan (nombre completo de los herederos) en su carácter de
+herederos en la SUCESIÓN TESTAMENTARIA DE (nombre del de cujus) con el consentimiento de (
+nombre completo del albacea) en su carácter de albacea en dicha sucesión;
+
+C.- LA ADJUDICACIÓN DE BIEN A TÍTULO DE HERENCIA (LEGADO) que otorga (nombre
+completo del albacea) en su carácter de albacea en la SUCESIÓN TESTAMENTARIA DE (nombre del
+de cujus) a favor de los herederos en dicha sucesión (nombre completo de los herederos).
+
+b) Albacea también heredero
+
+...hago constar:
+
+A.- LA PROTOCOLIZACIÓN DE INVENTARIO Y AVALÚO(S) que otorga (nombre completo del
+albacea y heredero) en su carácter de albacea y heredero en la SUCESIÓN TESTAMENTARIA DE
+(nombre del de cujus) con el consentimiento de los demás herederos en dicha sucesión (nombre
+completo de los herederos);
+
+B.- EL CONVENIO DE PARTICIÓN que otorga (nombre completo del albacea) en su carácter de
+albacea y heredero en la SUCESIÓN TESTAMENTARIA DE (nombre del de cujus) y los demás
+herederos en dicha sucesión (nombre completo de los herederos);
+
+C.- LA ADJUDICACIÓN DE BIEN A TÍTULO DE HERENCIA (LEGADO) que otorga (nombre
+completo del albacea) en su carácter de albacea y heredero en la SUCESIÓN TESTAMENTARIA DE
+(nombre del de cujus) a favor de sí y de los demás herederos en dicha sucesión (nombre completo de los
+herederos).
+
+c) Albacea también heredero, alguno de ellos representado por otro heredero.
+
+...hago constar:
+
+A.- LA PROTOCOLIZACIÓN DE INVENTARIO Y AVALÚO(S) que otorga (nombre completo del
+albacea y heredero) en su carácter de albacea y heredero en la SUCESIÓN TESTAMENTARIA DE
+(nombre del de cujus) con el consentimiento de los demás herederos en dicha sucesión (nombre
+completo de los herederos) este último representado por (nombre del heredero representante), quien
+también concurre por su propio derecho;
+
+B.- EL CONVENIO DE PARTICIÓN que otorgan (nombre completo de los herederos), este último
+representado como ha quedado dicho, quien también concurre por su propio derecho, en su carácter de
+herederos en la SUCESIÓN TESTAMENTARIA DE (nombre del de cujus) y (nombre completo del
+albacea) en su carácter de albacea y heredero en dicha sucesión;
+
+C.- LA ADJUDICACIÓN DE BIEN A TÍTULO DE HERENCIA (LEGADO) que otorga (nombre
+completo del albacea) en su carácter de albacea y heredero en la SUCESIÓN TESTAMENTARIA DE
+(nombre del de cujus) con el consentimiento de los demás herederos en dicha sucesión (nombre
+completo de los herederos) este último representado como ha quedado dicho.
+
+                                                                                                   8 / 18
+d) Albacea y único heredero
+
+...hago constar:
+
+A.- LA PROTOCOLIZACIÓN DE INVENTARIO Y AVALÚO(S) que otorga (nombre completo del
+albacea y único heredero) en su carácter de albacea y único heredero en la SUCESIÓN
+TESTAMENTARIA DE (nombre del de cujus);
+
+B.- LA ADJUDICACIÓN DE BIEN A TÍTULO DE HERENCIA que otorga (nombre completo del
+albacea y único heredero) en su carácter de albacea y único heredero en la SUCESIÓN
+TESTAMENTARIA DE (nombre del de cujus).
+
+2.1.2. Antecedentes
+
+Como antecedente siguiente al último enunciado en el inciso anterior, se sugiere relacionar la fecha de
+fallecimiento del autor de la sucesión y enseguida los datos del instrumento notarial en el que se integró
+la primera etapa, así como la información, documentación y elementos que nos servirán para integrar las
+etapas siguientes del proceso sucesorio frente al notario.
+
+a) Acta de defunción
+
+...VIII.- El señor (nombre del de cujus), falleció en (lugar del fallecimiento), el día (fecha de defunción),
+según consta de la copia certificada del acta de defunción marcada con el número (número del acta de
+defunción) que obra en el Juzgado del Registro Civil de aquel lugar, que en copia certificada agrego al
+apéndice de esta escritura con la letra "____________________".
+
+b) Aceptación de herencia y cargo de albacea
+
+...IX.- Por escritura número (número instrumento) de fecha (fecha) ante el licenciado (nombre de
+notario) titular de la notaría número (número notaría) de (ciudad o municipio), estado de (entidad
+federativa) se hizo constar la aceptación de herencia y del cargo de albacea en la sucesión testamentaria
+de (nombre del de cujus), y de dicha escritura en su parte conducente copió en su parte conducente lo
+que es del tenor literal siguiente...
+
+c) Publicaciones
+
+A diferencia del trámite sucesorio ante juez y de omisión en algunas legislaciones de entidades
+federativas, una vez que se firma la escritura de aceptación de herencia y cargo de albacea, el notario
+está obligado a dar a conocer lo que hizo constar en dicho instrumento mediante dos publicaciones,
+normalmente con intervalos de 10 días, en un diario de circulación nacional.
+
+"...X.- Con las letras "____________________" y "____________________" agrego al apéndice de esta
+escritura las publicaciones a que se refiere el Artículo (fundamento legal conforme a la legislación local
+aplicable) hechas los días (fecha de ambas publicaciones) en el diario (nombre del diario de circulación
+nacional).
+
+d) Inventario y avalúo(s)
+
+El inventario es una de las obligaciones más importantes del albacea, por lo que es necesario que se
+describan los bienes de manera detallada. El Código de Procedimientos Civiles para la Ciudad de
+México precisa el orden que debe seguirse al formular el inventario:dinero, alhajas, efectos de comercio
+
+
+
+                                                                                                          9 / 18
+o industria, semovientes, frutos, muebles, raíces, créditos, documentos y papeles de importancia, bienes
+ajenos que hubiere tenido en su poder el de cujus en comodato, depósito, prenda o bajo cualquier otro
+título.
+
+Simultáneamente a la formulación del inventario por parte del albacea, debe presentar el avalúo(s) de los
+bienes inventariados elaborados por un perito designado por el propio albacea.
+
+El inventario, junto con el avalúo(s), debe ser aprobado por todos los herederos, legatarios y, en su caso,
+los acreedores.
+
+Enseguida proponemos la redacción del documento que contiene el inventario así como las propuestas
+de redacción de la escritura en lo referente a este acto jurídico. Es importante precisar que en el
+inventario se enlista lo que se tiene, por lo que si no hubiere uno de los bienes enlistados no hay que
+denunciarlo.
+
+INVENTARIO FORMULADO POR (nombre del albacea) EN SU CARÁCTER DE ALBACEA EN
+LA SUCESIÓN TESTAMENTARIA DE (nombre del de cujus).
+
+Por medio del presente escrito formulo inventario de los bienes y derecho que constituyen el caudal
+hereditario de la sucesión testamentaria de (nombre del de cujus), mismo que es del tenor literal
+siguiente:
+
+DINERO:
+
+ALHAJAS: (descripción), cuyo valor asciende a la cantidad de (valor del bien).
+
+EFECTOS DE COMERCIO O INDUSTRIA: (descripción), cuyo valor asciende a la cantidad de (valor
+del bien).
+
+SEMOVIENTES: (descripción), cuyo valor asciende a la cantidad de (valor del bien)
+
+FRUTOS: (descripción), cuyo valor asciende a la cantidad de (valor del bien)
+
+MUEBLES: (descripción), cuyo valor asciende a la cantidad de (valor del bien)
+
+BIENES RAÍCES: (descripción), cuyo valor asciende a la cantidad de (valor del bien)
+
+CRÉDITOS: (descripción), cuyo monto asciende a la cantidad de (valor del bien)
+
+DOCUMENTOS Y PAPELES DE IMPORTANCIA: (descripción), cuyo valor asciende a la cantidad de
+(valor del bien)
+
+Se anexan los avalúos elaborados por perito en los que se establece el valor asignado para cada uno de
+los bienes listados.
+
+El presente inventario que se realiza es en cuanto al activo y pasivo que existe, manifestando el albacea
+bajo protesta de decir verdad que, si aparecieran bienes con posterioridad, éste procederá a integrarlos al
+inventario realizado.
+
+(Lugar y fecha de elaboración del documento)
+
+____________________
+
+
+                                                                                                       10 / 18
+(Nombre del albacea) en su carácter de albacea en la
+
+sucesión testamentaria de (nombre del de cujus)
+
+En lo que respecta a la escritura la redacción sería la siguiente:
+
+...XI.- (Nombre del albacea), en su carácter de albacea en la sucesión testamentaria de (nombre del de
+cujus) con fundamento en el Artículo (ochocientos veinte del Código de Procedimientos Civiles para la
+Ciudad de México o el que corresponda) y el Artículo (mil setecientos cincuenta del Código Civil para la
+Ciudad de México) y sus correlativos en los demás códigos de los estados, formuló el inventario de los
+bienes de dicha sucesión, mismo que agrego al apéndice de esta escritura con la letra
+"____________________" en unión de los avalúos correspondientes del que en su parte conducente,
+copio lo que es del tenor literal siguiente: (transcribir lo relativo al bien que se adjudica)..
+
+e) Convenio de partición
+
+La partición fija la porción de los bienes que constituyen la masa hereditaria y que corresponden a cada
+heredero.
+
+Nuestra recomendación es que, en las sucesiones testamentarias tramitadas ante notario, el convenio de
+partición quede asentado en un capítulo específico, tal y como más adelante quedará relacionado.
+
+2.1.3. Capítulos y cláusulas
+
+Como hemos señalado con anterioridad, consideramos que al momento de leer y explicar los alcances
+jurídicos de la escritura para los herederos --y para cualquier persona que tenga en sus manos un
+testimonio de dicho instrumento-- tiene una mayor claridad si la estructuramos en capítulos dependiendo
+de los actos jurídicos que hacemos constar.
+
+De este modo, los capítulos en los que se debe dividir la escritura en el supuesto al que nos hemos
+referido en este subapartado caso serían:
+
+a) Protocolización de inventario y avalúo(s)
+
+...C A P Í T U L O (numeral que corresponda).
+
+PROTOCOLIZACIÓN DE INVENTARIO Y AVALÚOS
+
+C L Á U S U L A S..
+
+PRIMERA.- (Nombre del albacea) en su carácter de albacea y heredero en la sucesión testamentaria de
+(nombre del de cujus) me solicita protocolice el inventario de los bienes dejado a su fallecimiento por
+(nombre del de cujus) relacionado en el antecedente (antecedente que corresponda) formulado por
+él/ella para que surta todos sus efectos legales, manifestando en este acto (nombre de los herederos) en
+su carácter de herederos en dicha sucesión, su conformidad con él, no objetando en ninguna de sus
+partes.
+
+SEGUNDA. - Queda protocolizado el inventario de los bienes dejados a su fallecimiento por (nombre
+del de cujus) relacionado en el (antecedente que corresponda) de esta misma escritura, para que surta
+todos sus efectos legales..."
+
+b) Convenio de partición
+
+
+                                                                                                    11 / 18
+...C A P Í T U L O (numeral que corresponda)
+
+CONVENIO DE PARTICIÓN
+
+C L Á U S U L A S..
+
+PRIMERA. - (Nombre del albacea) en su carácter de albacea y heredero en la sucesión testamentaria de
+(nombre del de cujus) y (nombre de los herederos) en su carácter de herederos en dicha sucesión,
+convienen en celebrar el presente convenio de partición a efecto de dividir los bienes que se encuentran
+en la masa hereditaria de la mencionada sucesión testamentaria como se indica más adelante.
+
+SEGUNDA. - Tomando en consideración que la totalidad de la masa hereditaria deba ser dividida en los
+términos establecidos por (nombre del de cujus) en su testamento corresponde a los herederos (
+legatarios) la siguiente participación:
+
+(Determinar nombres y porcentajes).
+
+TERCERA. - De acuerdo con las participaciones anteriores, los señores (nombre de
+herederos/legatarios), convienen en dividir los bienes inventariados por el albacea en el documento
+relacionado en el antecedente (número de antecedente) el cual ha quedado protocolizado en el capítulo
+anterior de la sucesión testamentaria de (nombre del de cujus) de la siguiente manera:
+
+I. A (nombre del heredero/legatario) la cantidad total de (valor total de los bienes recibidos) de la
+siguiente manera:
+
+a) La cantidad de (cantidad en numerario) tomado de las cuentas que quedaron relacionadas en el
+inventario.
+
+b) El (porcentaje acordado) de los derechos de propiedad respecto de (descripción de inmueble), con un
+valor de (valor conforme al avalúo)..
+
+II. A (nombre del heredero/legatario) la cantidad total de (valor total de los bienes recibidos) de la
+siguiente manera:
+
+a) La cantidad de (cantidad en numerario) tomado de las cuentas que quedaron relacionadas en el
+inventario.
+
+b) El (porcentaje acordado) de los derechos de propiedad respecto de (descripción de inmueble), con un
+valor de (valor conforme al avalúo).
+
+CUARTA.- Los herederos/legatarios manifiestan su conformidad con el presente convenio de partición y
+declaran que, si por cualquier circunstancia resultará más bienes, estos serán inventariados por el albacea
+y objeto de un nuevo convenio de partición.
+
+QUINTA.- Las partes convienen en que cada uno de ellos podrá solicitar la adjudicación de los bienes
+que les correspondan conforme al presente convenio de partición, solicitando al albacea su intervención,
+sin que sea necesaria la comparecencia del resto de los herederos en el menor tiempo posible.
+
+SEXTA. - Todos los gastos, derechos y honorarios que se causen con motivo de la adjudicación de los
+bienes objeto del presente convenio, serán cubiertos por el adjudicatario en la proporción que le
+corresponda.
+
+c) Adjudicación de bien a título de herencia.
+
+                                                                                                       12 / 18
+Conforme a lo comentado al inicio del presente capítulo, a través de la adjudicación los bienes que
+corresponden a cada heredero pasan a formar parte de su patrimonio, con lo cual queda liquidada la
+masa hereditaria.
+
+La adjudicación debe otorgarse con las mismas formalidades que, por cuantía, la ley exige para su venta.
+No obstante, a efecto de acreditar el origen de la titularidad de los bienes, recomendamos hacer constar
+en escritura la adjudicación de ciertos bienes como el numerario, acciones, obras de arte, maquinaria,
+vehículos automotores, etc. Nuestras propuestas de redacción son las siguientes:
+
+...C A P Í T U L O (numeral que corresponda)
+
+ADJUDICACIÓN DE BIEN A TÍTULO DE HERENCIA
+
+C L Á U S U L A S..."..
+
+i) Un solo albacea y heredero
+
+PRIMERA.- (Nombre del albacea y heredero) en su carácter de albacea y único heredero en la sucesión
+testamentaria de (nombre del de cujus), adjudica a favor de sí mismo el (porcentaje recibido) de los
+derechos de propiedad de (descripción del inmueble) con la superficie, medidas y linderos descritos en el
+antecedente (antecedente que corresponda) de esta escritura, que se tienen aquí por reproducidos como
+si a la letra se insertase, con las características, antigüedad, estado de conservación y superficie de las
+construcciones especificadas en el avalúo de dicho inmueble.
+
+SEGUNDA. - La adjudicación se rige por lo siguiente:
+
+I.-Se fija como valor de la adjudicación para los efectos a que haya lugar, la cantidad de (valor del bien
+adjudicado), moneda nacional.
+
+II.- La propiedad adjudicada pasa a poder de (nombre del albacea y heredero):
+
+A.- Sin limitación alguna en su dominio
+
+B.- Sin gravamen de ninguna especie
+
+C.- Sin ningún adeudo, incluso de carácter laboral o fiscal
+
+TERCERA. - (Nombre del albacea y heredero) se obliga a destinar el inmueble objeto de esta escritura,
+a un uso que no contravenga los planes y programas vigentes para dicho inmueble y a respetar el área
+urbanizable contigua al mismo.
+
+ii) Diversos herederos y un solo inmueble.
+
+PRIMERA.- (Nombre del albacea) en su carácter de albacea en la sucesión testamentaria de (nombre del
+de cujus), adjudica a favor de los herederos en dicha sucesión (nombre de los herederos), quienes
+adquieren pro-indiviso y por partes iguales el (descripción del inmueble) con la superficie, medidas y
+linderos descritos en el antecedente (antecedente que corresponda) de esta escritura, que se tienen aquí
+por reproducidos como si a la letra se insertase, con las características, antigüedad, estado de
+conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble.
+
+SEGUNDA.- La adjudicación se rige por lo siguiente:
+
+I.-Se fija como valor de la adjudicación para los efectos a que haya lugar, la cantidad de (valor del bien
+
+                                                                                                       13 / 18
+adjudicado), moneda nacional.
+
+II.- La propiedad adjudicada pasa a poder de (nombre de los herederos):
+
+A.- Sin limitación alguna en su dominio.
+
+B.- Sin gravamen de ninguna especie.
+
+C.- Sin ningún adeudo, incluso de carácter laboral o fiscal.
+
+TERCERA.- (Nombre de los herederos) se obligan a destinar el inmueble objeto de esta escritura, a un
+uso que no contravenga los planes y programas vigentes para dicho inmueble y a respetar el área
+urbanizable contigua al mismo..."
+
+iii) Diversos herederos e inmuebles.
+
+PRIMERA. - (Nombre del albacea) en su carácter de albacea y heredero en la sucesión testamentaria de
+(nombre del de cujus), en cumplimiento del convenio de partición relacionado en el capítulo anterior,
+adjudica a favor de sí mismo y los demás herederos en dicha sucesión, (nombre de los herederos)
+quienes adquieren respectivamente los siguientes bienes:
+
+A) Al señor (nombre del heredero):
+
+I. El (porcentaje recibido) del derecho de propiedad de (descripción del inmueble) con la superficie,
+medidas y linderos descritos en el antecedente (antecedente que corresponda) de esta escritura, que se
+tienen aquí por reproducidos como si a la letra se insertase, con las características, antigüedad, estado de
+conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble.
+
+B) Al señor (nombre del heredero):
+
+I. El (porcentaje recibido) del derecho de propiedad de (descripción del inmueble) con la superficie,
+medidas y linderos descritos en el antecedente (antecedente que corresponda) de esta escritura, que se
+tienen aquí por reproducidos como si a la letra se insertase, con las características, antigüedad, estado de
+conservación y superficie de las construcciones especificadas en el avalúo de dicho inmueble.
+
+SEGUNDA.- Las adjudicaciones se rigen por lo siguiente:
+
+I.-Se fija como valor de los bienes adjudicados (nombre del heredero), en el inciso I, A) de la cláusula
+anterior, la cantidad de (valor del bien adjudicado), moneda nacional.
+
+II.- Se fija como valor de los bienes adjudicados (nombre del heredero), en el inciso I, B) de la cláusula
+anterior, la cantidad de (valor del bien adjudicado), moneda nacional.
+
+III.- Las propiedades adjudicadas pasan a poder de (nombre de los herederos):.
+
+A.- Sin limitación alguna en su dominio
+
+B.- Sin gravamen de ninguna especie
+
+C.- Sin ningún adeudo, incluso de carácter laboral o fiscal
+
+TERCERA. - (Nombre de los herederos) se obligan a destinar los inmuebles objeto de esta escritura, a
+un uso que no contravenga los planes y programas vigentes para dichos inmuebles y a respetar el área
+
+                                                                                                        14 / 18
+urbanizable contigua a los mismos..."
+
+2.2. Sucesión intestamentaria tramitada ante notario.
+
+En el mismo orden de ideas sobre lo que señalamos de la sucesión testamentaria tramitada ante notario y
+mencionamos las distintas etapas; cuando se trata de una sucesión intestamentaria, podemos decir que la
+primera de ellas consiste en la declaratoria o nombramiento de herederos así como el nombramiento de
+cargo de albacea y aceptación de éste, conforme a las redacciones que se encuentran incluidas en la
+presente obra. De este modo, los cambios a las propuestas de redacción contenidas en el subapartado
+anterior consisten en referirnos a la sucesión como "intestamentaria" y, necesariamente, transcribir de la
+escritura en la cual se hizo constar el nombramiento de herederos, albacea y aceptación de dicho cargo,
+en donde sugerimos relacionar de manera adicional, lo relativo a las informaciones testimoniales.
+
+3. Adjudicación en sucesiones tramitadas ante juez
+
+Una sucesión siempre se podrá tramitar ante juez que, conforme a la legislación aplicable, resulte
+competente; una sucesión solamente se podrá tramitar ante notario cuando se den los supuestos previstos
+en las leyes del notariado que así lo establezcan tal y como se expone en la presente obra.
+
+En el presente apartado sugerimos los aspectos que consideramos más relevantes que debe tener en
+cuenta el notario al redactar la escritura de adjudicación cuando parte o la totalidad de la sucesión se ha
+tramitado ante juez. Es imposible agotar en esta obra todos los supuestos que pueden presentarse en un
+trámite sucesorio de manera que sólo destacaremos las diferencias más importantes que a nuestro
+parecer presentan cambios con lo mencionado al hablar de las sucesiones tramitadas ante notario.
+
+El Código de Procedimientos Civiles para la Ciudad de México distingue claramente que en todo juicio
+sucesorio hay cuatro secciones: sucesión, inventarios, administración y partición. Considerando lo
+anterior, cuando el trámite sucesorio se separe del juzgado, el notario, conforme a Derecho, deberá
+continuar con el proceso sucesorio a partir de donde se haya quedado según se desprenda de los autos y
+mandamiento que el juez ordene al autorizar su designación solicitada por el albacea.
+
+De ese modo, el notario redactará la escritura en capítulos, en donde se harán constar los actos jurídicos
+que corresponda, dependiendo del avance que haya tenido el trámite sucesorio. Nuestras propuestas de
+redacción, en términos generales, se mantienen de la misma manera de las propuestas anteriores, tanto
+en lo referente a las sucesiones testamentarias como a las testamentarias, salvo lo siguiente:
+
+3.1. Antecedentes
+
+3.1.1. Acta de defunción
+
+Al momento de referir en antecedentes el acta de defunción del autor de la sucesión, es cuando
+consideramos oportuno relacionar los datos de identificación del expediente judicial, así como la
+relatoría o transcripción de lo más relevante que consta en las distintas secciones. Lo estimamos
+necesario incluir en la escritura a fin de acreditar la legitimidad de los derechos de los involucrados así
+como para darle claridad al propio instrumento notarial:
+
+...VIII.- El señor (nombre del de cujus), falleció en (lugar del fallecimiento), el día (fecha de defunción)
+según consta de la copia certificada del acta de defunción marcada con el número (número del acta de
+defunción) que obra en el Juzgado del Registro Civil de aquel lugar, que en copia certificada agrego al
+apéndice de esta escritura con la letra "........." y su sucesión testamentaria/intestamentaria quedó
+radicada en el (datos de identificación del juzgado familiar o civil), siendo marcados los autos con el
+número de expediente (datos de identificación del expediente judicial); y de dichos autos, relaciono lo
+siguiente:
+
+                                                                                                        15 / 18
+SECCIÓN PRIMERA
+
+A. DENUNCIA (fojas de la ____________________ a la ____________________)
+
+Por escrito de fecha (fecha del escrito), (nombre del denunciante) denunció la sucesión
+testamentaria/intestamentaria* a bienes de (nombre del de cujus).
+
+B. TESTAMENTO* (fojas de la ____________________ a la ____________________)
+
+En las fojas que se relacionan obra agregado el primer testimonio de la escritura (relacionar datos de
+identificación del testamento) en el cual (nombre del de cujus) otorgó testamento público abierto, del
+que en su parte conducente copio lo que es del tenor literal siguiente:
+
+(transcribir lo relativo al nombramiento de herederos, legatario, albacea, tutor, etc.)
+
+C. ADMISIÓN (fojas de la ____________________ a la ____________________
+
+Por auto de fecha (fecha del auto) , el Juez de los autos admitió a trámite la sucesión
+testamentaria/intestamentaria* de (nombre del de cujus).
+
+D. OFICIO (fojas de la ____________________ a la ____________________
+
+Por oficio de fecha (fechas de oficio) el Director del Archivo Judicial del Tribunal Superior de Justicia
+de (lugar del Tribunal) informó que no se encuentra depositado en ese archivo testamento alguno* a
+nombre de (nombre del de cujus).
+
+E. OFICIO (fojas de la ____________________ a la ____________________)
+
+Por oficio de fecha (fechas de oficio) el Director del Archivo General de Notarías del (lugar del Archivo)
+informó que no se encuentra depositado en ese archivo testamento alguno* a nombre de (nombre del de
+cujus).
+
+F. DECLARATORIA DE HEREDEROS, NOMBRAMIENTO DE ALBACEA, ACEPTACIÓN DEL
+CARGO DE ALBACEA Y DISCERNIMIENTO DEL MISMO* (fojas de la __________________ a la
+____________________)
+
+F. JUNTA DE HEREDEROS, DECLARATORIA DE VALIDEZ DEL TESTAMENTO,
+ACEPTACIÓN DE HERENCIA, ACEPTACIÓN DE LEGADO, ACEPTACIÓN DEL CARGO DE
+ALBACEA Y DISCERNIMIENTO DEL MISMO (fojas de la ____________________ a la
+____________________)
+
+(Aquí se deberá relacionar y transcribir en lo conducente el documento que se levantó con motivo de la
+audiencia o diligencia celebrada según el supuesto)
+
+SECCIÓN SEGUNDA
+
+G. PRESENTACIÓN DE INVENTARIO Y AVALÚOS (fojas de la ____________________ a la
+____________________)
+
+(Aquí se deberá relacionar y transcribir en lo conducente el inventario en lo relativo al bien objeto de la
+adjudicación según el supuesto)
+
+H. CONSENTIMIENTO DE HEREDEROS, LEGATARIOS, ACREEDORES* (fojas de la
+
+                                                                                                       16 / 18
+____________________ a la ____________________)
+
+I. APROBACIÓN DE LA SECCIÓN SEGUNDA (número de foja) a la (número de foja)
+
+Por auto fecha (fecha del auto), el Juez de los autos aprobó la sección segunda de inventarios para los
+efectos a que haya lugar
+
+SECCIÓN TERCERA
+
+J. CUENTAS DE ADMINISTRACIÓN PRESENTADAS POR EL ALBACEA (fojas de la
+____________________ a la ____________________)
+
+(Aquí se deberá relacionar el documento relativo a las cuentas presentadas por el albacea)
+
+K. CONSENTIMIENTO DE HEREDEROS, LEGATARIOS, ACREEDORES* (fojas de la
+____________________ a la ____________________)
+
+L. APROBACIÓN DE LA SECCIÓN TERCERA (fojas de la ____________________ a la
+____________________)
+
+Por auto fecha (fecha del auto), el Juez de los autos aprobó la sección tercera de administración para los
+efectos a que haya lugar
+
+SECCIÓN CUARTA
+
+M. PRESENTACIÓN DE CONVENIO DE PARTICIÓN. (fojas de la ____________________ a la
+____________________)
+
+(Aquí se deberá relacionar y transcribir en lo conducente el convenio de partición en lo relativo al bien
+objeto de la adjudicación según el supuesto)
+
+N. SENTENCIA DEFINITIVA. (fojas de la ____________________ a la ____________________)
+
+(Aquí se deberá relacionar y transcribir en lo conducente la sentencia definitiva en lo relativo al bien
+objeto de la adjudicación según el supuesto)
+
+Ñ. SENTENCIA HA CAUSADO EJECUTORIA (fojas de la ____________________ de
+____________________)
+
+Por auto de fecha (fecha del auto), el juez de los autos declaró que la sentencia relacionada en el inciso
+anterior causó ejecutoria
+
+O.- PASEN AUTOS A NOTARIO (fojas de la ____________________ a la ____________________)
+
+Por auto de fecha (fecha del auto), el juez de los autos ordenó que los mismos pasarán al suscrito
+notario..."
+
+* Según corresponda
+
+Con lo expuesto en el presente capítulo están considerados los aspectos más importantes que debe
+contener una escritura de adjudicación en las distintas clases de sucesiones.
+
+
+
+
+                                                                                                      17 / 18
+Este documento se ofrece con una finalidad informativa. Velamos por la actualidad, exactitud y
+veracidad de los mismos, si bien se advierte que no son los textos oficiales y se declina toda
+responsabilidad por los daños que puedan causarse debido a las inexactitudes o incorrecciones en los
+mismos.
+
+
+
+
+                                                                                                       18 / 18
+

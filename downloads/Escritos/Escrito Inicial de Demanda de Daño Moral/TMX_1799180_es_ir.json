@@ -1,0 +1,274 @@
+{
+  "law": "Código Civil del Estado de México",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 7.154, 7.155, 7.156, 7.159, 7.160, 7.178 del Código Civil del Estado de México",
+    "Artículos 2.107, 2.108, 2.109, 2.110, 2.111 del Código de Procedimientos Civiles del Estado de México"
+  ],
+  "parties": [
+    {
+      "id": "demandante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "dano_moral_compensation",
+      "type": "money"
+    },
+    {
+      "id": "indirect_damages",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "sentence_publication",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "cause_moral_damage",
+      "type": "counter",
+      "actor": "demandado",
+      "object": "reputation",
+      "target": "demandante"
+    },
+    {
+      "id": "make_false_accusations",
+      "type": "counter",
+      "actor": "demandado",
+      "object": "accusations",
+      "target": "demandante"
+    },
+    {
+      "id": "pay_moral_damages",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "dano_moral_compensation",
+      "target": "demandante"
+    },
+    {
+      "id": "pay_indirect_damages",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "indirect_damages",
+      "target": "demandante"
+    },
+    {
+      "id": "publish_sentence",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "sentence_publication",
+      "target": "public"
+    },
+    {
+      "id": "pay_legal_costs",
+      "type": "simple",
+      "actor": "demandado",
+      "object": "legal_costs",
+      "target": "demandante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "MoralDamageObligation",
+      "subject": "demandado",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ReputationDamage",
+      "subject": "demandante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "FinancialLoss",
+      "subject": "demandante",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "EmotionalDistress",
+      "subject": "demandante",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "dano_moral_compensation",
+        "target": "demandante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "indirect_damages",
+        "target": "demandante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "sentence_publication",
+        "target": "public"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado",
+        "object": "legal_costs",
+        "target": "demandante"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "moral_damage_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "demandado",
+          "object": "reputation",
+          "target": "demandante"
+        },
+        {
+          "type": "asset",
+          "name": "ReputationDamage",
+          "subject": "demandante"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "MoralDamageObligation",
+        "subject": "demandado"
+      }
+    },
+    {
+      "id": "compensation_payment_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "MoralDamageObligation",
+          "subject": "demandado"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "demandado",
+          "object": "dano_moral_compensation",
+          "target": "demandante"
+        }
+      }
+    },
+    {
+      "id": "indirect_damages_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "FinancialLoss",
+          "subject": "demandante"
+        },
+        {
+          "type": "liability",
+          "name": "MoralDamageObligation",
+          "subject": "demandado"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "demandado",
+          "object": "indirect_damages",
+          "target": "demandante"
+        }
+      }
+    },
+    {
+      "id": "publication_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "MoralDamageObligation",
+          "subject": "demandado"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "demandado",
+          "object": "sentence_publication",
+          "target": "public"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "moral_damage_lawsuit",
+      "steps": [
+        {
+          "description": "File initial complaint for moral damages"
+        },
+        {
+          "description": "Serve defendant with complaint"
+        },
+        {
+          "description": "Defendant response period"
+        },
+        {
+          "description": "Conciliation hearing"
+        },
+        {
+          "description": "Evidence offering period"
+        },
+        {
+          "description": "Trial proceedings"
+        },
+        {
+          "description": "Judgment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Daño Moral/TMX_1799180_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Daño Moral/TMX_1799180_es.txt"
+  }
+}

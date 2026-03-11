@@ -1,0 +1,147 @@
+{
+  "law": "Escrito Inicial de Demanda de Daño Moral (Legislación de Tabasco)",
+  "authority": "judicial",
+  "enacted": "2024-02-15",
+  "imports": [
+    "Código Civil para el Estado de Tabasco"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge_tabasco",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "moral_damage",
+      "type": "service"
+    },
+    {
+      "id": "economic_compensation",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "cause_moral_damage",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "moral_damage",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_compensation",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "economic_compensation",
+      "target": "plaintiff"
+    },
+    {
+      "id": "repair_damage",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "moral_damage",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "MoralDamageOccurred",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "IllicitConduct",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "economic_compensation",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "moral_damage",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "moral_damage_compensation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "IllicitConduct",
+          "subject": "defendant"
+        },
+        {
+          "type": "liability",
+          "name": "MoralDamageOccurred",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "economic_compensation",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "moral_damage_lawsuit",
+      "steps": [
+        {
+          "description": "Present initial complaint"
+        },
+        {
+          "description": "Prove illicit conduct"
+        },
+        {
+          "description": "Prove damage caused"
+        },
+        {
+          "description": "Request repair determination"
+        },
+        {
+          "description": "Request economic compensation determination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Daño Moral (Legislación de Tabasco)/TMX_1570922_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Daño Moral (Legislación de Tabasco)/TMX_1570922_es.txt"
+  }
+}

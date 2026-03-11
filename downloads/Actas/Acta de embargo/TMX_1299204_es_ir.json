@@ -1,0 +1,194 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 534, 535, 536 del Código de Procedimientos Civiles para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judicial_officer",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "depositary",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "monetary_debt",
+      "type": "money"
+    },
+    {
+      "id": "automobile",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "payment_demand",
+      "type": "simple",
+      "actor": "judicial_officer",
+      "object": "monetary_debt",
+      "target": "defendant"
+    },
+    {
+      "id": "embargo_execution",
+      "type": "simple",
+      "actor": "judicial_officer",
+      "object": "automobile",
+      "target": "defendant"
+    },
+    {
+      "id": "depositary_appointment",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "automobile",
+      "target": "depositary"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "JudicialDebt",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "AutomobileOwnership",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "EmbargoedProperty",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "DepositaryAuthority",
+      "subject": "depositary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "monetary_debt",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "depositary",
+        "object": "automobile",
+        "target": "judicial_officer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "embargo_authorization_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "JudicialDebt",
+          "subject": "defendant"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "monetary_debt",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "collateral",
+        "name": "EmbargoedProperty"
+      }
+    },
+    {
+      "id": "depositary_responsibility_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "DepositaryAuthority",
+          "subject": "depositary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "depositary",
+          "object": "automobile",
+          "target": "judicial_officer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "embargo_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judicial_officer",
+            "object": "monetary_debt",
+            "target": "defendant"
+          }
+        },
+        {
+          "description": "defendant_response_evaluation"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "plaintiff",
+            "object": "automobile",
+            "target": "depositary"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judicial_officer",
+            "object": "automobile",
+            "target": "defendant"
+          }
+        },
+        {
+          "description": "depositary_possession_transfer"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de embargo/TMX_1299204_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de embargo/TMX_1299204_es.txt"
+  }
+}

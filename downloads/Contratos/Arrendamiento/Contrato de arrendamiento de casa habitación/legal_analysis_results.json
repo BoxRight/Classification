@@ -1,0 +1,118 @@
+[
+    {
+        "file_name": "TMX_1120572_es.txt",
+        "contract_type_detected": "Arrendamiento",
+        "subjects": {
+            "legal_persons": [],
+            "physical_persons": [
+                "EL ARRENDADOR (Template Placeholder)",
+                "EL ARRENDATARIO (Template Placeholder)",
+                "EL FIADOR (Template Placeholder)"
+            ]
+        },
+        "object": {
+            "description": "Objeto valido para Arrendamiento",
+            "behaviors": [
+                {
+                    "verb": "declarar/ser",
+                    "type": "Hecho Jurídico (Declaración de Hechos/Estado)",
+                    "description": "- DECLARA \"EL ARRENDADOR\":  a) Que cuenta con la capacidad jurídica suficiente y suficiente para celebrar el presente contrato.  b) Que es propietario..."
+                },
+                {
+                    "verb": "entregar/recibir",
+                    "type": "Acto Jurídico (Obligación de Dar/Recibir)",
+                    "description": "P: ____________________.  c)Que para efectos de este contrato señala como su domicilio para recibir y oir toda clase de notificaciones el ubicado en _..."
+                },
+                {
+                    "verb": "declarar/ser",
+                    "type": "Hecho Jurídico (Declaración de Hechos/Estado)",
+                    "description": "- DECLARA \"EL ARRENDATARIO\":  a) Que tiene las facultades suficientes y bastantes para obligarse en términos del presente instrumento...."
+                },
+                {
+                    "verb": "declarar/ser",
+                    "type": "Hecho Jurídico (Declaración de Hechos/Estado)",
+                    "description": "- DECLARA \"EL FIADOR\":  Ser una persona fisica, mayor de edad y con capacidad económica para fungir en el presente contrato como fiador por \"EL ARREND..."
+                },
+                {
+                    "verb": "declarar/ser",
+                    "type": "Hecho Jurídico (Declaración de Hechos/Estado)",
+                    "description": "- DECLARAN LAS PARTES  a) Que en el presente contrato no existe dolo, error, mala fe o cualquier otro vicio de la voluntad, por lo que expresamente re..."
+                },
+                {
+                    "verb": "pagar",
+                    "type": "Acto Jurídico (Obligación de Dar/Pagar)",
+                    "description": "- El arrendatario pagará al arrendador o a quien sus derechos represente, la cantidad de: $____________________ (____________________) por el arrendam..."
+                },
+                {
+                    "verb": "pagar",
+                    "type": "Acto Jurídico (Obligación de Dar/Pagar)",
+                    "description": "- Convienen expresamente el arrendatario ____________________ que todo mes de arrendamiento le es forzoso y que lo pagará íntegro aun cuando únicament..."
+                },
+                {
+                    "verb": "prohibir",
+                    "type": "Acto Jurídico (Obligación de No Hacer)",
+                    "description": "- Queda expresamente prohibido traspasar o subarrendar todo o parte del inmueble arrendado y en caso de hacerlo será con permiso y por escrito del arr..."
+                },
+                {
+                    "verb": "declarar/ser",
+                    "type": "Hecho Jurídico (Declaración de Hechos/Estado)",
+                    "description": "- El arrendatario declara haber recibido el inmueble ____________________ en perfecto estado, para servir como ____________________ de conformidad con..."
+                },
+                {
+                    "verb": "arrendar/usar",
+                    "type": "Acto Jurídico (Concesión de Uso)",
+                    "description": "- El arrendatario hará uso del inmueble únicamente para habitación y si infringiere esta cláusula se dará por rescindido el contrato...."
+                },
+                {
+                    "verb": "prohibir",
+                    "type": "Acto Jurídico (Obligación de No Hacer)",
+                    "description": "- El inquilino no podrá retener ni descontar de la renta cantidad alguna por concepto de mejoras o reparaciones, aunque las hubiere hecho por orden de..."
+                },
+                {
+                    "verb": "prohibir",
+                    "type": "Acto Jurídico (Obligación de No Hacer)",
+                    "description": "- No podrá tener substancias corrosivas, materias inflamables o peligrosas en ____________________ que arrienda...."
+                },
+                {
+                    "verb": "entregar/recibir",
+                    "type": "Acto Jurídico (Obligación de Dar/Recibir)",
+                    "description": "- El arrendatario recibe el inmueble con todo el servicio sanitario en perfecto estado y se compromete a conservarlo en ese mismo estado siendo por su..."
+                },
+                {
+                    "verb": "entregar/recibir",
+                    "type": "Acto Jurídico (Obligación de Dar/Recibir)",
+                    "description": "- Para garantizar el cumplimiento de este contrato entregará el inquilino la cantidad de $____________________ (____________________) la cual se devol..."
+                },
+                {
+                    "verb": "declarar/ser",
+                    "type": "Hecho Jurídico (Declaración de Hechos/Estado)",
+                    "description": "- Firma este contrato ____________________ como fiador solidario del inquilino y declara ser propietario de ____________________ acreditándolo con: __..."
+                },
+                {
+                    "verb": "terminar",
+                    "type": "Hecho Jurídico (Condición Resolutoria)",
+                    "description": "las partes contratantes, establecen que cuando el contrato de arrendamiento se haya celebrado por tiempo determinado, concluya el día prefijado sin ne..."
+                }
+            ],
+            "accessory_contracts": [
+                {
+                    "obligations": "Unilateral",
+                    "economic": "Gratuito",
+                    "perfection": "Consensual",
+                    "execution": "Instantáneo",
+                    "dependence": "Accesorio",
+                    "certainty": "Conmutativo",
+                    "type": "Fianza"
+                }
+            ]
+        },
+        "classification": {
+            "obligations": "Bilateral",
+            "economic": "Oneroso",
+            "perfection": "Formal",
+            "execution": "Sucesivo",
+            "dependence": "Principal",
+            "certainty": "Conmutativo"
+        }
+    }
+]

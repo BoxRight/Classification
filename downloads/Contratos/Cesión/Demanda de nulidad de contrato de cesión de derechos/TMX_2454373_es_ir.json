@@ -1,0 +1,140 @@
+{
+  "law": "Demanda de nulidad de contrato de cesión de derechos",
+  "authority": "judicial",
+  "enacted": "2022-08-01",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código de Procedimientos Civiles para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "third_party_assignor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "litigious_rights",
+      "type": "service"
+    },
+    {
+      "id": "rights_assignment_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "fraudulent_assignment",
+      "type": "counter",
+      "actor": "third_party_assignor",
+      "object": "litigious_rights",
+      "target": "defendant"
+    },
+    {
+      "id": "identity_impersonation",
+      "type": "counter",
+      "actor": "third_party_assignor",
+      "object": "plaintiff",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ContractFraudulent",
+      "subject": "rights_assignment_contract",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ConsentAbsent",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "SignatureForged",
+      "subject": "rights_assignment_contract",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "third_party_assignor",
+        "object": "litigious_rights",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "nullity_rule_lack_consent",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ConsentAbsent"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ContractNull"
+      }
+    },
+    {
+      "id": "nullity_rule_fraud",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ContractFraudulent"
+        },
+        {
+          "type": "certification",
+          "name": "SignatureForged"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ContractVoid"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "nullity_lawsuit_procedure",
+      "steps": [
+        {
+          "description": "File lawsuit demanding absolute nullity"
+        },
+        {
+          "description": "Present evidence of lack of consent"
+        },
+        {
+          "description": "Prove fraudulent signature"
+        },
+        {
+          "description": "Request contract restitution"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Cesión/Demanda de nulidad de contrato de cesión de derechos/TMX_2454373_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Cesión/Demanda de nulidad de contrato de cesión de derechos/TMX_2454373_es.txt"
+  }
+}

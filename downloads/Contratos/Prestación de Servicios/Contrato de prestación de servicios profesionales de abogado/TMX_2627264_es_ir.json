@@ -1,0 +1,208 @@
+{
+  "law": "Contrato de prestación de servicios profesionales de abogado",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal",
+    "Código Nacional de Procedimientos Penales",
+    "Ley de Profesiones"
+  ],
+  "parties": [
+    {
+      "id": "contratante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "prestador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "legal_services",
+      "type": "service"
+    },
+    {
+      "id": "professional_fees",
+      "type": "money"
+    },
+    {
+      "id": "criminal_defense",
+      "type": "service"
+    },
+    {
+      "id": "legal_representation",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_legal_services",
+      "type": "simple",
+      "actor": "prestador",
+      "object": "legal_services",
+      "target": "contratante"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "professional_fees",
+      "target": "prestador"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractualRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ProfessionalLicense",
+      "subject": "prestador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "criminal_defense",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "professional_fees",
+        "target": "prestador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "confidential_information",
+        "target": "third_parties"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "prestador",
+        "object": "contract_rights",
+        "target": "third_parties"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestador",
+          "object": "legal_services",
+          "target": "contratante"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "professional_fees",
+          "target": "prestador"
+        }
+      }
+    },
+    {
+      "id": "breach_penalty_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "prestador",
+          "object": "legal_services",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "prestador",
+          "object": "penalty_payment",
+          "target": "contratante"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "type": "numeric",
+          "name": "AccumulatedPenalties",
+          "value": 6
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "ContractTermination"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "description": "Initial service provision"
+        },
+        {
+          "description": "Monthly payment"
+        },
+        {
+          "description": "Ongoing legal representation"
+        },
+        {
+          "description": "Contract completion or termination"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de abogado/TMX_2627264_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales de abogado/TMX_2627264_es.txt"
+  }
+}

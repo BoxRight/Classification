@@ -1,0 +1,135 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículo 195",
+    "Artículo 199"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "authorized_attorneys",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "notification_address",
+      "type": "service"
+    },
+    {
+      "id": "legal_notifications",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "designate_address",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "notification_address",
+      "target": "judge"
+    },
+    {
+      "id": "authorize_attorneys",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "authorized_attorneys",
+      "target": "judge"
+    },
+    {
+      "id": "receive_notifications",
+      "type": "simple",
+      "actor": "authorized_attorneys",
+      "object": "legal_notifications",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "AddressDesignation",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AttorneyAuthorization",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ComplianceWithWarning",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "notification_address",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "address_designation_compliance",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "notification_address",
+          "target": "judge"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "ComplianceWithWarning",
+        "subject": "plaintiff"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notification_address_procedure",
+      "steps": [
+        {
+          "ref": "designate_address"
+        },
+        {
+          "ref": "authorize_attorneys"
+        },
+        {
+          "description": "judicial_recognition_and_certification"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que tiene por señalado domicilio para oir y recibir notificaciones y autorizados sus abogados/TMX_1533504_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que tiene por señalado domicilio para oir y recibir notificaciones y autorizados sus abogados/TMX_1533504_es.txt"
+  }
+}

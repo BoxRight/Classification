@@ -1,0 +1,107 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "foreign_appointee",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "secretaria_gobernacion",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "company",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "corporate_position",
+      "type": "service"
+    },
+    {
+      "id": "authorization",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ForeignerAppointment",
+      "subject": "foreign_appointee",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "GovernmentAuthorization",
+      "subject": "secretaria_gobernacion",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "authorization",
+        "target": "foreign_appointee"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "foreign_appointment_authorization_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ForeignerAppointment",
+          "subject": "foreign_appointee"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "foreign_appointee",
+          "object": "authorization",
+          "target": "secretaria_gobernacion"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_certification_procedure",
+      "steps": [
+        {
+          "description": "Notary identifies foreign appointee"
+        },
+        {
+          "description": "Notary advises of authorization requirement"
+        },
+        {
+          "description": "Foreign appointee must obtain government authorization"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación notarial de nombramiento de extranjero para el ejercicio de cargos que requieren/TMX_1376159_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación notarial de nombramiento de extranjero para el ejercicio de cargos que requieren/TMX_1376159_es.txt"
+  }
+}

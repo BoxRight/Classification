@@ -1,0 +1,265 @@
+{
+  "law": "Contrato de compraventa de depósito en garantía",
+  "authority": "private",
+  "enacted": "2024-07-15",
+  "imports": [
+    "Artículos 1949, 2251, 2248, 2249, 2269, 2316, 2317 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "seller",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "purchase_price",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "compensation",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "sell_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "buy_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": "seller"
+    },
+    {
+      "id": "pay_price",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "purchase_price",
+      "target": "seller"
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "seller",
+      "object": "property",
+      "target": "buyer"
+    },
+    {
+      "id": "deliver_deposit",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "security_deposit",
+      "target": "seller"
+    },
+    {
+      "id": "return_deposit",
+      "type": "simple",
+      "actor": "seller",
+      "object": "security_deposit",
+      "target": "buyer"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "buyer",
+      "object": "purchase_price",
+      "target": "seller"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "seller",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SaleContract",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "purchase_price",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "buyer",
+        "object": "security_deposit",
+        "target": "seller"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "seller",
+        "object": "property",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "contract_termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "ContractTermination"
+      }
+    },
+    {
+      "id": "deposit_retention_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "DepositRetention",
+        "subject": "seller"
+      }
+    },
+    {
+      "id": "deposit_return_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        },
+        {
+          "type": "simple",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "security_deposit",
+          "target": "buyer"
+        }
+      }
+    },
+    {
+      "id": "possession_delivery_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "purchase_price",
+          "target": "seller"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "property",
+          "target": "buyer"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "sale_completion",
+      "steps": [
+        {
+          "ref": "deliver_deposit"
+        },
+        {
+          "ref": "pay_price"
+        },
+        {
+          "ref": "deliver_property"
+        },
+        {
+          "ref": "return_deposit"
+        }
+      ]
+    },
+    {
+      "name": "breach_procedure",
+      "steps": [
+        {
+          "ref": "breach_payment"
+        },
+        {
+          "description": "contract termination"
+        },
+        {
+          "description": "deposit retention"
+        },
+        {
+          "description": "compensation payment"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa de depósito en garantía/TMX_2712994_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa de depósito en garantía/TMX_2712994_es.txt"
+  }
+}

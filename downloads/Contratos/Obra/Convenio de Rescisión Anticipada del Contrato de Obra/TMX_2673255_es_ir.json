@@ -1,0 +1,204 @@
+{
+  "law": "Convenio de Rescisión Anticipada del Contrato de Obra",
+  "authority": "private",
+  "enacted": "2024-04-18",
+  "imports": [
+    "Código Civil para el Distrito Federal - Artículos 2616, 2617"
+  ],
+  "parties": [
+    {
+      "id": "contratista",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "cliente",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "obra",
+      "type": "service"
+    },
+    {
+      "id": "materiales_equipos",
+      "type": "movable"
+    },
+    {
+      "id": "pagos_pendientes",
+      "type": "money"
+    },
+    {
+      "id": "compensacion_rescision",
+      "type": "money"
+    },
+    {
+      "id": "anticipos_exceso",
+      "type": "money"
+    },
+    {
+      "id": "penalizacion",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoObraOriginal",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "RescisionAcordada",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "obra",
+        "target": "cliente"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "cliente",
+        "object": "pagos_pendientes",
+        "target": "contratista"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratista",
+        "object": "materiales_equipos",
+        "target": "cliente"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rescision_sin_causa_contratista",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "RescisionSinCausaContratista"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "cliente",
+          "object": "compensacion_rescision",
+          "target": "contratista"
+        }
+      }
+    },
+    {
+      "id": "anticipos_exceden_trabajos",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "AnticiposExceden"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratista",
+          "object": "anticipos_exceso",
+          "target": "cliente"
+        }
+      }
+    },
+    {
+      "id": "incumplimiento_contratista",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "IncumplimientoDocumentado"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "contratista",
+          "object": "penalizacion",
+          "target": "cliente"
+        }
+      }
+    },
+    {
+      "id": "liberacion_mutua",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConvenioFirmado"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "LiberacionObligaciones"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "proceso_rescision",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "contratista",
+            "object": "obra",
+            "target": "cliente"
+          }
+        },
+        {
+          "description": "Presentación de factura por trabajos realizados"
+        },
+        {
+          "description": "Revisión por comisión mixta en 15 días"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "cliente",
+            "object": "pagos_pendientes",
+            "target": "contratista"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "contratista",
+            "object": "materiales_equipos",
+            "target": "cliente"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Obra/Convenio de Rescisión Anticipada del Contrato de Obra/TMX_2673255_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Obra/Convenio de Rescisión Anticipada del Contrato de Obra/TMX_2673255_es.txt"
+  }
+}

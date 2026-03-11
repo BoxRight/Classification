@@ -1,0 +1,204 @@
+{
+  "law": "Escrito Inicial Demanda Acción de Jactancia",
+  "authority": "judicial",
+  "enacted": "2023-12-11",
+  "imports": [
+    "Ley de Responsabilidad Civil para la Protección del Derecho a la Vida Privada, el Honor y la Propia Imagen en el Distrito Federal",
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "damages_payment",
+      "type": "money"
+    },
+    {
+      "id": "economic_compensation",
+      "type": "money"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "false_accusations",
+      "type": "service"
+    },
+    {
+      "id": "defamatory_publication",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "make_false_accusations",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "false_accusations",
+      "target": "plaintiff"
+    },
+    {
+      "id": "publish_defamatory_content",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "defamatory_publication",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_damages",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "damages_payment",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_compensation",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "economic_compensation",
+      "target": "plaintiff"
+    },
+    {
+      "id": "pay_costs",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "legal_costs",
+      "target": "plaintiff"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "DefamationLiability",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "ReputationDamage",
+      "subject": "plaintiff",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "EconomicLoss",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "damages_payment",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "economic_compensation",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "legal_costs",
+        "target": "plaintiff"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "defamation_liability_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "false_accusations",
+          "target": "plaintiff"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "defamatory_publication",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "DefamationLiability",
+        "subject": "defendant"
+      }
+    },
+    {
+      "id": "damages_payment_rule",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "DefamationLiability",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "damages_payment",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "jactancia_lawsuit_procedure",
+      "steps": [
+        {
+          "description": "File initial demand"
+        },
+        {
+          "description": "Summon defendant"
+        },
+        {
+          "description": "Present evidence"
+        },
+        {
+          "description": "Judicial decision"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Escrito Inicial Demanda Acción de Jactancia/TMX_2635340_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Escrito Inicial Demanda Acción de Jactancia/TMX_2635340_es.txt"
+  }
+}

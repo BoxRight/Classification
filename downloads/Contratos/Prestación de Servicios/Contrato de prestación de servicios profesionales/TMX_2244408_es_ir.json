@@ -1,0 +1,177 @@
+{
+  "law": "Contrato de prestación de servicios profesionales",
+  "authority": "private",
+  "enacted": "2023-04-21",
+  "imports": [
+    "Código Civil para el Distrito Federal artículos 2606-2615"
+  ],
+  "parties": [
+    {
+      "id": "contratante",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "profesionista",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "professional_services",
+      "type": "service"
+    },
+    {
+      "id": "debt_collection_services",
+      "type": "service"
+    },
+    {
+      "id": "monthly_fees",
+      "type": "money"
+    },
+    {
+      "id": "confidential_information",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "provide_services",
+      "type": "simple",
+      "actor": "profesionista",
+      "object": "debt_collection_services",
+      "target": "contratante"
+    },
+    {
+      "id": "pay_fees",
+      "type": "simple",
+      "actor": "contratante",
+      "object": "monthly_fees",
+      "target": "profesionista"
+    },
+    {
+      "id": "breach_confidentiality",
+      "type": "counter",
+      "actor": "profesionista",
+      "object": "confidential_information",
+      "target": "contratante"
+    }
+  ],
+  "facts": [
+    {
+      "type": "capability",
+      "name": "debt_collection_expertise",
+      "subject": "profesionista",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "professional_license",
+      "subject": "profesionista",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "debt_collection_services",
+        "target": "contratante"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "contratante",
+        "object": "monthly_fees",
+        "target": "profesionista"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "profesionista",
+        "object": "confidential_information",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "service_provision_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "provide_services"
+        }
+      }
+    },
+    {
+      "id": "payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "service_contract"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_fees"
+        }
+      }
+    },
+    {
+      "id": "breach_termination_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "profesionista",
+          "object": "professional_services",
+          "target": "contratante"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "contratante",
+          "object": "contract_termination",
+          "target": "profesionista"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination",
+      "steps": [
+        {
+          "description": "notify ten days in advance"
+        },
+        {
+          "description": "terminate contract"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_2244408_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Prestación de Servicios/Contrato de prestación de servicios profesionales/TMX_2244408_es.txt"
+  }
+}

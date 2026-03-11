@@ -1,0 +1,251 @@
+{
+  "law": "Contrato de compraventa anual",
+  "authority": "private",
+  "enacted": "2024-02-21",
+  "imports": [
+    "Código de Comercio art. 371-387",
+    "Código de Comercio art. 380",
+    "Código de Comercio art. 376"
+  ],
+  "parties": [
+    {
+      "id": "comprador",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "vendedor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "etiquetas",
+      "type": "movable"
+    },
+    {
+      "id": "precio_total",
+      "type": "money"
+    },
+    {
+      "id": "pena_retraso",
+      "type": "money"
+    },
+    {
+      "id": "reditos_mora",
+      "type": "money"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContratoCompraventa",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "OpinionCumplimientoFiscal",
+      "subject": "vendedor",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "FacultadJuridica",
+      "subject": "comprador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedor",
+        "object": "etiquetas",
+        "target": "comprador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comprador",
+        "object": "precio_total",
+        "target": "vendedor"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "vendedor",
+        "object": "etiquetas",
+        "target": "comprador"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "comprador",
+        "object": "etiquetas",
+        "target": "vendedor"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "pena_retraso_entrega",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "vendedor",
+          "object": "etiquetas",
+          "target": "comprador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "vendedor",
+          "object": "pena_retraso",
+          "target": "comprador"
+        }
+      }
+    },
+    {
+      "id": "mora_pago",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "comprador",
+          "object": "precio_total",
+          "target": "vendedor"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "comprador",
+          "object": "reditos_mora",
+          "target": "vendedor"
+        }
+      }
+    },
+    {
+      "id": "rescision_incumplimiento",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "comprador",
+          "object": "precio_total",
+          "target": "vendedor"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "vendedor",
+          "object": "ContratoCompraventa",
+          "target": "comprador"
+        }
+      }
+    },
+    {
+      "id": "garantia_calidad",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoCompraventa"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "vendedor",
+          "object": "etiquetas",
+          "target": "comprador"
+        }
+      }
+    },
+    {
+      "id": "derecho_reemplazo",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "vendedor",
+          "object": "etiquetas",
+          "target": "comprador"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "comprador",
+          "object": "etiquetas",
+          "target": "vendedor"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "entrega_etiquetas",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "vendedor",
+            "object": "etiquetas",
+            "target": "comprador"
+          }
+        },
+        {
+          "description": "inspeccion_calidad"
+        },
+        {
+          "description": "notificacion_defectos"
+        }
+      ]
+    },
+    {
+      "name": "procedimiento_reclamacion",
+      "steps": [
+        {
+          "description": "notificacion_escrita_defecto"
+        },
+        {
+          "description": "correccion_reemplazo_reembolso"
+        }
+      ]
+    },
+    {
+      "name": "resolucion_disputas",
+      "steps": [
+        {
+          "description": "negociaciones_directas"
+        },
+        {
+          "description": "acciones_legales_arbitraje"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Compraventa/Contrato de compraventa anual/TMX_2646266_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Compraventa/Contrato de compraventa anual/TMX_2646266_es.txt"
+  }
+}

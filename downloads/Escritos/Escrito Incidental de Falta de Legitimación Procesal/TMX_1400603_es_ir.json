@@ -1,0 +1,150 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "demandado",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "actor",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "representante_legal",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "juez_civil",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "acta_nacimiento_certificada",
+      "type": "service"
+    },
+    {
+      "id": "credencial_identificacion",
+      "type": "service"
+    },
+    {
+      "id": "legitimacion_procesal",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "promover_juicio",
+      "type": "simple",
+      "actor": "representante_legal",
+      "object": "legitimacion_procesal",
+      "target": "juez_civil"
+    },
+    {
+      "id": "exhibir_acta_nacimiento",
+      "type": "counter",
+      "actor": "representante_legal",
+      "object": "acta_nacimiento_certificada",
+      "target": "juez_civil"
+    },
+    {
+      "id": "identificarse_credencial_falsa",
+      "type": "counter",
+      "actor": "representante_legal",
+      "object": "credencial_identificacion",
+      "target": "juez_civil"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LegitimacionAdCausam",
+      "subject": "representante_legal",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegitimacionAdProcesum",
+      "subject": "representante_legal",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "LegitimacionPasiva",
+      "subject": "demandado",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "representante_legal",
+        "object": "acta_nacimiento_certificada",
+        "target": "juez_civil"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "falta_legitimacion_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "representante_legal",
+          "object": "acta_nacimiento_certificada",
+          "target": "juez_civil"
+        },
+        {
+          "type": "counter",
+          "actor": "representante_legal",
+          "object": "credencial_identificacion",
+          "target": "juez_civil"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "FaltaLegitimacion",
+        "subject": "representante_legal"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "incidente_falta_legitimacion",
+      "steps": [
+        {
+          "description": "Presentar escrito incidental"
+        },
+        {
+          "description": "Correr traslado a la contraria"
+        },
+        {
+          "description": "Preparar pruebas ofrecidas"
+        },
+        {
+          "description": "Girar oficios a dependencias"
+        },
+        {
+          "description": "Dictar sentencia interlocutoria"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Falta de Legitimación Procesal/TMX_1400603_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Falta de Legitimación Procesal/TMX_1400603_es.txt"
+  }
+}

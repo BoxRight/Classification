@@ -1,0 +1,262 @@
+{
+  "law": "Contrato de derecho de superficie",
+  "authority": "private",
+  "enacted": "2024-02-02",
+  "imports": [
+    "Artículo 1336, 1337, 1340, 1342 del Código Civil para el Estado Libre y Soberano de Puebla",
+    "Artículo 130 de la Ley del Impuesto sobre la Renta"
+  ],
+  "parties": [
+    {
+      "id": "propietaria",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "superficiaria",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "predio_rustico",
+      "type": "nonmovable"
+    },
+    {
+      "id": "construcciones",
+      "type": "nonmovable"
+    },
+    {
+      "id": "derecho_superficie",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "otorgar_derecho_superficie",
+      "type": "simple",
+      "actor": "propietaria",
+      "object": "derecho_superficie",
+      "target": "superficiaria"
+    },
+    {
+      "id": "construir",
+      "type": "simple",
+      "actor": "superficiaria",
+      "object": "construcciones",
+      "target": "predio_rustico"
+    },
+    {
+      "id": "transmitir_derecho",
+      "type": "simple",
+      "actor": "superficiaria",
+      "object": "derecho_superficie",
+      "target": null
+    },
+    {
+      "id": "no_iniciar_construccion",
+      "type": "counter",
+      "actor": "superficiaria",
+      "object": "construcciones",
+      "target": "predio_rustico"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "propiedad_predio",
+      "subject": "propietaria",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "propiedad_construcciones",
+      "subject": "superficiaria",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "derecho_superficie_vigente",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "plazo_inicio_construccion",
+      "subject": null,
+      "value": "2_años"
+    },
+    {
+      "type": "date",
+      "name": "vigencia_derecho",
+      "subject": null,
+      "value": "10_años"
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "superficiaria",
+        "object": "construcciones",
+        "target": "predio_rustico"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "superficiaria",
+        "object": "construcciones",
+        "target": "predio_rustico"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietaria",
+        "object": "derecho_superficie",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "propietaria",
+        "object": "servidumbre_apoyo",
+        "target": "superficiaria"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "extincion_por_incumplimiento",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "superficiaria",
+          "object": "construcciones",
+          "target": "predio_rustico"
+        },
+        {
+          "type": "date",
+          "name": "transcurso_2_años"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "extincion_derecho_superficie"
+      }
+    },
+    {
+      "id": "extincion_por_vencimiento",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "transcurso_10_años"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "consolidacion_propiedades",
+        "subject": "propietaria"
+      }
+    },
+    {
+      "id": "transmision_con_consentimiento",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "propietaria",
+          "object": "consentimiento_escrito",
+          "target": "superficiaria"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "ref": "transmitir_derecho"
+        }
+      }
+    },
+    {
+      "id": "consolidacion_por_adquisicion",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "propietaria",
+          "object": "adquisicion_construcciones",
+          "target": "superficiaria"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "consolidacion_propiedades",
+        "subject": "propietaria"
+      }
+    },
+    {
+      "id": "consolidacion_por_tercero",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tercero",
+          "object": "adquisicion_ambos_derechos",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "consolidacion_propiedades",
+        "subject": "tercero"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "constitucion_derecho_superficie",
+      "steps": [
+        {
+          "act": {
+            "ref": "otorgar_derecho_superficie"
+          }
+        },
+        {
+          "description": "inicio_construccion_dentro_2_años"
+        },
+        {
+          "act": {
+            "ref": "construir"
+          }
+        }
+      ]
+    },
+    {
+      "name": "extincion_derecho",
+      "steps": [
+        {
+          "description": "vencimiento_plazo_o_incumplimiento"
+        },
+        {
+          "description": "consolidacion_propiedades"
+        },
+        {
+          "description": "subrogacion_contratos"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Superficie/Contrato de derecho de superficie/TMX_1369653_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Superficie/Contrato de derecho de superficie/TMX_1369653_es.txt"
+  }
+}

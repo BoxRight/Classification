@@ -1,0 +1,212 @@
+{
+  "law": "Contrato de arrendamiento de casa habitación",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículos 1949, 1950, 2846, 2847 y 2848 del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "arrendador",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "arrendatario",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "fiador",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "guarantee_property",
+      "type": "nonmovable"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "inmueble_ownership",
+      "subject": "arrendador",
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "guarantee_property_ownership",
+      "subject": "fiador",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "lease_relation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "collateral",
+      "name": "guarantee_property_collateral",
+      "subject": "fiador",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "monthly_rent",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "deposit",
+        "target": "arrendador"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "inmueble",
+        "target": "third_party"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "dangerous_substances",
+        "target": "inmueble"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "arrendatario",
+        "object": "property_maintenance",
+        "target": "inmueble"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "fiador",
+        "object": "guarantee_compliance",
+        "target": "arrendador"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "lease_relation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "monthly_rent",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "termination_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendatario",
+          "object": "contract_terms",
+          "target": "contract"
+        }
+      ],
+      "consequence": {
+        "type": "asset",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "deposit_return_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "contract_compliance"
+        },
+        {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "inmueble",
+          "target": "arrendador"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendador",
+          "object": "deposit",
+          "target": "arrendatario"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_termination_procedure",
+      "steps": [
+        {
+          "description": "advance_notice_required"
+        },
+        {
+          "description": "property_inspection"
+        },
+        {
+          "description": "deposit_settlement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de casa habitación/TMX_1120572_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de casa habitación/TMX_1120572_es.txt"
+  }
+}

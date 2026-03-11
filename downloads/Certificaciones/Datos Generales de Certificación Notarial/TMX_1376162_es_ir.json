@@ -1,0 +1,211 @@
+{
+  "law": "Ley del notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "appearing_person",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "represented_person",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "notarial_deed",
+      "type": "service"
+    },
+    {
+      "id": "personal_data",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "appear_before_notary",
+      "type": "simple",
+      "actor": "appearing_person",
+      "object": "personal_data",
+      "target": "notary"
+    },
+    {
+      "id": "certify_data",
+      "type": "simple",
+      "actor": "notary",
+      "object": "personal_data",
+      "target": "notarial_deed"
+    },
+    {
+      "id": "accredit_migratory_status",
+      "type": "simple",
+      "actor": "appearing_person",
+      "object": "personal_data",
+      "target": "notary"
+    },
+    {
+      "id": "represent_another",
+      "type": "simple",
+      "actor": "appearing_person",
+      "object": "personal_data",
+      "target": "represented_person"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotarialCertification",
+      "subject": "notary",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MigratoryStatus",
+      "subject": "appearing_person",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "MexicanNationality",
+      "subject": "appearing_person",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalRepresentation",
+      "subject": "appearing_person",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "personal_data",
+        "target": "notarial_deed"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "appearing_person",
+        "object": "personal_data",
+        "target": "notary"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "general_data_certification",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "appearing_person",
+          "object": "personal_data",
+          "target": "notary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "personal_data",
+          "target": "notarial_deed"
+        }
+      }
+    },
+    {
+      "id": "foreign_migratory_status",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ForeignNationality",
+          "subject": "appearing_person"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "appearing_person",
+          "object": "personal_data",
+          "target": "notary"
+        }
+      }
+    },
+    {
+      "id": "naturalized_mexican_documentation",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "NaturalizedMexican",
+          "subject": "appearing_person"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "appearing_person",
+          "object": "personal_data",
+          "target": "notary"
+        }
+      }
+    },
+    {
+      "id": "representation_data",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "LegalRepresentation",
+          "subject": "appearing_person"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "appearing_person",
+          "object": "personal_data",
+          "target": "notary"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notarial_data_certification",
+      "steps": [
+        {
+          "ref": "appear_before_notary"
+        },
+        {
+          "ref": "accredit_migratory_status"
+        },
+        {
+          "ref": "certify_data"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Datos Generales de Certificación Notarial/TMX_1376162_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Datos Generales de Certificación Notarial/TMX_1376162_es.txt"
+  }
+}

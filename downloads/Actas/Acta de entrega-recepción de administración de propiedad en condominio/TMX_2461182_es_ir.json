@@ -1,0 +1,191 @@
+{
+  "law": "Acta de entrega-recepción de administración de propiedad en condominio",
+  "authority": "private",
+  "enacted": "2024-02-05",
+  "imports": [
+    "Código Civil para el Distrito Federal, Artículo 951"
+  ],
+  "parties": [
+    {
+      "id": "outgoing_administrator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "incoming_administrator",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "condominium_president",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "condominium_assembly",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "condominium_documentation",
+      "type": "service"
+    },
+    {
+      "id": "technical_plans",
+      "type": "service"
+    },
+    {
+      "id": "financial_records",
+      "type": "service"
+    },
+    {
+      "id": "contracts_and_agreements",
+      "type": "service"
+    },
+    {
+      "id": "insurance_policies",
+      "type": "service"
+    },
+    {
+      "id": "labor_documentation",
+      "type": "service"
+    },
+    {
+      "id": "member_directory",
+      "type": "service"
+    },
+    {
+      "id": "account_statements",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "CondominiumAdministration",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "TransferDate",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "outgoing_administrator",
+        "object": "condominium_documentation",
+        "target": "incoming_administrator"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "incoming_administrator",
+        "object": "condominium_documentation",
+        "target": "condominium_assembly"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "transfer_administration_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "CondominiumAdministration"
+        },
+        {
+          "type": "date",
+          "name": "TransferDate"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "outgoing_administrator",
+          "object": "condominium_documentation",
+          "target": "incoming_administrator"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "administration_transfer_procedure",
+      "steps": [
+        {
+          "description": "Assembly agreement for transfer"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "outgoing_administrator",
+            "object": "technical_plans",
+            "target": "incoming_administrator"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "outgoing_administrator",
+            "object": "contracts_and_agreements",
+            "target": "incoming_administrator"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "outgoing_administrator",
+            "object": "insurance_policies",
+            "target": "incoming_administrator"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "outgoing_administrator",
+            "object": "labor_documentation",
+            "target": "incoming_administrator"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "outgoing_administrator",
+            "object": "member_directory",
+            "target": "incoming_administrator"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "outgoing_administrator",
+            "object": "account_statements",
+            "target": "incoming_administrator"
+          }
+        },
+        {
+          "description": "Document signing and conclusion"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Actas/Acta de entrega-recepción de administración de propiedad en condominio/TMX_2461182_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Actas/Acta de entrega-recepción de administración de propiedad en condominio/TMX_2461182_es.txt"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "law": "Ley Nacional de Extinción de Dominio",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Penal",
+    "Código de Procedimientos Civiles",
+    "Código Civil Federal"
+  ],
+  "parties": [
+    {
+      "id": "ministerio_publico",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "demandado_desconocido",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "gobierno_federal",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "indep",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "denunciante",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "detenido",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "inmueble_objeto",
+      "type": "nonmovable"
+    },
+    {
+      "id": "vehiculo_robado",
+      "type": "movable"
+    },
+    {
+      "id": "autopartes",
+      "type": "movable"
+    },
+    {
+      "id": "derechos_propiedad",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "robo_vehiculo",
+      "type": "simple",
+      "actor": "detenido",
+      "object": "vehiculo_robado",
+      "target": "denunciante"
+    },
+    {
+      "id": "ocultar_bienes",
+      "type": "simple",
+      "actor": "detenido",
+      "object": "vehiculo_robado",
+      "target": "inmueble_objeto"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "ProprietaryRights",
+      "subject": "demandado_desconocido",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "StolenVehicle",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "CriminalInvestigation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "detenido",
+        "object": "vehiculo_robado",
+        "target": "denunciante"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "demandado_desconocido",
+        "object": "vehiculo_robado",
+        "target": "inmueble_objeto"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "extincion_dominio_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "demandado_desconocido",
+          "object": "inmueble_objeto",
+          "target": "vehiculo_robado"
+        },
+        {
+          "type": "asset",
+          "name": "StolenVehicle"
+        },
+        {
+          "type": "certification",
+          "name": "CriminalInvestigation"
+        }
+      ],
+      "consequence": {
+        "type": "ownership",
+        "name": "PropertyExtinction",
+        "subject": "gobierno_federal"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "extincion_dominio_process",
+      "steps": [
+        {
+          "description": "Inicio de carpeta de investigación"
+        },
+        {
+          "description": "Solicitud de orden de cateo"
+        },
+        {
+          "description": "Ejecución de cateo"
+        },
+        {
+          "description": "Localización de bienes ilícitos"
+        },
+        {
+          "description": "Demanda de extinción de dominio"
+        },
+        {
+          "description": "Emplazamiento por edictos"
+        },
+        {
+          "description": "Sentencia de extinción"
+        },
+        {
+          "description": "Transferencia a INDEP"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "caso_extincion_dominio",
+      "timeline": [
+        {
+          "event": "robo_vehiculo",
+          "condition": null
+        },
+        {
+          "event": "inicio_investigacion",
+          "condition": {
+            "type": "certification",
+            "name": "DenunciaRobo"
+          }
+        },
+        {
+          "event": "detencion_sospechoso",
+          "condition": {
+            "type": "asset",
+            "name": "OperativoPolicial"
+          }
+        },
+        {
+          "event": "cateo_inmueble",
+          "condition": {
+            "type": "certification",
+            "name": "OrdenJudicial"
+          }
+        },
+        {
+          "event": "localizacion_bienes",
+          "condition": {
+            "type": "asset",
+            "name": "BienesSustraidos"
+          }
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Inicial de Demanda de Extinción de Dominio/TMX_2199200_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Inicial de Demanda de Extinción de Dominio/TMX_2199200_es.txt"
+  }
+}

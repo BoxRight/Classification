@@ -1,0 +1,484 @@
+{
+  "law": "Contrato de arrendamiento de hotel entre personas físicas",
+  "authority": "private",
+  "enacted": "2024-09-03",
+  "imports": [
+    "Artículos 224, 234, 2427, 2425, 2888, 2884, 2847, 2849, 2398, 2399, 23400, 2406, 2408, 2442, 2448, 2448 A, 2448 B, 2448 C, 2448 D, 2448 E, 2448 F, 2448 G, 2448 H, 2448 I, 2448 M del Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "hotel_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "deposit",
+      "type": "money"
+    },
+    {
+      "id": "insurance_policy",
+      "type": "service"
+    },
+    {
+      "id": "permits_and_licenses",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "operate_hotel",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "hotel_property",
+      "target": null
+    },
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "hotel_property",
+      "target": "tenant"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "hotel_property",
+      "target": "landlord"
+    },
+    {
+      "id": "maintain_insurance",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "insurance_policy",
+      "target": null
+    },
+    {
+      "id": "obtain_permits",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "permits_and_licenses",
+      "target": null
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "unauthorized_modification",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "hotel_property",
+      "target": "landlord"
+    },
+    {
+      "id": "improper_use",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "hotel_property",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "ownership",
+      "name": "PropertyOwnership",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "landlord",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "EconomicCapacity",
+      "subject": "guarantor",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "DepositDelivered",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PropertyClearOfLiens",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "HotelZoning",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "hotel_property",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "hotel_property",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "hotel_property",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "insurance_policy",
+        "target": null
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "permits_and_licenses",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "hotel_property",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "hotel_property",
+        "target": null
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "pay_rent"
+        }
+      }
+    },
+    {
+      "id": "property_delivery_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "deliver_property"
+        }
+      }
+    },
+    {
+      "id": "property_return_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "event": "contract_termination"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "return_property"
+        }
+      }
+    },
+    {
+      "id": "hotel_operation_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "operate_hotel"
+        }
+      }
+    },
+    {
+      "id": "insurance_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "maintain_insurance"
+        }
+      }
+    },
+    {
+      "id": "permits_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "ref": "obtain_permits"
+        }
+      }
+    },
+    {
+      "id": "payment_penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_payment"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_payment",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "modification_penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "unauthorized_modification"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "modification_penalty",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "improper_use_penalty_rule",
+      "conditions": [
+        {
+          "act": {
+            "ref": "improper_use"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "use_penalty",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "early_termination_by_landlord",
+      "conditions": [
+        {
+          "act": {
+            "ref": "breach_payment"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "contract_termination",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "guarantor_liability",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
+          "act": {
+            "ref": "breach_payment"
+          }
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_execution",
+      "steps": [
+        {
+          "act": {
+            "ref": "deliver_property"
+          }
+        },
+        {
+          "act": {
+            "ref": "operate_hotel"
+          }
+        },
+        {
+          "act": {
+            "ref": "pay_rent"
+          }
+        },
+        {
+          "act": {
+            "ref": "return_property"
+          }
+        }
+      ]
+    },
+    {
+      "name": "breach_resolution",
+      "steps": [
+        {
+          "description": "written_notice_to_tenant"
+        },
+        {
+          "description": "cure_period_granted"
+        },
+        {
+          "description": "contract_termination_if_not_cured"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento de hotel entre personas físicas/TMX_2724615_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento de hotel entre personas físicas/TMX_2724615_es.txt"
+  }
+}

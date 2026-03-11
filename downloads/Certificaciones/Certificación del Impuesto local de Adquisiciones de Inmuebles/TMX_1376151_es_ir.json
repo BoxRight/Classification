@@ -1,0 +1,116 @@
+{
+  "law": "Ley del Notariado para la Ciudad de México",
+  "authority": "administrative",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "buyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "property_acquisition_tax",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "warn_buyer",
+      "type": "simple",
+      "actor": "notary",
+      "object": "property_acquisition_tax",
+      "target": "buyer"
+    },
+    {
+      "id": "present_tax_liquidation",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property_acquisition_tax",
+      "target": "treasury"
+    },
+    {
+      "id": "acquire_property",
+      "type": "simple",
+      "actor": "buyer",
+      "object": "property",
+      "target": null
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "PropertyTaxLiability",
+      "subject": "property",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "TaxWarningCertification",
+      "subject": "notary",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "property_acquisition_tax",
+        "target": "buyer"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "tax_warning_obligation",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "buyer",
+          "object": "property",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "id": "warn_buyer"
+        }
+      }
+    },
+    {
+      "id": "property_liability_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "TaxWarningCertification"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "PropertyTaxLiability",
+        "subject": "property"
+      }
+    }
+  ],
+  "procedures": [],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación del Impuesto local de Adquisiciones de Inmuebles/TMX_1376151_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación del Impuesto local de Adquisiciones de Inmuebles/TMX_1376151_es.txt"
+  }
+}

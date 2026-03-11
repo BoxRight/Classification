@@ -1,0 +1,120 @@
+{
+  "law": "Convenio modificatorio de contrato",
+  "authority": "private",
+  "enacted": "2024-02-14",
+  "imports": [
+    "Código Civil para el Distrito Federal"
+  ],
+  "parties": [
+    {
+      "id": "party_1",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "party_2",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "original_contract",
+      "type": "service"
+    },
+    {
+      "id": "contract_modification",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "ContractualRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "party_1",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalCapacity",
+      "subject": "party_2",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "party_1",
+        "object": "contract_modification",
+        "target": "party_2"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "party_2",
+        "object": "contract_modification",
+        "target": "party_1"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "modification_binding_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContractualRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "party_1",
+          "object": "contract_modification",
+          "target": "party_2"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "contract_modification_procedure",
+      "steps": [
+        {
+          "description": "Declare previous contract exists"
+        },
+        {
+          "description": "Express desire to modify contract terms"
+        },
+        {
+          "description": "Specify modified clauses"
+        },
+        {
+          "description": "Confirm all other terms remain identical"
+        },
+        {
+          "description": "Sign modification agreement"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Convenio modificatorio de contrato/TMX_1815103_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Convenio modificatorio de contrato/TMX_1815103_es.txt"
+  }
+}

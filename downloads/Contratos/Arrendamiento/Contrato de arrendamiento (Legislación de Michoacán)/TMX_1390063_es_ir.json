@@ -1,0 +1,319 @@
+{
+  "law": "Contrato de arrendamiento (Legislación de Michoacán)",
+  "authority": "private",
+  "enacted": "2024-01-29",
+  "imports": [
+    "Artículo 1572, 1576, 1583, 1584, 1585, 1587, 1591, 1592, 1602, 1607 y 1646 del Código Civil para el Estado de Michoacán"
+  ],
+  "parties": [
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "guarantor",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "monthly_rent",
+      "type": "money"
+    },
+    {
+      "id": "security_deposit",
+      "type": "money"
+    },
+    {
+      "id": "maintenance_fee",
+      "type": "money"
+    },
+    {
+      "id": "fire_insurance",
+      "type": "service"
+    },
+    {
+      "id": "utilities",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "deliver_property",
+      "type": "simple",
+      "actor": "landlord",
+      "object": "property",
+      "target": "tenant"
+    },
+    {
+      "id": "pay_rent",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    },
+    {
+      "id": "maintain_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "property",
+      "target": "tenant"
+    },
+    {
+      "id": "pay_utilities",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "utilities",
+      "target": "tenant"
+    },
+    {
+      "id": "obtain_insurance",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "fire_insurance",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_payment",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "monthly_rent",
+      "target": "landlord"
+    },
+    {
+      "id": "breach_use",
+      "type": "counter",
+      "actor": "tenant",
+      "object": "property",
+      "target": "landlord"
+    }
+  ],
+  "facts": [
+    {
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "date",
+      "name": "lease_term_end",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "proper_property_condition",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "landlord",
+        "object": "property",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "monthly_rent",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "maintenance_fee",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "utilities",
+        "target": "tenant"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "fire_insurance",
+        "target": "landlord"
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "property",
+        "target": "third_party"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rent_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "termination_breach_payment",
+      "conditions": [
+        {
+          "ref": "breach_payment"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "termination_breach_use",
+      "conditions": [
+        {
+          "ref": "breach_use"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "contract_termination"
+      }
+    },
+    {
+      "id": "penalty_late_return",
+      "conditions": [
+        {
+          "type": "date",
+          "name": "lease_term_end"
+        },
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "property",
+          "target": "landlord"
+        }
+      ],
+      "consequence": {
+        "type": "liability",
+        "name": "penalty_payment_100_percent"
+      }
+    },
+    {
+      "id": "guarantor_liability",
+      "conditions": [
+        {
+          "ref": "breach_payment"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "guarantor",
+          "object": "monthly_rent",
+          "target": "landlord"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "lease_execution",
+      "steps": [
+        {
+          "ref": "deliver_property"
+        },
+        {
+          "description": "30 day grace period for rent commencement"
+        },
+        {
+          "ref": "pay_rent"
+        },
+        {
+          "ref": "obtain_insurance"
+        }
+      ]
+    },
+    {
+      "name": "lease_termination",
+      "steps": [
+        {
+          "description": "give 2 months notice"
+        },
+        {
+          "ref": "return_property"
+        },
+        {
+          "description": "settle final accounts"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Contratos/Arrendamiento/Contrato de arrendamiento (Legislación de Michoacán)/TMX_1390063_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Contratos/Arrendamiento/Contrato de arrendamiento (Legislación de Michoacán)/TMX_1390063_es.txt"
+  }
+}

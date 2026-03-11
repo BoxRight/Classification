@@ -1,0 +1,176 @@
+{
+  "law": "Código de Procedimientos Civiles para el Distrito Federal",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "opposing_party",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "appeal_resource",
+      "type": "service"
+    },
+    {
+      "id": "nullity_incident",
+      "type": "service"
+    },
+    {
+      "id": "testimony_copies",
+      "type": "movable"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_appeal",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "appeal_resource",
+      "target": "judge"
+    },
+    {
+      "id": "admit_appeal",
+      "type": "simple",
+      "actor": "judge",
+      "object": "appeal_resource",
+      "target": "defendant"
+    },
+    {
+      "id": "serve_opposing_party",
+      "type": "simple",
+      "actor": "judge",
+      "object": "testimony_copies",
+      "target": "opposing_party"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LeaseDispute",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NullityIncidentFiled",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AppealFiled",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "appeal_resource",
+        "target": "judge"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "appeal_resource",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "appeal_admission_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AppealFiled"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "appeal_resource",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "devolutive_effect_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AppealAdmitted"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "testimony_copies",
+          "target": "opposing_party"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "appeal_procedure",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "appeal_resource",
+            "target": "judge"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "appeal_resource",
+            "target": "defendant"
+          }
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "judge",
+            "object": "testimony_copies",
+            "target": "opposing_party"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Recurso de apelación contra auto que no admite a trámite el incidente de nulidad de actuaciones/TMX_1369563_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Recurso de apelación contra auto que no admite a trámite el incidente de nulidad de actuaciones/TMX_1369563_es.txt"
+  }
+}

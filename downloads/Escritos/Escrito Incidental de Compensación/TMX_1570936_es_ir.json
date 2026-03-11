@@ -1,0 +1,158 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Civil para la Ciudad de México"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "counterpart",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "civil_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "mutual_debt",
+      "type": "money"
+    },
+    {
+      "id": "mutual_credit",
+      "type": "money"
+    },
+    {
+      "id": "compensation_payment",
+      "type": "money"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_compensation_incident",
+      "type": "simple",
+      "actor": "petitioner",
+      "object": "compensation_payment",
+      "target": "civil_judge"
+    },
+    {
+      "id": "notify_counterpart",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "compensation_payment",
+      "target": "counterpart"
+    },
+    {
+      "id": "order_compensation",
+      "type": "simple",
+      "actor": "civil_judge",
+      "object": "compensation_payment",
+      "target": "petitioner"
+    }
+  ],
+  "facts": [
+    {
+      "type": "liability",
+      "name": "MutualDebt",
+      "subject": "petitioner",
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "MutualCredit",
+      "subject": "petitioner",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "LegalRelation",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "petitioner",
+        "object": "compensation_payment",
+        "target": "counterpart"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_judge",
+        "object": "compensation_payment",
+        "target": "counterpart"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "compensation_rule",
+      "conditions": [
+        {
+          "type": "capability",
+          "name": "LegalRelation"
+        },
+        {
+          "type": "asset",
+          "name": "MutualCredit",
+          "subject": "petitioner"
+        },
+        {
+          "type": "liability",
+          "name": "MutualDebt",
+          "subject": "petitioner"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "petitioner",
+          "object": "compensation_payment",
+          "target": "counterpart"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "compensation_incident_procedure",
+      "steps": [
+        {
+          "ref": "file_compensation_incident"
+        },
+        {
+          "ref": "notify_counterpart"
+        },
+        {
+          "description": "admit_evidence"
+        },
+        {
+          "ref": "order_compensation"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Compensación/TMX_1570936_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Compensación/TMX_1570936_es.txt"
+  }
+}

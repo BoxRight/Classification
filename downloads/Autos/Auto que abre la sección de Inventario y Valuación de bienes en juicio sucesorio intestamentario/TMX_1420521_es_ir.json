@@ -1,0 +1,124 @@
+{
+  "law": "Auto que abre la sección de Inventario y Valuación de bienes en juicio sucesorio intestamentario",
+  "authority": "judicial",
+  "enacted": "2024-05-07",
+  "imports": [
+    "Código de Procedimientos Civiles para el Distrito Federal Artículo 851"
+  ],
+  "parties": [
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "interested_parties",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "estate_inventory",
+      "type": "service"
+    },
+    {
+      "id": "estate_valuation",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "initiate_third_section",
+      "type": "simple",
+      "actor": "judge",
+      "object": "estate_inventory",
+      "target": "interested_parties"
+    },
+    {
+      "id": "provide_notice",
+      "type": "simple",
+      "actor": "judge",
+      "object": "estate_inventory",
+      "target": "interested_parties"
+    },
+    {
+      "id": "manifest_rights",
+      "type": "simple",
+      "actor": "interested_parties",
+      "object": "estate_inventory",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "intestate_succession_proceeding",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "estate_inventory",
+        "target": "interested_parties"
+      }
+    },
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "interested_parties",
+        "object": "estate_inventory",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "third_section_initiation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "intestate_succession_proceeding"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "estate_inventory",
+          "target": "interested_parties"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "inventory_valuation_procedure",
+      "steps": [
+        {
+          "ref": "initiate_third_section"
+        },
+        {
+          "ref": "provide_notice"
+        },
+        {
+          "ref": "manifest_rights"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Autos/Auto que abre la sección de Inventario y Valuación de bienes en juicio sucesorio intestamentario/TMX_1420521_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Autos/Auto que abre la sección de Inventario y Valuación de bienes en juicio sucesorio intestamentario/TMX_1420521_es.txt"
+  }
+}

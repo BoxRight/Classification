@@ -1,0 +1,214 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "lawyer",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "costs_and_expenses",
+      "type": "money"
+    },
+    {
+      "id": "legal_fees_defense",
+      "type": "money"
+    },
+    {
+      "id": "legal_fees_hearing",
+      "type": "money"
+    },
+    {
+      "id": "legal_fees_evidence",
+      "type": "money"
+    },
+    {
+      "id": "legal_fees_settlement",
+      "type": "money"
+    },
+    {
+      "id": "professional_services_contract",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_lawsuit",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "legal_action",
+      "target": "defendant"
+    },
+    {
+      "id": "answer_complaint",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "defense",
+      "target": "plaintiff"
+    },
+    {
+      "id": "withdraw_action",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "legal_action",
+      "target": "defendant"
+    },
+    {
+      "id": "ratify_withdrawal",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "withdrawal_document",
+      "target": "judge"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "LawsuitFiled",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ComplaintAnswered",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ConciliationHearingHeld",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "EvidenceOffered",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ActionWithdrawn",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "WithdrawalRatified",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "CostsAndExpensesLiability",
+      "subject": "plaintiff",
+      "value": null
+    }
+  ],
+  "norms": [],
+  "rules": [
+    {
+      "id": "withdrawal_costs_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ActionWithdrawn"
+        },
+        {
+          "type": "certification",
+          "name": "WithdrawalRatified"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "plaintiff",
+          "object": "costs_and_expenses",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "costs_and_expenses_incident",
+      "steps": [
+        {
+          "description": "File incident petition"
+        },
+        {
+          "description": "Submit detailed expense breakdown"
+        },
+        {
+          "description": "Provide notice to defendant"
+        },
+        {
+          "description": "Judicial resolution within legal term"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "lease_lawsuit_withdrawal",
+      "timeline": [
+        {
+          "event": "lawsuit_filed",
+          "condition": null
+        },
+        {
+          "event": "complaint_answered",
+          "condition": null
+        },
+        {
+          "event": "conciliation_hearing_held",
+          "condition": null
+        },
+        {
+          "event": "evidence_offered",
+          "condition": null
+        },
+        {
+          "event": "action_withdrawn",
+          "condition": null
+        },
+        {
+          "event": "withdrawal_ratified",
+          "condition": null
+        },
+        {
+          "event": "costs_incident_filed",
+          "condition": {
+            "type": "certification",
+            "name": "WithdrawalRatified"
+          }
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Gastos y Costas/TMX_1364393_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Gastos y Costas/TMX_1364393_es.txt"
+  }
+}

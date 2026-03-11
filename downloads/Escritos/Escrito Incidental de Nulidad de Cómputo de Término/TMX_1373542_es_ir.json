@@ -1,0 +1,187 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [],
+  "parties": [
+    {
+      "id": "tenant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "landlord",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "court_secretary",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "lease_judge",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "leased_property",
+      "type": "nonmovable"
+    },
+    {
+      "id": "execution_order",
+      "type": "service"
+    },
+    {
+      "id": "vacate_computation",
+      "type": "service"
+    },
+    {
+      "id": "personal_notification",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "vacate_property",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "leased_property",
+      "target": "landlord"
+    },
+    {
+      "id": "compute_vacate_term",
+      "type": "simple",
+      "actor": "court_secretary",
+      "object": "vacate_computation",
+      "target": "tenant"
+    },
+    {
+      "id": "notify_execution_order",
+      "type": "simple",
+      "actor": "court_secretary",
+      "object": "personal_notification",
+      "target": "tenant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "DefinitiveSentenceExecutory",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ExecutionOrderIssued",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "PersonalNotificationMade",
+      "subject": "tenant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "tenant",
+        "object": "leased_property",
+        "target": "landlord"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "vacate_computation_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PersonalNotificationMade",
+          "subject": "tenant"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "court_secretary",
+          "object": "vacate_computation",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "nullity_computation_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "court_secretary",
+          "object": "personal_notification",
+          "target": "tenant"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "NullVacateComputation"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "incidental_nullity_proceeding",
+      "steps": [
+        {
+          "description": "File incidental nullity motion"
+        },
+        {
+          "description": "Court reviews computation validity"
+        },
+        {
+          "description": "Issue interlocutory sentence"
+        },
+        {
+          "description": "Recompute vacate term if nullity declared"
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "computation_nullity_scenario",
+      "timeline": [
+        {
+          "event": "definitive_sentence_becomes_executory",
+          "condition": {
+            "type": "certification",
+            "name": "DefinitiveSentenceExecutory"
+          }
+        },
+        {
+          "event": "secretary_computes_vacate_term_incorrectly",
+          "condition": {
+            "type": "counter",
+            "actor": "court_secretary",
+            "object": "personal_notification",
+            "target": "tenant"
+          }
+        },
+        {
+          "event": "tenant_challenges_computation",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Nulidad de Cómputo de Término/TMX_1373542_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Nulidad de Cómputo de Término/TMX_1373542_es.txt"
+  }
+}

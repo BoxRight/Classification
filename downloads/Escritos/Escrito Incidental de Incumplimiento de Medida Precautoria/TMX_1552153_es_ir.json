@@ -1,0 +1,151 @@
+{
+  "law": "Código Nacional de Procedimientos Civiles y Familiares",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Código Civil para el Estado Libre y Soberano de Hidalgo"
+  ],
+  "parties": [
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "email_account",
+      "type": "service"
+    },
+    {
+      "id": "precautionary_measure",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "file_incident",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "precautionary_measure",
+      "target": "judge"
+    },
+    {
+      "id": "immobilize_account",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "email_account",
+      "target": null
+    },
+    {
+      "id": "breach_measure",
+      "type": "counter",
+      "actor": "defendant",
+      "object": "precautionary_measure",
+      "target": "plaintiff"
+    },
+    {
+      "id": "decree_warning",
+      "type": "simple",
+      "actor": "judge",
+      "object": "precautionary_measure",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "PrecautionaryMeasureDecreed",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "liability",
+      "name": "NonComplianceWithMeasure",
+      "subject": "defendant",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "precautionary_measure",
+        "target": "plaintiff"
+      }
+    },
+    {
+      "modality": "claim",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "plaintiff",
+        "object": "precautionary_measure",
+        "target": "judge"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "breach_warning_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "PrecautionaryMeasureDecreed"
+        },
+        {
+          "type": "counter",
+          "actor": "defendant",
+          "object": "precautionary_measure",
+          "target": "plaintiff"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "judge",
+          "object": "precautionary_measure",
+          "target": "defendant"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "incident_procedure",
+      "steps": [
+        {
+          "ref": "file_incident"
+        },
+        {
+          "description": "notify_defendant"
+        },
+        {
+          "description": "present_evidence"
+        },
+        {
+          "ref": "decree_warning"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Incumplimiento de Medida Precautoria/TMX_1552153_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Incumplimiento de Medida Precautoria/TMX_1552153_es.txt"
+  }
+}

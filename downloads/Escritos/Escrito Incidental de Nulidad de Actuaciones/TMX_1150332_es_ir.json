@@ -1,0 +1,105 @@
+{
+  "law": "Escrito Incidental de Nulidad de Actuaciones",
+  "authority": "judicial",
+  "enacted": "2024-04-15",
+  "imports": [
+    "Artículos 165, 166 del Código Nacional de Procedimientos Civiles y Familiares"
+  ],
+  "parties": [
+    {
+      "id": "petitioner",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "judge",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "judicial_proceedings",
+      "type": "service"
+    },
+    {
+      "id": "personal_notification",
+      "type": "service"
+    }
+  ],
+  "acts": [],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "ProcessualIrregularity",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "DefectiveNotification",
+      "subject": null,
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "judge",
+        "object": "personal_notification",
+        "target": "petitioner"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "nullity_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DefectiveNotification"
+        },
+        {
+          "type": "certification",
+          "name": "ProcessualIrregularity"
+        }
+      ],
+      "consequence": {
+        "type": "certification",
+        "name": "NullityOfProceedings"
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "incidental_nullity_procedure",
+      "steps": [
+        {
+          "description": "file nullity petition"
+        },
+        {
+          "description": "present evidence"
+        },
+        {
+          "description": "hearing testimonial evidence"
+        },
+        {
+          "description": "judicial decision on nullity"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Escritos/Escrito Incidental de Nulidad de Actuaciones/TMX_1150332_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Escritos/Escrito Incidental de Nulidad de Actuaciones/TMX_1150332_es.txt"
+  }
+}

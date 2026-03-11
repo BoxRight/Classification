@@ -1,0 +1,202 @@
+{
+  "law": "Ley Agraria",
+  "authority": "judicial",
+  "enacted": null,
+  "imports": [
+    "Artículos 178, 179, 180 y 181 de la Ley Agraria",
+    "Artículo 27 constitucional",
+    "Ley Orgánica de los Tribunales Agrarios"
+  ],
+  "parties": [
+    {
+      "id": "defendant",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "plaintiff",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "ejidal_commissariat",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "civil_court",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "agrarian_tribunal",
+      "type": "person",
+      "subtype": "legal"
+    }
+  ],
+  "objects": [
+    {
+      "id": "disputed_lands",
+      "type": "nonmovable"
+    },
+    {
+      "id": "civil_sentence",
+      "type": "service"
+    },
+    {
+      "id": "legal_costs",
+      "type": "money"
+    },
+    {
+      "id": "inheritance_documents",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "claim_lands",
+      "type": "simple",
+      "actor": "plaintiff",
+      "object": "disputed_lands",
+      "target": "defendant"
+    },
+    {
+      "id": "inherit_lands",
+      "type": "simple",
+      "actor": "defendant",
+      "object": "disputed_lands",
+      "target": null
+    },
+    {
+      "id": "issue_sentence",
+      "type": "simple",
+      "actor": "civil_court",
+      "object": "civil_sentence",
+      "target": "defendant"
+    }
+  ],
+  "facts": [
+    {
+      "type": "ownership",
+      "name": "LandOwnership",
+      "subject": "defendant",
+      "value": null
+    },
+    {
+      "type": "capability",
+      "name": "JudicialCompetence",
+      "subject": "agrarian_tribunal",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "AssemblyAuthorization",
+      "subject": "ejidal_commissariat",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "privilege",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "defendant",
+        "object": "disputed_lands",
+        "target": null
+      }
+    },
+    {
+      "modality": "prohibition",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "civil_court",
+        "object": "civil_sentence",
+        "target": "defendant"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "agrarian_competence_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "Agrarian_Matter"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "agrarian_tribunal",
+          "object": "disputed_lands",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "assembly_authorization_rule",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "AssemblyAuthorization",
+          "subject": "ejidal_commissariat"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "ejidal_commissariat",
+          "object": "disputed_lands",
+          "target": "defendant"
+        }
+      }
+    },
+    {
+      "id": "inheritance_rule",
+      "conditions": [
+        {
+          "type": "ownership",
+          "name": "LandOwnership",
+          "subject": "defendant"
+        }
+      ],
+      "consequence": {
+        "modality": "claim",
+        "act": {
+          "type": "simple",
+          "actor": "defendant",
+          "object": "disputed_lands",
+          "target": "plaintiff"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "answer_and_counterclaim",
+      "steps": [
+        {
+          "description": "Contest original demand"
+        },
+        {
+          "description": "Assert defenses and exceptions"
+        },
+        {
+          "description": "Present counterclaim"
+        },
+        {
+          "description": "Offer evidence"
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Demandas/Contestación de demanda en materia agraria con reconvención/TMX_2631821_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Demandas/Contestación de demanda en materia agraria con reconvención/TMX_2631821_es.txt"
+  }
+}

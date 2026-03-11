@@ -1,0 +1,287 @@
+{
+  "law": "Código Fiscal de la Federación",
+  "authority": "legislative",
+  "enacted": null,
+  "imports": [
+    "Ley del Impuesto Sobre la Renta",
+    "Resolución Miscelánea Fiscal"
+  ],
+  "parties": [
+    {
+      "id": "notary",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_representatives",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "partners",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "shareholders",
+      "type": "person",
+      "subtype": "physical"
+    },
+    {
+      "id": "legal_entities",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "tax_authority",
+      "type": "person",
+      "subtype": "legal"
+    },
+    {
+      "id": "foreign_residents",
+      "type": "person",
+      "subtype": "physical"
+    }
+  ],
+  "objects": [
+    {
+      "id": "rfc_registration",
+      "type": "service"
+    },
+    {
+      "id": "tax_id_certificate",
+      "type": "service"
+    },
+    {
+      "id": "shareholder_registry_book",
+      "type": "service"
+    },
+    {
+      "id": "assembly_minutes",
+      "type": "service"
+    },
+    {
+      "id": "public_deed",
+      "type": "service"
+    }
+  ],
+  "acts": [
+    {
+      "id": "register_in_rfc",
+      "type": "simple",
+      "actor": "partners",
+      "object": "rfc_registration",
+      "target": "tax_authority"
+    },
+    {
+      "id": "verify_rfc_registration",
+      "type": "simple",
+      "actor": "notary",
+      "object": "tax_id_certificate",
+      "target": "legal_entities"
+    },
+    {
+      "id": "notify_tax_authority",
+      "type": "simple",
+      "actor": "notary",
+      "object": "rfc_registration",
+      "target": "tax_authority"
+    },
+    {
+      "id": "annotate_rfc_in_books",
+      "type": "simple",
+      "actor": "legal_entities",
+      "object": "rfc_registration",
+      "target": "shareholder_registry_book"
+    }
+  ],
+  "facts": [
+    {
+      "type": "certification",
+      "name": "NotaryVerification",
+      "subject": "notary",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "RFCRegistration",
+      "subject": "partners",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "ForeignResidence",
+      "subject": "foreign_residents",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NonProfitStatus",
+      "subject": "legal_entities",
+      "value": null
+    }
+  ],
+  "norms": [
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "legal_representatives",
+        "object": "rfc_registration",
+        "target": "tax_authority"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "partners",
+        "object": "rfc_registration",
+        "target": "tax_authority"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "shareholders",
+        "object": "rfc_registration",
+        "target": "tax_authority"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "notary",
+        "object": "tax_id_certificate",
+        "target": "legal_entities"
+      }
+    },
+    {
+      "modality": "obligation",
+      "act": {
+        "id": null,
+        "type": "simple",
+        "actor": "legal_entities",
+        "object": "rfc_registration",
+        "target": "shareholder_registry_book"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rfc_registration_obligation",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "LegalEntityStatus"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "partners",
+          "object": "rfc_registration",
+          "target": "tax_authority"
+        }
+      }
+    },
+    {
+      "id": "nonprofit_exemption",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "NonProfitStatus"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "counter",
+          "actor": "partners",
+          "object": "rfc_registration",
+          "target": "tax_authority"
+        }
+      }
+    },
+    {
+      "id": "foreign_resident_exemption",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "ForeignResidence"
+        },
+        {
+          "type": "certification",
+          "name": "TimelyNotification"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "counter",
+          "actor": "foreign_residents",
+          "object": "rfc_registration",
+          "target": "tax_authority"
+        }
+      }
+    },
+    {
+      "id": "notary_notification_rule",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "partners",
+          "object": "tax_id_certificate",
+          "target": "notary"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "rfc_registration",
+          "target": "tax_authority"
+        }
+      }
+    }
+  ],
+  "procedures": [
+    {
+      "name": "notary_verification_process",
+      "steps": [
+        {
+          "act": {
+            "type": "simple",
+            "actor": "partners",
+            "object": "tax_id_certificate",
+            "target": "notary"
+          }
+        },
+        {
+          "ref": "verify_rfc_registration"
+        },
+        {
+          "act": {
+            "type": "simple",
+            "actor": "notary",
+            "object": "public_deed",
+            "target": "legal_entities"
+          }
+        }
+      ]
+    }
+  ],
+  "scenarios": [],
+  "_source": {
+    "file": "Certificaciones/Certificación relacionada con la obligación de socios o accionistas de inscribirse en el Registro/TMX_1376146_es.txt",
+    "path": "/home/maitreya/Classification/downloads/Certificaciones/Certificación relacionada con la obligación de socios o accionistas de inscribirse en el Registro/TMX_1376146_es.txt"
+  }
+}
