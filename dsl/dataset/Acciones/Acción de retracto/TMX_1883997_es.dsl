@@ -20,11 +20,11 @@ article 1 Generated
     fact asset LeaseRelation is present
     fact Landlord owns LeasedProperty
     obligation Tenant must pay MonthlyRent to Landlord.
-    privilege Tenant may perform RetractoAction to Buyer.
-    obligation Landlord must perform SaleNotification to Tenant.
+    privilege Tenant may transfer LeasedProperty to Buyer.
+    obligation Landlord must transfer LeasedProperty to Tenant.
     rule RetractoRightRule
-        If asset LeaseRelation is present and Landlord fails to perform SaleNotification to Tenant
-        then Tenant may perform RetractoAction to Buyer.
+        If asset LeaseRelation is present and Landlord fails to transfer LeasedProperty to Tenant
+        then Tenant may transfer LeasedProperty to Buyer.
     rule DamagesRule
-        If Landlord fails to perform SaleNotification to Tenant
+        If Landlord fails to transfer LeasedProperty to Tenant
         then Landlord must pay Damages to Tenant.

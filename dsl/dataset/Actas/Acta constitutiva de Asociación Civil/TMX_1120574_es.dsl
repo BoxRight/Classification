@@ -17,8 +17,6 @@ parties
 
 objects
     MembershipFees: money
-    Donations: money
-    SocialAssets: money
     MembershipCredential: service
     ReportsAndServices: service
 

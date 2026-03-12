@@ -114,7 +114,12 @@ def _infer_verb_for_event(obj_id: str) -> str | None:
 
 
 def infer_verb(act: dict, objects_by_id: dict[str, str], *, for_counteract: bool = False) -> str:
-    """Infer verb from act object type. counter act type → fail (unless for_counteract)."""
+    """
+    Infer verb: (1) _verb hint, (2) decomposition, (3) object type, (4) event map, (5) perform.
+    Event classification: object type 'service' treated as event act.
+    """
+    if act.get("_verb"):
+        return act["_verb"]
     if not for_counteract and act.get("type") == "counter":
         return "fail"
     obj_id = act.get("object") or ""
@@ -125,9 +130,17 @@ def infer_verb(act: dict, objects_by_id: dict[str, str], *, for_counteract: bool
         if obj_type in ("nonmovable", "movable"):
             return "transfer"
         if obj_type == "service":
-            return "provide"
+            return _infer_verb_for_event(obj_id) or "provide"
         return "transfer"
-    # Object not in objects_by_id: may be event id
+    # Object not in objects_by_id: try decomposition
+    try:
+        from src.dsl.decomposition import decompose
+        from src.dsl.verb_registry import load_canonical_verbs
+        decomp = decompose(obj_id, load_canonical_verbs())
+        if decomp:
+            return decomp[0]
+    except Exception:
+        pass
     event_verb = _infer_verb_for_event(obj_id)
     if event_verb:
         return event_verb
@@ -163,11 +176,8 @@ def _render_action_phrase(
             return f"{actor} may demand {obj_str} from {target_str}."
         return f"{actor} may demand {obj_str}."
     # Plain action phrase (no modality) - use third-person verb
-    verb_3p = (
-        verb + "s"
-        if verb in ("pay", "transfer", "provide", "cancel", "notify", "cause", "file", "perform")
-        else verb
-    )
+    verb_3p_map = {"pay": "pays", "transfer": "transfers", "provide": "provides", "cancel": "cancels", "notify": "notifies", "cause": "causes", "file": "files", "perform": "performs", "sublease": "subleases", "damage": "damages"}
+    verb_3p = verb_3p_map.get(verb, verb + "s" if verb else verb)
     if target_str:
         return f"{actor} {verb_3p} {obj_str} to {target_str}."
     return f"{actor} {verb_3p} {obj_str}."
@@ -199,6 +209,18 @@ def render_condition(
         if subject and obj:
             return f"{registry.get(subject)} owns {registry.get(obj)}"
         return None
+    # Negated counter-act: intrinsic "not" with counter in args -> "Actor does not verb Object"
+    if ctype == "intrinsic" and name == "not":
+        args = cond.get("args", [])
+        if len(args) == 1 and isinstance(args[0], dict):
+            negated = args[0]
+            if negated.get("type") == "counter" or ("actor" in negated and "object" in negated):
+                actor = registry.get(negated.get("actor", ""))
+                obj = registry.get(negated.get("object", ""))
+                verb = infer_verb(negated, objects_by_id, for_counteract=True)
+                return f"{actor} does not {verb} {obj}"
+        return None
+
     # Intrinsic conditions (temporal, arithmetic)
     if ctype == "intrinsic":
         intrinsic_name = cond.get("name", "")
@@ -225,6 +247,14 @@ def render_condition(
         if target:
             return f"{actor} fails to {verb} {obj} to {registry.get(target)}"
         return f"{actor} fails to {verb} {obj}"
+    # Positive event (counter-act correction converted to simple)
+    if ctype == "simple" and cond.get("actor") and cond.get("object"):
+        actor = registry.get(cond.get("actor", ""))
+        obj = registry.get(cond.get("object", ""))
+        verb = infer_verb(cond, objects_by_id)
+        verb_3p_map = {"pay": "pays", "transfer": "transfers", "damage": "damages", "cause": "causes"}
+        verb_3p = verb_3p_map.get(verb, verb + "s" if verb else verb)
+        return f"{actor} {verb_3p} {obj}"
     return None
 
 

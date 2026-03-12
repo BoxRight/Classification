@@ -12,6 +12,8 @@ Runs before DSL rendering to:
 - Validate party/object references against ontology (log warnings)
 - Resolve procedure step refs to acts when possible
 - Collect verbs for vocabulary
+- Normalization layer: object resolution (IR -> ontology -> concept map -> synthetic)
+- Guarantor rule expansion (one rule per obligation)
 """
 
 import hashlib
@@ -43,6 +45,20 @@ def _load_ontology() -> tuple[set[str], set[str]]:
             elif isinstance(item, str):
                 obj_ids.add(item)
     return role_ids, obj_ids
+
+
+def _load_ontology_objects_with_types() -> dict[str, str]:
+    """Load object id -> type from ontology."""
+    path = PROJECT_ROOT / "ontology" / "objects.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    canonical = data.get("canonical", [])
+    result = {}
+    for item in canonical:
+        if isinstance(item, dict) and item.get("id"):
+            result[item["id"]] = item.get("type", "nonmovable")
+    return result
 
 
 def _load_dictionary() -> dict:
@@ -179,10 +195,13 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
         if isinstance(p, dict) and p.get("id"):
             p["id"] = _normalize_identifier(p["id"], "roles", dictionary)
 
-    # 4. Normalize object identifiers
+    # 4. Normalize object identifiers (skip abstract ones: subleasing, damage_property, breach_obligation, tenant_obligations - handled by concept map)
+    _skip_object_norm = {"subleasing", "damage_property", "breach_obligation", "tenant_obligations"}
     for o in ir.get("objects", []):
         if isinstance(o, dict) and o.get("id"):
-            o["id"] = _normalize_identifier(o["id"], "objects", dictionary)
+            key = o["id"].lower().replace("-", "_")
+            if key not in _skip_object_norm:
+                o["id"] = _normalize_identifier(o["id"], "objects", dictionary)
 
     # 5. Normalize facts (ensure type, name, subject; canonicalize name to snake_case)
     facts = []
@@ -201,15 +220,15 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
                 facts.append({"type": ftype, "name": fname, "subject": subject})
     ir["facts"] = facts
 
-    # 6. Normalize identifiers in acts, norms, and rules
+    # 6. Normalize identifiers in acts, norms, and rules (skip abstract objects for concept map)
     objects_by_id = _build_objects_by_id(ir)
     for a in ir.get("acts", []):
         if isinstance(a, dict):
             for key in ("actor", "object", "target"):
                 if a.get(key):
-                    if key == "object":
+                    if key == "object" and a[key].lower().replace("-", "_") not in _skip_object_norm:
                         a[key] = _normalize_identifier(a[key], "objects", dictionary)
-                    else:
+                    elif key != "object":
                         a[key] = _normalize_identifier(a[key], "roles", dictionary)
     for n in ir.get("norms", []):
         if isinstance(n, dict):
@@ -217,9 +236,9 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
             if isinstance(act, dict):
                 for key in ("actor", "object", "target"):
                     if act.get(key):
-                        if key == "object":
+                        if key == "object" and act[key].lower().replace("-", "_") not in _skip_object_norm:
                             act[key] = _normalize_identifier(act[key], "objects", dictionary)
-                        else:
+                        elif key != "object":
                             act[key] = _normalize_identifier(act[key], "roles", dictionary)
 
     # 7. Remove rules with unresolved conditions, deduplicate, ensure rule names
@@ -243,17 +262,20 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
                 c["actor"] = _normalize_identifier(c["actor"], "roles", dictionary)
             if isinstance(c, dict) and c.get("target"):
                 c["target"] = _normalize_identifier(c["target"], "roles", dictionary)
-            if isinstance(c, dict) and c.get("object"):
+            if isinstance(c, dict) and c.get("object") and c["object"].lower().replace("-", "_") not in _skip_object_norm:
                 c["object"] = _normalize_identifier(c["object"], "objects", dictionary)
+            act = c.get("act") if isinstance(c, dict) else None
+            if isinstance(act, dict) and act.get("object") and act["object"].lower().replace("-", "_") not in _skip_object_norm:
+                act["object"] = _normalize_identifier(act["object"], "objects", dictionary)
         cons = r.get("consequence", {})
         if isinstance(cons, dict) and "act" in cons:
             act = cons["act"]
             if isinstance(act, dict):
                 for key in ("actor", "object", "target"):
                     if act.get(key):
-                        if key == "object":
+                        if key == "object" and act[key].lower().replace("-", "_") not in _skip_object_norm:
                             act[key] = _normalize_identifier(act[key], "objects", dictionary)
-                        else:
+                        elif key != "object":
                             act[key] = _normalize_identifier(act[key], "roles", dictionary)
         rules.append(r)
     ir["rules"] = rules
@@ -302,4 +324,396 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
                     if ref and ref in acts_by_id:
                         step["_resolved_act"] = acts_by_id[ref]
 
+    # 11. Ontology-driven normalization: decomposition → object resolution → counter-act correction
+    ir = _normalize_ir_objects(ir, dictionary)
+
+    # 12. Counter-act correction (rules only: harm verb + compensatory consequence)
+    ir = _apply_counter_act_correction(ir)
+
+    # 13. Guarantor rule expansion (after normalization; looks for breach_obligation)
+    ir = _expand_guarantor_rules(ir)
+
+    # 14. Unused object pruning (after guarantor expansion; before verb collection)
+    ir = _prune_unused_objects(ir)
+
+    # 15. Collect verbs from canonical registry (decomposition + dictionary + perform fallback)
+    from src.dsl.verb_registry import load_canonical_verbs
+    from src.dsl.decomposition import decompose
+
+    canonical_verbs = load_canonical_verbs(dictionary)
+    ontology = _load_ontology_objects_with_types()
+    objects_by_id = _build_objects_by_id(ir)
+    verbs_used = set()
+
+    def _add_verb_for_act(act: dict, for_counter: bool = False) -> None:
+        if not isinstance(act, dict):
+            return
+        if act.get("_verb"):
+            verbs_used.add(act["_verb"])
+            return
+        obj_id = act.get("object", "")
+        if for_counter:
+            decomp = decompose(obj_id, canonical_verbs)
+            verbs_used.add(decomp[0] if decomp else "pay")
+        elif obj_id in objects_by_id:
+            verbs_used.add(_infer_verb(objects_by_id[obj_id]))
+        else:
+            decomp = decompose(obj_id, canonical_verbs)
+            if decomp:
+                verbs_used.add(decomp[0])
+            elif obj_id in ontology or obj_id in {"event", "cancellation_notice"}:
+                obj_type = ontology.get(obj_id, "service")
+                verbs_used.add(_infer_verb(obj_type))
+            else:
+                verbs_used.add("perform")
+
+    for n in ir.get("norms", []):
+        if isinstance(n, dict):
+            _add_verb_for_act(n.get("act", {}))
+    for r in ir.get("rules", []):
+        if isinstance(r, dict):
+            for c in r.get("conditions", []):
+                if isinstance(c, dict) and c.get("type") == "counter":
+                    _add_verb_for_act(c, for_counter=True)
+                elif isinstance(c, dict) and "act" in c:
+                    _add_verb_for_act(c.get("act", {}), for_counter=c.get("type") == "counter")
+                elif isinstance(c, dict) and c.get("type") == "intrinsic" and c.get("name") == "not":
+                    for arg in c.get("args", []):
+                        if isinstance(arg, dict) and (arg.get("type") == "counter" or "object" in arg):
+                            _add_verb_for_act(arg, for_counter=True)
+            cons = r.get("consequence", {})
+            if isinstance(cons, dict) and "act" in cons:
+                _add_verb_for_act(cons["act"])
+    for a in ir.get("acts", []):
+        _add_verb_for_act(a)
+
+    ir["_verbs"] = sorted(verbs_used)
+
+    return ir
+
+
+def _collect_referenced_object_ids(ir: dict) -> set[str]:
+    """Collect all object ids referenced in acts, norms, rules, procedures."""
+    ids = set()
+    for a in ir.get("acts", []):
+        if isinstance(a, dict) and a.get("object"):
+            ids.add(a["object"])
+    for n in ir.get("norms", []):
+        if isinstance(n, dict):
+            act = n.get("act", {})
+            if isinstance(act, dict) and act.get("object"):
+                ids.add(act["object"])
+    for r in ir.get("rules", []):
+        if isinstance(r, dict):
+            for c in r.get("conditions", []):
+                if isinstance(c, dict) and c.get("object"):
+                    ids.add(c["object"])
+                act = c.get("act") if isinstance(c, dict) else None
+                if isinstance(act, dict) and act.get("object"):
+                    ids.add(act["object"])
+            cons = r.get("consequence", {})
+            if isinstance(cons, dict) and "act" in cons:
+                act = cons["act"]
+                if isinstance(act, dict) and act.get("object"):
+                    ids.add(act["object"])
+    for proc in ir.get("procedures", []):
+        if isinstance(proc, dict):
+            for step in proc.get("steps", []):
+                act = step.get("_resolved_act") or step.get("act") or (step.get("ref") and {})
+                if isinstance(act, dict) and act.get("object"):
+                    ids.add(act["object"])
+                elif step.get("ref"):
+                    for a in ir.get("acts", []):
+                        if isinstance(a, dict) and a.get("id") == step["ref"] and a.get("object"):
+                            ids.add(a["object"])
+                            break
+    return ids
+
+
+def _resolve_object(
+    obj_id: str,
+    decomposed_object: str | None,
+    objects_list: list[dict],
+    objects_seen: set[str],
+    ontology: dict[str, str],
+    ir_object_ids: list[str],
+    dictionary: dict,
+) -> tuple[str | None, str, str | None]:
+    """
+    Resolve object id using deterministic order.
+    Returns (resolved_id, resolved_type, verb_hint).
+    Try original first, then decomposed object if decomposition yielded one.
+    """
+    from src.dsl.decomposition import decompose
+    from src.dsl.concept_map import SYNTHETIC_MAP
+    from src.dsl.verb_registry import load_canonical_verbs
+
+    ontology_ids = set(ontology)
+    canonical_verbs = load_canonical_verbs(dictionary)
+
+    def _try_resolve(candidate: str) -> tuple[str | None, str]:
+        if not candidate:
+            return None, "nonmovable"
+        key = candidate.lower().replace("-", "_")
+        # 1. Exact match in IR objects
+        if key in objects_seen:
+            return key, ontology.get(key, "nonmovable")
+        # 2. Exact match in ontology
+        if key in ontology_ids:
+            return key, ontology.get(key, "nonmovable")
+        # 3. IR object whose id contains the candidate token as substring
+        for oid in ir_object_ids:
+            if key in oid.lower():
+                return oid, ontology.get(oid, "nonmovable")
+        # 4. Synthetic (before type match to avoid wrong matches for event ids)
+        if key in SYNTHETIC_MAP:
+            return SYNTHETIC_MAP[key], "service"
+        # 5. Ontology type match with IR object
+        cand_type = ontology.get(key, "nonmovable")
+        for oid in ir_object_ids:
+            if ontology.get(oid, "nonmovable") == cand_type:
+                return oid, cand_type
+        for oid in ontology_ids:
+            if ontology.get(oid, "nonmovable") == cand_type and oid in objects_seen:
+                return oid, cand_type
+        return None, "nonmovable"
+
+    # Try original first
+    resolved, rtype = _try_resolve(obj_id)
+    verb_hint = None
+    if resolved:
+        decomp = decompose(obj_id, canonical_verbs)
+        if decomp:
+            verb_hint = decomp[0]
+        return resolved, rtype, verb_hint
+
+    # Try decomposed object
+    if decomposed_object:
+        resolved, rtype = _try_resolve(decomposed_object)
+        if resolved:
+            decomp = decompose(obj_id, canonical_verbs)
+            if decomp:
+                verb_hint = decomp[0]
+            return resolved, rtype, verb_hint
+
+    # Dictionary fallback
+    key = obj_id.lower().replace("-", "_")
+    if dictionary.get("objects", {}).get(key):
+        resolved = dictionary["objects"][key]
+        return resolved, ontology.get(resolved, "nonmovable"), None
+
+    return None, "nonmovable", None
+
+
+def _normalize_ir_objects(ir: dict, dictionary: dict) -> dict:
+    """
+    Ontology-driven normalization: decomposition + object resolution.
+    Resolution tries both original and decomposed object.
+    """
+    from src.dsl.decomposition import decompose
+    from src.dsl.verb_registry import load_canonical_verbs
+
+    canonical_verbs = load_canonical_verbs(dictionary)
+    objects_by_id = _build_objects_by_id(ir)
+    ontology = _load_ontology_objects_with_types()
+    refs = _collect_referenced_object_ids(ir)
+    objects_list = list(ir.get("objects", []))
+    objects_seen = {o["id"] for o in objects_list if isinstance(o, dict) and o.get("id")}
+    ir_object_ids = list(objects_by_id.keys())
+
+    # Skip replacement for guarantor expansion (handled later)
+    _skip_replace = {"breach_obligation", "tenant_obligations"}
+
+    for obj_id in refs:
+        if obj_id in objects_seen:
+            continue
+        decomp = decompose(obj_id, canonical_verbs)
+        decomposed_object = decomp[1] if decomp else None
+        resolved_id, resolved_type, _ = _resolve_object(
+            obj_id, decomposed_object, objects_list, objects_seen, ontology, ir_object_ids, dictionary
+        )
+        if resolved_id and resolved_id not in objects_seen:
+            objects_list.append({"id": resolved_id, "type": resolved_type})
+            objects_seen.add(resolved_id)
+            ir_object_ids.append(resolved_id)
+
+    from src.dsl.concept_map import VERB_HINTS
+
+    def _replace_obj(oid: str) -> tuple[str, str | None]:
+        if oid.lower().replace("-", "_") in _skip_replace:
+            return oid, None
+        if oid in objects_seen:
+            decomp = decompose(oid, canonical_verbs)
+            return oid, decomp[0] if decomp else VERB_HINTS.get(oid.lower().replace("-", "_"))
+        decomp = decompose(oid, canonical_verbs)
+        decomposed_object = decomp[1] if decomp else None
+        resolved_id, _, verb_hint = _resolve_object(
+            oid, decomposed_object, objects_list, objects_seen, ontology, ir_object_ids, dictionary
+        )
+        if resolved_id:
+            return resolved_id, verb_hint or VERB_HINTS.get(oid.lower().replace("-", "_"))
+        return oid, None
+
+    for a in ir.get("acts", []):
+        if isinstance(a, dict) and a.get("object"):
+            new_obj, verb_hint = _replace_obj(a["object"])
+            a["object"] = new_obj
+            if verb_hint:
+                a["_verb"] = verb_hint
+    for n in ir.get("norms", []):
+        if isinstance(n, dict):
+            act = n.get("act", {})
+            if isinstance(act, dict) and act.get("object"):
+                new_obj, verb_hint = _replace_obj(act["object"])
+                act["object"] = new_obj
+                if verb_hint:
+                    act["_verb"] = verb_hint
+    for r in ir.get("rules", []):
+        if isinstance(r, dict):
+            for c in r.get("conditions", []):
+                if not isinstance(c, dict):
+                    continue
+                if c.get("object"):
+                    new_obj, verb_hint = _replace_obj(c["object"])
+                    c["object"] = new_obj
+                    if verb_hint:
+                        c["_verb"] = verb_hint
+                act = c.get("act")
+                if isinstance(act, dict) and act.get("object"):
+                    new_obj, verb_hint = _replace_obj(act["object"])
+                    act["object"] = new_obj
+                    if verb_hint:
+                        act["_verb"] = verb_hint
+                if c.get("type") == "intrinsic" and c.get("name") == "not":
+                    for arg in c.get("args", []):
+                        if isinstance(arg, dict) and arg.get("object"):
+                            new_obj, verb_hint = _replace_obj(arg["object"])
+                            arg["object"] = new_obj
+                            if verb_hint:
+                                arg["_verb"] = verb_hint
+            cons = r.get("consequence", {})
+            if isinstance(cons, dict) and "act" in cons:
+                act = cons["act"]
+                if isinstance(act, dict) and act.get("object"):
+                    new_obj, verb_hint = _replace_obj(act["object"])
+                    act["object"] = new_obj
+                    if verb_hint:
+                        act["_verb"] = verb_hint
+
+    ir["objects"] = objects_list
+    return ir
+
+
+def _apply_counter_act_correction(ir: dict) -> dict:
+    """
+    Convert counter-act to positive event when: harm verb + compensatory obligation.
+    Applies only to rule conditions, never norms or procedures.
+    """
+    from src.dsl.decomposition import decompose
+    from src.dsl.verb_registry import load_canonical_verbs, HARM_VERBS
+
+    canonical_verbs = load_canonical_verbs()
+    objects_by_id = _build_objects_by_id(ir)
+
+    for r in ir.get("rules", []):
+        if not isinstance(r, dict):
+            continue
+        cons = r.get("consequence", {})
+        if not isinstance(cons, dict) or cons.get("modality") != "obligation":
+            continue
+        act = cons.get("act", {})
+        if not isinstance(act, dict):
+            continue
+        cons_obj = act.get("object", "")
+        cons_obj_type = objects_by_id.get(cons_obj, "")
+        if cons_obj_type != "money":
+            continue
+
+        for c in r.get("conditions", []):
+            if not isinstance(c, dict) or c.get("type") != "counter":
+                continue
+            obj_id = c.get("object", "")
+            verb = c.get("_verb")
+            if not verb:
+                decomp = decompose(obj_id, canonical_verbs)
+                if not decomp:
+                    continue
+                verb, _ = decomp
+            if verb not in HARM_VERBS:
+                continue
+            c["type"] = "simple"
+            if not c.get("_verb"):
+                c["_verb"] = verb
+            break
+
+    return ir
+
+
+def _prune_unused_objects(ir: dict) -> dict:
+    """Remove objects not referenced in acts, norms, rules, procedures."""
+    refs = _collect_referenced_object_ids(ir)
+    objects = [o for o in ir.get("objects", []) if isinstance(o, dict) and o.get("id") and o["id"] in refs]
+    ir["objects"] = objects
+    return ir
+
+
+def _expand_guarantor_rules(ir: dict) -> dict:
+    """
+    Expand guarantor rules with abstract tenant_obligations into concrete rules,
+    one per primary obligation from norms only.
+
+    Guarantor expansion derives from norms (primary contractual obligations),
+    not from rule consequences (liabilities). This respects the structure:
+    primary obligations -> breach -> liability rules.
+    """
+    objects_by_id = _build_objects_by_id(ir)
+    tenant_payment_objects = [
+        (n.get("act") or {}).get("object")
+        for n in ir.get("norms", [])
+        if isinstance(n, dict)
+        and n.get("modality") == "obligation"
+        and (n.get("act") or {}).get("actor", "").lower() == "tenant"
+        and (n.get("act") or {}).get("object")
+    ]
+    tenant_payment_objects = list(dict.fromkeys(
+        oid for oid in tenant_payment_objects
+        if oid in objects_by_id and objects_by_id.get(oid) == "money"
+    ))
+
+    rules = []
+    for r in ir.get("rules", []):
+        if not isinstance(r, dict):
+            rules.append(r)
+            continue
+        cons = r.get("consequence", {})
+        act = cons.get("act", {}) if isinstance(cons, dict) else None
+        conds = r.get("conditions", [])
+        has_breach = any(
+            isinstance(c, dict)
+            and (str(c.get("object", "")).lower() in ("breach_obligation", "breach"))
+            for c in conds
+        )
+        has_tenant_oblig = act and str(act.get("object", "")).lower() in ("tenant_obligations", "tenant_obligation")
+
+        if has_breach and has_tenant_oblig:
+            base_id = r.get("id", "guarantor_rule")
+            asset_conds = [c for c in conds if isinstance(c, dict) and c.get("type") == "asset"]
+            for i, obj_id in enumerate(tenant_payment_objects):
+                new_rule = {
+                    "id": f"{base_id}_{i}" if i else base_id,
+                    "conditions": asset_conds + [
+                        {"type": "counter", "actor": "tenant", "object": obj_id, "target": "landlord"},
+                    ],
+                    "consequence": {
+                        "modality": "obligation",
+                        "act": {"actor": "guarantor", "object": obj_id, "target": "landlord"},
+                    },
+                }
+                if not any(c.get("name") == "GuaranteeActive" for c in asset_conds):
+                    new_rule["conditions"].insert(0, {"type": "asset", "name": "GuaranteeActive"})
+                rules.append(new_rule)
+        else:
+            rules.append(r)
+
+    ir["rules"] = rules
     return ir

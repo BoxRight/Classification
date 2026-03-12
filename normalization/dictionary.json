@@ -24,6 +24,8 @@
     "empresa": "company"
   },
   "objects": {
+    "breach_obligation": "advance_payment",
+    "tenant_obligations": "repair_cost",
     "renta_mensual": "monthly_rent",
     "renta": "monthly_rent",
     "inmueble": "property",
@@ -73,7 +75,14 @@
     "ceder": "transfer",
     "recibir": "receive",
     "conservar": "maintain",
-    "mantener": "maintain"
+    "mantener": "maintain",
+    "damage": "damage",
+    "dañar": "damage",
+    "notify": "notify",
+    "notificar": "notify",
+    "cancel": "cancel",
+    "cancelar": "cancel",
+    "perform": "perform"
   },
   "phrases": {
     "renta mensual": "monthly_rent",

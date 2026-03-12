@@ -5,7 +5,6 @@ enacted 2024-02-06
 vocabulary
     verb pay: pay
     verb provide: provide
-    verb transfer: transfer
 
 parties
     ReligiousAssociation: ReligiousAssociation Corp, legal person
@@ -18,10 +17,7 @@ parties
 
 objects
     MembershipFees: money
-    Donations: money
     ReligiousServices: service
-    RealEstateProperty: nonmovable
-    MovableAssets: movable
 
 article 1 Generated
     fact asset ReligiousAssociationLegalExistence is present
@@ -29,22 +25,22 @@ article 1 Generated
     fact asset MembershipRelation is present
     fact liability UnpaidFees is present
     obligation Members must pay MembershipFees to ReligiousAssociation.
-    obligation Members must perform AssemblyAttendance to GeneralAssembly.
-    obligation BoardOfDirectors must perform PeriodicReporting to GeneralAssembly.
+    obligation Members must pay MembershipFees to GeneralAssembly.
+    obligation BoardOfDirectors must pay MembershipFees to GeneralAssembly.
     privilege ReligiousAssociation may provide ReligiousServices to Members.
-    privilege GeneralAssembly may perform MemberExclusion to Members.
+    privilege GeneralAssembly may pay MembershipFees to Members.
     rule MembershipPaymentObligationRule
         If asset MembershipRelation is present
         then Members must pay MembershipFees to ReligiousAssociation.
     rule MemberExclusionRule
         If liability UnpaidFees is present
-        then GeneralAssembly may perform MemberExclusion to Members.
+        then GeneralAssembly may pay MembershipFees to Members.
     rule CriminalConvictionExclusionRule
         If certification CriminalConvictionAgainstAssociation is present
-        then GeneralAssembly may perform MemberExclusion to Members.
+        then GeneralAssembly may pay MembershipFees to Members.
     rule AssemblyAttendanceRule
         If asset MembershipRelation is present
-        then Members must perform AssemblyAttendance to GeneralAssembly.
+        then Members must pay MembershipFees to GeneralAssembly.
     rule BoardReportingRule
         If asset ReligiousAssociationLegalExistence is present
-        then BoardOfDirectors must perform PeriodicReporting to GeneralAssembly.
+        then BoardOfDirectors must pay MembershipFees to GeneralAssembly.

@@ -41,9 +41,9 @@ def main():
         help="List files without processing",
     )
     parser.add_argument(
-        "--validate",
+        "--no-validate",
         action="store_true",
-        help="Run basic validation on generated DSL after conversion",
+        help="Skip mandatory parse validation",
     )
     parser.add_argument(
         "--file",
@@ -107,14 +107,16 @@ def main():
     print(f"\nDone: {ok} succeeded, {fail} failed")
     print(f"DSL dataset: {output_path}")
 
-    if args.validate and fail == 0:
+    # Mandatory validation: run after conversion unless --no-validate; use Haskell parser when PARSER_CMD set
+    if not args.no_validate and fail == 0 and ok > 0:
         import subprocess
         validate_script = PROJECT_ROOT / "scripts" / "validate_dsl.py"
         result = subprocess.run(
-            ["python3", str(validate_script), "--dsl-dir", str(output_path), "--basic-only"],
+            ["python3", str(validate_script), "--dsl-dir", str(output_path)],
             cwd=PROJECT_ROOT,
         )
-        return result.returncode
+        if result.returncode != 0:
+            return result.returncode
 
     return 0 if fail == 0 else 1
 

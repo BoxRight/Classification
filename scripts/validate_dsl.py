@@ -2,8 +2,8 @@
 """
 Validate generated DSL files against the Haskell parser.
 
-When the Haskell compiler is available (e.g. via stack run or cabal run),
-this script invokes it to parse DSL files and report parse errors.
+Mandatory validation: when PARSER_CMD is set, runs full parse validation.
+Pipeline must fail if parse errors occur.
 
 Usage:
   python scripts/validate_dsl.py [--dsl-dir PATH] [--parser-cmd CMD] [--limit N]
@@ -12,6 +12,7 @@ If PARSER_CMD env var or --parser-cmd is set, runs that command on each DSL file
 Example: PARSER_CMD="stack run -- parse-dsl" or "cabal run compiler -- parse-dsl"
 
 When no parser is available, performs basic structural checks (law, authority, vocabulary, article).
+Returns non-zero exit code on any validation failure.
 """
 
 import argparse

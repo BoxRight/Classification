@@ -151,6 +151,30 @@
     {
       "id": "utility_services",
       "type": "service"
+    },
+    {
+      "id": "event",
+      "type": "service"
+    },
+    {
+      "id": "cancellation_notice",
+      "type": "service"
+    },
+    {
+      "id": "event_venue",
+      "type": "nonmovable"
+    },
+    {
+      "id": "repair_cost",
+      "type": "money"
+    },
+    {
+      "id": "advance_payment",
+      "type": "money"
+    },
+    {
+      "id": "final_payment",
+      "type": "money"
     }
   ],
   "counts": {

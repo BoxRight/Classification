@@ -3,41 +3,54 @@ authority private
 enacted 2024-01-29
 
 vocabulary
+    verb cancel: cancel
+    verb damage: damage
+    verb notify: notify
     verb pay: pay
-    verb provide: provide
+    verb sublease: sublease
     verb transfer: transfer
 
 parties
-    Landlord: Landlord Person, natural person
+    Landlord: Landlord Corp, legal person
     Tenant: Tenant Person, natural person
     Guarantor: Guarantor Person, natural person
 
 objects
     EventVenue: nonmovable
-    RentalPayment: money
     AdvancePayment: money
+    FinalPayment: money
     SecurityDeposit: money
-    VenueServices: service
+    RepairCost: money
+    CancellationNotice: service
+    Event: service
 
 article 1 Generated
-    fact Landlord owns EventVenue
     fact asset LeaseRelation is present
-    fact liability GuarantorLiability is present
+    fact asset SecurityDepositHeld is present
+    fact asset GuaranteeActive is present
+    fact asset EventScheduled is present
     obligation Tenant must pay AdvancePayment to Landlord.
-    obligation Tenant must pay RentalPayment to Landlord.
-    obligation Landlord must provide VenueServices to Tenant.
-    prohibition Tenant must not transfer EventVenue.
-    rule PaymentScheduleRule
+    obligation Tenant must pay FinalPayment to Landlord.
+    obligation Landlord must transfer EventVenue to Tenant.
+    prohibition Tenant must not sublease EventVenue.
+    rule AdvancePaymentRule
         If asset LeaseRelation is present
         then Tenant must pay AdvancePayment to Landlord.
+    rule FinalPaymentRule
+        If asset EventScheduled is present
+        then Tenant must pay FinalPayment to Landlord.
     rule DamageLiabilityRule
-        If Tenant fails to transfer EventVenue to Landlord
-        then Tenant must pay SecurityDeposit to Landlord.
+        If Tenant damages EventVenue
+        then Tenant must pay RepairCost to Landlord.
+    rule DepositReturnRule
+        If asset SecurityDepositHeld is present and Tenant does not damage EventVenue
+        then Landlord must pay SecurityDeposit to Tenant.
     rule GuarantorLiabilityRule
-        If liability GuarantorLiability is present
-        then Guarantor must pay RentalPayment to Landlord.
-    procedure RentalPaymentProcess:
-        Tenant pays AdvancePayment to Landlord.
-        Tenant pays RentalPayment to Landlord.
-    procedure EventCancellationProcess:
-        Tenant transfers EventVenue to Landlord.
+        If asset GuaranteeActive is present and Tenant fails to pay AdvancePayment to Landlord
+        then Guarantor must pay AdvancePayment to Landlord.
+    rule GuarantorLiabilityRule1
+        If asset GuaranteeActive is present and Tenant fails to pay FinalPayment to Landlord
+        then Guarantor must pay FinalPayment to Landlord.
+    procedure CancellationProcedure:
+        Tenant notifies CancellationNotice to Landlord.
+        Tenant cancels Event.
