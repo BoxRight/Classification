@@ -194,39 +194,13 @@ def _apply_rule_heuristics(ir: dict) -> None:
                     and cond_act.get("object") == cons_act.get("object")
                 )
                 if cond_has_simple_act or is_vacuous:
-                    # Replace condition with ForceMajeureEvent
+                    # Replace condition with ForceMajeureEvent (conditional fact, not default state)
                     r["conditions"] = [{"type": "asset", "name": "ForceMajeureEvent"}]
                     consequence["refrain"] = True
-                    # Ensure ForceMajeureEvent is in facts
-                    fact_names = {_to_snake(f.get("name", "")) for f in facts if isinstance(f, dict) and f.get("name")}
-                    if "force_majeure_event" not in fact_names:
-                        facts.append({"type": "asset", "name": "ForceMajeureEvent", "subject": None})
+                    # Do NOT add ForceMajeureEvent to facts: it is asserted only in scenarios
 
-        # Percentage penalty heuristic (late cancellation: daysBetween < 30 → 50% of advance)
-        if "cancellation" in rid and "notice" in rid and isinstance(consequence, dict):
-            cons_act = consequence.get("act")
-            if isinstance(cons_act, dict) and cons_act.get("object", "").lower() in (
-                "penalty_amount",
-                "penaltyamount",
-            ):
-                has_days_between_lt = False
-                for c in conditions:
-                    if (
-                        isinstance(c, dict)
-                        and c.get("type") == "intrinsic"
-                        and c.get("name") == "daysBetween"
-                    ):
-                        op = (c.get("operator") or "").strip().lower()
-                        if op in ("<", "lt", "lte", "<="):
-                            has_days_between_lt = True
-                            break
-                if has_days_between_lt:
-                    cons_act["object"] = "advance_payment"
-                    cons_act["amount"] = {
-                        "type": "intrinsic",
-                        "name": "percentage",
-                        "args": ["advance_payment", 50],
-                    }
+        # Percentage penalty: parser expects simple object in act position, not "percentage X N".
+        # Keep PenaltyAmount; LLM may emit percentage in IR but we preserve penalty_amount for DSL.
 
 
 def _build_objects_by_id(ir: dict) -> dict[str, str]:
