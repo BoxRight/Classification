@@ -1,5 +1,5 @@
 {
-  "law": "Contrato de Arrendamiento",
+  "law": "Contrato de Arrendamiento TMX 2.432.814",
   "authority": "private",
   "enacted": "2024-01-29",
   "imports": [
@@ -9,7 +9,7 @@
     {
       "id": "landlord",
       "type": "person",
-      "subtype": "physical"
+      "subtype": "legal"
     },
     {
       "id": "tenant",
@@ -28,7 +28,7 @@
       "type": "nonmovable"
     },
     {
-      "id": "rental_payment",
+      "id": "total_cost",
       "type": "money"
     },
     {
@@ -36,12 +36,20 @@
       "type": "money"
     },
     {
+      "id": "final_payment",
+      "type": "money"
+    },
+    {
       "id": "security_deposit",
       "type": "money"
     },
     {
-      "id": "venue_services",
-      "type": "service"
+      "id": "penalty_amount",
+      "type": "money"
+    },
+    {
+      "id": "repair_cost",
+      "type": "money"
     }
   ],
   "acts": [
@@ -53,51 +61,64 @@
       "target": "landlord"
     },
     {
-      "id": "pay_balance",
+      "id": "pay_final",
       "type": "simple",
       "actor": "tenant",
-      "object": "rental_payment",
+      "object": "final_payment",
       "target": "landlord"
     },
     {
       "id": "provide_venue",
       "type": "simple",
       "actor": "landlord",
-      "object": "venue_services",
+      "object": "event_venue",
       "target": "tenant"
     },
     {
       "id": "cancel_event",
       "type": "simple",
       "actor": "tenant",
-      "object": "event_venue",
+      "object": "cancel_event",
+      "target": null
+    },
+    {
+      "id": "notify_cancellation",
+      "type": "simple",
+      "actor": "tenant",
+      "object": "notify_cancellation",
       "target": "landlord"
     },
     {
-      "id": "damage_property",
+      "id": "cause_damage",
       "type": "counter",
       "actor": "tenant",
-      "object": "event_venue",
-      "target": "landlord"
+      "object": "damage_property",
+      "target": null
     }
   ],
   "facts": [
     {
-      "type": "ownership",
-      "name": "venue_ownership",
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "SecurityDepositHeld",
       "subject": "landlord",
       "value": null
     },
     {
       "type": "asset",
-      "name": "lease_relation",
-      "subject": null,
+      "name": "GuaranteeActive",
+      "subject": "guarantor",
       "value": null
     },
     {
-      "type": "liability",
-      "name": "guarantor_liability",
-      "subject": "guarantor",
+      "type": "asset",
+      "name": "EventScheduled",
+      "subject": null,
       "value": null
     }
   ],
@@ -118,7 +139,7 @@
         "id": null,
         "type": "simple",
         "actor": "tenant",
-        "object": "rental_payment",
+        "object": "final_payment",
         "target": "landlord"
       }
     },
@@ -128,7 +149,7 @@
         "id": null,
         "type": "simple",
         "actor": "landlord",
-        "object": "venue_services",
+        "object": "event_venue",
         "target": "tenant"
       }
     },
@@ -138,18 +159,18 @@
         "id": null,
         "type": "simple",
         "actor": "tenant",
-        "object": "event_venue",
-        "target": "third_party"
+        "object": "subleasing",
+        "target": null
       }
     }
   ],
   "rules": [
     {
-      "id": "payment_schedule_rule",
+      "id": "advance_payment_rule",
       "conditions": [
         {
           "type": "asset",
-          "name": "lease_relation"
+          "name": "LeaseRelation"
         }
       ],
       "consequence": {
@@ -163,13 +184,69 @@
       }
     },
     {
-      "id": "cancellation_penalty_rule",
+      "id": "final_payment_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "EventScheduled"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "final_payment",
+          "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "cancellation_with_notice_rule",
       "conditions": [
         {
           "type": "simple",
           "actor": "tenant",
-          "object": "event_venue",
+          "object": "cancel_event",
+          "target": null
+        },
+        {
+          "type": "intrinsic",
+          "name": "daysBetween",
+          "args": [
+            "notice_date",
+            "event_date",
+            30
+          ]
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "penalty_amount",
           "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "cancellation_without_notice_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "tenant",
+          "object": "cancel_event",
+          "target": null
+        },
+        {
+          "type": "intrinsic",
+          "name": "daysBetween",
+          "args": [
+            "notice_date",
+            "event_date",
+            0
+          ]
         }
       ],
       "consequence": {
@@ -188,8 +265,8 @@
         {
           "type": "counter",
           "actor": "tenant",
-          "object": "event_venue",
-          "target": "landlord"
+          "object": "damage_property",
+          "target": null
         }
       ],
       "consequence": {
@@ -197,8 +274,58 @@
         "act": {
           "type": "simple",
           "actor": "tenant",
-          "object": "security_deposit",
+          "object": "repair_cost",
           "target": "landlord"
+        }
+      }
+    },
+    {
+      "id": "deposit_return_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "SecurityDepositHeld"
+        },
+        {
+          "type": "intrinsic",
+          "name": "not",
+          "args": [
+            {
+              "type": "counter",
+              "actor": "tenant",
+              "object": "damage_property",
+              "target": null
+            }
+          ]
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "security_deposit",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "force_majeure_rule",
+      "conditions": [
+        {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "force_majeure",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "landlord",
+          "object": "reschedule_event",
+          "target": "tenant"
         }
       }
     },
@@ -206,9 +333,14 @@
       "id": "guarantor_liability_rule",
       "conditions": [
         {
-          "type": "liability",
-          "name": "guarantor_liability",
-          "subject": "guarantor"
+          "type": "asset",
+          "name": "GuaranteeActive"
+        },
+        {
+          "type": "counter",
+          "actor": "tenant",
+          "object": "breach_obligation",
+          "target": null
         }
       ],
       "consequence": {
@@ -216,7 +348,7 @@
         "act": {
           "type": "simple",
           "actor": "guarantor",
-          "object": "rental_payment",
+          "object": "tenant_obligations",
           "target": "landlord"
         }
       }
@@ -224,21 +356,10 @@
   ],
   "procedures": [
     {
-      "name": "rental_payment_process",
+      "name": "cancellation_procedure",
       "steps": [
         {
-          "ref": "pay_advance"
-        },
-        {
-          "ref": "pay_balance"
-        }
-      ]
-    },
-    {
-      "name": "event_cancellation_process",
-      "steps": [
-        {
-          "description": "notify_30_days_advance"
+          "ref": "notify_cancellation"
         },
         {
           "ref": "cancel_event"

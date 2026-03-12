@@ -17,8 +17,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# Load API key from .env
-def load_env() -> str | None:
+# Load API keys from .env
+def load_env() -> tuple[str | None, str | None]:
+    """Return (anthropic_key, openrouter_key)."""
     try:
         from dotenv import load_dotenv
         load_dotenv(PROJECT_ROOT / ".env")
@@ -34,8 +35,9 @@ def load_env() -> str | None:
                         val = val.strip().strip('"').strip("'")
                         if key == "ANTHROPIC_API_KEY":
                             os.environ[key] = val
-                            break
-    return os.environ.get("ANTHROPIC_API_KEY")
+                        elif key == "OPENROUTER_API_KEY":
+                            os.environ[key] = val
+    return os.environ.get("ANTHROPIC_API_KEY"), os.environ.get("OPENROUTER_API_KEY")
 
 
 def get_spec_prompt() -> str:
@@ -61,19 +63,19 @@ def extract_json_from_response(text: str) -> dict:
     return json.loads(text)
 
 
-def generate_ir_for_document(
+def generate_ir_anthropic(
     text: str,
     spec: str,
-    agent_client,
-    model: str = "claude-sonnet-4-20250514",
+    client,
+    model: str,
     validation_errors: str | None = None,
 ) -> dict:
-    """Call Anthropic API to generate IR for a single document."""
+    """Call Anthropic API to generate IR."""
     user_content = f"Extract the Legal IR from the following document:\n\n{text}"
     if validation_errors:
         user_content += f"\n\n---\nYour previous output failed validation. Fix these errors and return valid JSON only:\n{validation_errors}"
 
-    response = agent_client.messages.create(
+    response = client.messages.create(
         model=model,
         max_tokens=8192,
         system=spec,
@@ -83,6 +85,46 @@ def generate_ir_for_document(
     if content.type != "text":
         raise ValueError(f"Unexpected response type: {content.type}")
     return extract_json_from_response(content.text)
+
+
+def generate_ir_openrouter(
+    text: str,
+    spec: str,
+    client,
+    model: str,
+    validation_errors: str | None = None,
+) -> dict:
+    """Call OpenRouter API (OpenAI-compatible) to generate IR."""
+    user_content = f"Extract the Legal IR from the following document:\n\n{text}"
+    if validation_errors:
+        user_content += f"\n\n---\nYour previous output failed validation. Fix these errors and return valid JSON only:\n{validation_errors}"
+
+    response = client.chat.completions.create(
+        model=model,
+        max_tokens=8192,
+        messages=[
+            {"role": "system", "content": spec},
+            {"role": "user", "content": user_content},
+        ],
+    )
+    content = response.choices[0].message.content
+    if not content:
+        raise ValueError("Empty response from OpenRouter")
+    return extract_json_from_response(content)
+
+
+def generate_ir_for_document(
+    text: str,
+    spec: str,
+    agent_client,
+    model: str,
+    validation_errors: str | None = None,
+    use_openrouter: bool = False,
+) -> dict:
+    """Call API to generate IR for a single document."""
+    if use_openrouter:
+        return generate_ir_openrouter(text, spec, agent_client, model, validation_errors)
+    return generate_ir_anthropic(text, spec, agent_client, model, validation_errors)
 
 
 def find_txt_files(root: Path) -> list[Path]:
@@ -122,8 +164,13 @@ def main():
     )
     parser.add_argument(
         "--model",
-        default="claude-sonnet-4-20250514",
-        help="Anthropic model to use",
+        default=None,
+        help="Model to use (default: claude-sonnet-4-20250514 for Anthropic, anthropic/claude-sonnet-4 for OpenRouter)",
+    )
+    parser.add_argument(
+        "--openrouter",
+        action="store_true",
+        help="Use OpenRouter API (requires OPENROUTER_API_KEY in .env)",
     )
     parser.add_argument(
         "--retry-on-invalid",
@@ -169,18 +216,35 @@ def main():
             print(f"  ... and {len(files_to_process) - 20} more")
         return 0
 
-    api_key = load_env()
-    if not api_key:
-        print("Error: ANTHROPIC_API_KEY not found in .env or environment")
-        return 1
+    anthropic_key, openrouter_key = load_env()
+    use_openrouter = args.openrouter
 
-    try:
-        import anthropic
-    except ImportError:
-        print("Error: anthropic package required. Run: pip install anthropic python-dotenv")
-        return 1
+    if use_openrouter:
+        if not openrouter_key:
+            print("Error: OPENROUTER_API_KEY not found in .env or environment")
+            return 1
+        try:
+            from openai import OpenAI
+            client = OpenAI(
+                api_key=openrouter_key,
+                base_url="https://openrouter.ai/api/v1",
+            )
+        except ImportError:
+            print("Error: openai package required for OpenRouter. Run: pip install openai python-dotenv")
+            return 1
+        model = args.model or "anthropic/claude-sonnet-4"
+    else:
+        if not anthropic_key:
+            print("Error: ANTHROPIC_API_KEY not found in .env or environment")
+            return 1
+        try:
+            import anthropic
+            client = anthropic.Anthropic(api_key=anthropic_key)
+        except ImportError:
+            print("Error: anthropic package required. Run: pip install anthropic python-dotenv")
+            return 1
+        model = args.model or "claude-sonnet-4-20250514"
 
-    client = anthropic.Anthropic(api_key=api_key)
     spec = get_spec_prompt()
 
     try:
@@ -210,7 +274,11 @@ def main():
             continue
 
         try:
-            ir_raw = generate_ir_for_document(text, spec, client, model=args.model)
+            ir_raw = generate_ir_for_document(
+                text, spec, client, model=model,
+                validation_errors=None,
+                use_openrouter=use_openrouter,
+            )
             source_meta = {"file": str(rel), "path": str(txt_path)}
 
             if validate_ir is not None and not args.no_validate:
@@ -221,7 +289,9 @@ def main():
                     if args.retry_on_invalid:
                         err_msg = str(ve)
                         ir_raw = generate_ir_for_document(
-                            text, spec, client, model=args.model, validation_errors=err_msg
+                            text, spec, client, model=model,
+                            validation_errors=err_msg,
+                            use_openrouter=use_openrouter,
                         )
                         try:
                             validated = validate_ir(ir_raw)
