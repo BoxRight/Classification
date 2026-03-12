@@ -13,7 +13,6 @@ parties
 objects
     LocalComercial: nonmovable
     MonthlyRent: money
-    ReciboPago: service
 
 article 1 Generated
     fact asset ContratoArrendamiento is present

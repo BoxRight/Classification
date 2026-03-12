@@ -15,7 +15,6 @@ parties
 objects
     ResidentialProperty: nonmovable
     MonthlyRent: money
-    SecurityDeposit: money
     PenaltyPayment: money
     UtilityServices: service
 
@@ -30,6 +29,12 @@ article 1 Generated
     rule RentPaymentObligation
         If asset LeaseRelation is present
         then Tenant must pay MonthlyRent to Landlord.
+    rule EarlyTerminationPenalty
+        If Tenant transfers ResidentialProperty
+        then Tenant must pay PenaltyPayment to Landlord.
+    rule HoldoverPenalty
+        If Tenant transfers ResidentialProperty
+        then Tenant must pay PenaltyPayment to Landlord.
     procedure RentPaymentProcedure:
         Tenant pays MonthlyRent to Landlord.
     procedure EarlyTerminationProcedure:

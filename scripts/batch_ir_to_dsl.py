@@ -56,6 +56,19 @@ def main():
         action="store_true",
         help="Duplicate artifacts to debug/<doc_id>/ for inspection (read-only)",
     )
+    parser.add_argument(
+        "--path",
+        type=str,
+        default=None,
+        help="Only process files under this subpath (e.g. Contratos, Contratos/Arrendamiento)",
+    )
+    parser.add_argument(
+        "--report",
+        type=str,
+        default=None,
+        metavar="FILE",
+        help="Write JSON report of results to FILE (success/fail per file)",
+    )
     args = parser.parse_args()
 
     downloads_path = Path(args.downloads).resolve()
@@ -66,6 +79,11 @@ def main():
         return 1
 
     ir_files = sorted(downloads_path.rglob("*_ir.json"))
+    if args.path:
+        prefix = Path(args.path).as_posix().strip("/")
+        if prefix:
+            ir_files = [p for p in ir_files if p.relative_to(downloads_path).as_posix().startswith(prefix)]
+        print(f"Filtered to {len(ir_files)} files under {args.path}")
     if args.file:
         arg_path = Path(args.file)
         file_path = (downloads_path / arg_path) if not arg_path.is_absolute() else arg_path
@@ -89,6 +107,7 @@ def main():
     output_path.mkdir(parents=True, exist_ok=True)
     ok = 0
     fail = 0
+    report_rows = [] if args.report else None
 
     for i, ir_path in enumerate(ir_files, 1):
         rel = ir_path.relative_to(downloads_path)
@@ -113,11 +132,24 @@ def main():
                 (debug_dir / "output.dsl").write_text(dsl, encoding="utf-8")
             print(f"  [{i}/{len(ir_files)}] OK {rel} -> {dsl_rel}")
             ok += 1
+            if report_rows is not None:
+                report_rows.append({"file": str(rel), "status": "ok", "dsl": str(dsl_rel)})
         except Exception as e:
             print(f"  [{i}/{len(ir_files)}] FAIL {rel}: {e}", file=sys.stderr)
             fail += 1
+            if report_rows is not None:
+                report_rows.append({"file": str(rel), "status": "fail", "error": str(e)})
 
     print(f"\nDone: {ok} succeeded, {fail} failed")
+    if args.report and report_rows:
+        report_path = Path(args.report).resolve()
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_data = {
+            "summary": {"ok": ok, "fail": fail, "total": len(ir_files)},
+            "results": report_rows,
+        }
+        report_path.write_text(json.dumps(report_data, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Report: {report_path}")
     print(f"DSL dataset: {output_path}")
 
     # Mandatory validation: run after conversion unless --no-validate; use Haskell parser when PARSER_CMD set

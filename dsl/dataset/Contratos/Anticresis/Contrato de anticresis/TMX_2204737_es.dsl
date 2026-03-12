@@ -13,9 +13,9 @@ parties
 
 objects
     ImmovableProperty: nonmovable
-    DebtAmount: money
     PropertyFruits: money
     UsufructRight: service
+    PenaltyPayment: money
 
 article 1 Generated
     fact liability DebtObligation is present
@@ -33,4 +33,4 @@ article 1 Generated
         then CreditorAnticresista must provide UsufructRight to DebtorAnticresista.
     rule DelayedRestitutionPenalty
         If CreditorAnticresista fails to provide UsufructRight to DebtorAnticresista
-        then CreditorAnticresista must perform PenaltyPayment to DebtorAnticresista.
+        then CreditorAnticresista must pay PenaltyPayment to DebtorAnticresista.

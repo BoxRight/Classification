@@ -3,8 +3,8 @@ authority private
 enacted 2024-08-08
 
 vocabulary
+    verb perform: perform
     verb provide: provide
-    verb transfer: transfer
 
 parties
     Landlord: Landlord Person, natural person
@@ -12,7 +12,6 @@ parties
 
 objects
     PersonalData: service
-    LeaseContract: service
 
 article 1 Generated
     fact asset LeaseRelation is present

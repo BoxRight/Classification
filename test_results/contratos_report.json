@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "ok": 10,
+    "fail": 0,
+    "total": 10
+  },
+  "results": [
+    {
+      "file": "Contratos/Anticresis/Contrato de anticresis/TMX_2204737_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Anticresis/Contrato de anticresis/TMX_2204737_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Aviso de privacidad para contrato de arrendamiento/TMX_2715906_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Aviso de privacidad para contrato de arrendamiento/TMX_2715906_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Certificación notarial de la existencia de contratos de arrendamiento celebrados sobre el inmueble/TMX_1376165_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Certificación notarial de la existencia de contratos de arrendamiento celebrados sobre el inmueble/TMX_1376165_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial con/TMX_1360813_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial con/TMX_1360813_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial sin/TMX_1360815_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contestación de demanda de terminación de contrato de arrendamiento de local comercial sin/TMX_1360815_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2432814_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2432814_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2641133_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contrato de Arrendamiento/TMX_2641133_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446402_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446402_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446403_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contrato de Arrendamiento Inmobiliario/TMX_2446403_es.dsl"
+    },
+    {
+      "file": "Contratos/Arrendamiento/Contrato de Arrendamiento de Vehículo/TMX_2642845_es_ir.json",
+      "status": "ok",
+      "dsl": "Contratos/Arrendamiento/Contrato de Arrendamiento de Vehículo/TMX_2642845_es.dsl"
+    }
+  ]
+}

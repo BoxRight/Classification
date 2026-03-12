@@ -214,6 +214,12 @@ def main():
         action="store_true",
         help="Duplicate artifacts to debug/<doc_id>/ for inspection (read-only)",
     )
+    parser.add_argument(
+        "--path",
+        type=str,
+        default=None,
+        help="Only process files under this subpath (e.g. Contratos, Contratos/Arrendamiento)",
+    )
     args = parser.parse_args()
 
     downloads_path = Path(args.downloads).resolve()
@@ -222,6 +228,11 @@ def main():
         return 1
 
     txt_files = find_txt_files(downloads_path)
+    if args.path:
+        prefix = Path(args.path).as_posix().strip("/")
+        if prefix:
+            txt_files = [p for p in txt_files if p.relative_to(downloads_path).as_posix().startswith(prefix)]
+        print(f"Filtered to {len(txt_files)} .txt files under {args.path}")
     if not txt_files:
         print(f"No .txt files found under {downloads_path}")
         return 0

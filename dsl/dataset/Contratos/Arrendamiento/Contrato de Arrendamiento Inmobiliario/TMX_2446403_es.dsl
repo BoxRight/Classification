@@ -15,9 +15,6 @@ parties
 objects
     CommercialPremises: nonmovable
     MonthlyRent: money
-    Deposit: money
-    PenaltyFee: money
-    LateFee: money
     Utilities: service
 
 article 1 Generated

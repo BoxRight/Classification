@@ -13,7 +13,6 @@ parties
 
 objects
     CommercialLease: service
-    RentPayments: money
     CommercialProperty: nonmovable
 
 article 1 Generated
