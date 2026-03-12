@@ -15,7 +15,6 @@ parties
 objects
     CommercialProperty: nonmovable
     MonthlyRent: money
-    SecurityDeposit: money
     InsuranceCoverage: service
 
 article 1 Generated
@@ -31,10 +30,10 @@ article 1 Generated
         then Tenant must pay MonthlyRent to Landlord.
     rule LatePaymentPenalty
         If Tenant fails to pay MonthlyRent to Landlord
-        then Tenant must perform Money to Landlord.
+        then Tenant must transfer CommercialProperty to Landlord.
     rule EarlyTerminationPenalty
         If Tenant fails to transfer CommercialProperty to Landlord
-        then Tenant must perform Money to Landlord.
+        then Tenant must transfer CommercialProperty to Landlord.
     rule GuarantorSolidarityRule
         If asset LeaseRelation is present
         then Guarantor must pay MonthlyRent to Landlord.

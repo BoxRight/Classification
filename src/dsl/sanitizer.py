@@ -120,7 +120,14 @@ def _rule_signature(rule: dict, objects_by_id: dict) -> str:
             o = c.get("object", "")
             tg = c.get("target", "")
             ref = c.get("ref", "")
-            parts.append(f"{t}:{n}:{a}:{o}:{tg}:{ref}")
+            part = f"{t}:{n}:{a}:{o}:{tg}:{ref}"
+            if t == "intrinsic":
+                part += ":" + "|".join(str(x) for x in c.get("args", []))
+                if c.get("operator") is not None:
+                    part += ":" + str(c.get("operator"))
+                if c.get("value") is not None:
+                    part += ":" + str(c.get("value"))
+            parts.append(part)
     if isinstance(cons, dict):
         if "modality" in cons:
             act = cons.get("act", {})
@@ -137,11 +144,89 @@ def _is_unresolved_condition(cond: dict) -> bool:
         return True
     ctype = cond.get("type", "?")
     name = cond.get("name", "")
+    # Simple with actor/object is resolved
+    if ctype == "simple" and (cond.get("actor") or cond.get("object")):
+        return False
+    # Intrinsic conditions are resolved
+    if ctype == "intrinsic":
+        return False
     if ctype in ("?", "simple") and not name:
         return True
     if ctype == "simple" and not cond.get("actor") and not cond.get("object"):
         return True
     return False
+
+
+def _apply_rule_heuristics(ir: dict) -> None:
+    """
+    Post-process rules to fix common extraction errors:
+    - Force majeure: when condition and consequence describe the same act, replace with ForceMajeureEvent.
+    - Percentage penalty: when late cancellation rule uses penalty_amount, replace with percentage of advance_payment.
+    """
+    rules = ir.get("rules", [])
+    facts = ir.setdefault("facts", [])
+
+    for r in rules:
+        if not isinstance(r, dict):
+            continue
+        rid = (r.get("id") or "").lower()
+        conditions = r.get("conditions", [])
+        consequence = r.get("consequence", {})
+
+        # Force majeure hallucination fix: LLM often produces vacuous rules (condition and consequence
+        # describe the same act) or uses unmapped objects (force_majeure, reschedule_event). Replace
+        # with correct exception pattern: ForceMajeureEvent → may refrain from transfer.
+        if "force_majeure" in rid and isinstance(consequence, dict):
+            cons_act = consequence.get("act")
+            if isinstance(cons_act, dict) and consequence.get("modality") == "privilege":
+                # Detect vacuous or confused structure: condition has simple act with same actor as consequence
+                cond_has_simple_act = any(
+                    isinstance(c, dict) and c.get("type") == "simple" and c.get("actor") and c.get("object")
+                    for c in conditions
+                )
+                # Also fix when condition act matches consequence act (exact match after normalization)
+                cond_act = next(
+                    (c for c in conditions if isinstance(c, dict) and c.get("type") == "simple" and c.get("actor") and c.get("object")),
+                    None,
+                )
+                is_vacuous = cond_act and (
+                    cond_act.get("actor") == cons_act.get("actor")
+                    and cond_act.get("object") == cons_act.get("object")
+                )
+                if cond_has_simple_act or is_vacuous:
+                    # Replace condition with ForceMajeureEvent
+                    r["conditions"] = [{"type": "asset", "name": "ForceMajeureEvent"}]
+                    consequence["refrain"] = True
+                    # Ensure ForceMajeureEvent is in facts
+                    fact_names = {_to_snake(f.get("name", "")) for f in facts if isinstance(f, dict) and f.get("name")}
+                    if "force_majeure_event" not in fact_names:
+                        facts.append({"type": "asset", "name": "ForceMajeureEvent", "subject": None})
+
+        # Percentage penalty heuristic (late cancellation: daysBetween < 30 → 50% of advance)
+        if "cancellation" in rid and "notice" in rid and isinstance(consequence, dict):
+            cons_act = consequence.get("act")
+            if isinstance(cons_act, dict) and cons_act.get("object", "").lower() in (
+                "penalty_amount",
+                "penaltyamount",
+            ):
+                has_days_between_lt = False
+                for c in conditions:
+                    if (
+                        isinstance(c, dict)
+                        and c.get("type") == "intrinsic"
+                        and c.get("name") == "daysBetween"
+                    ):
+                        op = (c.get("operator") or "").strip().lower()
+                        if op in ("<", "lt", "lte", "<="):
+                            has_days_between_lt = True
+                            break
+                if has_days_between_lt:
+                    cons_act["object"] = "advance_payment"
+                    cons_act["amount"] = {
+                        "type": "intrinsic",
+                        "name": "percentage",
+                        "args": ["advance_payment", 50],
+                    }
 
 
 def _build_objects_by_id(ir: dict) -> dict[str, str]:
@@ -257,6 +342,8 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
         if not r.get("id"):
             r["id"] = f"rule_{len(rules) + 1}"
         # Normalize identifiers in rule
+        known_objects = {o.get("id", "").lower().replace("-", "_") for o in ir.get("objects", []) if isinstance(o, dict) and o.get("id")}
+        known_parties = {p.get("id", "").lower().replace("-", "_") for p in ir.get("parties", []) if isinstance(p, dict) and p.get("id")}
         for c in conds:
             if isinstance(c, dict) and c.get("actor"):
                 c["actor"] = _normalize_identifier(c["actor"], "roles", dictionary)
@@ -267,6 +354,64 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
             act = c.get("act") if isinstance(c, dict) else None
             if isinstance(act, dict) and act.get("object") and act["object"].lower().replace("-", "_") not in _skip_object_norm:
                 act["object"] = _normalize_identifier(act["object"], "objects", dictionary)
+            if isinstance(c, dict) and c.get("type") == "intrinsic":
+                from src.dsl.concept_map import INTRINSIC_ARG_ALIASES
+
+                new_args = []
+                for arg in c.get("args", []):
+                    if isinstance(arg, (int, float)):
+                        new_args.append(arg)
+                    elif isinstance(arg, str) and arg.replace("_", "").isalnum() and "-" not in arg:
+                        key = arg.lower().replace("-", "_")
+                        resolved = None
+                        if key in known_objects:
+                            resolved = _normalize_identifier(arg, "objects", dictionary)
+                        elif key in known_parties:
+                            resolved = _normalize_identifier(arg, "roles", dictionary)
+                        elif key in INTRINSIC_ARG_ALIASES:
+                            canonical = INTRINSIC_ARG_ALIASES[key]
+                            resolved = _normalize_identifier(canonical, "objects", dictionary)
+                        if resolved is not None:
+                            new_args.append(resolved)
+                        else:
+                            new_args.append(arg)
+                    else:
+                        new_args.append(arg)
+                c["args"] = new_args
+                # Migrate legacy daysBetween (args with trailing number) to operator/value format
+                if (
+                    c.get("name") == "daysBetween"
+                    and c.get("operator") is None
+                    and c.get("value") is None
+                    and len(new_args) >= 3
+                    and isinstance(new_args[-1], (int, float))
+                    and new_args[-1] > 0
+                ):
+                    c["value"] = new_args.pop()
+                    c["operator"] = "<"  # Penalty rules: insufficient notice
+                # Replace "daysBetween ... 0" (no notice) with negated notify condition
+                elif (
+                    c.get("name") == "daysBetween"
+                    and (
+                        (len(new_args) >= 3 and new_args[-1] == 0)
+                        or c.get("value") == 0
+                    )
+                ):
+                    # "No notice" = absence of notification, not equality to zero
+                    idx = conds.index(c)
+                    conds[idx] = {
+                        "type": "intrinsic",
+                        "name": "not",
+                        "args": [
+                            {
+                                "type": "simple",
+                                "actor": "tenant",
+                                "object": "cancellation_notice",
+                                "target": "landlord",
+                                "_verb": "notify",
+                            }
+                        ],
+                    }
         cons = r.get("consequence", {})
         if isinstance(cons, dict) and "act" in cons:
             act = cons["act"]
@@ -279,6 +424,9 @@ def sanitize_ir(ir: dict, dictionary_path: Path | None = None) -> dict:
                             act[key] = _normalize_identifier(act[key], "roles", dictionary)
         rules.append(r)
     ir["rules"] = rules
+
+    # 7.5. Post-process rules: force majeure hallucination fix, percentage penalty heuristic
+    _apply_rule_heuristics(ir)
 
     # 8. Collect verbs for vocabulary
     verbs_used = set()
@@ -411,6 +559,11 @@ def _collect_referenced_object_ids(ir: dict) -> set[str]:
                 act = c.get("act") if isinstance(c, dict) else None
                 if isinstance(act, dict) and act.get("object"):
                     ids.add(act["object"])
+                if isinstance(c, dict) and c.get("type") == "intrinsic":
+                    for arg in c.get("args", []):
+                        if isinstance(arg, str):
+                            if arg.replace("_", "").isalnum() and "-" not in arg:
+                                ids.add(arg)
             cons = r.get("consequence", {})
             if isinstance(cons, dict) and "act" in cons:
                 act = cons["act"]

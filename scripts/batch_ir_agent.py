@@ -132,6 +132,33 @@ def find_txt_files(root: Path) -> list[Path]:
     return sorted(root.rglob("*.txt"))
 
 
+def segment_clauses(text: str) -> list[str]:
+    """
+    Simple clause segmentation: split on blank lines and on lines matching
+    numbered sections (1., 2.) or headings (CLÁUSULA, Artículo).
+    Returns a JSON-serializable list of clause strings.
+    """
+    clauses = []
+    current = []
+    split_pattern = re.compile(r"^(\d+\.|CLÁUSULA|Artículo)\s", re.IGNORECASE)
+
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if not stripped:
+            if current:
+                clauses.append("\n".join(current))
+                current = []
+        elif split_pattern.match(stripped) and current:
+            clauses.append("\n".join(current))
+            current = [stripped]
+        else:
+            current.append(stripped)
+
+    if current:
+        clauses.append("\n".join(current))
+    return clauses
+
+
 def main():
     parser = argparse.ArgumentParser(description="Batch IR generation via Anthropic agent")
     parser.add_argument(
@@ -181,6 +208,11 @@ def main():
         "--no-validate",
         action="store_true",
         help="Skip Pydantic validation (save raw output)",
+    )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Duplicate artifacts to debug/<doc_id>/ for inspection (read-only)",
     )
     args = parser.parse_args()
 
@@ -309,6 +341,17 @@ def main():
 
             ir["_source"] = source_meta
             out_path.write_text(json.dumps(ir, indent=2, ensure_ascii=False), encoding="utf-8")
+            if args.debug:
+                doc_id = txt_path.stem
+                debug_dir = PROJECT_ROOT / "debug" / doc_id
+                debug_dir.mkdir(parents=True, exist_ok=True)
+                (debug_dir / "raw_ir.json").write_text(
+                    json.dumps(ir, indent=2, ensure_ascii=False), encoding="utf-8"
+                )
+                clauses = segment_clauses(text)
+                (debug_dir / "clauses.json").write_text(
+                    json.dumps(clauses, indent=2, ensure_ascii=False), encoding="utf-8"
+                )
             print(f"  [{i}/{len(files_to_process)}] OK {rel} -> {out_path.name}")
             ok += 1
         except Exception as e:

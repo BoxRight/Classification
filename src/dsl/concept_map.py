@@ -18,3 +18,14 @@ SYNTHETIC_MAP: dict[str, str] = {
 VERB_HINTS: dict[str, str] = {
     "subleasing": "sublease",
 }
+
+# Map common temporal/date identifiers in intrinsic args to canonical object ids.
+# Used when normalizing intrinsic predicate args (e.g. daysBetween) so they refer
+# to declared objects instead of undeclared identifiers like notice_date.
+INTRINSIC_ARG_ALIASES: dict[str, str] = {
+    "notice_date": "cancellation_notice",
+    "notification_date": "cancellation_notice",
+    "cancellation_date": "cancellation_notice",
+    "event_date": "event",
+    "filing_date": "event",
+}

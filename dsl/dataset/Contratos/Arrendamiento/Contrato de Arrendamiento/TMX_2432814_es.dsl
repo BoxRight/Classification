@@ -21,14 +21,15 @@ objects
     FinalPayment: money
     SecurityDeposit: money
     RepairCost: money
-    CancellationNotice: service
     Event: service
+    CancellationNotice: service
 
 article 1 Generated
     fact asset LeaseRelation is present
     fact asset SecurityDepositHeld is present
     fact asset GuaranteeActive is present
     fact asset EventScheduled is present
+    fact asset ForceMajeureEvent is present
     obligation Tenant must pay AdvancePayment to Landlord.
     obligation Tenant must pay FinalPayment to Landlord.
     obligation Landlord must transfer EventVenue to Tenant.
@@ -39,12 +40,21 @@ article 1 Generated
     rule FinalPaymentRule
         If asset EventScheduled is present
         then Tenant must pay FinalPayment to Landlord.
+    rule CancellationWithNoticeRule
+        If Tenant cancels Event and daysBetween CancellationNotice Event < 30
+        then Tenant must pay percentage AdvancePayment 50 to Landlord.
+    rule CancellationWithoutNoticeRule
+        If Tenant cancels Event and Tenant does not notify CancellationNotice to Landlord
+        then Tenant must pay AdvancePayment to Landlord.
     rule DamageLiabilityRule
         If Tenant damages EventVenue
         then Tenant must pay RepairCost to Landlord.
     rule DepositReturnRule
         If asset SecurityDepositHeld is present and Tenant does not damage EventVenue
         then Landlord must pay SecurityDeposit to Tenant.
+    rule ForceMajeureRule
+        If asset ForceMajeureEvent is present
+        then Landlord may refrain from transfer EventVenue to Tenant.
     rule GuarantorLiabilityRule
         If asset GuaranteeActive is present and Tenant fails to pay AdvancePayment to Landlord
         then Guarantor must pay AdvancePayment to Landlord.

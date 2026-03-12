@@ -184,7 +184,10 @@ def _render_action_phrase(
 
 
 def render_condition(
-    cond: dict, objects_by_id: dict[str, str], registry: NameRegistry
+    cond: dict,
+    objects_by_id: dict[str, str],
+    registry: NameRegistry,
+    known_ids: set[str] | None = None,
 ) -> str | None:
     """Render a rule condition to parser-supported DSL string. Returns None if unsupported."""
     if not isinstance(cond, dict):
@@ -217,7 +220,10 @@ def render_condition(
             if negated.get("type") == "counter" or ("actor" in negated and "object" in negated):
                 actor = registry.get(negated.get("actor", ""))
                 obj = registry.get(negated.get("object", ""))
+                target = negated.get("target")
                 verb = infer_verb(negated, objects_by_id, for_counteract=True)
+                if target:
+                    return f"{actor} does not {verb} {obj} to {registry.get(target)}"
                 return f"{actor} does not {verb} {obj}"
         return None
 
@@ -225,8 +231,31 @@ def render_condition(
     if ctype == "intrinsic":
         intrinsic_name = cond.get("name", "")
         args = cond.get("args", [])
+        value = cond.get("value")
+        operator = cond.get("operator")
         if intrinsic_name in PARSER_INTRINSICS and args:
-            args_str = " ".join(str(a) for a in args)
+            ids = known_ids if known_ids is not None else set(objects_by_id)
+            args_rendered = []
+            for a in args:
+                if isinstance(a, (int, float)):
+                    args_rendered.append(str(a))
+                elif isinstance(a, str):
+                    if a in ids:
+                        args_rendered.append(registry.get(a))
+                    else:
+                        args_rendered.append(a)
+                else:
+                    args_rendered.append(str(a))
+            # When operator and value are present, append symbolic operator and value
+            if operator is not None and value is not None:
+                op_str = str(operator).strip()
+                if op_str not in ("<", "<=", ">", ">="):
+                    op_str = {"lt": "<", "lte": "<=", "gt": ">", "gte": ">="}.get(
+                        op_str.lower(), op_str
+                    )
+                args_rendered.append(op_str)
+                args_rendered.append(str(value))
+            args_str = " ".join(args_rendered)
             return f"{intrinsic_name} {args_str}"
         return None
     # Counter condition: Actor fails to verb Object to Target
@@ -275,17 +304,29 @@ def render_consequence(
             if ref and ref in acts_by_id:
                 act = acts_by_id[ref]
             modality = cons["modality"]
-            return _render_norm_sentence(modality, act, objects_by_id, registry)
+            refrain = cons.get("refrain") or cons.get("refrain_from")
+            return _render_norm_sentence(modality, act, objects_by_id, registry, refrain=refrain)
     return None
 
 
 def _render_norm_sentence(
-    modality: str, act: dict, objects_by_id: dict[str, str], registry: NameRegistry
+    modality: str, act: dict, objects_by_id: dict[str, str], registry: NameRegistry, *, refrain: bool = False
 ) -> str:
     """Render norm as modality sentence (for use in article clauses or rule consequence)."""
     actor = registry.get(act.get("actor", ""))
     obj_id = act.get("object", "")
-    obj_str = registry.get(obj_id) if obj_id else ""
+    amount = act.get("amount")
+    if isinstance(amount, dict) and amount.get("type") == "intrinsic" and amount.get("name") == "percentage":
+        args = amount.get("args", [])
+        if len(args) >= 2:
+            base_id = args[0] if isinstance(args[0], str) else obj_id
+            pct = args[1] if len(args) > 1 else 50
+            base_str = registry.get(base_id) if base_id else ""
+            obj_str = f"percentage {base_str} {pct}"
+        else:
+            obj_str = registry.get(obj_id) if obj_id else ""
+    else:
+        obj_str = registry.get(obj_id) if obj_id else ""
     target = act.get("target")
     verb = infer_verb(act, objects_by_id)
     target_str = registry.get(target) if target else ""
@@ -300,6 +341,10 @@ def _render_norm_sentence(
     if modality == "prohibition":
         return f"{actor} must not {verb} {obj_str}."
     if modality == "privilege":
+        if refrain:
+            if target_str:
+                return f"{actor} may refrain from {verb} {obj_str} to {target_str}."
+            return f"{actor} may refrain from {verb} {obj_str}."
         if target_str:
             return f"{actor} may {verb} {obj_str} to {target_str}."
         return f"{actor} may {verb} {obj_str}."
@@ -444,13 +489,16 @@ def render_article_clauses(
                     clauses.append(f"    {line}")
 
     # Rules
+    known_ids = set(objects_by_id) | {
+        p.get("id") for p in ir.get("parties", []) if isinstance(p, dict) and p.get("id")
+    }
     for i, r in enumerate(ir.get("rules", [])):
         if not isinstance(r, dict):
             continue
         rule_name = registry.get(r.get("id") or f"rule_{i + 1}")
         cond_strs = []
         for c in r.get("conditions", []):
-            cstr = render_condition(c, objects_by_id, registry)
+            cstr = render_condition(c, objects_by_id, registry, known_ids)
             if cstr:
                 cond_strs.append(cstr)
         if not cond_strs:

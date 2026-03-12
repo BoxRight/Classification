@@ -51,6 +51,11 @@ def main():
         default=None,
         help="Process only this _ir.json file (path relative to downloads or absolute)",
     )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Duplicate artifacts to debug/<doc_id>/ for inspection (read-only)",
+    )
     args = parser.parse_args()
 
     downloads_path = Path(args.downloads).resolve()
@@ -94,10 +99,18 @@ def main():
 
         try:
             ir = json.loads(ir_path.read_text(encoding="utf-8"))
-            ir = sanitize_ir(ir)
-            dsl = render_ir(ir)
+            ir_sanitized = sanitize_ir(ir)
+            dsl = render_ir(ir_sanitized)
             out_path.parent.mkdir(parents=True, exist_ok=True)
             out_path.write_text(dsl, encoding="utf-8")
+            if args.debug:
+                doc_id = rel.stem.replace("_ir", "")
+                debug_dir = PROJECT_ROOT / "debug" / doc_id
+                debug_dir.mkdir(parents=True, exist_ok=True)
+                (debug_dir / "sanitized_ir.json").write_text(
+                    json.dumps(ir_sanitized, indent=2, ensure_ascii=False), encoding="utf-8"
+                )
+                (debug_dir / "output.dsl").write_text(dsl, encoding="utf-8")
             print(f"  [{i}/{len(ir_files)}] OK {rel} -> {dsl_rel}")
             ok += 1
         except Exception as e:

@@ -310,6 +310,104 @@ Example:
 
 ---
 
+## MANDATORY INTRINSIC EXTRACTION
+
+Whenever a clause contains any of the following, you **must** encode them as intrinsic predicates in rule conditions (not as plain acts or textual descriptions):
+
+- **Deadlines / notice periods**: "30 días antes", "con 15 días de anticipación", "within 30 days"
+- **Filing windows**: "dentro de X días", "entre fecha A y B"
+- **Percentages**: "50% del anticipo", "por ciento", "porcentaje"
+- **Numeric thresholds**: "más de X", "menos de Y", "superior a", "inferior a"
+- **Penalties tied to time**: "si cancela con menos de 30 días"
+
+**Threshold vs equality**: When a clause states "X days before", "within X days", "con X días de anticipación", or "con menos de X días", encode the condition as a **threshold comparison** (`<`, `>`, `>=`, `<=`), **never as equality**. The number is a boundary, not an exact value.
+
+**"No notice" vs "late notice"**: If the contract distinguishes (1) cancellation with insufficient notice (e.g. less than 30 days) and (2) cancellation without any notice, model them as separate rules:
+- **Late notice** (insufficient days): use `daysBetween` with `operator: "<"` and `value: 30`.
+- **No notice** (absence of notification): use the **negated act** condition: `{ "type": "intrinsic", "name": "not", "args": [{ "type": "simple", "actor": "tenant", "object": "cancellation_notice", "target": "landlord" }] }`. Do **not** use `daysBetween ... 0`; that incorrectly means "exactly zero days".
+
+**Intrinsic predicate schema** (for temporal and numeric conditions with thresholds):
+
+```json
+{
+  "type": "intrinsic",
+  "name": "daysBetween",
+  "args": ["CancellationNotice", "Event"],
+  "value": 30,
+  "operator": "<"
+}
+```
+
+- **args**: The measured relation (object ids only; use IR objects like CancellationNotice, Event).
+- **value**: The threshold number.
+- **operator**: One of `>=`, `>`, `<`, `<=`. Omit for exact equality only when the text explicitly states equality.
+
+Encoding rules:
+
+- "con 30 días de anticipación" (at least 30 days before) → `operator: ">="`, `value: 30`
+- "con menos de 30 días" (less than 30 days; penalty applies) → `operator: "<"`, `value: 30`
+- "50% del anticipo" → use `percentage` intrinsic with `args: ["AdvancePayment", 50]`
+
+Examples (Spanish):
+
+- "Si cancela con menos de 30 días de anticipación" (penalty when insufficient notice)
+  → `{ "type": "intrinsic", "name": "daysBetween", "args": ["CancellationNotice", "Event"], "value": 30, "operator": "<" }`
+
+- "El arrendatario debe notificar con 30 días de anticipación" (obligation requires minimum notice)
+  → `{ "type": "intrinsic", "name": "daysBetween", "args": ["CancellationNotice", "Event"], "value": 30, "operator": ">=" }`
+
+- "El 50% del anticipo como penalidad"
+  → `{ "type": "intrinsic", "name": "percentage", "args": ["AdvancePayment", 50] }`
+
+**Percentage penalties in consequences**: When the contract states a penalty as a percentage of an amount (e.g. "50% del anticipo", "pena convencional de 50% del anticipo"), encode it in the rule consequence using an amount modifier. Add to the act: `"amount": { "type": "intrinsic", "name": "percentage", "args": ["AdvancePayment", 50] }` with the base object. The consequence then represents "pay 50% of AdvancePayment" rather than an abstract PenaltyAmount.
+
+Do not omit intrinsic predicates when the source text clearly specifies temporal or numeric conditions.
+
+**Force majeure**: Force majeure clauses (caso fortuito, fuerza mayor, incendio, terremoto, etc.) must produce a rule where:
+- The **condition** is a natural event or institutional fact (e.g. `naturalEvent Fire`, `naturalEvent Earthquake`, or `asset ForceMajeureEvent`).
+- The **consequence** is an exemption from the obligation (e.g. Landlord may refrain from transfer EventVenue to Tenant).
+Do not produce rules where the condition and consequence are the same act.
+
+---
+
+## EXCEPTION CLAUSES
+
+When a clause states that a party is **not responsible**, **not liable**, or **not in breach** due to external events (fire, earthquake, natural disaster, force majeure, caso fortuito, fuerza mayor), create:
+
+1. An **institutional fact** representing the event (add to `facts`):
+   ```json
+   { "type": "asset", "name": "ForceMajeureEvent" }
+   ```
+
+2. A **rule** that suspends or waives the affected obligation:
+   ```json
+   {
+     "id": "force_majeure_exception",
+     "conditions": [{ "type": "asset", "name": "ForceMajeureEvent" }],
+     "consequence": {
+       "modality": "privilege",
+       "act": {
+         "type": "simple",
+         "actor": "landlord",
+         "object": "event_venue",
+         "target": "tenant"
+       }
+     }
+   }
+   ```
+
+The consequence must express **obligation suspension** (e.g. Landlord may refrain from transfer EventVenue to Tenant). Never produce a rule where the condition and consequence describe the same act.
+
+**Text-to-IR mapping**:
+
+| Text fragment | IR representation |
+|---------------|-------------------|
+| "caso fortuito o fuerza mayor" | `ForceMajeureEvent` |
+| "incendio, temblor u otros acontecimientos de la naturaleza" | condition events |
+| "no incurrirá en incumplimiento" | privilege / exemption |
+
+---
+
 ## RULES
 
 Rules generate norms or facts.
