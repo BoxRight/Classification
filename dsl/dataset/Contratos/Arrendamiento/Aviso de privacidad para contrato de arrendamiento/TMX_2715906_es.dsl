@@ -3,34 +3,40 @@ authority private
 enacted 2024-08-08
 
 vocabulary
-    verb perform: perform
+    verb pay: pay
     verb provide: provide
 
 parties
-    Landlord: Landlord Person, natural person
+    Landlord: Landlord Corp, legal person
     Tenant: Tenant Person, natural person
 
 objects
-    PersonalData: service
+    DatosPersonales: service
+    LeaseContract: service
 
 article 1 Generated
-    fact asset LeaseRelation is present
-    fact certification DataConsent is present
-    obligation Landlord must provide PersonalData to Tenant.
-    claim Tenant may demand PersonalData from Landlord.
-    claim Tenant may demand PersonalData from Landlord.
-    claim Tenant may demand PersonalData from Landlord.
-    claim Tenant may demand PersonalData from Landlord.
-    rule DataCollectionRule
-        If asset LeaseRelation is present
-        then Landlord must provide PersonalData to Tenant.
-    rule DataProtectionRule
-        If certification DataConsent is present
-        then Landlord must provide PersonalData to Tenant.
-    rule ArcoRightsRule
-        If asset LeaseRelation is present
-        then Tenant may demand PersonalData from Landlord.
-    procedure DataCollectionProcedure:
-        Landlord provides PersonalData to Tenant.
-        Landlord provides PersonalData to Tenant.
-        Landlord provides PersonalData to Tenant.
+    fact asset ContratoArrendamientoVigente is present
+    fact asset ConsentimientoOtorgado is present
+    fact certification DatosPersonalesRecopilados is present
+    obligation Landlord must provide DatosPersonales.
+    privilege Tenant may provide DatosPersonales to Landlord.
+    privilege Tenant may provide DatosPersonales to Landlord.
+    privilege Tenant may provide DatosPersonales to Landlord.
+    privilege Tenant may provide DatosPersonales to Landlord.
+    rule UsoDatosVerificacion
+        If asset ContratoArrendamientoVigente is present and certification DatosPersonalesRecopilados is present
+        then Landlord must provide DatosPersonales.
+    rule ConservacionDatos
+        If asset ContratoArrendamientoVigente is present
+        then Landlord must provide DatosPersonales.
+    rule EliminacionDatosPostContrato
+        If Landlord fails to provide LeaseContract
+        then Landlord must provide DatosPersonales.
+    rule DerechoAcceso
+        If certification DatosPersonalesRecopilados is present
+        then Tenant may provide DatosPersonales to Landlord.
+    rule RetiroConsentimiento
+        If asset ConsentimientoOtorgado is present
+        then Tenant may provide DatosPersonales to Landlord.
+    procedure EjercicioDerechosArco:
+        Arrendatario provides DatosPersonales to Arrendador.

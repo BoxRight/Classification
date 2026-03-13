@@ -7,88 +7,126 @@
   ],
   "parties": [
     {
-      "id": "landlord",
+      "id": "arrendador",
       "type": "person",
-      "subtype": "physical"
+      "subtype": "legal"
     },
     {
-      "id": "tenant",
+      "id": "arrendatario",
       "type": "person",
       "subtype": "physical"
     }
   ],
   "objects": [
     {
-      "id": "personal_data",
+      "id": "datos_personales",
       "type": "service"
     },
     {
-      "id": "lease_contract",
+      "id": "contrato_arrendamiento",
+      "type": "service"
+    },
+    {
+      "id": "aviso_privacidad",
       "type": "service"
     }
   ],
   "acts": [
     {
-      "id": "collect_data",
+      "id": "recopilar_datos",
       "type": "simple",
-      "actor": "landlord",
-      "object": "personal_data",
-      "target": "tenant"
+      "actor": "arrendador",
+      "object": "datos_personales",
+      "target": "arrendatario"
     },
     {
-      "id": "process_data",
+      "id": "verificar_identidad",
       "type": "simple",
-      "actor": "landlord",
-      "object": "personal_data",
-      "target": "tenant"
+      "actor": "arrendador",
+      "object": "datos_personales",
+      "target": null
     },
     {
-      "id": "store_data",
+      "id": "formalizar_contrato",
       "type": "simple",
-      "actor": "landlord",
-      "object": "personal_data",
-      "target": "tenant"
+      "actor": "arrendador",
+      "object": "contrato_arrendamiento",
+      "target": "arrendatario"
     },
     {
-      "id": "access_data",
+      "id": "administrar_contrato",
       "type": "simple",
-      "actor": "tenant",
-      "object": "personal_data",
-      "target": "landlord"
+      "actor": "arrendador",
+      "object": "contrato_arrendamiento",
+      "target": null
     },
     {
-      "id": "rectify_data",
+      "id": "conservar_datos",
       "type": "simple",
-      "actor": "tenant",
-      "object": "personal_data",
-      "target": "landlord"
+      "actor": "arrendador",
+      "object": "datos_personales",
+      "target": null
     },
     {
-      "id": "cancel_data",
+      "id": "eliminar_datos",
       "type": "simple",
-      "actor": "tenant",
-      "object": "personal_data",
-      "target": "landlord"
+      "actor": "arrendador",
+      "object": "datos_personales",
+      "target": null
     },
     {
-      "id": "oppose_treatment",
+      "id": "solicitar_acceso",
       "type": "simple",
-      "actor": "tenant",
-      "object": "personal_data",
-      "target": "landlord"
+      "actor": "arrendatario",
+      "object": "datos_personales",
+      "target": "arrendador"
+    },
+    {
+      "id": "rectificar_datos",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "datos_personales",
+      "target": "arrendador"
+    },
+    {
+      "id": "cancelar_datos",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "datos_personales",
+      "target": "arrendador"
+    },
+    {
+      "id": "oponerse_tratamiento",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "datos_personales",
+      "target": "arrendador"
+    },
+    {
+      "id": "retirar_consentimiento",
+      "type": "simple",
+      "actor": "arrendatario",
+      "object": "datos_personales",
+      "target": "arrendador"
     }
   ],
   "facts": [
     {
       "type": "asset",
-      "name": "LeaseRelation",
+      "name": "ContratoArrendamientoVigente",
       "subject": null,
       "value": null
     },
     {
+      "type": "asset",
+      "name": "ConsentimientoOtorgado",
+      "subject": "arrendatario",
+      "value": null
+    },
+    {
       "type": "certification",
-      "name": "DataConsent",
-      "subject": "tenant",
+      "name": "DatosPersonalesRecopilados",
+      "subject": "arrendador",
       "value": null
     }
   ],
@@ -98,117 +136,214 @@
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "landlord",
-        "object": "personal_data",
-        "target": "tenant"
+        "actor": "arrendador",
+        "object": "datos_personales",
+        "target": null
       }
     },
     {
-      "modality": "claim",
+      "modality": "privilege",
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "tenant",
-        "object": "personal_data",
-        "target": "landlord"
+        "actor": "arrendatario",
+        "object": "datos_personales",
+        "target": "arrendador"
       }
     },
     {
-      "modality": "claim",
+      "modality": "privilege",
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "tenant",
-        "object": "personal_data",
-        "target": "landlord"
+        "actor": "arrendatario",
+        "object": "datos_personales",
+        "target": "arrendador"
       }
     },
     {
-      "modality": "claim",
+      "modality": "privilege",
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "tenant",
-        "object": "personal_data",
-        "target": "landlord"
+        "actor": "arrendatario",
+        "object": "datos_personales",
+        "target": "arrendador"
       }
     },
     {
-      "modality": "claim",
+      "modality": "privilege",
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "tenant",
-        "object": "personal_data",
-        "target": "landlord"
+        "actor": "arrendatario",
+        "object": "datos_personales",
+        "target": "arrendador"
       }
     }
   ],
   "rules": [
     {
-      "id": "data_collection_rule",
+      "id": "uso_datos_verificacion",
       "conditions": [
         {
           "type": "asset",
-          "name": "LeaseRelation"
+          "name": "ContratoArrendamientoVigente"
+        },
+        {
+          "type": "certification",
+          "name": "DatosPersonalesRecopilados"
         }
       ],
       "consequence": {
         "modality": "obligation",
         "act": {
-          "ref": "collect_data"
+          "type": "simple",
+          "actor": "arrendador",
+          "object": "datos_personales",
+          "target": null
         }
       }
     },
     {
-      "id": "data_protection_rule",
+      "id": "conservacion_datos",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ContratoArrendamientoVigente"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendador",
+          "object": "datos_personales",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "eliminacion_datos_post_contrato",
+      "conditions": [
+        {
+          "type": "counter",
+          "actor": "arrendador",
+          "object": "contrato_arrendamiento",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "arrendador",
+          "object": "datos_personales",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "derecho_acceso",
       "conditions": [
         {
           "type": "certification",
-          "name": "DataConsent",
-          "subject": "tenant"
+          "name": "DatosPersonalesRecopilados"
         }
       ],
       "consequence": {
-        "modality": "obligation",
+        "modality": "privilege",
         "act": {
-          "ref": "process_data"
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "datos_personales",
+          "target": "arrendador"
         }
       }
     },
     {
-      "id": "arco_rights_rule",
+      "id": "derecho_rectificacion",
       "conditions": [
         {
-          "type": "asset",
-          "name": "LeaseRelation"
+          "type": "certification",
+          "name": "DatosPersonalesRecopilados"
         }
       ],
       "consequence": {
-        "modality": "claim",
+        "modality": "privilege",
         "act": {
-          "ref": "access_data"
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "datos_personales",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "derecho_cancelacion",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DatosPersonalesRecopilados"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "datos_personales",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "derecho_oposicion",
+      "conditions": [
+        {
+          "type": "certification",
+          "name": "DatosPersonalesRecopilados"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "datos_personales",
+          "target": "arrendador"
+        }
+      }
+    },
+    {
+      "id": "retiro_consentimiento",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "ConsentimientoOtorgado"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "arrendatario",
+          "object": "datos_personales",
+          "target": "arrendador"
         }
       }
     }
   ],
   "procedures": [
     {
-      "name": "data_collection_procedure",
+      "name": "ejercicio_derechos_arco",
       "steps": [
         {
           "act": {
-            "ref": "collect_data"
-          }
-        },
-        {
-          "act": {
-            "ref": "process_data"
-          }
-        },
-        {
-          "act": {
-            "ref": "store_data"
+            "type": "simple",
+            "actor": "arrendatario",
+            "object": "datos_personales",
+            "target": "arrendador"
           }
         }
       ]

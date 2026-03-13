@@ -8,127 +8,96 @@
   ],
   "parties": [
     {
-      "id": "actor",
+      "id": "plaintiff",
       "type": "person",
       "subtype": "physical"
     },
     {
-      "id": "demandado",
+      "id": "defendant",
       "type": "person",
       "subtype": "physical"
     }
   ],
   "objects": [
     {
-      "id": "local_comercial",
-      "type": "nonmovable"
+      "id": "commercial_lease",
+      "type": "service"
     },
     {
-      "id": "renta",
+      "id": "rent_payment",
       "type": "money"
     },
     {
-      "id": "recibo_pago",
-      "type": "service"
+      "id": "commercial_property",
+      "type": "nonmovable"
     }
   ],
-  "acts": [
-    {
-      "id": "terminar_contrato",
-      "type": "simple",
-      "actor": "actor",
-      "object": "local_comercial",
-      "target": "demandado"
-    },
-    {
-      "id": "pagar_renta",
-      "type": "simple",
-      "actor": "demandado",
-      "object": "renta",
-      "target": "actor"
-    },
-    {
-      "id": "no_pagar_renta",
-      "type": "counter",
-      "actor": "demandado",
-      "object": "renta",
-      "target": "actor"
-    }
-  ],
+  "acts": [],
   "facts": [
     {
-      "type": "asset",
-      "name": "ContratoArrendamiento",
-      "subject": null,
+      "type": "liability",
+      "name": "LeaseTerminationClaim",
+      "subject": "plaintiff",
       "value": null
     },
     {
-      "type": "liability",
-      "name": "PagoRentaVencida",
-      "subject": "demandado",
+      "type": "asset",
+      "name": "CommercialLeaseRelation",
+      "subject": null,
       "value": null
     }
   ],
   "norms": [
     {
-      "modality": "obligation",
-      "act": {
-        "id": null,
-        "type": "simple",
-        "actor": "demandado",
-        "object": "renta",
-        "target": "actor"
-      }
-    },
-    {
       "modality": "claim",
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "actor",
-        "object": "local_comercial",
-        "target": "demandado"
+        "actor": "defendant",
+        "object": "lease_contestation",
+        "target": "plaintiff"
       }
     }
   ],
   "rules": [
     {
-      "id": "incumplimiento_pago",
+      "id": "lease_defense_rule",
       "conditions": [
         {
-          "type": "asset",
-          "name": "ContratoArrendamiento"
-        },
-        {
-          "type": "counter",
-          "actor": "demandado",
-          "object": "renta",
-          "target": "actor"
+          "type": "liability",
+          "name": "LeaseTerminationClaim"
         }
       ],
       "consequence": {
-        "modality": "claim",
+        "modality": "privilege",
         "act": {
           "type": "simple",
-          "actor": "actor",
-          "object": "local_comercial",
-          "target": "demandado"
+          "actor": "defendant",
+          "object": "lease_contestation",
+          "target": "plaintiff"
         }
       }
     }
   ],
   "procedures": [
     {
-      "name": "contestacion_demanda",
+      "name": "lease_defense_procedure",
       "steps": [
         {
-          "description": "contestar_prestaciones"
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "lease_contestation",
+            "target": "plaintiff"
+          }
         },
         {
-          "description": "contestar_hechos"
-        },
-        {
-          "description": "ofrecer_pruebas"
+          "act": {
+            "type": "simple",
+            "actor": "defendant",
+            "object": "evidence_submission",
+            "target": null
+          }
         }
       ]
     }

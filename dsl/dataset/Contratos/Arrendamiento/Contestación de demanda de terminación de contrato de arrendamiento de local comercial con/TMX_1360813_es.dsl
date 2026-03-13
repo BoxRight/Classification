@@ -3,22 +3,22 @@ authority judicial
 enacted 2024-01-23
 
 vocabulary
-    verb pay: pay
-    verb transfer: transfer
+    verb provide: provide
 
 parties
-    Actor: Actor Person, natural person
+    Plaintiff: Plaintiff Person, natural person
     Defendant: Defendant Person, natural person
 
 objects
-    LocalComercial: nonmovable
-    MonthlyRent: money
+    CommercialLease: service
 
 article 1 Generated
-    fact asset ContratoArrendamiento is present
-    fact liability PagoRentaVencida is present
-    obligation Defendant must pay MonthlyRent to Actor.
-    claim Actor may demand LocalComercial from Defendant.
-    rule IncumplimientoPago
-        If asset ContratoArrendamiento is present and Defendant fails to pay MonthlyRent to Actor
-        then Actor may demand LocalComercial from Defendant.
+    fact liability LeaseTerminationClaim is present
+    fact asset CommercialLeaseRelation is present
+    claim Defendant may demand CommercialLease from Plaintiff.
+    rule LeaseDefenseRule
+        If liability LeaseTerminationClaim is present
+        then Defendant may provide CommercialLease to Plaintiff.
+    procedure LeaseDefenseProcedure:
+        Defendant performs LeaseContestation to Plaintiff.
+        Defendant performs EvidenceSubmission.

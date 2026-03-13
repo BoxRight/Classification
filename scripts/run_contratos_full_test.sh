@@ -33,9 +33,11 @@ echo "[1/2] LLM extraction..."
 python scripts/batch_ir_agent.py "${ARGS[@]}" || { echo "IR extraction failed"; exit 1; }
 echo ""
 
-# Step 2: IR → DSL + report
+# Step 2: IR → DSL + report (skip --openrouter, agent-only)
+DSL_EXTRA=()
+for x in "${EXTRA[@]}"; do [[ "$x" != "--openrouter" ]] && DSL_EXTRA+=("$x"); done
 echo "[2/2] IR → DSL..."
-python scripts/batch_ir_to_dsl.py --path Contratos --report test_results/contratos_report.json ${LIMIT:+--limit "$LIMIT"} "${EXTRA[@]}"
+python scripts/batch_ir_to_dsl.py --path Contratos --report test_results/contratos_report.json ${LIMIT:+--limit "$LIMIT"} "${DSL_EXTRA[@]}"
 echo ""
 echo "Report: test_results/contratos_report.json"
 echo "Summary: jq '.summary' test_results/contratos_report.json"

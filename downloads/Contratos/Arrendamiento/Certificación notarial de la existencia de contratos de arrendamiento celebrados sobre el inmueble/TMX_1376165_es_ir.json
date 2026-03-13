@@ -1,10 +1,8 @@
 {
-  "law": "Certificación notarial de la existencia de contratos de arrendamiento celebrados sobre el inmueble objeto de contrato de compraventa",
+  "law": "Ley del Notariado para la Ciudad de México",
   "authority": "administrative",
-  "enacted": "2024-01-12",
-  "imports": [
-    "Artículo 104 de la Ley del Notariado para la Ciudad de México"
-  ],
+  "enacted": null,
+  "imports": [],
   "parties": [
     {
       "id": "notary",
@@ -12,7 +10,7 @@
       "subtype": "legal"
     },
     {
-      "id": "enajenante",
+      "id": "seller",
       "type": "person",
       "subtype": "physical"
     },
@@ -32,28 +30,32 @@
       "type": "service"
     },
     {
-      "id": "damages",
+      "id": "sale_contract",
+      "type": "service"
+    },
+    {
+      "id": "damages_compensation",
       "type": "money"
     }
   ],
   "acts": [],
   "facts": [
     {
-      "type": "certification",
-      "name": "PropertyNotLeased",
-      "subject": "enajenante",
+      "type": "asset",
+      "name": "LeaseRelation",
+      "subject": null,
       "value": null
     },
     {
-      "type": "ownership",
-      "name": "PropertyOwnership",
-      "subject": "enajenante",
-      "value": null
-    },
-    {
-      "type": "capability",
+      "type": "asset",
       "name": "PreferenceRight",
       "subject": "tenant",
+      "value": null
+    },
+    {
+      "type": "certification",
+      "name": "NotarialCertification",
+      "subject": null,
       "value": null
     }
   ],
@@ -63,8 +65,8 @@
       "act": {
         "id": null,
         "type": "simple",
-        "actor": "enajenante",
-        "object": "PropertyNotLeased",
+        "actor": "seller",
+        "object": "notarial_certification",
         "target": "notary"
       }
     },
@@ -75,23 +77,17 @@
         "type": "simple",
         "actor": "tenant",
         "object": "property",
-        "target": "enajenante"
+        "target": "seller"
       }
     }
   ],
   "rules": [
     {
-      "id": "preference_right_violation",
+      "id": "preference_right_rule",
       "conditions": [
         {
           "type": "asset",
-          "name": "LeaseContract"
-        },
-        {
-          "type": "simple",
-          "actor": "enajenante",
-          "object": "property",
-          "target": "third_party"
+          "name": "LeaseRelation"
         }
       ],
       "consequence": {
@@ -99,50 +95,61 @@
         "act": {
           "type": "simple",
           "actor": "tenant",
-          "object": "damages",
-          "target": "enajenante"
+          "object": "property",
+          "target": "seller"
         }
       }
     },
     {
-      "id": "notary_knowledge_sanction",
+      "id": "preference_right_violation",
       "conditions": [
         {
           "type": "asset",
-          "name": "LeaseContract"
+          "name": "LeaseRelation"
         },
         {
-          "type": "certification",
-          "name": "NotaryKnowledge"
+          "type": "counter",
+          "actor": "seller",
+          "object": "preference_right_respect",
+          "target": "tenant"
         }
       ],
       "consequence": {
         "modality": "obligation",
         "act": {
+          "type": "simple",
+          "actor": "seller",
+          "object": "damages_compensation",
+          "target": "tenant"
+        }
+      }
+    },
+    {
+      "id": "notarial_sanction_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "LeaseRelation"
+        },
+        {
           "type": "counter",
           "actor": "notary",
-          "object": "sanction",
-          "target": "authority"
+          "object": "preference_right_verification",
+          "target": null
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "notary",
+          "object": "notarial_sanction",
+          "target": null
         }
       }
     }
   ],
-  "procedures": [
-    {
-      "name": "lease_verification",
-      "steps": [
-        {
-          "description": "Check property registry for registered lease contracts"
-        },
-        {
-          "description": "Request seller declaration of lease status"
-        },
-        {
-          "description": "Verify tenant preference rights if lease exists"
-        }
-      ]
-    }
-  ],
+  "procedures": [],
   "scenarios": [],
   "_source": {
     "file": "Contratos/Arrendamiento/Certificación notarial de la existencia de contratos de arrendamiento celebrados sobre el inmueble/TMX_1376165_es.txt",

@@ -31,52 +31,102 @@
     {
       "id": "usufruct_right",
       "type": "service"
+    },
+    {
+      "id": "rent_payment",
+      "type": "money"
     }
   ],
-  "acts": [],
+  "acts": [
+    {
+      "id": "constitute_usufruct",
+      "type": "simple",
+      "actor": "debtor_anticresista",
+      "object": "usufruct_right",
+      "target": "creditor_anticresista"
+    },
+    {
+      "id": "collect_fruits",
+      "type": "simple",
+      "actor": "creditor_anticresista",
+      "object": "property_fruits",
+      "target": null
+    },
+    {
+      "id": "render_accounts",
+      "type": "simple",
+      "actor": "creditor_anticresista",
+      "object": "property_fruits",
+      "target": "debtor_anticresista"
+    },
+    {
+      "id": "restitute_usufruct",
+      "type": "simple",
+      "actor": "creditor_anticresista",
+      "object": "usufruct_right",
+      "target": "debtor_anticresista"
+    },
+    {
+      "id": "fail_restitution",
+      "type": "counter",
+      "actor": "creditor_anticresista",
+      "object": "usufruct_right",
+      "target": "debtor_anticresista"
+    },
+    {
+      "id": "return_property",
+      "type": "simple",
+      "actor": "creditor_anticresista",
+      "object": "immovable_property",
+      "target": "debtor_anticresista"
+    },
+    {
+      "id": "cause_deterioration",
+      "type": "counter",
+      "actor": "creditor_anticresista",
+      "object": "immovable_property",
+      "target": null
+    }
+  ],
   "facts": [
     {
+      "type": "asset",
+      "name": "AnticresisRelation",
+      "subject": null,
+      "value": null
+    },
+    {
+      "type": "asset",
+      "name": "UsufructGranted",
+      "subject": "creditor_anticresista",
+      "value": null
+    },
+    {
       "type": "liability",
-      "name": "debt_obligation",
+      "name": "DebtObligation",
       "subject": "debtor_anticresista",
       "value": null
     },
     {
       "type": "ownership",
-      "name": "bare_ownership",
+      "name": "NudaPropiedad",
       "subject": "debtor_anticresista",
       "value": null
     },
     {
       "type": "asset",
-      "name": "usufruct_possession",
-      "subject": "creditor_anticresista",
+      "name": "DebtFullyPaid",
+      "subject": null,
       "value": null
     },
     {
       "type": "date",
-      "name": "contract_duration_five_years",
+      "name": "ContractExpiry",
       "subject": null,
-      "value": null
-    },
-    {
-      "type": "numeric",
-      "name": "restitution_period_thirty_days",
-      "subject": null,
-      "value": null
+      "value": "2027-02-16"
     }
   ],
   "norms": [
-    {
-      "modality": "obligation",
-      "act": {
-        "id": null,
-        "type": "simple",
-        "actor": "debtor_anticresista",
-        "object": "usufruct_right",
-        "target": "creditor_anticresista"
-      }
-    },
     {
       "modality": "obligation",
       "act": {
@@ -94,7 +144,7 @@
         "type": "simple",
         "actor": "creditor_anticresista",
         "object": "immovable_property",
-        "target": "creditor_anticresista"
+        "target": null
       }
     },
     {
@@ -110,12 +160,47 @@
   ],
   "rules": [
     {
-      "id": "debt_payment_with_fruits",
+      "id": "anticresis_constitution",
+      "conditions": [
+        {
+          "type": "liability",
+          "name": "DebtObligation"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "debtor_anticresista",
+          "object": "usufruct_right",
+          "target": "creditor_anticresista"
+        }
+      }
+    },
+    {
+      "id": "fruit_collection_rule",
       "conditions": [
         {
           "type": "asset",
-          "name": "usufruct_possession",
-          "subject": "creditor_anticresista"
+          "name": "UsufructGranted"
+        }
+      ],
+      "consequence": {
+        "modality": "privilege",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "property_fruits",
+          "target": null
+        }
+      }
+    },
+    {
+      "id": "account_rendering_rule",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "UsufructGranted"
         }
       ],
       "consequence": {
@@ -124,7 +209,7 @@
           "type": "simple",
           "actor": "creditor_anticresista",
           "object": "property_fruits",
-          "target": "debt_amount"
+          "target": "debtor_anticresista"
         }
       }
     },
@@ -132,8 +217,8 @@
       "id": "early_debt_payment_restitution",
       "conditions": [
         {
-          "type": "liability",
-          "name": "debt_fully_paid"
+          "type": "asset",
+          "name": "DebtFullyPaid"
         }
       ],
       "consequence": {
@@ -147,11 +232,65 @@
       }
     },
     {
-      "id": "contract_expiration_restitution",
+      "id": "late_restitution_penalty",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "DebtFullyPaid"
+        },
+        {
+          "type": "intrinsic",
+          "name": "daysBetween",
+          "args": [
+            "DebtFullyPaid",
+            "RestitutionDate"
+          ],
+          "value": 30,
+          "operator": ">"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "rent_payment",
+          "target": "debtor_anticresista",
+          "amount": {
+            "type": "intrinsic",
+            "name": "percentage",
+            "args": [
+              "property_fruits",
+              130
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "contract_expiry_restitution",
       "conditions": [
         {
           "type": "date",
-          "name": "five_year_term_expired"
+          "name": "ContractExpiry"
+        }
+      ],
+      "consequence": {
+        "modality": "obligation",
+        "act": {
+          "type": "simple",
+          "actor": "creditor_anticresista",
+          "object": "usufruct_right",
+          "target": "debtor_anticresista"
+        }
+      }
+    },
+    {
+      "id": "property_care_obligation",
+      "conditions": [
+        {
+          "type": "asset",
+          "name": "UsufructGranted"
         }
       ],
       "consequence": {
@@ -165,25 +304,20 @@
       }
     },
     {
-      "id": "delayed_restitution_penalty",
+      "id": "deterioration_liability",
       "conditions": [
         {
           "type": "counter",
           "actor": "creditor_anticresista",
-          "object": "usufruct_right",
-          "target": "debtor_anticresista"
-        },
-        {
-          "type": "numeric",
-          "name": "thirty_day_period_exceeded"
+          "object": "immovable_property"
         }
       ],
       "consequence": {
-        "modality": "obligation",
+        "modality": "liability",
         "act": {
           "type": "simple",
           "actor": "creditor_anticresista",
-          "object": "penalty_payment",
+          "object": "immovable_property",
           "target": "debtor_anticresista"
         }
       }

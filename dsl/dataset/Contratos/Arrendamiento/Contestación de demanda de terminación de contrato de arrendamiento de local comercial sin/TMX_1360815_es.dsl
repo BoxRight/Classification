@@ -1,27 +1,29 @@
-law LeaseContract
+law CódigoProcedimientosCiviles
 authority judicial
-enacted 2024-01-23
 
 vocabulary
+    verb pay: pay
     verb provide: provide
+    verb terminate: terminate
     verb transfer: transfer
 
 parties
     Plaintiff: Plaintiff Corp, legal person
     Defendant: Defendant Corp, legal person
-    Court: Court Corp, legal person
 
 objects
-    CommercialLease: service
-    CommercialProperty: nonmovable
+    CommercialLeaseContract: service
+    RentalPayment: money
+    PropertyAttachment: movable
 
 article 1 Generated
     fact asset LeaseRelation is present
-    fact asset CurrentRentPayments is present
-    claim Defendant may demand CommercialLease from Plaintiff.
-    rule PaymentCurrentDefense
-        If asset CurrentRentPayments is present
-        then Defendant may fail CommercialLease to Plaintiff.
-    rule EmbargoOpposition
-        If asset CurrentRentPayments is present
-        then Defendant may demand CommercialProperty from Court.
+    fact certification RentPaymentsCurrent is present
+    fact liability PropertyAttachment is present
+    obligation Defendant must pay RentalPayment to Plaintiff.
+    rule PaymentDefenseRule
+        If certification RentPaymentsCurrent is present
+        then Plaintiff may terminate CommercialLeaseContract.
+    rule AttachmentOppositionRule
+        If certification RentPaymentsCurrent is present
+        then CourtOfficer may demand CommercialLeaseContract from Defendant.
